@@ -31,7 +31,7 @@
                     @else
                     <div class="login-button">
                         <a href="{{ route('login') }}" class="button">ログイン</a>
-                        <P>今日もポイント貯めよう！</P>
+                        <P>今日もポイント貯めよう！!</P>
                     </div>
                     <div class="register-button">
                         @if (Route::has('register'))
@@ -62,7 +62,7 @@
             </div>
 
 
-     
+
         </div>
     </body>
 </html>
