@@ -51,12 +51,12 @@
                                     <a class="button" href="{{ route('login') }}">{{ __('ログインする') }}</a>
                                 </li>
                             @endif
-
+                            <!--モニター時は表から登録できない
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="button" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                                 </li>
-                            @endif
+                            @endif -->
                         @else
                             <li class="name">
                                 <a class="button" class="nav-link dropdown-toggle" href="{{ route('home') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

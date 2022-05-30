@@ -33,11 +33,12 @@
                         <a href="{{ route('login') }}" class="button">ログイン</a>
                         <P>今日もポイント貯めよう！!</P>
                     </div>
+                    <!-- モニター時は表から登録できない
                     <div class="register-button">
                         @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="button">新規登録</a>
                         <p>登録してポイントを貯めよう!</p>
-                    </div>
+                    </div> -->
                         @endif
                     @endauth
                 </div>
@@ -50,12 +51,11 @@
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">
                 ルールを守って楽しく学ぼう
                 </h2>
-                <!-- モニター段階では表示しない -->
-               <!--  <h3>
+                <h3>
                    ログインせずにテストを受けてみるなら<br>
                    ここをクリック！
                    <a href="{{ url('search_result') }}" class="center-button">検索</a>
-                </h3> -->
+                </h3>
             </div>
             <div class="llco">
                 <img src="img/llco.png" alt="llco">
