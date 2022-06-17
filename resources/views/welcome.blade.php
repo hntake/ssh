@@ -4,13 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>エーゴメ</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+        <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
@@ -45,7 +46,7 @@
             @endif
         </div>
         <div class="top">
-            <img src="img/title.png" alt="top" >
+            <img src="img/title2.png" alt="top" >
         </div>
             <div class="rule">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">
@@ -60,9 +61,23 @@
             <div class="llco">
                 <img src="img/llco.png" alt="llco">
             </div>
-
-
-
         </div>
+        <footer>
+  	        <p>© All rights reserved by llco</p>
+              <div class="contact">
+                  <h3>
+                      お問い合わせ・ご質問はこちら迄
+                  </h3>
+                  <a href="{{ route('contact.index') }}" class="button">Contact us</a>
+               </div>
+              <div class="left">
+                <div class="policy" >
+                        <a href="{{ url('policy') }}" class="button">プライバシーポリシー</a>
+                </div>
+                <div class="terms">
+                        <a href="{{ url('rule') }}" class="button">利用規約</a>
+                </div>
+            </div>
+         </footer>
     </body>
 </html>

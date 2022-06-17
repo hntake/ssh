@@ -66,7 +66,7 @@
                             <td>2</td>
                             <td>{{ $word->ja2}}</td>
                             <td><input type="text" name="en2" id="en2" class="form-control" size="15" placeholder="英語で？" value="{{ old('en2') }}"></td>
-                        </tr
+                         </tr>
                         <tr class="onetest">
                             <td>3</td>
                             <td>{{ $word->ja3}}</td>

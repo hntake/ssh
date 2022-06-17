@@ -3,7 +3,7 @@
     src: url('fonts\Togalite-Bold.woff2') format('woff2');
 }
 .top img{
-    width: max-content;
+    width: 500px;
 }
 .card{
     border:solid green;
@@ -408,7 +408,10 @@ input.pro_button{
     font-weight: 500;
     border: solid green;
 }
-
+/*プロフィール編集画面*/
+.edit{
+    margin:0 auto;
+}
 /*検索画面*/
 table.result{
     margin: 0px auto;

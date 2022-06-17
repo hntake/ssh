@@ -17,12 +17,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-/*ホーム画面*/
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
+/*全テスト画面へ*/
+Route::get('all_list',[App\Http\Controllers\HomeController::class,'list'])->name('list');
+/*検索画面へ*/
+Route::get('search',[App\Http\Controllers\TestController::class,'search'])->name('search');
+/*検索する*/
+Route::get('search_result',[App\Http\Controllers\TestController::class,'search_result'])->name('search_result');
+/*並び替えする*/
+Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
+
+//入力ページ
+Route::get('/contact', [App\Http\Controllers\ContactController::class,'contact'])->name('contact.index');
+
+//確認ページ
+Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class,'confirm'])->name('contact.confirm');
+
+//送信完了ページ
+Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
+/* Auth::routes();*/
+//メール確認済みのユーザーのみ
+Route::middleware(['verified'])->group(function(){
+/*ホーム画面*/
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 /*選択したテストを編集する画面へ*/
 Route::get('/edit/{id}', [App\Http\Controllers\TestController::class, 'edit'])->name('edit');
 /*選択したユーザーの編集画面へ*/
@@ -53,24 +71,19 @@ Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->n
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
 /*他人のプロフィール画面へ*/
 Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
-/*全テスト画面へ*/
-Route::get('all_list',[App\Http\Controllers\HomeController::class,'list'])->name('list');
+
 /*ポイントランキング表へ*/
 Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point');
 /*学校別ポイントランキング*/
 Route::get('point/{id}',[App\Http\Controllers\RankController::class,'point_school'])->name('point/{id}');
-/*検索画面へ*/
-Route::get('search',[App\Http\Controllers\TestController::class,'search'])->name('search');
-/*検索する*/
-Route::get('search_result',[App\Http\Controllers\TestController::class,'search_result'])->name('search_result');
-/*並び替えする*/
-Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
+});
 
+/* Auth::routes();*/
+//登録後メール
+Auth::routes(['verify' => true]);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+/* Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ */
 /* Route::prefix('user')->middleware(['auth'])->group(function() {
  */
     // 課金
