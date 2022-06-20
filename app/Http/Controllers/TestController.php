@@ -35,6 +35,16 @@ class TestController extends Controller
         ]);
 
     }
+    /*学校ごと履歴*/
+    public function history_by_school(Request $request)
+    {
+        $histories = History::where('school', $request->school)->orderBy('created_at')->paginate(15);
+        return view('history',[
+            'histories' => $histories,
+
+        ]);
+
+    }
 /**
  * 採点ボタン→①履歴作成②テスト採点③ポイント付与
 * @param  Request  $request
@@ -134,6 +144,7 @@ class TestController extends Controller
         $history->test_name =$word->test_name;
         $history->user_name =$word->user_name;
         $history->tested_user =$user->user_name;
+        $history->school =$user->school;
         $history->save();
 
             return view('result',[

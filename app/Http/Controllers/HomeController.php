@@ -138,6 +138,7 @@ class HomeController extends Controller
         $users->user_name = $request->input('user_name');
         $users->place = $request->input('place');
         $users->year = $request->input('year');
+        $users->school = $request->input('school');
         $users->email = $request->input('email');
         $users->save();
 
@@ -220,5 +221,28 @@ class HomeController extends Controller
     {
         $user = User::where('id', $request->id)->delete();
         return redirect('home')->with('success', '登録を削除しました');
+    }
+    /*==================================
+    検索メソッド(searchproduct)
+    ==================================*/
+    public function search_user(Request $request)
+    {
+            $keyword = $request->input('keyword');
+
+            $query = User::query();
+
+            if(!empty($keyword)) {
+                $query->where('user_name', 'LIKE', "%{$keyword}%");
+            }
+
+
+        //$queryをtype_idの昇順に並び替えて$productsに代入
+        $users = $query->orderBy('id', 'asc')->paginate(15);
+
+
+
+        return view('search_user', [
+            'users' => $users,
+        ]);
     }
 }

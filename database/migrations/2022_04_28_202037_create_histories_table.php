@@ -21,6 +21,7 @@ class CreateHistoriesTable extends Migration
             $table->string('test_name');
             $table->string('user_name')->index();
             $table->string('tested_user');
+            $table->string('scool')->index();
             $table->timestamps();
         });
     }

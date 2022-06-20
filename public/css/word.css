@@ -299,7 +299,6 @@ svg {
   vertical-align: middle;
   width:90px;
   margin: 0 auto;
-  border: solid;
 }
 .llco img{
     width: 500px;
@@ -408,6 +407,7 @@ input.pro_button{
     font-weight: 500;
     border: solid green;
 }
+
 /*プロフィール編集画面*/
 .edit{
     margin:0 auto;
@@ -529,15 +529,7 @@ label#test {
   input:checked + label#test::after {
     opacity: 1;
   }
-table.dropdown{
 
-}
-td.drop{
-
-}
-select#textbox.form{
-
-}
 /*上に戻るボタン*/
 .gotop{
     display: block;

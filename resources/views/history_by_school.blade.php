@@ -28,32 +28,38 @@
       </script>
     </div>
   </div>
-<div class="edit" >
-    <form method="POST" action="{{route('update_user',['id'=> $user->id])}}" enctype="multipart/form-data">
-    @csrf
-    @method('patch')
-    <table class="table-hover">
+<div class="table-responsive" >
+    <p>利用履歴一覧</p>
+    <table class="table-all">
         <thead>
             <tr>
-                <th style="width:20%">ユーザー名</th>
-                <th style="width:20%">エリア</th>
-                <th style="width:20%">生まれ年</th>
-                <th style="width:20%">クラス番号</th>
-                <th style="width:20%">メールアドレス</th>
+                <th style="width:10%">テストID</th>
+                <th style="width:10%">学年</th>
+                <th style="width:15%">教科書名</th>
+                <th style="width:15%">レッスン名</th>
+                <th style="width:15%">作成者</th>
+                <th style="width:15%">利用者</th>
+                <th style="width:15%">利用日</th>
+                <th style="width:15%"></th>
+
             </tr>
         </thead>
-             <tbody id="tbl">
-                            <td><input type="text" name="user_name" value="{{ $user->user_name}}" class="form-control"></td>
-                            <td><input type="text" name="place" value="{{ $user->place}}" class="form-control"></td>
-                            <td><input type="text" name="year" value="{{ $user->year}}" class="form-control"></td>
-                            <td><input type="text" name="school" value="{{ $user->school}}" class="form-control"></td>
-                            <td><input type="text" name="email" value="{{ $user->email}}" class="form-control"></td>
-            </tbody>
+        <tbody id="tbl">
+        @foreach ($histories as $history)
+            <tr>
+                <td>{{ $history->test_id }}</td>
+                <td>{{ $history->Type->type }}</td>
+                <td>{{ $history->Textbook->textbook }}</td>
+                <td>{{ $history->test_name }}</td>
+                <td>{{ $history->user_name }}</td>
+                <td>{{ $history->tested_user }}</td>
+                <td>{{ $history->created_at }}</td>
+                <td ><div  class="button"><a href="{{ route('test',['id'=>$history->test_id]) }}">表示</a></div></td>
+                @endforeach
+            </tr>
+        </tbody>
     </table>
-
-    <div  class="button"><input type="submit" value="更新">
-        <p>更新ボタンを押さないと変更されません</p>
-    </div>
-
+    {{ $histories->links() }}
 </div>
 @endsection
+<a href="#" class="gotop">トップへ</a>

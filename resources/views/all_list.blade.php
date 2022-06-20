@@ -15,7 +15,8 @@
                 <li><a href="{{ url('profile') }}"><h3>Myページ</h3></a></li>
                 <li><a href="{{ url('all_list') }}"><h3>テスト一覧</h3></a></li>
                 <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
-                <li><a href="{{ url('search_result') }}"><h3>検索</h3></a></li>
+                <li><a href="{{ url('search_result') }}"><h3>テスト検索</h3></a></li>
+                <li><a href="{{ url('search_user') }}"><h3>ユーザー検索</h3></a></li>
           </ul>
       </div>
       <script>

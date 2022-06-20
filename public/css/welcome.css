@@ -2,9 +2,16 @@ footer{
     border-top: 1px solid black;
     background-color:lightgreen;
 }
+.contact{
+    background-color: aliceblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: solid 1px darkgray;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;}
 .left{
     display:flex;
-    width: 50%;
     justify-content: center;
     margin-top: 20px;
 }
@@ -12,7 +19,20 @@ footer{
 @media (max-width: 480px){
     .left{
         display:block;
-        margin: 0 auto;    }
+        margin: 0 auto;
+        width: 60%;
+     }
     .contact a.button{
-        margin: 0 auto;    }
+        margin: 0 auto;
+     }
+     .contact{
+        width:max-content;
+     }
+     .top img{
+        width: 400px;
+    }
+     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait)  {
+        .top img{
+            width: 400px;
+        }
 }

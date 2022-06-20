@@ -15,7 +15,8 @@
                 <li><a href="{{ url('profile') }}"><h3>Myページ</h3></a></li>
                 <li><a href="{{ url('all_list') }}"><h3>テスト一覧</h3></a></li>
                 <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
-                <li><a href="{{ url('search_result') }}"><h3>検索</h3></a></li>
+                <li><a href="{{ url('search_result') }}"><h3>テスト検索</h3></a></li>
+                <li><a href="{{ url('search_user') }}"><h3>ユーザー検索</h3></a></li>
           </ul>
       </div>
       <script>
@@ -38,6 +39,7 @@
                 <th style="width:15%">レッスン名</th>
                 <th style="width:15%">作成者</th>
                 <th style="width:15%">利用者</th>
+                <th style="width:15%">クラス番号</th>
                 <th style="width:15%">利用日</th>
                 <th style="width:15%"></th>
 
@@ -52,6 +54,7 @@
                 <td>{{ $history->test_name }}</td>
                 <td>{{ $history->user_name }}</td>
                 <td>{{ $history->tested_user }}</td>
+                <td>{{ $history->school}}</td>
                 <td>{{ $history->created_at }}</td>
                 <td ><div  class="button"><a href="{{ route('test',['id'=>$history->test_id]) }}">表示</a></div></td>
                 @endforeach

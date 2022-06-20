@@ -16,6 +16,7 @@ class TypeSeeder extends Seeder
     public function run()
     {
         $types =[
+            ['type' => '小学生'],
             ['type' => '中1'],
             ['type' => '中2'],
             ['type' => '中3'],

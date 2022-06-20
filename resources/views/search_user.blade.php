@@ -31,49 +31,20 @@
 <div class="table-responsive" >
         <div class="test">
       <br>
-      <h2 class="text-center">テスト検索画面</h2>
+      <h2 class="text-center">ユーザー検索画面</h2>
       <br>
       <!--検索フォーム-->
       <div class="row">
         <div class="col-sm">
-          <form method="GET" action="{{ route('search_result')}}">
+          <form method="GET" action="{{ route('search_user')}}">
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" >テスト名</label>
+              <label class="col-sm-2 col-form-label" >ユーザー名</label>
               <!--入力-->
               <div class="col-sm-5">
-                <input type="text" class="form-control" name="searchWord" value="{{ $searchWord }}">
+              <input type="text" name="keyword" placeholder="検索したいユーザー名を入力してください">
               </div>
               <div class="col-sm-auto">
-                <button type="submit" class="btn btn-primary ">テスト検索</button>
-              </div>
-            </div>
-            <!--プルダウンカテゴリ選択-->
-            <div class="form-group row">
-              <label class="col-sm-2">学年カテゴリ</label>
-              <div class="col-sm-3">
-                <select name="typeId" class="form-control" value="{{ $typeId }}">
-                  <option value="">未選択</option>
-
-                  @foreach($types as $id => $type)
-                  <option value="{{ $id }}">
-                    {{ $type}}
-                  </option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2">教科書カテゴリ</label>
-              <div class="col-sm-3">
-                <select name="textbookId" class="form-control" value="{{ $textbookId }}">
-                  <option value="">未選択</option>
-
-                  @foreach($textbooks as $id => $textbook)
-                  <option value="{{ $id }}">
-                    {{ $textbook}}
-                  </option>
-                  @endforeach
-                </select>
+                <button type="submit" class="btn btn-primary ">ユーザー検索</button>
               </div>
             </div>
           </form>
@@ -82,24 +53,19 @@
     </div>
 
     <!--検索結果テーブル 検索された時のみ表示する-->
-    @if (!empty($words))
+    @if (!empty($users))
     <div class="test-hover">
-      <p>全{{ $words->count() }}件</p>
+      <p>全{{ $users->count() }}件</p>
       <table class="table table-hover">
         <thead style="background-color: #ffd900">
           <tr>
-            <th style="width:20%">テスト名</th>
-            <th style="width:20%">学年カテゴリ</th>
-            <th style="width:20%">教科書名</th>
-            <th style="width:20%"></th>
+            <th style="width:20%">ユーザー名</th>
           </tr>
         </thead>
-        @foreach($words as $word)
+        @foreach($users as $user)
         <tr>
-          <td>{{ $word->test_name }}</td>
-          <td>{{ $word->Type->type }}</td>
-          <td>{{ $word->Textbook->textbook }}</td>
-          <td ><div  class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div></td>
+          <td>{{ $user->user_name }}</td>
+          <td ><div  class="button"><a href="{{ route('mypicture',['id'=>$user->id]) }}">表示</a></div></td>
         </tr>
         @endforeach
       </table>
@@ -108,7 +74,7 @@
     <!--ページネーション-->
     <div class="d-flex justify-content-center">
       {{-- appendsでカテゴリを選択したまま遷移 --}}
-      {{ $words->appends(request()->input())->links() }}
+      {{ $users->appends(request()->input())->links() }}
     </div>
     <!--ページネーションここまで-->
     @endif

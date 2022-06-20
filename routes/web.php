@@ -23,8 +23,10 @@ Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->
 Route::get('all_list',[App\Http\Controllers\HomeController::class,'list'])->name('list');
 /*検索画面へ*/
 Route::get('search',[App\Http\Controllers\TestController::class,'search'])->name('search');
-/*検索する*/
+/*テスト検索する*/
 Route::get('search_result',[App\Http\Controllers\TestController::class,'search_result'])->name('search_result');
+/*ユーザー検索する*/
+Route::get('search_user',[App\Http\Controllers\HomeController::class,'search_user'])->name('search_user');
 /*並び替えする*/
 Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
 
@@ -65,6 +67,7 @@ Route::get('/answer/{id}', [App\Http\Controllers\TestController::class,'answer']
 Route::get('/create', [App\Http\Controllers\TestController::class,'create_index'])->name('create');
 /*全履歴画面へ*/
 Route::get('/history', [App\Http\Controllers\TestController::class,'history'])->name('history');
+Route::get('/history_by_school', [App\Http\Controllers\TestController::class,'history_by_school'])->name('history_by_school');
 /*テスト作成*/
 Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->name('create');
 /*自分のプロフィール画面へ*/
@@ -77,7 +80,7 @@ Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('
 /*学校別ポイントランキング*/
 Route::get('point/{id}',[App\Http\Controllers\RankController::class,'point_school'])->name('point/{id}');
 });
-
+Route::get('/auth/verifyemail/{token}', [App\Http\Controllers\Auth\RegisterController::class,'verify']);
 /* Auth::routes();*/
 //登録後メール
 Auth::routes(['verify' => true]);
@@ -96,3 +99,13 @@ Auth::routes(['verify' => true]);
     Route::post('ajax/subscription/update_card', [App\Http\Controllers\Ajax\StripeController::class,'update_card']); */
 
 /* }); */
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
