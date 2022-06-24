@@ -74,22 +74,22 @@
                                         <h3>データ抽出</h3>
                                         <div class="col-sm">
                                         <form method="GET" action="{{ route('select_onehour')}}">
-                                                <button type="submit" class="btn btn-primary ">1時間</button>
+                                                <button type="submit" class="btn btn-primary ">直近1時間以内利用</button>
                                         </form>
                                         </div>
                                         <div class="col-sm">
                                         <form method="GET" action="{{ route('select_today')}}">
-                                                <button type="submit" class="btn btn-primary ">24時間</button>
+                                                <button type="submit" class="btn btn-primary ">直近24時間以内利用</button>
                                         </form>
                                         </div>
                                         <div class="col-sm">
                                         <form method="GET" action="{{ route('select_week')}}">
-                                                <button type="submit" class="btn btn-primary ">一週間</button>
+                                                <button type="submit" class="btn btn-primary ">直近一週間利用</button>
                                         </form>
                                         </div>
                                         <div class="col-sm">
                                         <form method="GET" action="{{ route('select_month')}}">
-                                                <button type="submit" class="btn btn-primary ">一か月</button>
+                                                <button type="submit" class="btn btn-primary ">直近一か月利用</button>
                                         </form>
                                         </div>
                                     </div>

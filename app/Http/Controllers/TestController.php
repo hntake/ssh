@@ -11,7 +11,7 @@ use App\Models\History;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB; // DB ファサードを use する
 use Illuminate\Pagination\Paginator;
-
+use Carbon\Carbon;
 
 class TestController extends Controller
 {
@@ -36,12 +36,49 @@ class TestController extends Controller
 
     }
     /*学校ごと履歴*/
-    public function history_by_school(Request $request)
+    public function by_school(Request $request)
     {
-        $histories = History::where('school', $request->school)->orderBy('created_at')->paginate(15);
-        return view('history',[
+        $histories = History::where('school', '=', Auth::user()->school)->orderBy('created_at')->paginate(5);
+        $users = User::where('school',  '=',Auth::user()->school)->orderBy('point','desc')->paginate(15);
+        return view('admin',[
             'histories' => $histories,
+            'users' =>$users,
+        ]);
+    }
+    /*データ抽出*/
+    public function select_onehour(Request $request)
+    {
+        $date=new Carbon('now');
+        $results=History::whereDate('created_at',$date->subHour());
+        return view('select_result',[
+            'results'=>$results,
+        ]);
 
+    }
+    public function select_today(Request $request)
+    {
+        $date=new Carbon('now');
+        $results=History::whereDate('created_at',$date->subDay())->get();
+        return view('select_result',[
+            'results'=>$results,
+        ]);
+
+    }
+    public function select_week(Request $request)
+    {
+        $date=new Carbon('now');
+        $results=History::whereDate('created_at', '>=', $date->subWeek())->get();
+        return view('select_result',[
+            'results'=>$results,
+        ]);
+
+    }
+    public function select_month(Request $request)
+    {
+        $date=new Carbon('now');
+        $results=History::whereDate('created_at', '>=', $date->subMonth())->get();
+        return view('select_result',[
+            'results'=>$results,
         ]);
 
     }
@@ -144,6 +181,7 @@ class TestController extends Controller
         $history->test_name =$word->test_name;
         $history->user_name =$word->user_name;
         $history->tested_user =$user->user_name;
+        $history->tested_name =$user->name;
         $history->school =$user->school;
         $history->save();
 
@@ -376,4 +414,5 @@ class TestController extends Controller
         return redirect('home');
 
     }
+
 }
