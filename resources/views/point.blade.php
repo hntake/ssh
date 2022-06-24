@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<title>ポイントランキング エーゴメ</title>
+
 @section('content')
 
 
@@ -43,8 +45,8 @@
             <tr>
                 <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->name }}</a></td>
                 <td>{{ $user->point }}</td>
-                <td>{{ $user->updated_at}}</td>
-                @endforeach
+                <td>{{\Carbon\Carbon::parse($user->created_at)->toDateString() }}</td>
+        @endforeach
             </tr>
         </tbody>
     </table>

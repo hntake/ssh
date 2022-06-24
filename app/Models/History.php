@@ -18,6 +18,7 @@ class History extends Model
         'test_name',
         'user_name',
         'tested_user',
+        'tested_name',
         'school',
     ];
     public function word()

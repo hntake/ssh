@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<title>テスト検索画面 エーゴメ</title>
+
 @section('content')
 
 <div class="header-logo-menu">

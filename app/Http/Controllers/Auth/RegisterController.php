@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Jobs\SendVerificationEmail;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Admin;
 
 class RegisterController extends Controller
 {
@@ -42,6 +44,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
     }
 
     /**
@@ -104,32 +107,5 @@ class RegisterController extends Controller
             ]);
         }
     }
-        /**
-    *  Handle a registration request for the application.
-    *
-    * @param \Illuminate\Http\Request $request
-    * @return \Illuminate\Http\Response
-    */
-   /*  public function register(Request $request)
-    {
-      $this->validator($request->all())->validate();
-      event(new Registered($user = $this->create($request->all())));
-      dispatch(new SendVerificationEmail($user));
-      return view('auth.verify');
-    } */
-
-    /**
-    *  Handle a registration request for the application.
-    *
-    * @param $token
-    * @return \Illuminate\Http\Response
-    */
-    /* public function verify($token)
-    {
-      $user = User::where('email_token',$token)->first();
-      $user->verified = 1;
-      if($user->save()) {
-        return view('auth.emailconfirm',['user'=>$user]);
-      }
-    } */
+     
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+<title>パスワードリセット</title>
 <style>
   body {
     background-color: #fffacd;

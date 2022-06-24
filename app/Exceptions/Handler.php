@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;					// 追加
+use Illuminate\Auth\AuthenticationException;
+
 
 use Throwable;
 
@@ -48,5 +50,17 @@ class Handler extends ExceptionHandler
         }														// 追加
 
         return parent::render($request, $exception);
+    }
+    //管理者機能
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['message' => $exception->getMessage()], 401);
+        }
+        if ($request->is('admin') || $request->is('admin/*')) {
+            return redirect()->guest('/admin/login');
+        }
+
+        return redirect()->guest($exception->redirectTo() ?? route('login'));
     }
 }

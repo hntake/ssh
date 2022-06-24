@@ -223,7 +223,7 @@ class HomeController extends Controller
         return redirect('home')->with('success', '登録を削除しました');
     }
     /*==================================
-    検索メソッド(searchproduct)
+   ユーザー検索メソッド(searchproduct)
     ==================================*/
     public function search_user(Request $request)
     {

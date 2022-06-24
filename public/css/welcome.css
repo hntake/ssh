@@ -15,6 +15,15 @@ footer{
     justify-content: center;
     margin-top: 20px;
 }
+.welcome{
+    display:flex;
+    justify-content: center;
+    background-color: lightgreen;
+}
+.welcome1 img,.welcome2 img{
+    width: 500px;
+    border: none;
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     .left{
@@ -31,8 +40,20 @@ footer{
      .top img{
         width: 400px;
     }
+    .welcome1 img,.welcome2 img{
+        width: 100%;
+        border: none;
+    }
+    .llco img{
+        width: 100%;
+        border: none;
+    }
      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait)  {
         .top img{
             width: 400px;
+        }
+        .welcome1 img,.welcome2 img{
+            width: 100%;
+            border: none;
         }
 }

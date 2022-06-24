@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +24,17 @@ Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->
 /*全テスト画面へ*/
 Route::get('all_list',[App\Http\Controllers\HomeController::class,'list'])->name('list');
 /*検索画面へ*/
-Route::get('search',[App\Http\Controllers\TestController::class,'search'])->name('search');
-/*テスト検索する*/
+/* Route::get('search',[App\Http\Controllers\TestController::class,'search'])->name('search');
+ *//*テスト検索する*/
 Route::get('search_result',[App\Http\Controllers\TestController::class,'search_result'])->name('search_result');
 /*ユーザー検索する*/
 Route::get('search_user',[App\Http\Controllers\HomeController::class,'search_user'])->name('search_user');
 /*並び替えする*/
 Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
+Route::get('select_onehour',[App\Http\Controllers\TestController::class,'select_onehour'])->name('select_onehour');
+Route::get('select_today',[App\Http\Controllers\TestController::class,'select_today'])->name('select_today');
+Route::get('select_week',[App\Http\Controllers\TestController::class,'select_week'])->name('select_week');
+Route::get('select_month',[App\Http\Controllers\TestController::class,'select_month'])->name('select_month');
 
 //入力ページ
 Route::get('/contact', [App\Http\Controllers\ContactController::class,'contact'])->name('contact.index');
@@ -39,6 +45,7 @@ Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class,'
 //送信完了ページ
 Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
 /* Auth::routes();*/
+
 //メール確認済みのユーザーのみ
 Route::middleware(['verified'])->group(function(){
 /*ホーム画面*/
@@ -67,24 +74,40 @@ Route::get('/answer/{id}', [App\Http\Controllers\TestController::class,'answer']
 Route::get('/create', [App\Http\Controllers\TestController::class,'create_index'])->name('create');
 /*全履歴画面へ*/
 Route::get('/history', [App\Http\Controllers\TestController::class,'history'])->name('history');
-Route::get('/history_by_school', [App\Http\Controllers\TestController::class,'history_by_school'])->name('history_by_school');
 /*テスト作成*/
 Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->name('create');
 /*自分のプロフィール画面へ*/
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
 /*他人のプロフィール画面へ*/
-Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
 
 /*ポイントランキング表へ*/
 Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point');
-/*学校別ポイントランキング*/
-Route::get('point/{id}',[App\Http\Controllers\RankController::class,'point_school'])->name('point/{id}');
+
 });
+Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
+
+
+
 Route::get('/auth/verifyemail/{token}', [App\Http\Controllers\Auth\RegisterController::class,'verify']);
 /* Auth::routes();*/
 //登録後メール
 Auth::routes(['verify' => true]);
 
+// ここから追加(管理者機能)
+Route::get('/admin/login', function () {
+    return view('adminLogin');
+})->middleware('guest:admin'); // ここ
+
+Route::get('/admin',[App\Http\Controllers\TestController::class,'by_school'])->name('admin-home')
+->middleware('auth:admin');
+
+Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
+
+Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'adminLogout'])->name('admin.logout');
+
+Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
+
+Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
 /* Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
  */
 /* Route::prefix('user')->middleware(['auth'])->group(function() {

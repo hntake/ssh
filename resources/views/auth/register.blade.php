@@ -1,19 +1,23 @@
 @extends('layouts.app')
-
+<title>登録画面 エーゴメ</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="card-header">{{ __('登録画面') }}</div>
+            <div class="sampleform">
+                <a href="img/sample.png" target=_blank>記入例</a>
+            </div>
             <div class="card">
-                <div class="card-header">{{ __('登録画面') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="store">
+                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('プロフィール写真') }}</label>
                             <input type="file" name="image" id="image" class="form-control" >
                         </div>
-                        <div class="row mb-3">
+                        <div class="r-box ">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('名前 ※必須') }}</label>
 
                             <div class="col-md-6">
@@ -26,16 +30,16 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="r-box">
                             <label for="school" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号') }}</label>
-
+<p>（学校や塾で番号をもらったら、ここにその番号を入力して下さい）</p>
                             <div class="col-md-6">
                                 <input id="school" type="text" class="form-control " name="school" value="{{ old('school') }}" autocomplete="school" autofocus>
 
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="year" class="col-md-4 col-form-label text-md-end">{{ __('西暦何年生まれ？') }}</label>
+                        <div class="r-box">
+                            <label for="year" class="col-md-4 col-form-label text-md-end">{{ __('学年') }}</label>
 
                             <div class="col-md-6">
                             <select name="year">
@@ -45,7 +49,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="r-box">
                             <label for="place" class="col-md-4 col-form-label text-md-end">{{ __('エリア') }}</label>
 
                             <div class="col-md-6">
@@ -56,9 +60,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="r-box">
                             <label for="user_name" class="col-md-4 col-form-label text-md-end">{{ __('ユーザーネーム ※必須') }}</label>
-
+<p>（他の人と同じにならないように長めのユーザー名にしましょう）</p>
                             <div class="col-md-6">
                                 <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
 
@@ -70,9 +74,9 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="r-box">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ※必須') }}</label>
-
+<p>（登録したメールアドレスに認証メールが送信されます。<br>間違いがないように気を付けて入力してください。）</p>
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
@@ -84,7 +88,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="r-box">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password ※必須 8桁以上') }}</label>
 
                             <div class="col-md-6">
@@ -98,7 +102,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="r-box">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password ※必須') }}</label>
 
                             <div class="col-md-6">

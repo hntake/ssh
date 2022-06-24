@@ -1,5 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<title>テスト一覧 エーゴメ</title>
 @section('content')
 
 
@@ -62,7 +63,7 @@
                 <td>{{ $word->Textbook->textbook }}</td>
                 <td>{{ $word->test_name }}</td>
                 <td>{{ $word->user_name }}</td>
-                <td>{{ $word->created_at }}</td>
+                <td>{{\Carbon\Carbon::parse($word->created_at)->toDateString() }}</td>
                 <td ><div  class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div></td>
                 @endforeach
             </tr>

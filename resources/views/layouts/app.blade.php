@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/stripe.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -48,6 +47,7 @@
                     <ul class="create">
                         <!-- Authentication Links -->
                         @guest
+
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="button" href="{{ route('login') }}">{{ __('ログインする') }}</a>
@@ -61,8 +61,12 @@
                             @endif -->
                         @else
                             <li class="name">
+                                @isset(Auth::user()->name)
                                 <a class="button" class="nav-link dropdown-toggle" href="{{ route('home') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}のホーム画面へ
+
+
+                                    @endisset
                                 </a>
 
                                     <a class="button" href="{{ route('logout') }}"

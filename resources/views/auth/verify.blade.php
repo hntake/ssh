@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>メールアドレスをご確認ください</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

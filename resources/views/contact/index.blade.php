@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'VS4auti') }}</title>
+        <title>お問い合わせフォーム{{ config('app.name', 'エーゴメ') }}</title>
 
 
         <!-- Fonts -->

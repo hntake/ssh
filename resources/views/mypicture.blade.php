@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<title>プロフィール画面 エーゴメ</title>
+
 @section('content')
 
 
@@ -37,7 +39,11 @@
            <p>総ポイント数（{{ $user->point }}）</p>
           <div class="image">
           <tr class="cell">
+          @if(!$user->image == null)
                     <td ><img src="{{ asset('storage/' . $user->image) }}" alt="image" ><td>
+              @else
+                    <td><img src="/img/icon_man.png" alt="man_icon"></td>
+                    @endif
                 </tr>
           </div>
   </div>

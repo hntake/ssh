@@ -21,7 +21,9 @@ li.name{
     border: solid 1px darkgray;
     border-radius: 10px;
 }
-
+.r-box{
+    border-bottom:dashed 1px #21bd33;
+}
 .register-button{
     background-color: aliceblue;
     padding-top: 20px;
@@ -301,7 +303,7 @@ svg {
   margin: 0 auto;
 }
 .llco img{
-    width: 500px;
+    width: 1000px;
     border: none;
 }
 

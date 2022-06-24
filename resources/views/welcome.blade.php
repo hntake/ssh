@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>エーゴメ</title>
+        <title>エーゴメ トップページ</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -58,8 +58,17 @@
                    <a href="{{ url('search_result') }}" class="center-button">検索</a>
                 </h3>
             </div>
+            <div class="welcome">
+                <div class="welcome1">
+                    <img src="img/welcom1.png" alt="welcome1">
+                </div>
+                <div class="welcome2">
+                    <img src="img/welcome2.png" alt="welcome2">
+                </div>
+            </div>
             <div class="llco">
-                <img src="img/llco.png" alt="llco">
+            <a href="{{ route('register') }}"><img src="img/welcome3.png" alt="llco"></a>
+
             </div>
         </div>
         <footer>

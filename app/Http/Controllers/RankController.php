@@ -16,13 +16,5 @@ class RankController extends Controller
             ]);
 
     }
-    public function point_school($id)
-    {
-        $users =User::where('school','=',$id)->
-         orderBy('point','desc')->paginate(15);
-            return view('point',[
-                'users' =>$users,
-            ]);
-
-    }
+    
 }
