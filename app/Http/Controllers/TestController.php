@@ -38,45 +38,46 @@ class TestController extends Controller
     /*学校ごと履歴*/
     public function by_school(Request $request)
     {
-        $histories = History::where('school', '=', Auth::user()->school)->orderBy('created_at')->paginate(5);
-        $users = User::where('school',  '=',Auth::user()->school)->orderBy('point','desc')->paginate(15);
+        $histories = History::where('school', '=', Auth::user()->school )->orderBy('created_at')->paginate(5);
+        $users = User::where('school1', '=', Auth::user()->school)->orWhere('school2', '=', Auth::user()->school)->orderBy('point','desc')->paginate(15);
         return view('admin',[
             'histories' => $histories,
             'users' =>$users,
         ]);
     }
     /*データ抽出*/
-    public function select_onehour(Request $request)
+
+    public function select_today(Request $request,$id)
     {
         $date=new Carbon('now');
-        $results=History::whereDate('created_at',$date->subHour());
+        $results=History::where('school', '=', $id)->whereDate('created_at','>=',$date->subDay())->get();
         return view('select_result',[
             'results'=>$results,
         ]);
 
     }
-    public function select_today(Request $request)
+    public function select_week(Request $request,$id)
     {
-        $date=new Carbon('now');
-        $results=History::whereDate('created_at',$date->subDay())->get();
+        $sevendays=Carbon::today()->subDay(7);
+        $results=History::where('school', '=', $id)->whereDate('created_at','>=', $sevendays)->get();
         return view('select_result',[
             'results'=>$results,
         ]);
 
     }
-    public function select_week(Request $request)
+    public function select_twoweeks(Request $request,$id)
     {
-        $date=new Carbon('now');
-        $results=History::whereDate('created_at', '>=', $date->subWeek())->get();
+        $twoweeks=Carbon::today()->subDay(14);
+        $results=History::where('school', '=', $id)->whereDate('created_at','>=', $twoweeks)->get();
         return view('select_result',[
             'results'=>$results,
         ]);
 
     }
-    public function select_month(Request $request)
+    public function select_month(Request $request,$id)
     {
         $date=new Carbon('now');
-        $results=History::whereDate('created_at', '>=', $date->subMonth())->get();
+        $results=History::where('school', '=', $id)->whereDate('created_at','>=', $date->subMonth())->get();
         return view('select_result',[
             'results'=>$results,
         ]);
@@ -182,8 +183,20 @@ class TestController extends Controller
         $history->user_name =$word->user_name;
         $history->tested_user =$user->user_name;
         $history->tested_name =$user->name;
-        $history->school =$user->school;
+        $history->school =$user->school1;
         $history->save();
+        if(isset($user->school2)){
+            $history = new History;
+            $history->test_id =$word->id;
+            $history->type =$word->type;
+            $history->textbook =$word->textbook;
+            $history->test_name =$word->test_name;
+            $history->user_name =$word->user_name;
+            $history->tested_user =$user->user_name;
+            $history->tested_name =$user->name;
+            $history->school =$user->school2;
+            $history->save();
+        }
 
             return view('result',[
                 'id' => $id,

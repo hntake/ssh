@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
-<title>テスト一覧 エーゴメ</title>
+<title>テスト一覧 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 @section('content')
 
 

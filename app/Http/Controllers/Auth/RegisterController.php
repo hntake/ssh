@@ -84,7 +84,8 @@ class RegisterController extends Controller
             return User::create([
                 'name' => $data['name'],
                 'user_name' => $data['user_name'],
-/*              'school' => $data['school'],*/
+                'school1' => $data['school1'],
+                'school2' => $data['school2'],
                 'year' => $data['year'],
                 'place' => $data['place'],
                 'image' => $data['image'],
@@ -98,7 +99,8 @@ class RegisterController extends Controller
             return User::create([
                 'name' => $data['name'],
                 'user_name' => $data['user_name'],
-                'school' => $data['school'],
+                'school1' => $data['school1'],
+                'school2' => $data['school2'],
                 'year' => $data['year'],
                 'place' => $data['place'],
                 'image' => '',
@@ -107,5 +109,5 @@ class RegisterController extends Controller
             ]);
         }
     }
-     
+
 }

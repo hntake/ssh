@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>ログイン画面 エーゴメ</title>
+<title>ログイン画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

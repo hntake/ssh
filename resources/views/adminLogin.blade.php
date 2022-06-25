@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>管理者ログイン画面 エーゴメ</title>
+        <title>管理者ログイン画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
     </head>
     <body>
 

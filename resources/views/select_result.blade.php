@@ -1,3 +1,4 @@
+
 @if (!empty($results))
     <div class="test-hover">
       <p>全{{ $results->count() }}件</p>

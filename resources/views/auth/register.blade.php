@@ -1,5 +1,7 @@
 @extends('layouts.app')
-<title>登録画面 エーゴメ</title>
+<title>新規登録画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -31,11 +33,17 @@
                             </div>
                         </div>
                         <div class="r-box">
-                            <label for="school" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号') }}</label>
-<p>（学校や塾で番号をもらったら、ここにその番号を入力して下さい）</p>
+                            <label for="school1" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号') }}</label>
+                            <p>（学校や塾で番号をもらったら、ここにその番号を入力して下さい）</p>
                             <div class="col-md-6">
-                                <input id="school" type="text" class="form-control " name="school" value="{{ old('school') }}" autocomplete="school" autofocus>
-
+                                <input id="school1" type="text" class="form-control " name="school1" value="{{ old('school1') }}" autocomplete="school1" autofocus>
+                            </div>
+                        </div>
+                        <div class="r-box">
+                            <label for="school2" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号その２') }}</label>
+                            <p>（二か所から番号をもらっているなら、ここにもう一つの番号を入力して下さい）</p>
+                            <div class="col-md-6">
+                                <input id="school2" type="text" class="form-control " name="school2" value="{{ old('school2') }}" autocomplete="school2" autofocus>
                             </div>
                         </div>
                         <div class="r-box">

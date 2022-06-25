@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>お問い合わせフォーム{{ config('app.name', 'エーゴメ') }}</title>
+        <title>お問い合わせフォーム 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 
 
         <!-- Fonts -->

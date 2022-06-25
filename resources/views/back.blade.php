@@ -1,6 +1,6 @@
 @extends('layouts.app', ['authgroup'=>'admin'])
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-<title>管理者専用画面 エーゴメ</title>
+<title>管理者専用画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>確認画面{{ config('app.name', 'エーゴメ') }}</title>
+        <title>確認画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 
 
         <!-- Fonts -->

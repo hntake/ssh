@@ -1,12 +1,12 @@
 @extends('layouts.app', ['authgroup'=>'admin'])
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-<title>管理者専用画面 エーゴメ</title>
+<title>管理者専用画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="admincard">
-                <div class="card-header">管理者 {{ __('Dashboard') }}</div>
+                <div class="card-header">{{Auth::user()->school}}管理者 {{ __('Dashboard') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -73,22 +73,22 @@
                                     <div class="row">
                                         <h3>データ抽出</h3>
                                         <div class="col-sm">
-                                        <form method="GET" action="{{ route('select_onehour')}}">
-                                                <button type="submit" class="btn btn-primary ">直近1時間以内利用</button>
-                                        </form>
-                                        </div>
-                                        <div class="col-sm">
-                                        <form method="GET" action="{{ route('select_today')}}">
+                                            <form method="GET" action="{{ route('select_today',['id'=>Auth::user()->school])}}">
                                                 <button type="submit" class="btn btn-primary ">直近24時間以内利用</button>
-                                        </form>
+                                            </form>
                                         </div>
                                         <div class="col-sm">
-                                        <form method="GET" action="{{ route('select_week')}}">
+                                            <form method="GET" action="{{ route('select_week',['id'=>Auth::user()->school])}}">
                                                 <button type="submit" class="btn btn-primary ">直近一週間利用</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-sm">
+                                        <form method="GET" action="{{ route('select_twoweeks',['id'=>Auth::user()->school])}}">
+                                                <button type="submit" class="btn btn-primary ">直近2週間以内利用</button>
                                         </form>
                                         </div>
                                         <div class="col-sm">
-                                        <form method="GET" action="{{ route('select_month')}}">
+                                        <form method="GET" action="{{ route('select_month',['id'=>Auth::user()->school])}}">
                                                 <button type="submit" class="btn btn-primary ">直近一か月利用</button>
                                         </form>
                                         </div>

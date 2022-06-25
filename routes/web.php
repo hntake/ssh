@@ -31,10 +31,10 @@ Route::get('search_result',[App\Http\Controllers\TestController::class,'search_r
 Route::get('search_user',[App\Http\Controllers\HomeController::class,'search_user'])->name('search_user');
 /*並び替えする*/
 Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
-Route::get('select_onehour',[App\Http\Controllers\TestController::class,'select_onehour'])->name('select_onehour');
-Route::get('select_today',[App\Http\Controllers\TestController::class,'select_today'])->name('select_today');
-Route::get('select_week',[App\Http\Controllers\TestController::class,'select_week'])->name('select_week');
-Route::get('select_month',[App\Http\Controllers\TestController::class,'select_month'])->name('select_month');
+Route::get('select_twoweeks{id}',[App\Http\Controllers\TestController::class,'select_twoweeks'])->name('select_twoweeks');
+Route::get('select_today{id}',[App\Http\Controllers\TestController::class,'select_today'])->name('select_today');
+Route::get('select_week{id}',[App\Http\Controllers\TestController::class,'select_week'])->name('select_week');
+Route::get('select_month{id}',[App\Http\Controllers\TestController::class,'select_month'])->name('select_month');
 
 //入力ページ
 Route::get('/contact', [App\Http\Controllers\ContactController::class,'contact'])->name('contact.index');
