@@ -57,4 +57,12 @@ class Word extends Model
     {
         return $this->belongsTo(Type::class);
     }
+    /*お気に入り登録*/
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function nices() {
+        return $this->hasMany('App\Models\Nice');
+    }
 }

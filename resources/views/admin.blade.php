@@ -49,6 +49,7 @@
                                 {{ $histories->links() }}
                         </div>
                             <div class="school">
+                                <p>学内ポイントランキング</p>
                                 <table class="admin">
                                     <thead>
                                         <tr>
@@ -68,33 +69,36 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="select">
+                 </div>
+                    <div class="admincard">
+                            <div class="school">
+                                 <div  class="button"><a href="{{ route('point') }}">全体ランキング表示</a></div>
                                 <!--検索フォーム-->
                                     <div class="row">
                                         <h3>データ抽出</h3>
                                         <div class="col-sm">
                                             <form method="GET" action="{{ route('select_today',['id'=>Auth::user()->school])}}">
-                                                <button type="submit" class="btn btn-primary ">直近24時間以内利用</button>
+                                                <button type="submit" class="btn ">直近24時間以内利用</button>
                                             </form>
                                         </div>
                                         <div class="col-sm">
                                             <form method="GET" action="{{ route('select_week',['id'=>Auth::user()->school])}}">
-                                                <button type="submit" class="btn btn-primary ">直近一週間利用</button>
+                                                <button type="submit" class="btn ">直近一週間利用</button>
                                             </form>
                                         </div>
                                         <div class="col-sm">
                                         <form method="GET" action="{{ route('select_twoweeks',['id'=>Auth::user()->school])}}">
-                                                <button type="submit" class="btn btn-primary ">直近2週間以内利用</button>
+                                                <button type="submit" class="btn  ">直近2週間以内利用</button>
                                         </form>
                                         </div>
                                         <div class="col-sm">
                                         <form method="GET" action="{{ route('select_month',['id'=>Auth::user()->school])}}">
-                                                <button type="submit" class="btn btn-primary ">直近一か月利用</button>
+                                                <button type="submit" class="btn">直近一か月利用</button>
                                         </form>
                                         </div>
                                     </div>
                             </div>
-                </div>
+                    </div>
             </div>
         </div>
     </div>

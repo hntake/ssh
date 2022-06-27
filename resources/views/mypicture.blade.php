@@ -38,14 +38,38 @@
         {{ $user->updated_at }}<p>時点</p>
            <p>総ポイント数（{{ $user->point }}）</p>
           <div class="image">
-          <tr class="cell">
-          @if(!$user->image == null)
+            <tr class="cell">
+                 @if(!$user->image == null)
                     <td ><img src="{{ asset('storage/' . $user->image) }}" alt="image" ><td>
-              @else
+                 @else
                     <td><img src="/img/icon_man.png" alt="man_icon"></td>
                     @endif
-                </tr>
+            </tr>
           </div>
+          <span>
+                <img src="{{asset('img/nicebutton.png')}}" width="30px">
+
+                <!-- もし$niceがあれば＝ユーザーが「フォローする」をしていたら -->
+                @if($nice)
+                <!-- 「フォローする」取消用ボタンを表示 -->
+                    <a href="{{ route('unnice',['id'=>$user->id]) }}" class="btn btn-success btn-sm">
+                        フォローする
+                        <!-- 「いいね」の数を表示 -->
+                        <span class="badge">
+                        {{ $count }}
+                        </span>
+                    </a>
+                @else
+                <!-- まだユーザーが「フォローする」をしていなければ、「フォローする」ボタンを表示 -->
+                    <a href="{{ route('nice', ['id'=>$user->id]) }}" class="btn btn-secondary btn-sm">
+                        フォローする
+                        <!-- 「いいね」の数を表示 -->
+                        <span class="badge">
+                        {{ $count }}
+                        </span>
+                    </a>
+                @endif
+            </span>
   </div>
     <div class="table-responsive" >
         <p>作成一覧</p>

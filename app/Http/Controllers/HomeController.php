@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Word;
 use App\Models\User;
+use App\Models\Nice;
 use App\Models\History;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
@@ -66,50 +67,34 @@ class HomeController extends Controller
         /**ポイント数からレベルを判定 */
         $point = $user->point;
         $level = $user->level;
-         if($point>100){
-             $user->level=1;
-         }
-         elseif($point>200){
-             $user->level=2;
-         }
-         elseif($point>300){
-             $user->level=3;
-         }
-         elseif($point>400){
-             $user->level=4;
-         }
-         elseif($point>500){
-             $user->level=5;
-         }
-         elseif($point>600){
-             $user->level=6;
-         }
-         elseif($point>700){
-             $user->level=7;
-         }
-         elseif($point>800){
-             $user->level=8;
-         }
-         elseif($point>900){
-             $user->level=9;
-         }
-         elseif($point>1000){
-             $user->level=10;
-         }
+        $user->level=intdiv($point, 100);
+
         /**wordテーブルのuser_nameとログインしているuser_nameが一致している */
         $words = Word::where('user_name', '=', Auth::user()->user_name)->get();
+        /*フォロワー数表示*/
+        $count = Nice::where('created_id',  '=', Auth::user()->id)->count();
+        /*フォロー一覧表示*/
+        $follower = Nice::where('user_id', '=', Auth::user()->id)->pluck('created_id')->toArray();
+        $nices =User:: where('id', '=',$follower)->pluck('user_name')->toArray();
         return view('profile', [
             'user' => $user,
             'words' => $words,
+            'count' =>$count,
+            'nices' =>$nices,
         ]);
     }
-    public function mypicture(Request $request, $id)
+    /*他人のプロフィール画面表示*/
+    public function mypicture( Request $request, $id)
     {
         $user = User::where('id', $request->id)->first();
         $words = Word::where('user_name', '=', $user->user_name)->get();
+        $nice=Nice::where('created_id', $request->id)->where('user_id', auth()->user()->id)->first();
+        $count = Nice::where('created_id', $request->id)->count();
         return view('mypicture', [
             'user' => $user,
             'words' => $words,
+            'nice' => $nice,
+            'count' =>$count,
         ]);
     }
     /**
@@ -244,5 +229,19 @@ class HomeController extends Controller
         return view('search_user', [
             'users' => $users,
         ]);
+    }
+    /*フォロー登録*/
+    public function nice(Request $request,$id){
+        $nice=New Nice();
+        $nice->created_id=$request->id;
+        $nice->user_id=Auth::user()->id;
+        $nice->save();
+        return back();
+    }
+    public function unnice(Word $word, Request $request){
+        $user=Auth::user()->id;
+        $nice=Nice::where('created_id', $request->id)->where('user_id', $user)->first();
+        $nice->delete();
+        return back();
     }
 }

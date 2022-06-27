@@ -77,7 +77,7 @@
                   <h3>
                       お問い合わせ・ご質問はこちら迄
                   </h3>
-                  <a href="{{ route('contact.index') }}" class="button">Contact us</a>
+                  <a href="{{ route('contact.index') }}" class="button" style="font-size: 1.0rem; font-weight: 700;letter-spacing: normal;text-decoration: none;color: aliceblue;">Contact us</a>
                </div>
               <div class="left">
                 <div class="policy" >
@@ -85,6 +85,9 @@
                 </div>
                 <div class="terms">
                         <a href="{{ url('rule') }}" class="button">利用規約</a>
+                </div>
+                <div class="terms">
+                        <a href="{{ url('aboutus') }}" class="button">About Us</a>
                 </div>
             </div>
          </footer>

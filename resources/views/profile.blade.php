@@ -39,6 +39,7 @@
                     {{ $user->updated_at }}<p>時点</p>
           <h3>レベル :{{$user->level}}</h3>
            <p>総ポイント数（{{ $user->point }}）</p>
+           <p>フォロワー数（{{ $count }}）</p>
         <div class="image">
           <tr class="cell">
               @if(!$user->image == null)
@@ -85,6 +86,26 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <!--フォロー一覧-->
+    <div class="table-responsive" >
+    <p>フォロー一覧</p>
+    <table class="table-all">
+            <thead>
+                <tr>
+                    <th style="width:10%">ユーザー名</th>
+                    <th style="width:15%"></th>
+                </tr>
+            </thead>
+            <tbody id="tbl">
+            @foreach ($nices as $nice)
+                <tr>
+                    <td>{{ $nice }}</td>
+                    <td ><div  class="button"><a href="{{ route('mypicture',['id'=>$user->id]) }}">表示</a></div></td>
+                  @endforeach
+                </tr>
+            </tbody>
+    </table>
     </div>
 @endsection
 <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://itcha50.com/profile" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>

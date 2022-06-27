@@ -18,6 +18,15 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/policy',function(){
+    return view('policy');
+});
+Route::get('/rule',function(){
+    return view('rule');
+});
+Route::get('/aboutus',function(){
+    return view('aboutus');
+});
 
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
@@ -78,12 +87,15 @@ Route::get('/history', [App\Http\Controllers\TestController::class,'history'])->
 Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->name('create');
 /*自分のプロフィール画面へ*/
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
-/*他人のプロフィール画面へ*/
 
 /*ポイントランキング表へ*/
 Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point');
+/*フォロー登録*/
+Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');
+Route::get('/reply/unnice/{id}',[App\Http\Controllers\HomeController::class, 'unnice'])->name('unnice');
 
 });
+/*他人のプロフィール画面へ*/
 Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
 
 
