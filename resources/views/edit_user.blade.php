@@ -40,7 +40,8 @@
                 <th style="width:20%">ユーザー名</th>
                 <th style="width:20%">エリア</th>
                 <th style="width:20%">生まれ年</th>
-                <th style="width:20%">クラス番号</th>
+                <th style="width:20%">クラス番号#1</th>
+                <th style="width:20%">クラス番号#2</th>
                 <th style="width:20%">メールアドレス</th>
             </tr>
         </thead>
@@ -48,7 +49,8 @@
                             <td><input type="text" name="user_name" value="{{ $user->user_name}}" class="form-control"></td>
                             <td><input type="text" name="place" value="{{ $user->place}}" class="form-control"></td>
                             <td><input type="text" name="year" value="{{ $user->year}}" class="form-control"></td>
-                            <td><input type="text" name="school" value="{{ $user->school}}" class="form-control"></td>
+                            <td><input type="text" name="school1" value="{{ $user->school1}}" class="form-control"></td>
+                            <td><input type="text" name="school2" value="{{ $user->school2}}" class="form-control"></td>
                             <td><input type="text" name="email" value="{{ $user->email}}" class="form-control"></td>
             </tbody>
     </table>

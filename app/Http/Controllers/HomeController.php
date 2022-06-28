@@ -123,7 +123,8 @@ class HomeController extends Controller
         $users->user_name = $request->input('user_name');
         $users->place = $request->input('place');
         $users->year = $request->input('year');
-        $users->school = $request->input('school');
+        $users->school1 = $request->input('school1');
+        $users->school2 = $request->input('school2');
         $users->email = $request->input('email');
         $users->save();
 

@@ -14,8 +14,15 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+       /*  $user_names = ['red', 'yellow', 'purple', 'orange', 'pink', 'black', 'white','black','brown','purple'];
+        $user_name = $user_names[rand(0, count($user_names) - 1)];
+ */
+
         return [
             'name' => $this->faker->name(),
+            'user_name'=>$this->faker->name(),
+            'place' => $this->faker->prefecture(),
+            'year'=>rand(1,12),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
