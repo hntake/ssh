@@ -35,7 +35,7 @@
           <h3>ユーザー名：{{ $user->user_name }}</h3>
           <h3>エリア：{{ $user->place }}</h3>
           <h3>クラス番号：{{ $user->school }}</h3>
-          <h3>学年：{{ $user->year }}</h3>
+          <h3>学年：{{ $user->Year->year }}</h3>
                     {{ $user->updated_at }}<p>時点</p>
           <h3>レベル :{{$user->level}}</h3>
            <p>総ポイント数（{{ $user->point }}）</p>
@@ -56,56 +56,58 @@
             <form action="{{route('delete_user',['id'=> $user->id])}}" method="post" class="float-right">
                 @csrf
                 @method('delete')
-                <input type="submit" value="登録削除" class="pro_button" onclick='return confirm("削除しますか？");'>
+                <input type="submit" value="登録削除"  onclick='return confirm("削除しますか？");'>
             </form>
         </div>
-  </div>
-    <div class="table-responsive" >
-        <p>作成一覧</p>
-        <table class="table-all">
-            <thead>
-                <tr>
-                    <th style="width:10%">学年</th>
-                    <th style="width:20%">教科書名</th>
-                    <th style="width:20%">レッスン名</th>
-                    <th style="width:15%"></th>
-                    <th style="width:15%"></th>
-                    <th style="width:15%"></th>
-                </tr>
-            </thead>
-            <tbody id="tbl">
-            @foreach ($words as $word)
-                <tr>
-                    <td>{{ $word->Type->type }}</td>
-                    <td>{{ $word->Textbook->textbook }}</td>
-                    <td>{{ $word->test_name }}</td>
-                    <td ><div  class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div></td>
-                    <td ><div  class="button"><a href="{{ route('edit',['id'=>$word->id]) }}">編集</a></div></td>
-                    <td ><div  class="button"><a href="{{ route('delete_list',['id'=> $word->id]) }}" >削除</a></div></td>
-                  @endforeach
-                </tr>
-            </tbody>
-        </table>
     </div>
+    <div class="wrap">
+        <div class="table-responsive" >
+            <p>作成一覧</p>
+            <table class="table-all">
+                <thead>
+                    <tr>
+                        <th style="width:10%">学年</th>
+                        <th style="width:20%">教科書名</th>
+                        <th style="width:20%">レッスン名</th>
+                        <th style="width:15%"></th>
+                        <th style="width:15%"></th>
+                        <th style="width:15%"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbl">
+                @foreach ($words as $word)
+                    <tr>
+                        <td>{{ $word->Type->type }}</td>
+                        <td>{{ $word->Textbook->textbook }}</td>
+                        <td>{{ $word->test_name }}</td>
+                        <td ><div  class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div></td>
+                        <td ><div  class="button"><a href="{{ route('edit',['id'=>$word->id]) }}">編集</a></div></td>
+                        <td ><div  class="button"><a href="{{ route('delete_list',['id'=> $word->id]) }}" >削除</a></div></td>
+                    @endforeach
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     <!--フォロー一覧-->
-    <div class="table-responsive" >
-    <p>フォロー一覧</p>
-    <table class="table-all">
-            <thead>
-                <tr>
-                    <th style="width:10%">ユーザー名</th>
-                    <th style="width:15%"></th>
-                </tr>
-            </thead>
-            <tbody id="tbl">
-            @foreach ($nices as $nice)
-                <tr>
-                    <td>{{ $nice }}</td>
-                    <td ><div  class="button"><a href="{{ route('mypicture',['id'=>$user->id]) }}">表示</a></div></td>
-                  @endforeach
-                </tr>
-            </tbody>
-    </table>
+        <div class="table-responsive" >
+        <p>フォロー一覧</p>
+        <table class="table-all">
+                <thead>
+                    <tr>
+                        <th style="width:10%">ユーザー名</th>
+                        <th style="width:15%"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbl">
+                @foreach ($nices as $nice)
+                    <tr>
+                        <td>{{ $nice }}</td>
+                        <td ><div  class="button"><a href="{{ route('mypicture',['id'=>$user->id]) }}">表示</a></div></td>
+                    @endforeach
+                    </tr>
+                </tbody>
+        </table>
+        </div>
     </div>
 @endsection
 <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://itcha50.com/profile" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>

@@ -405,9 +405,10 @@ input.pro_button{
     background-color: #2feb00;
     text-decoration: none;
     margin-top: 10px;
-    padding: 3px 10px;
+     padding: 3px 10px;
     font-weight: 500;
     border: solid green;
+    font-size:smaller
 }
 
 /*プロフィール編集画面*/
@@ -617,11 +618,11 @@ footer.bottom{
         top:30%
     }
     .table-responsive{
-        width:max-content;
+        width:80%;
     }
     .profile{
         width:100%;
-        margin:10 150;
+       /*  margin:10 150; */
     }
     thead{
 
@@ -653,13 +654,19 @@ footer.bottom{
         display: block;
         width:fit-content
     }
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait)  {
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
         .button a{
             display: block;
             margin: 10px auto;
             text-align: center;
             width: 50%;
+        }
+
+        .profile{
+            margin:0;
+        }
+        .table-responsive{
 
         }
-    }
     }
