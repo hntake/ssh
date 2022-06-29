@@ -52,7 +52,7 @@
             <tr>
                 <td>{{ $history->test_id }}</td>
                 <td>{{ $history->Type->type }}</td>
-                <td>{{ $history->Textbook->textbook }}</td>
+                <td>{{ $history->TextBook->textbook }}</td>
                 <td>{{ $history->test_name }}</td>
                 <td>{{ $history->user_name }}</td>
                 <td>{{ $history->tested_user }}</td>
