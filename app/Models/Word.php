@@ -45,8 +45,8 @@ class Word extends Model
     public function Type() {
         return $this->hasOne(Type::class, 'id','type');
     }
-    public function TextBook() {
-        return $this->hasOne(TextBook::class, 'id','textbook');
+    public function Textbook() {
+        return $this->hasOne(Textbook::class, 'id','textbook');
     }
     public function history()
     {
