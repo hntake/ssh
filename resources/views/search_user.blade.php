@@ -64,11 +64,13 @@
         <thead style="background-color: #ffd900">
           <tr>
             <th style="width:20%">ユーザー名</th>
+            <th style="width:20%">学年</th>
           </tr>
         </thead>
         @foreach($users as $user)
         <tr>
           <td>{{ $user->user_name }}</td>
+          <td>{{$user->Year->year }}</td>
           <td ><div  class="button"><a href="{{ route('mypicture',['id'=>$user->id]) }}">表示</a></div></td>
         </tr>
         @endforeach

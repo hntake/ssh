@@ -29,7 +29,7 @@ class TestController extends Controller
     /*全履歴*/
     public function history(Request $request)
     {
-        $histories = History::orderBy('created_at')->paginate(15);
+        $histories = History::orderBy('created_at','desc')->paginate(15);
         return view('history',[
             'histories' => $histories,
 

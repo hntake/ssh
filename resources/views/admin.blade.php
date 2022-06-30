@@ -27,7 +27,7 @@
                                             <th style="width:15%">作成者</th>
                                             <th style="width:15%">利用者</th>
                                             <th style="width:15%">利用日</th>
-                                            <th style="width:15%"></th>
+                                            <th style="width:15%">利用テスト</th>
 
                                         </tr>
                                     </thead>

@@ -38,6 +38,8 @@
         <thead>
             <tr>
                 <th style="width:20%">ユーザー名</th>
+                <th style="width:20%">エリア</th>
+                <th style="width:20%">学年</th>
                 <th style="width:20%">総ポイント数</th>
                 <th style="width:20%">更新日時</th>
             </tr>
@@ -46,6 +48,8 @@
         @foreach ($users as $user)
             <tr>
                 <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->name }}</a></td>
+                <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->place }}</a></td>
+                <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->Year->year}}</a></td>
                 <td>{{ $user->point }}</td>
                 <td>{{\Carbon\Carbon::parse($user->created_at)->toDateString() }}</td>
         @endforeach

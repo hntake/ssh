@@ -88,13 +88,13 @@ Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->n
 /*自分のプロフィール画面へ*/
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
 
-/*ポイントランキング表へ*/
-Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point');
 /*フォロー登録*/
 Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');
 Route::get('/reply/unnice/{id}',[App\Http\Controllers\HomeController::class, 'unnice'])->name('unnice');
 
 });
+/*ポイントランキング表へ*/
+Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point');
 /*他人のプロフィール画面へ*/
 Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
 

@@ -24,7 +24,7 @@
         <td>{{ $history->user_name }}</td>
         <td>{{ $history->tested_name }}</td>
         <td>{{\Carbon\Carbon::parse($history->created_at)->toDateString() }}</td>
-        <td ><div  class="button"><a href="{{ route('test',['id'=>$history->test_id]) }}">表示</a></div></td>
+        <td ><div  class="button"><a href="{{ route('test',['id'=>$history->test_id]) }}">利用テスト表示</a></div></td>
         </tr>
         @endforeach
       </table>
