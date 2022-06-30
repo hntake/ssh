@@ -1,6 +1,7 @@
 
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <title>テスト作成画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 
 @section('content')
@@ -31,7 +32,7 @@
       </script>
     </div>
   </div>
-<div class="table-responsive" >
+<div class="testtable-responsive" >
 <form action="{{ url('create') }}" method="post">
             @csrf
         <div class="create">
@@ -53,7 +54,7 @@
                         <label id="test"for="test_type3">その他</label>
                     </div>
                     <div class="radio-text">
-                        <input type="text" name="test_name" id="test_name" class="form-control" size="15" value="">
+                        <input type="text" name="test_name" id="test_name" class="form-control" size="15"  placeholder="テスト名を入力" value="{{ old('test_name') }}">
                     </div>
                 </div>
             </table>
@@ -75,46 +76,46 @@
                                 <tr class="onetest">
                                     <td>2</td>
                                     <td><input type="text" name="ja2" id="ja2" class="form-control" size="15" placeholder="日本語" value="{{ old('ja2') }}"></td>
-                                    <td><input type="text" name="en2" id="en2" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en2" id="en2" class="form-control" size="15" placeholder="英語" value="{{ old('en2') }}"></td>
                                 </tr>
                                 <tr class="onetest">
                                     <td>3</td>
                                     <td><input type="text" name="ja3" id="ja3" class="form-control" size="15" placeholder="日本語" value="{{ old('ja3') }}"></td>
-                                    <td><input type="text" name="en3" id="en3" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en3" id="en3" class="form-control" size="15" placeholder="英語" value="{{ old('en3') }}"></td>
                                 </tr>
                                 <tr class="onetest">
                                     <td>4</td>
                                     <td><input type="text" name="ja4" id="ja4" class="form-control" size="15" placeholder="日本語" value="{{ old('ja4') }}"></td>
-                                    <td><input type="text" name="en4" id="en4" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en4" id="en4" class="form-control" size="15" placeholder="英語" value="{{ old('en4') }}"></td>
                                 </tr>
                                 <tr class="onetest">
                                     <td>5</td>
                                     <td><input type="text" name="ja5" id="ja5" class="form-control" size="15" placeholder="日本語" value="{{ old('ja5') }}"></td>
-                                    <td><input type="text" name="en5" id="en5" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en5" id="en5" class="form-control" size="15" placeholder="英語" value="{{ old('en5') }}"></td>
                                 <tr class="onetest">
                                     <td>6</td>
                                     <td><input type="text" name="ja6" id="ja6" class="form-control" size="15" placeholder="日本語" value="{{ old('ja6') }}"></td>
-                                    <td><input type="text" name="en6" id="en6" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en6" id="en6" class="form-control" size="15" placeholder="英語" value="{{ old('en6') }}"></td>
                                 </tr>
                                     <tr class="onetest">
                                     <td>7</td>
                                     <td><input type="text" name="ja7" id="ja7" class="form-control" size="15" placeholder="日本語" value="{{ old('ja7') }}"></td>
-                                    <td><input type="text" name="en7" id="en7" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en7" id="en7" class="form-control" size="15" placeholder="英語" value="{{ old('en7') }}"></td>
                                 </tr>
                                 <tr class="onetest">
                                     <td>8</td>
                                     <td><input type="text" name="ja8" id="ja8" class="form-control" size="15" placeholder="日本語" value="{{ old('ja8') }}"></td>
-                                    <td><input type="text" name="en8" id="en8" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en8" id="en8" class="form-control" size="15" placeholder="英語" value="{{ old('en8') }}"></td>
                                 </tr>
                                     <tr class="onetest">
                                     <td>9</td>
                                     <td><input type="text" name="ja9" id="ja9" class="form-control" size="15" placeholder="日本語" value="{{ old('ja9') }}"></td>
-                                    <td><input type="text" name="en9" id="en9" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en9" id="en9" class="form-control" size="15" placeholder="英語" value="{{ old('en9') }}"></td>
                                 </tr>
                                 <tr class="onetest">
                                     <td>10</td>
                                     <td><input type="text" name="ja10" id="ja10" class="form-control" size="15" placeholder="日本語" value="{{ old('ja10') }}"></td>
-                                    <td><input type="text" name="en10" id="en10" class="form-control" size="15" placeholder="英語" value="{{ old('en1') }}"></td>
+                                    <td><input type="text" name="en10" id="en10" class="form-control" size="15" placeholder="英語" value="{{ old('en10') }}"></td>
                                 </tr>
 
                         </tbody>

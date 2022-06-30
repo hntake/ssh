@@ -1,5 +1,7 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
+
 <title>ホーム画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 
 @section('content')
@@ -30,7 +32,7 @@
       </script>
     </div>
   </div>
-<div class="table-responsive" >
+<div class="testtable-responsive" >
     <p>My 履歴</p>
     <table class="table-all">
         <thead>
