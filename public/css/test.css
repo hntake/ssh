@@ -1,4 +1,4 @@
-.testtable-responsive.searchtable-responsive{
+.testtable-responsive{
     background-color: lightgreen;
     width: 80%;
     height: auto;
@@ -14,7 +14,7 @@
     border: solid green;
     padding-bottom: 30px
 }
-.testtable-responsive.searchtable-responsive  th{
+.testtable-responsive th{
     border:1px solid #000066;
     background:royalblue;
 }
@@ -24,11 +24,11 @@
     height: 50px;
     width: 100px
 }
-.testtable-responsive.searchtable-responsive  th{
+.testtable-responsive  th{
     border:1px solid #000066;
     background:royalblue;
 }
-.searchtable-responsive td{
+.testtable-responsive td{
     border:1px solid #000066;
     background:#ffffff;
     height: 50px;
