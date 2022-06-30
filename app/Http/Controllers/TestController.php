@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Word;
 use App\Models\Type;
 use App\Models\User;
+use App\Models\Nice;
 use App\Models\Textbook;
 use App\Models\History;
 use Illuminate\Support\Facades\Auth;
@@ -314,9 +315,17 @@ class TestController extends Controller
             'point' => $newpoint
         ]);
 
-        $words = Word::all();
-
-        return view('home', ['words'=>$words]);
+        $words = Word::orderBy('created_at', 'desc')->paginate(15);
+        $user = Auth::user();
+        $count = Nice::where('created_id',  '=', Auth::user()->id)->count();
+        $follower = Nice::where('user_id', '=', Auth::user()->id)->pluck('created_id')->toArray();
+        $nices =User:: where('id', '=',$follower)->pluck('user_name')->toArray();
+        return view('profile', [
+            'words'=>$words,
+            'user'=>$user,
+            'count'=>$count,
+            'nices'=>$nices
+        ]);
 
     }
 
@@ -391,9 +400,9 @@ class TestController extends Controller
     {
         $select =$request->narabi;
         if($select == 'asc'){
-            $words =Word::orderBy('created_at', 'asc')->get();
+            $words =Word::orderBy('created_at', 'asc')->paginate(15);
         } elseif($select == 'desc') {
-            $words =Word::orderBy('created_at', 'desc')->get();
+            $words =Word::orderBy('created_at', 'desc')->paginate(15);
         } else {
             $words =Word::all();
         }
@@ -424,7 +433,7 @@ class TestController extends Controller
     public function delete_list(Request $request)
     {
         $word = Word::where('id', $request->id)->delete();
-        return redirect('home');
+        return redirect('profile');
 
     }
 

@@ -33,7 +33,7 @@
     </div>
   </div>
 <div class="testtable-responsive" >
-    <p>My 履歴</p>
+    <p>My履歴</p>
     <table class="table-all">
         <thead>
             <tr>

@@ -34,7 +34,7 @@
 
     <h3>ユーザー名<br>：{{ $user->user_name }}</h3>
     <h3>エリア：{{ $user->place }}</h3>
-    <h3>Born in：{{ $user->Year->year }}</h3>
+    <h3>学年：{{ $user->Year->year }}</h3>
         {{ $user->updated_at }}<p>時点</p>
            <p>総ポイント数（{{ $user->point }}）</p>
           <div class="image">
@@ -60,7 +60,7 @@
                        フォロワー数 {{ $count }}
                         </span>
                 @else
-                
+
                 <!-- まだユーザーが「フォローする」をしていなければ、「フォローする」ボタンを表示 -->
                 <a href="{{ route('nice', ['id'=>$user->id]) }}"  class="follow">
                         フォローする
