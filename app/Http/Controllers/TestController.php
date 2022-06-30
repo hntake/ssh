@@ -320,12 +320,15 @@ class TestController extends Controller
         $count = Nice::where('created_id',  '=', Auth::user()->id)->count();
         $follower = Nice::where('user_id', '=', Auth::user()->id)->pluck('created_id')->toArray();
         $nices =User:: where('id', '=',$follower)->pluck('user_name')->toArray();
-        return view('profile', [
+        $point = $newpoint;
+        return redirect('all_list');
+     /*    return view('profile', [
             'words'=>$words,
             'user'=>$user,
             'count'=>$count,
-            'nices'=>$nices
-        ]);
+            'nices'=>$nices,
+            'point'=>$point
+        ]); */
 
     }
 
@@ -373,7 +376,7 @@ class TestController extends Controller
         }
 
         //$queryをtype_idの昇順に並び替えて$productsに代入
-        $words = $query->orderBy('id', 'asc')->paginate(15);
+        $words = $query->orderBy('id', 'desc')->paginate(15);
 
         //m_categoriesテーブルからgetLists();関数でtype_nameとidを取得する
         $types = Type::pluck('type','id');

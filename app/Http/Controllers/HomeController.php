@@ -35,7 +35,7 @@ class HomeController extends Controller
         /*テスト未利用の場合*/
         if (Auth::user()->point === 0) {
 
-            $words = Word::orderBy('created_at')->paginate(10);
+            $words = Word::orderBy('created_at', 'desc')->paginate(10);
             return view('all_list', [
                 'words' => $words,
             ]);
@@ -53,7 +53,7 @@ class HomeController extends Controller
     /**全リスト */
     public function list()
     {
-        $words = Word::orderBY('created_at')->paginate(10);
+        $words = Word::orderBy('created_at', 'desc')->paginate(10);
         return view('all_list', [
             'words' => $words,
         ]);
@@ -70,7 +70,7 @@ class HomeController extends Controller
         $user->level=intdiv($point, 100);
 
         /**wordテーブルのuser_nameとログインしているuser_nameが一致している */
-        $words = Word::where('user_name', '=', Auth::user()->user_name)->get();
+        $words = Word::where('user_name', '=', Auth::user()->user_name)->orderBy('created_at', 'desc')->get();
         /*フォロワー数表示*/
         $count = Nice::where('created_id',  '=', Auth::user()->id)->count();
         /*フォロー一覧表示*/
