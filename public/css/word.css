@@ -415,15 +415,41 @@ input.pro_button{
 .edit{
     margin:0 auto;
 }
+/*他人のプロフィール画面*/
+a.follow {
+    color: #1422d1;
+    background-color: #2feb00;
+    text-decoration: none;
+    margin-top: 10px;
+/*     padding: 3px 3px;
+ */    font-weight: 500;
+    border: solid green;
+}
+span.follow{
+
+}
+span.badge{
+
+}
 /*検索画面*/
 table.result{
     margin: 0px auto;
 }
+#text-button {
+        display: block;
+        cursor: pointer;
+        width: 160px;
+        text-align: center;
+        border: 1px solid #232323;
+      }
+#text-button.blue{
+    background: #21759b;
+}
 /*テスト画面*/
 .test{
     margin: 0 auto;
-    width: 30%;
-}
+/*     width: 30%;
+ */}
 .score{
     margin-right:10px;
 }
@@ -634,7 +660,7 @@ footer.bottom{
         font-size: smaller;
     }
     .table-hover{
-        width:max-content;
+        width:100%;
     }
     .button input{
         width: 100px;

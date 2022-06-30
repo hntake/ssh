@@ -46,31 +46,32 @@
                     @endif
             </tr>
           </div>
-          <span>
-                <img src="{{asset('img/nicebutton.png')}}" width="30px">
+          <span class="follow">
 
                 <!-- もし$niceがあれば＝ユーザーが「フォローする」をしていたら -->
                 @if($nice)
                 <!-- 「フォローする」取消用ボタンを表示 -->
-                    <a href="{{ route('unnice',['id'=>$user->id]) }}" class="btn btn-success btn-sm">
-                        フォローする
+                    <p>フォロー中</p>
+                    <a href="{{ route('unnice',['id'=>$user->id]) }}"  class="follow" style="background-color:lightgray;">
+                        フォローをやめる
                         <!-- 「いいね」の数を表示 -->
+                    </a><br>
                         <span class="badge">
-                        {{ $count }}
+                       フォロワー数 {{ $count }}
                         </span>
-                    </a>
                 @else
+                
                 <!-- まだユーザーが「フォローする」をしていなければ、「フォローする」ボタンを表示 -->
-                    <a href="{{ route('nice', ['id'=>$user->id]) }}" class="btn btn-secondary btn-sm">
+                <a href="{{ route('nice', ['id'=>$user->id]) }}"  class="follow">
                         フォローする
+                    </a><br>
                         <!-- 「いいね」の数を表示 -->
                         <span class="badge">
-                        {{ $count }}
+                       フォロワー数{{ $count }}
                         </span>
-                    </a>
                 @endif
             </span>
-  </div>
+        </div>
     <div class="table-responsive" >
         <p>作成一覧</p>
         <table class="table-all">
@@ -100,3 +101,4 @@
         </table>
     </div>
 @endsection
+

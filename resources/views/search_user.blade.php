@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<div class="testtable-responsive" >
+<div class="searchtable-responsive" >
         <div class="test">
       <br>
       <h2 class="text-center">ユーザー検索画面</h2>
