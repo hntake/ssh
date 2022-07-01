@@ -43,7 +43,6 @@
                 <th style="width:15%">レッスン名</th>
                 <th style="width:15%">作成者</th>
                 <th style="width:15%">利用者</th>
-                <th style="width:10%">クラス番号</th>
                 <th style="width:15%">利用日</th>
                 <th style="width:15%"></th>
 
@@ -58,7 +57,6 @@
                 <td>{{ $history->test_name }}</td>
                 <td>{{ $history->user_name }}</td>
                 <td>{{ $history->tested_user }}</td>
-                <td>{{ $history->school}}</td>
                 <td>{{\Carbon\Carbon::parse($history->created_at)->toDateString() }}</td>
                 <td ><div  class="button"><a style="padding:0" href="{{ route('test',['id'=>$history->test_id]) }}">表示</a></div></td>
                 @endforeach

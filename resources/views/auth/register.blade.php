@@ -34,9 +34,9 @@
                         </div>
                         <div class="r-box">
                             <label for="school1" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号') }}</label>
-                            <p>（学校や塾で番号をもらったら、ここにその番号を入力して下さい）</p>
+                            <p>（学校や塾で番号をもらった人は、000000を削除して、その番号を入力して下さい）</p>
                             <div class="col-md-6">
-                                <input id="school1" type="text" class="form-control " name="school1" value="{{ old('school1') }}" autocomplete="school1" autofocus>
+                                <input id="school1" type="text" class="form-control " name="school1" value="00000{{ old('school1') }}" autocomplete="school1" autofocus>
                             </div>
                         </div>
                         <div class="r-box">
