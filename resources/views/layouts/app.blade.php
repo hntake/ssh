@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 </head>
 <body>
     <div id="app">
