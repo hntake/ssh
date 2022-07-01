@@ -35,7 +35,7 @@
           <h3>ユーザー名：{{ $user->user_name }}</h3>
           <h3>エリア：{{ $user->place }}</h3>
           <h3>クラス番号：{{ $user->school }}</h3>
-          <h3>学年：{{ $user->Year->year }}</h3>
+          <h3>学年：{{ $user->year }}</h3>
                     {{ $user->updated_at }}<p>時点</p>
           <h3>レベル :{{$user->level}}</h3>
            <p>総ポイント数（{{ $user->point }}）</p>

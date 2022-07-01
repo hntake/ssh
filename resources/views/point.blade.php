@@ -49,7 +49,7 @@
             <tr>
                 <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->name }}</a></td>
                 <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->place }}</a></td>
-                <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->Year->year}}</a></td>
+                <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->year}}</a></td>
                 <td>{{ $user->point }}</td>
                 <td>{{\Carbon\Carbon::parse($user->created_at)->toDateString() }}</td>
         @endforeach
