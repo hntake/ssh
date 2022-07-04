@@ -27,6 +27,9 @@ Route::get('/rule',function(){
 Route::get('/aboutus',function(){
     return view('aboutus');
 });
+Route::get('/sitemap', function(){
+    return view('sitemap');
+});
 
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');

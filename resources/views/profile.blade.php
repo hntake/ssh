@@ -99,10 +99,10 @@
                     </tr>
                 </thead>
                 <tbody id="tbl">
-                @foreach ($nices as $nice)
+               @foreach(array_map(NULL, $nices, $niceids) as [ $nice, $niceid ])
                     <tr>
                         <td>{{ $nice }}</td>
-                        <td ><div  class="button"><a href="{{ route('mypicture',['id'=>$user->id]) }}">表示</a></div></td>
+                        <td ><div  class="button"><a href="{{ route('mypicture',['id'=>$niceid]) }}">表示</a></div></td>
                     @endforeach
                     </tr>
                 </tbody>

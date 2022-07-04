@@ -76,11 +76,13 @@ class HomeController extends Controller
         /*フォロー一覧表示*/
         $follower = Nice::where('user_id', '=', Auth::user()->id)->pluck('created_id')->toArray();
         $nices =User:: where('id', '=',$follower)->pluck('user_name')->toArray();
+        $niceids=User:: where('id', '=',$follower)->pluck('id')->toArray();
         return view('profile', [
             'user' => $user,
             'words' => $words,
             'count' =>$count,
             'nices' =>$nices,
+            'niceids'=>$niceids,
         ]);
     }
     /*他人のプロフィール画面表示*/
