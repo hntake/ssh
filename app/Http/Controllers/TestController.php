@@ -84,6 +84,8 @@ class TestController extends Controller
         ]);
 
     }
+    
+
 /**
  * 採点ボタン→①履歴作成②テスト採点③ポイント付与
 * @param  Request  $request
@@ -376,7 +378,7 @@ class TestController extends Controller
         }
 
         //$queryをtype_idの昇順に並び替えて$productsに代入
-        $words = $query->orderBy('id', 'desc')->paginate(15);
+        $words = $query->orderBy('id', 'desc')->paginate(10);
 
         //m_categoriesテーブルからgetLists();関数でtype_nameとidを取得する
         $types = Type::pluck('type','id');

@@ -1,6 +1,7 @@
 footer{
     border-top: 1px solid black;
     background-color:lightgreen;
+    margin-top: 30px;
 }
 .contact{
     background-color: aliceblue;
@@ -23,6 +24,17 @@ footer{
 .welcome1 img,.welcome2 img{
     width: 500px;
     border: none;
+}
+/*モニタリングツール紹介ページ*/
+.rule{
+    width:75%;
+    margin:0 auto;
+}
+.monitor{
+}
+.monitor img{
+    width:80%;
+    margin-bottom: 20px;
 }
 /*レスポンシブ対応*/
 @media (max-width: 480px){
@@ -48,6 +60,7 @@ footer{
         width: 100%;
         border: none;
     }
+}
      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait)  {
         .top img{
             width: 400px;
@@ -56,4 +69,7 @@ footer{
             width: 100%;
             border: none;
         }
-}
+        .contact{
+            width:100%;
+        }
+    }

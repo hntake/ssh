@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/monitor', function () {
+    return view('monitor');
+});
 Route::get('/policy',function(){
     return view('policy');
 });
@@ -27,9 +30,14 @@ Route::get('/rule',function(){
 Route::get('/aboutus',function(){
     return view('aboutus');
 });
-Route::get('/sitemap', function(){
-    return view('sitemap');
-});
+
+//入力ページ
+Route::get('/admin_form', [App\Http\Controllers\ContactController::class,'admin_form'])->name('admin_form');
+//確認ページ
+Route::post('/admin_confirm', [App\Http\Controllers\ContactController::class,'admin_confirm'])->name('admin_confirm');
+
+//送信完了ページ
+Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'admin_send'])->name('admin_send');
 
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
@@ -57,6 +65,8 @@ Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class,'
 //送信完了ページ
 Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
 /* Auth::routes();*/
+/*他人のプロフィール画面へ*/
+Route::get('/mypicture/{id}',[App\Http\Controllers\RankController::class,'mypicture'])->name('mypicture');
 
 //メール確認済みのユーザーのみ
 Route::middleware(['verified'])->group(function(){
@@ -98,8 +108,6 @@ Route::get('/reply/unnice/{id}',[App\Http\Controllers\HomeController::class, 'un
 });
 /*ポイントランキング表へ*/
 Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point');
-/*他人のプロフィール画面へ*/
-Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
 
 
 
