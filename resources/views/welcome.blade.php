@@ -46,6 +46,7 @@
             @endif
         </div>
         <div class="top">
+        <h1>英単語強化サイト「エーゴメ」</h1>
             <img src="img/title2.png" alt="top" >
         </div>
             <div class="rule">
