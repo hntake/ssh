@@ -34,7 +34,9 @@
     height: 50px;
     width: 100px
 }
-
+.test{
+    width:50%;
+}
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 .testtable-responsive{
@@ -51,7 +53,7 @@
 @media (max-width: 480px){
 
     .testtable-responsive{
-        width: max-content;
+        width: 100%;
     }
     .searchtable-responsive{
         width: 100%;

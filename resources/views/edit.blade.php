@@ -32,60 +32,74 @@
   </div>
 <div class="test" >
     <table class="table-hover">
+    <thead>
+                <tr style="background-color:darkseagreen">
+                    <th style="width:5%">学年</th>
+                    <th style="width:20%">教科書名</th>
+                    <th style="width:20%">テスト名</th>
+                </tr>
+            </thead>
+            <tbody id="tbl">
+                <tr>
+                    <td><input type="text" name="type" value="{{ $word->Type->type }}" class="form-control"></td>
+                    <td><input type="text" name="textbook" value="{{ $word->Textbook->textbook }}" class="form-control"></td>
+                    <td><input type="text" name="test_name" value="{{ $word->test_name }}" class="form-control"></td>
+                </tr>
+            </tbody>
         <thead>
             <tr>
-                <th style="width:20%">番号</th>
+                <th style="width:5%">番号</th>
                 <th style="width:20%">問題</th>
                 <th style="width:20%">答え</th>
             </tr>
         </thead>
              <tbody id="tbl">
                         <tr class="onetest">
-                            <td>1</td>
+                            <td class="number">1</td>
                             <td><input type="text" name="ja1" value="{{ $word->ja1}}" class="form-control"></td>
                             <td><input type="text" name="en1" value="{{ $word->en1}}" class="form-control"></td>
                         </tr>
                         <tr class="onetest">
-                            <td>2</td>
+                        <td class="number">2</td>
                             <td><input type="text" name="ja2" value="{{ $word->ja2}}" class="form-control"></td>
                             <td><input type="text" name="en2" value="{{ $word->en2}}" class="form-control"></td>
                         </tr>
                         <tr class="onetest">
-                            <td>3</td>
+                           <td class="number">3</td>
                             <td><input type="text" name="ja3" value="{{ $word->ja3}}" class="form-control"></td>
                             <td><input type="text" name="en3" value="{{ $word->en3}}" class="form-control"></td>
                         </tr>
                         <tr class="onetest">
-                            <td>4</td>
+                           <td class="number">4</td>
                             <td><input type="text" name="ja4" value="{{ $word->ja4}}" class="form-control"></td>
                             <td><input type="text" name="en4" value="{{ $word->en4}}" class="form-control"></td>
                         </tr>
                         <tr class="onetest">
-                            <td>5</td>
+                           <td class="number">5</td>
                             <td><input type="text" name="ja5" value="{{ $word->ja5}}" class="form-control"></td>
                             <td><input type="text" name="en5" value="{{ $word->en5}}" class="form-control"></td>
                         <tr class="onetest">
-                            <td>6</td>
+                           <td class="number">6</td>
                             <td><input type="text" name="ja6" value="{{ $word->ja6}}" class="form-control"></td>
                             <td><input type="text" name="en6" value="{{ $word->en6}}" class="form-control"></td>
                         </tr>
                             <tr class="onetest">
-                            <td>7</td>
+                           <td class="number">7</td>
                             <td><input type="text" name="ja7" value="{{ $word->ja7}}" class="form-control"></td>
                             <td><input type="text" name="en7" value="{{ $word->en7}}" class="form-control"></td>
                         </tr>
                         <tr class="onetest">
-                            <td>8</td>
+                           <td class="number">8</td>
                             <td><input type="text" name="ja8" value="{{ $word->ja8}}" class="form-control"></td>
                             <td><input type="text" name="en8" value="{{ $word->en8}}" class="form-control"></td>
                         </tr>
                             <tr class="onetest">
-                            <td>9</td>
+                           <td class="number">9</td>
                             <td><input type="text" name="ja9" value="{{ $word->ja9}}" class="form-control"></td>
                             <td><input type="text" name="en9" value="{{ $word->en9}}" class="form-control"></td>
                         </tr>
                         <tr class="onetest">
-                            <td>10</td>
+                           <td class="number">10</td>
                             <td><input type="text" name="ja10" value="{{ $word->ja10}}" class="form-control"></td>
                             <td><input type="text" name="en10" value="{{ $word->en10}}" class="form-control"></td>
                         </tr>

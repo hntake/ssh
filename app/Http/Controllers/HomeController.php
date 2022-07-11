@@ -10,6 +10,7 @@ use App\Models\History;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 
 
@@ -53,9 +54,13 @@ class HomeController extends Controller
     /**全リスト */
     public function list()
     {
+        $date = Carbon::now();
+        $hour =$date->addHour(6);
         $words = Word::orderBy('created_at', 'desc')->paginate(10);
         return view('all_list', [
             'words' => $words,
+            'date' =>$date,
+            'hour'=>$hour,
         ]);
     }
     /*プロフィールページ*/

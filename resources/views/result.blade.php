@@ -32,8 +32,84 @@
       </script>
     </div>
   </div>
-  <div class="score">
-      {{$score}}
-  </div>
-    <div  class="button"><a href="{{ route('answer',['id'=>$id]) }}">正解→</a></div>
+  <div class="testtable-responsive" >
+      <table class="table-all">
+        <div class="score">
+            <h2>得点</h2>
+            {{$score}}点
+        </div>
+        <thead>
+            <tr>
+                <th style="width:20%">番号</th>
+                <th style="width:20%">結果</th>
+                <th style="width:20%">問題</th>
+                <th style="width:20%">正答</th>
+            </tr>
+        </thead>
+                    <tbody>
+                        <tr class="onetest">
+                            <td>1</td>
+                            <td> {{$result1}}</td>
+                            <td>{{ $word->ja1}}</td>
+                            <td>{{ $word->en1}}</td>
+                        </tr>
+                        <tr class="onetest">
+                            <td>2</td>
+                            <td> {{$result2}}</td>
+                            <td>{{ $word->ja2}}</td>
+                            <td>{{ $word->en2}}</td>
+                        </tr>
+                        <tr class="onetest">
+                            <td>3</td>
+                            <td> {{$result3}}</td>
+                            <td>{{ $word->ja3}}</td>
+                            <td>{{ $word->en3}}</td>
+                        </tr>
+                        <tr class="onetest">
+                            <td>4</td>
+                            <td> {{$result4}}</td>
+                            <td>{{ $word->ja4}}</td>
+                            <td>{{ $word->en4}}</td>
+                        </tr>
+                        <tr class="onetest">
+                            <td>5</td>
+                            <td> {{$result5}}</td>
+                            <td>{{ $word->ja5}}</td>
+                            <td>{{ $word->en5}}</td>
+                        <tr class="onetest">
+                            <td>6</td>
+                            <td> {{$result6}}</td>
+                            <td>{{ $word->ja6}}</td>
+                            <td>{{ $word->en6}}</td>
+                        </tr>
+                            <tr class="onetest">
+                            <td>7</td>
+                            <td> {{$result7}}</td>
+                            <td>{{ $word->ja7}}</td>
+                            <td>{{ $word->en7}}</td>
+                        </tr>
+                        <tr class="onetest">
+                            <td>8</td>
+                            <td> {{$result8}}</td>
+                            <td>{{ $word->ja8}}</td>
+                            <td>{{ $word->en8}}</td>
+                        </tr>
+                            <tr class="onetest">
+                            <td>9</td>
+                            <td> {{$result9}}</td>
+                            <td>{{ $word->ja9}}</td>
+                            <td>{{ $word->en9}}</td>
+                        </tr>
+                        <tr class="onetest">
+                            <td>10</td>
+                            <td> {{$result10}}</td>
+                            <td>{{ $word->ja10}}</td>
+                            <td>{{ $word->en10}}</td>
+                        </tr>
+                </tbody>
+            </table>
+        <div  class="button"><a href="{{ route('test',['id'=>$id]) }}">再チャレンジ！</a>
+    </div>
+
+</div>
 @endsection

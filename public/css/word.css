@@ -35,8 +35,8 @@ li.name{
 }
 .center-button{
     color: #1422d1;
-    font-weight: bold;
-    background-color: #21bd33;
+    font-weight: 500;
+    background-color:#bfecc4;
     text-decoration: none;
     margin-top: 10px;
     padding: 3px 10px;
@@ -59,8 +59,8 @@ a#name{
 a.button{
 
     color: #1422d1;
-    font-weight: bold;
-    background-color: #21bd33;
+    font-weight: 500;
+    background-color: #bfecc4;
     text-decoration: none;
     margin-top: 10px;
     padding: 3px 10px;
@@ -349,13 +349,14 @@ svg {
 /*     padding: 0 35%;
  */}
 .button a{
-    color: #1422d1;
-    background-color: #2feb00;
+    color: #5560f5;
+    background-color:#bfecc4;
     text-decoration: none;
     margin-top: 10px;
     padding: 3px 10px;
     font-weight: 500;
     border: solid green;
+    margin-left: 5px;
 }
 .route{
     overflow: hidden;
@@ -410,7 +411,10 @@ input.pro_button{
     border: solid green;
     font-size:smaller
 }
-
+/*編集ページ*/
+.number{
+    text-align: center;
+}
 /*プロフィール編集画面*/
 .edit{
     margin:0 auto;
@@ -451,7 +455,10 @@ table.result{
 /*     width: 30%;
  */}
 .score{
-    margin-right:10px;
+    border: solid 1px;
+    width: 30%;
+    margin: 10 auto;
+    background-color:mintcream
 }
 .error-message{
     border: solid orange 1px;
@@ -473,7 +480,6 @@ tbody#tdl tr{
     justify-content: center;
 }
 .formdrop{
-    padding-top: 40px;
     padding-right: 40px;
 }
 .radio_box{
@@ -629,10 +635,11 @@ footer.bottom{
     }
     .radio_box{
         width: 80%;
-        padding-bottom: 20%;
+        padding-bottom: 100px;
         margin:auto;
         margin-top: 20px;
         padding-left: 30px;
+        background-color:unset;
     }
     .radio{
         padding-bottom: 10px;

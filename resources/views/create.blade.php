@@ -32,13 +32,20 @@
       </script>
     </div>
   </div>
-<div class="testtable-responsive" >
+<div class="testtable-responsive" style="width:fit-content" >
 <form action="{{ url('create') }}" method="post">
             @csrf
         <div class="create">
             <table class="create">
-                <div class="formdrop">{{ Form::select('type',$types, null, ['class' => 'form', 'id' => 'type']) }}</div>
-                <div class="formdrop">{{ Form::select('textbook',$textbooks, null, ['class' => 'form', 'id' => 'textbook']) }}</div>
+                <div class="formdrop">
+                    <p>学年を選んでください</p>
+                    {{ Form::select('type',$types, null, ['class' => 'form', 'id' => 'type']) }}
+                </div>
+
+                <div class="formdrop">
+                    <p>教科書名かその他を選んでください</p>
+                    {{ Form::select('textbook',$textbooks, null, ['class' => 'form', 'id' => 'textbook']) }}
+                </div>
                 <div class="radio_box">
                   <p>単元を選択して記入<span style="background-color:aliceblue">（例）Lesson1-1</span>
                     <div class="radio">

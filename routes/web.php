@@ -67,6 +67,8 @@ Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'s
 /* Auth::routes();*/
 /*他人のプロフィール画面へ*/
 Route::get('/mypicture/{id}',[App\Http\Controllers\RankController::class,'mypicture'])->name('mypicture');
+/*テスト採点*/
+Route::post('/result/{id}', [App\Http\Controllers\TestController::class,'result'])->name('result');
 
 //メール確認済みのユーザーのみ
 Route::middleware(['verified'])->group(function(){
@@ -88,8 +90,6 @@ Route::patch('/update/{id}', [App\Http\Controllers\HomeController::class, 'updat
 Route::get('/list/{id}', [App\Http\Controllers\TestController::class,'delete_list'])->name('delete_list');
 /*選択したユーザーを削除する*/
 Route::get('/delete_user/{id}', [App\Http\Controllers\HomeController::class,'delete_user'])->name('delete_user');
-/*テスト採点*/
-Route::post('/result/{id}', [App\Http\Controllers\TestController::class,'result'])->name('result');
 /*正答画面へ*/
 Route::get('/answer/{id}', [App\Http\Controllers\TestController::class,'answer'])->name('answer');
 /*テスト作成画面へ*/

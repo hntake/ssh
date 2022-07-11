@@ -73,6 +73,7 @@
             <div class="llco">
             <a href="{{ route('register') }}"><img src="img/welcome3.png" alt="llco"></a>
             </div>
+            <h2 style="font-family: 'Noto Sans JP', sans-serif; color:orangered">登録は無料です</h2>
             <p>画像をクリックすると登録画面に移動します↑</p>
         </div>
         <footer>

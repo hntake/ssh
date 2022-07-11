@@ -84,7 +84,7 @@ class TestController extends Controller
         ]);
 
     }
-    
+
 
 /**
  * 採点ボタン→①履歴作成②テスト採点③ポイント付与
@@ -117,38 +117,76 @@ class TestController extends Controller
             $score=0;
             if ($request->en1 === $words->en1){
                 $score =$score + 1;
-
+                $result1="O";
+            }
+            else{
+                $result1="X";
             }
             if($request->en2 === $words->en2){
                 $score =$score +1;
+                $result2="O";
+            }
+            else{
+                $result2="X";
             }
             if($request->en3 === $words->en3){
                 $score =$score +1;
+                $result3="O";
+            }
+            else{
+                $result3="X";
             }
             if($request->en4 === $words->en4){
                 $score =$score +1;
+                $result4="O";
+            }
+            else{
+                $result4="X";
             }
             if($request->en5 === $words->en5){
                 $score =$score +1;
+                $result5="O";
+            }
+            else{
+                $result5="X";
             }
             if($request->en6 === $words->en6){
                 $score =$score +1;
+                $result6="O";
+            }
+            else{
+                $result6="X";
             }
             if($request->en7 === $words->en7){
                 $score =$score +1;
+                $result7="O";
+            }
+            else{
+                $result7="X";
             }
             if($request->en8 === $words->en8){
                 $score =$score +1;
+                $result8="O";
+            }
+            else{
+                $result8="X";
             }
             if($request->en9 === $words->en9){
                 $score =$score +1;
+                $result9="O";
+            }
+            else{
+                $result9="X";
             }
             if($request->en10 === $words->en10){
                 $score =$score +1;
+                $result10="O";
+            }
+            else{
+                $result10="X";
             }
 
         }
-
         /*テスト作成者へのポイント付与*/
         $tspoint=Word::find($request->user_name);
         $crpoint = User::where('user_name', '=',$tspoint->user_name)->value('point');
@@ -203,21 +241,52 @@ class TestController extends Controller
 
             return view('result',[
                 'id' => $id,
-                'words' => $words,
+                'word' => $word,
                 'score'=> $score,
+                'result1'=>$result1,
+                'result2'=>$result2,
+                'result3'=>$result3,
+                'result4'=>$result4,
+                'result5'=>$result5,
+                'result6'=>$result6,
+                'result7'=>$result7,
+                'result8'=>$result8,
+                'result9'=>$result9,
+                'result10'=>$result10,
 
         ]);
     }
         /*非ログインなら*/
         else{
+            $word = Word::find($id);
+            $history = new History;
+            $history->test_id =$word->id;
+            $history->type =$word->type;
+            $history->textbook =$word->textbook;
+            $history->test_name =$word->test_name;
+            $history->user_name =$word->user_name;
+            $history->tested_user ="非ユーザー";
+            $history->tested_name ="非ユーザー";
+            $history->school ="非ユーザー";
+            $history->save();
+        }
             return view('result',[
                 'id' => $id,
-                'words' => $words,
+                'word' => $word,
                 'score'=> $score,
-
+                'result1'=>$result1,
+                'result2'=>$result2,
+                'result3'=>$result3,
+                'result4'=>$result4,
+                'result5'=>$result5,
+                'result6'=>$result6,
+                'result7'=>$result7,
+                'result8'=>$result8,
+                'result9'=>$result9,
+                'result10'=>$result10,
         ]);
         }
-    }
+
     public function answer(Request $request, $id)
     {
         $word = Word::where('id', $request->id)->first();
@@ -254,8 +323,7 @@ class TestController extends Controller
         $validate = $request -> validate([
             'type' => 'required',
             'textbook' => 'required',
-/*             'test_type' => 'required',
- */            'test_name' => 'required|max:25',
+            'test_name' => 'required|max:25',
             'ja1' => 'required|max:25',
             'ja2' => 'required|max:25',
             'ja3' => 'required|max:25',
@@ -365,6 +433,9 @@ class TestController extends Controller
         $textbookId = $request->input('textbookId'); //カテゴリの値
 
         $query = Word::query();
+        $date = Carbon::now();
+        $hour =$date->addHour(6);
+        $query=$query->where('created_at','<',$hour);
         //商品名が入力された場合、m_productsテーブルから一致する商品を$queryに代入
         if (isset($searchWord)) {
             $query->where('test_name', 'like', '%' . self::escapeLike($searchWord) . '%');

@@ -42,7 +42,7 @@
                 <th style="width:20%">答え</th>
             </tr>
         </thead>
-             <t>
+             <tbody>
                         <tr class="onetest">
                             <td>1</td>
                             <td>{{ $word->ja1}}</td>
