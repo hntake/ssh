@@ -114,6 +114,7 @@ input#image.form-control{
 input{
     height: 40px;
     width: 200px;
+    border:none
 }
 ul {
     list-style: none;
@@ -468,9 +469,7 @@ table.result{
     font-size: 20px;
 }
 /*正解ページ*/
-tr.onetest{
 
-}
 tbody#tdl tr{
 
 }
@@ -480,17 +479,19 @@ tbody#tdl tr{
     justify-content: center;
 }
 .formdrop{
-    padding-right: 40px;
+    padding-right: 30px;
+    background-color: rgb(115, 185, 239);
 }
 .radio_box{
 border:solid #555 1px;
-background-color:lawngreen;
+background-color:rgb(115, 185, 239);
 padding-bottom: 10;
 padding-right: 10;
 margin: top 20px;
 }
 .radio{
     float: left;
+    margin-bottom:10px;
 }
 .radio-text{
     float:left;
@@ -639,10 +640,10 @@ footer.bottom{
         margin:auto;
         margin-top: 20px;
         padding-left: 30px;
-        background-color:unset;
+        background-color:rgb(115, 185, 239);
     }
     .radio{
-        padding-bottom: 10px;
+        padding-bottom: 0;
     }
     .radio-text{
         padding-top: 10px;
@@ -658,7 +659,7 @@ footer.bottom{
        /*  margin:10 150; */
     }
     thead{
-
+        display:none;
     }
     th{
         width: 50px;
@@ -686,6 +687,10 @@ footer.bottom{
     a.button{
         display: block;
         width:fit-content
+    }
+    tr.onetest{
+        display: grid;
+        width: 100%;
     }
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {

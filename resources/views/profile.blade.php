@@ -118,12 +118,18 @@
                 <tr>
                     <th style="width:10%">ユーザー名</th>
                     <th style="width:15%"></th>
+                    <th style="width:15%"></th>
                 </tr>
             </thead>
             <tbody id="tbl">
-                @foreach(array_map(NULL, $nices, $niceids) as [ $nice, $niceid ])
+                @foreach(array_map(NULL, $nices, $niceids,$images) as [ $nice, $niceid, $image ])
                 <tr>
                     <td>{{ $nice }}</td>
+                    @if(!$image == null)
+                    <td><img src="{{ asset('storage/' . $image) }}" alt="image">
+                     @else
+                    <td><img src="/img/icon_man.png" alt="man_icon"></td>
+                     @endif
                     <td>
                         <div class="button"><a href="{{ route('mypicture',['id'=>$niceid]) }}">表示</a></div>
                     </td>
@@ -134,7 +140,4 @@
     </div>
 </div>
 @endsection
-<div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://itcha50.com/profile" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
-<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="現在のポイントは{{ $user->point }}です" data-show-count="false">Tweet</a>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+

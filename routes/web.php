@@ -66,7 +66,7 @@ Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class,'
 Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
 /* Auth::routes();*/
 /*他人のプロフィール画面へ*/
-Route::get('/mypicture/{id}',[App\Http\Controllers\RankController::class,'mypicture'])->name('mypicture');
+Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
 /*テスト採点*/
 Route::post('/result/{id}', [App\Http\Controllers\TestController::class,'result'])->name('result');
 

@@ -1,10 +1,10 @@
 
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
-<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <title>テスト作成画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
 
 <div class="header-logo-menu">
@@ -32,7 +32,7 @@
       </script>
     </div>
   </div>
-<div class="testtable-responsive" style="width:fit-content" >
+<div class="createtable-responsive" >
 <form action="{{ url('create') }}" method="post">
             @csrf
         <div class="create">
@@ -47,7 +47,7 @@
                     {{ Form::select('textbook',$textbooks, null, ['class' => 'form', 'id' => 'textbook']) }}
                 </div>
                 <div class="radio_box">
-                  <p>単元を選択して記入<span style="background-color:aliceblue">（例）Lesson1-1</span>
+                  <p style="margin-bottom:0;">①単元を選択</p><br>
                     <div class="radio">
                         <input  class="visually-hidden" type="radio" name="test_type" id="test_type1" class="form-control"  value="Lesson" />
                         <label id="test" for="test_type1"> Lesson</label>
@@ -59,9 +59,11 @@
                     <div class="radio">
                         <input  class="visually-hidden" type="radio" name="test_type" id="test_type3" class="form-control" value=""/>
                         <label id="test"for="test_type3">その他</label>
-                    </div>
+                    </div><br>
+                    <p style="border-top:solid 1px black;">②テスト名を記入</p>
+                    <span style="background-color:lightblue;margin-left:5px;">(例)1-1や動物など</span>
                     <div class="radio-text">
-                        <input type="text" name="test_name" id="test_name" class="form-control" size="15"  placeholder="テスト名を入力" value="{{ old('test_name') }}">
+                        <input type="text"name="test_name" id="test_name" class="form-control" size="15"  placeholder="テスト名を入力" value="{{ old('test_name') }}" style="width:200px;">
                     </div>
                 </div>
             </table>
@@ -143,6 +145,7 @@
                 @endif
     </form>
 </div>
+<img src="img/create.png" alt="boy">
 @endsection
 <a href="#" class="gotop">トップへ</a>
 

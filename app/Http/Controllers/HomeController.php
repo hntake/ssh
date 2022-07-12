@@ -55,13 +55,13 @@ class HomeController extends Controller
     public function list()
     {
         $date = Carbon::now();
-        $hour =$date->addHour(6);
+   /*      $hour =$date->addHour(6); */
         $words = Word::orderBy('created_at', 'desc')->paginate(10);
         return view('all_list', [
             'words' => $words,
             'date' =>$date,
-            'hour'=>$hour,
-        ]);
+/*             'hour'=>$hour,
+ */        ]);
     }
     /*プロフィールページ*/
     public function profile(Request $request)
@@ -82,12 +82,14 @@ class HomeController extends Controller
         $follower = Nice::where('user_id', '=', Auth::user()->id)->pluck('created_id')->toArray();
         $nices =User:: where('id', '=',$follower)->pluck('user_name')->toArray();
         $niceids=User:: where('id', '=',$follower)->pluck('id')->toArray();
+        $images=User:: where('id', '=',$follower)->pluck('image')->toArray();
         return view('profile', [
             'user' => $user,
             'words' => $words,
             'count' =>$count,
             'nices' =>$nices,
             'niceids'=>$niceids,
+            'images'=>$images,
         ]);
     }
     /*他人のプロフィール画面表示*/

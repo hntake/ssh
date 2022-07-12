@@ -433,9 +433,9 @@ class TestController extends Controller
         $textbookId = $request->input('textbookId'); //カテゴリの値
 
         $query = Word::query();
-        $date = Carbon::now();
+       /*  $date = Carbon::now();
         $hour =$date->addHour(6);
-        $query=$query->where('created_at','<',$hour);
+        $query=$query->where('created_at','<',$hour); */
         //商品名が入力された場合、m_productsテーブルから一致する商品を$queryに代入
         if (isset($searchWord)) {
             $query->where('test_name', 'like', '%' . self::escapeLike($searchWord) . '%');

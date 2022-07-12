@@ -32,12 +32,23 @@
     border:1px solid #000066;
     background:#ffffff;
     height: 50px;
-    width: 100px
+    width: 100px;
+    text-align: center;
 }
 .test{
     width:50%;
 }
-
+input{
+    width: 350px;
+}
+.onetest td{
+    text-align: center;
+}
+img{
+    width: 50%;
+    height: auto;
+    margin: 0;
+}
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 .testtable-responsive{
 /*     width: max-content;
@@ -60,5 +71,10 @@
     }
     .table-hover{
         width:100%
+    }
+    img{
+        width:100%;
+        background-color: rgb(115, 185, 239);
+        
     }
 }

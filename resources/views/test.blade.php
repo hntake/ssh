@@ -1,10 +1,9 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
-<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
 <title>テスト画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
 
 <div class="header-logo-menu">
@@ -53,18 +52,12 @@
         <table class="table-box" style="border:solid 1px gray; margin:0 auto;">
             <thead>
                 <tr style="background-color:darkseagreen">
-                    <th style="width:10%">学年</th>
-                    <th style="width:15%">教科書名</th>
                     <th style="width:15%">テスト名</th>
-                    <th style="width:15%">作成者</th>
                 </tr>
             </thead>
             <tbody id="tbl">
                 <tr>
-                    <td>{{ $word->Type->type }}</td>
-                    <td>{{ $word->Textbook->textbook }}</td>
                     <td>{{ $word->test_name }}</td>
-                    <td>{{ $word->user_name }}</td>
                 </tr>
             </tbody>
             <table class="table-all">
@@ -141,3 +134,7 @@
     </form>
 </div>
 @endsection
+<div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://itcha50.com/profile" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
+<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="現在のポイントは{{ $user->point }}です" data-show-count="false">Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

@@ -75,7 +75,6 @@
         <tbody id="tbl">
             @foreach ($words as $word)
             <tr>
-                @if(!$word->created_at <$hour)
                 <td>{{ $word->Type->type }}</td>
                 <td>{{ $word->Textbook->textbook }}</td>
                 <td>{{ $word->test_name }}</td>
@@ -84,14 +83,6 @@
                 <td>
                     <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
                 </td>
-                @else
-                <td>{{ $word->Type->type }}</td>
-                <td>{{ $word->Textbook->textbook }}</td>
-                <td>{{ $word->test_name }}</td>
-                <td>{{ $word->user_name }}</td>
-                <td>{{\Carbon\Carbon::parse($word->created_at)->toDateString() }}</td>
-                <td>承認待ち</td>
-                @endif
                 @endforeach
             </tr>
         </tbody>
