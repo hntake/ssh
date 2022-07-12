@@ -38,16 +38,16 @@
         <div class="create">
             <table class="create">
                 <div class="formdrop">
-                    <p>学年を選んでください</p>
+                    <p>①学年かその他を<br>選んでください</p>
                     {{ Form::select('type',$types, null, ['class' => 'form', 'id' => 'type']) }}
                 </div>
 
                 <div class="formdrop">
-                    <p>教科書名かその他を選んでください</p>
+                    <p>②教科書名かその他を<br>選んでください</p>
                     {{ Form::select('textbook',$textbooks, null, ['class' => 'form', 'id' => 'textbook']) }}
                 </div>
                 <div class="radio_box">
-                  <p style="margin-bottom:0;">①単元を選択</p><br>
+                  <p style="margin-bottom:0;">③単元を選択</p><br>
                     <div class="radio">
                         <input  class="visually-hidden" type="radio" name="test_type" id="test_type1" class="form-control"  value="Lesson" />
                         <label id="test" for="test_type1"> Lesson</label>
@@ -60,7 +60,7 @@
                         <input  class="visually-hidden" type="radio" name="test_type" id="test_type3" class="form-control" value=""/>
                         <label id="test"for="test_type3">その他</label>
                     </div><br>
-                    <p style="border-top:solid 1px black;">②テスト名を記入</p>
+                    <p style="border-top:solid 1px black;">④テスト名を記入</p>
                     <span style="background-color:lightblue;margin-left:5px;">(例)1-1や動物など</span>
                     <div class="radio-text">
                         <input type="text"name="test_name" id="test_name" class="form-control" size="15"  placeholder="テスト名を入力" value="{{ old('test_name') }}" style="width:200px;">

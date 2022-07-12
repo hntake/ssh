@@ -49,6 +49,12 @@ img{
     height: auto;
     margin: 0;
 }
+table {
+    border-collapse:  collapse;     /* セルの線を重ねる */
+}
+th, td {
+    border:1px solid #333;
+  }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 .testtable-responsive{
 /*     width: max-content;
@@ -75,6 +81,6 @@ img{
     img{
         width:100%;
         background-color: rgb(115, 185, 239);
-        
+
     }
 }
