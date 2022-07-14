@@ -72,6 +72,9 @@
                     </table>
                 </div>
             </div>
+            <div class="individual">
+                <a href="{{ route('individual',['id'=>Auth::user()->school])}}">個別データ検索へ</a>
+            </div>
             <div class="admincard">
                 <div class="school">
                     <div class="button"><a href="{{ route('point') }}">全体ランキング表示</a></div>

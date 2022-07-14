@@ -70,6 +70,7 @@ Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypict
 /*テスト採点*/
 Route::post('/result/{id}', [App\Http\Controllers\TestController::class,'result'])->name('result');
 
+
 //メール確認済みのユーザーのみ
 Route::middleware(['verified'])->group(function(){
 /*ホーム画面*/
@@ -120,9 +121,15 @@ Auth::routes(['verify' => true]);
 Route::get('/admin/login', function () {
     return view('adminLogin');
 })->middleware('guest:admin'); // ここ
-
+/*管理者ダッシュボード*/
 Route::get('/admin',[App\Http\Controllers\TestController::class,'by_school'])->name('admin-home')
 ->middleware('auth:admin');
+/*個別データ検索へ*/
+Route::get('/individual/{id}',[App\Http\Controllers\TestController::class,'individual'])->name('individual');
+/*個別データ検索結果へ*/
+Route::get('/individual_search',[App\Http\Controllers\TestController::class,'individual_search'])->name('individual_search');
+/*個別履歴表示*/
+Route::get('/id_view/{id}', [App\Http\Controllers\HomeController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
 
 Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
 

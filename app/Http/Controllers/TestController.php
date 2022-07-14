@@ -17,83 +17,114 @@ use Carbon\Carbon;
 class TestController extends Controller
 {
     /*選択したテスト表示*/
-    public function test(Request $request,$id)
+    public function test(Request $request, $id)
     {
         $word = Word::where('id', $request->id)->first();
-        return view('test',[
+        return view('test', [
             'id' => $id,
             'word' => $word,
         ]);
-
     }
     /*全履歴*/
     public function history(Request $request)
     {
-        $histories = History::orderBy('created_at','desc')->paginate(15);
-        return view('history',[
+        $histories = History::orderBy('created_at', 'desc')->paginate(15);
+        return view('history', [
             'histories' => $histories,
 
         ]);
-
     }
     /*学校ごと履歴*/
     public function by_school(Request $request)
     {
-        $histories = History::where('school', '=', Auth::user()->school )->orderBy('created_at')->paginate(5);
-        $users = User::where('school1', '=', Auth::user()->school)->orWhere('school2', '=', Auth::user()->school)->orderBy('point','desc')->paginate(15);
-        return view('admin',[
+        $histories = History::where('school', '=', Auth::user()->school)->orderBy('created_at')->paginate(5);
+        $users = User::where('school1', '=', Auth::user()->school)->orWhere('school2', '=', Auth::user()->school)->orderBy('point', 'desc')->paginate(15);
+        return view('admin', [
             'histories' => $histories,
-            'users' =>$users,
+            'users' => $users,
+        ]);
+    }
+    /*個別データ検索へ*/
+    public function individual(Request $request,$id)
+    {
+        /*入力ワード*/
+        $searchWord = $request->input('searchWord');
+        /*検索対象データ*/
+        $query = User::where('school1', '=', $id)->orWhere('school2', '=', $id);
+        /*'name'で検索*/
+        if(!empty($searchWord)) {
+            $query->where('name', 'LIKE', "%{$searchWord}%");
+        }
+
+        $users = $query->orderBy('id', 'desc')->paginate(10);
+
+
+        return view('individual', [
+            'users' => $users,
+        ]);
+    }
+    public function individual_search(Request $request,$id)
+    {
+        $searchWord = $request->input('searchWord');
+
+        $query = User::where('school1', '=', $id)->orWhere('school2', '=', $id);
+        if (isset($searchWord)) {
+            $query->where('name', 'like', '%' . self::escapeLike($searchWord) . '%');
+        }
+
+        $users = $query->orderBy('id', 'desc')->paginate(10);
+
+
+        return view('individual', [
+            'users' => $users,
+            'searchWord' => $searchWord,
         ]);
     }
     /*データ抽出*/
 
-    public function select_today(Request $request,$id)
+    public function select_today(Request $request, $id)
     {
-        $date=new Carbon('now');
-        $results=History::where('school', '=', $id)->whereDate('created_at','>=',$date->subDay())->get();
-        return view('select_result',[
-            'results'=>$results,
+        $date = new Carbon('now');
+        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $date->subDay())->get();
+        return view('select_result', [
+            'results' => $results,
         ]);
-
     }
-    public function select_week(Request $request,$id)
+    public function select_week(Request $request, $id)
     {
-        $sevendays=Carbon::today()->subDay(7);
-        $results=History::where('school', '=', $id)->whereDate('created_at','>=', $sevendays)->get();
-        return view('select_result',[
-            'results'=>$results,
+        $sevendays = Carbon::today()->subDay(7);
+        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $sevendays)->get();
+        return view('select_result', [
+            'results' => $results,
         ]);
-
     }
-    public function select_twoweeks(Request $request,$id)
+    public function select_twoweeks(Request $request, $id)
     {
-        $twoweeks=Carbon::today()->subDay(14);
-        $results=History::where('school', '=', $id)->whereDate('created_at','>=', $twoweeks)->get();
-        return view('select_result',[
-            'results'=>$results,
+        $twoweeks = Carbon::today()->subDay(14);
+        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $twoweeks)->get();
+        return view('select_result', [
+            'results' => $results,
         ]);
-
     }
-    public function select_month(Request $request,$id)
+    public function select_month(Request $request, $id)
     {
-        $date=new Carbon('now');
-        $results=History::where('school', '=', $id)->whereDate('created_at','>=', $date->subMonth())->get();
-        return view('select_result',[
-            'results'=>$results,
+        $date = new Carbon('now');
+        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $date->subMonth())->get();
+        return view('select_result', [
+            'results' => $results,
         ]);
-
     }
 
 
-/**
- * 採点ボタン→①履歴作成②テスト採点③ポイント付与
-* @param  Request  $request
-* @return Response
-*/
-    public function result(Request $request, $id){
+    /**
+     * 採点ボタン→①履歴作成②テスト採点③ポイント付与
+     * @param  Request  $request
+     * @return Response
+     */
+    public function result(Request $request, $id)
+    {
 
-        $validate = $request -> validate([
+        $validate = $request->validate([
             'en1' => 'required|max:25',
             'en2' => 'required|max:25',
             'en3' => 'required|max:25',
@@ -110,187 +141,173 @@ class TestController extends Controller
 
 
         /**テスト採点 */
-        $words =Word::all();
-        foreach($words as $words){
+        $words = Word::all();
+        foreach ($words as $words) {
             $words = Word::where('id', $id)->first();
 
-            $score=0;
-            if ($request->en1 === $words->en1){
-                $score =$score + 1;
-                $result1="O";
+            $score = 0;
+            if ($request->en1 === $words->en1) {
+                $score = $score + 1;
+                $result1 = "O";
+            } else {
+                $result1 = "X";
             }
-            else{
-                $result1="X";
+            if ($request->en2 === $words->en2) {
+                $score = $score + 1;
+                $result2 = "O";
+            } else {
+                $result2 = "X";
             }
-            if($request->en2 === $words->en2){
-                $score =$score +1;
-                $result2="O";
+            if ($request->en3 === $words->en3) {
+                $score = $score + 1;
+                $result3 = "O";
+            } else {
+                $result3 = "X";
             }
-            else{
-                $result2="X";
+            if ($request->en4 === $words->en4) {
+                $score = $score + 1;
+                $result4 = "O";
+            } else {
+                $result4 = "X";
             }
-            if($request->en3 === $words->en3){
-                $score =$score +1;
-                $result3="O";
+            if ($request->en5 === $words->en5) {
+                $score = $score + 1;
+                $result5 = "O";
+            } else {
+                $result5 = "X";
             }
-            else{
-                $result3="X";
+            if ($request->en6 === $words->en6) {
+                $score = $score + 1;
+                $result6 = "O";
+            } else {
+                $result6 = "X";
             }
-            if($request->en4 === $words->en4){
-                $score =$score +1;
-                $result4="O";
+            if ($request->en7 === $words->en7) {
+                $score = $score + 1;
+                $result7 = "O";
+            } else {
+                $result7 = "X";
             }
-            else{
-                $result4="X";
+            if ($request->en8 === $words->en8) {
+                $score = $score + 1;
+                $result8 = "O";
+            } else {
+                $result8 = "X";
             }
-            if($request->en5 === $words->en5){
-                $score =$score +1;
-                $result5="O";
+            if ($request->en9 === $words->en9) {
+                $score = $score + 1;
+                $result9 = "O";
+            } else {
+                $result9 = "X";
             }
-            else{
-                $result5="X";
+            if ($request->en10 === $words->en10) {
+                $score = $score + 1;
+                $result10 = "O";
+            } else {
+                $result10 = "X";
             }
-            if($request->en6 === $words->en6){
-                $score =$score +1;
-                $result6="O";
-            }
-            else{
-                $result6="X";
-            }
-            if($request->en7 === $words->en7){
-                $score =$score +1;
-                $result7="O";
-            }
-            else{
-                $result7="X";
-            }
-            if($request->en8 === $words->en8){
-                $score =$score +1;
-                $result8="O";
-            }
-            else{
-                $result8="X";
-            }
-            if($request->en9 === $words->en9){
-                $score =$score +1;
-                $result9="O";
-            }
-            else{
-                $result9="X";
-            }
-            if($request->en10 === $words->en10){
-                $score =$score +1;
-                $result10="O";
-            }
-            else{
-                $result10="X";
-            }
-
         }
         /*テスト作成者へのポイント付与*/
-        $tspoint=Word::find($request->user_name);
-        $crpoint = User::where('user_name', '=',$tspoint->user_name)->value('point');
-        $crnewpoint = $crpoint +1;
+        $tspoint = Word::find($request->user_name);
+        $crpoint = User::where('user_name', '=', $tspoint->user_name)->value('point');
+        $crnewpoint = $crpoint + 1;
         $crpoint = User::where('user_name', '=', $tspoint->user_name)
-        ->update([
-            'point'=>$crnewpoint
-        ]);
+            ->update([
+                'point' => $crnewpoint
+            ]);
         /*ログインしていたら*/
         if (Auth::check()) {
-         /**テスト実践によるポイント付与 */
-        $point = User::where('id','=',Auth::id())
-         ->value('point');
-         if($score>8){
-             $newpoint = $point +3;
-         }
-         elseif($score>5){
-             $newpoint = $point +2;
-         }
-         else{
-             $newpoint =$point +1;
-         }
-        $point = User::where('id','=',Auth::id())
-        ->update([
-            'point' => $newpoint
-        ]);
-        /*履歴作成*/
-        $word = Word::find($id);
-        $user = Auth::user();
-        $history = new History;
-        $history->test_id =$word->id;
-        $history->type =$word->type;
-        $history->textbook =$word->textbook;
-        $history->test_name =$word->test_name;
-        $history->user_name =$word->user_name;
-        $history->tested_user =$user->user_name;
-        $history->tested_name =$user->name;
-        $history->school =$user->school1;
-        $history->save();
-        if(isset($user->school2)){
+            /**テスト実践によるポイント付与 */
+            $point = User::where('id', '=', Auth::id())
+                ->value('point');
+            if ($score > 8) {
+                $newpoint = $point + 3;
+            } elseif ($score > 5) {
+                $newpoint = $point + 2;
+            } else {
+                $newpoint = $point + 1;
+            }
+            $point = User::where('id', '=', Auth::id())
+                ->update([
+                    'point' => $newpoint
+                ]);
+            /*履歴作成*/
+            $word = Word::find($id);
+            $user = Auth::user();
             $history = new History;
-            $history->test_id =$word->id;
-            $history->type =$word->type;
-            $history->textbook =$word->textbook;
-            $history->test_name =$word->test_name;
-            $history->user_name =$word->user_name;
-            $history->tested_user =$user->user_name;
-            $history->tested_name =$user->name;
-            $history->school =$user->school2;
+            $history->test_id = $word->id;
+            $history->type = $word->type;
+            $history->textbook = $word->textbook;
+            $history->test_name = $word->test_name;
+            $history->user_name = $word->user_name;
+            $history->tested_user = $user->user_name;
+            $history->tested_name = $user->name;
+            $history->school = $user->school1;
             $history->save();
-        }
+            if (isset($user->school2)) {
+                $history = new History;
+                $history->test_id = $word->id;
+                $history->type = $word->type;
+                $history->textbook = $word->textbook;
+                $history->test_name = $word->test_name;
+                $history->user_name = $word->user_name;
+                $history->tested_user = $user->user_name;
+                $history->tested_name = $user->name;
+                $history->school = $user->school2;
+                $history->save();
+            }
 
-            return view('result',[
+            return view('result', [
                 'id' => $id,
                 'word' => $word,
-                'score'=> $score,
-                'result1'=>$result1,
-                'result2'=>$result2,
-                'result3'=>$result3,
-                'result4'=>$result4,
-                'result5'=>$result5,
-                'result6'=>$result6,
-                'result7'=>$result7,
-                'result8'=>$result8,
-                'result9'=>$result9,
-                'result10'=>$result10,
+                'score' => $score,
+                'result1' => $result1,
+                'result2' => $result2,
+                'result3' => $result3,
+                'result4' => $result4,
+                'result5' => $result5,
+                'result6' => $result6,
+                'result7' => $result7,
+                'result8' => $result8,
+                'result9' => $result9,
+                'result10' => $result10,
 
-        ]);
-    }
-        /*非ログインなら*/
-        else{
+            ]);
+        }
+        /*非ログインなら*/ else {
             $word = Word::find($id);
             $history = new History;
-            $history->test_id =$word->id;
-            $history->type =$word->type;
-            $history->textbook =$word->textbook;
-            $history->test_name =$word->test_name;
-            $history->user_name =$word->user_name;
-            $history->tested_user ="非ユーザー";
-            $history->tested_name ="非ユーザー";
-            $history->school ="非ユーザー";
+            $history->test_id = $word->id;
+            $history->type = $word->type;
+            $history->textbook = $word->textbook;
+            $history->test_name = $word->test_name;
+            $history->user_name = $word->user_name;
+            $history->tested_user = "非ユーザー";
+            $history->tested_name = "非ユーザー";
+            $history->school = "非ユーザー";
             $history->save();
         }
-            return view('result',[
-                'id' => $id,
-                'word' => $word,
-                'score'=> $score,
-                'result1'=>$result1,
-                'result2'=>$result2,
-                'result3'=>$result3,
-                'result4'=>$result4,
-                'result5'=>$result5,
-                'result6'=>$result6,
-                'result7'=>$result7,
-                'result8'=>$result8,
-                'result9'=>$result9,
-                'result10'=>$result10,
+        return view('result', [
+            'id' => $id,
+            'word' => $word,
+            'score' => $score,
+            'result1' => $result1,
+            'result2' => $result2,
+            'result3' => $result3,
+            'result4' => $result4,
+            'result5' => $result5,
+            'result6' => $result6,
+            'result7' => $result7,
+            'result8' => $result8,
+            'result9' => $result9,
+            'result10' => $result10,
         ]);
-        }
+    }
 
     public function answer(Request $request, $id)
     {
         $word = Word::where('id', $request->id)->first();
-        return view('answer',[
+        return view('answer', [
             'id' => $id,
             'word' => $word,
         ]);
@@ -303,24 +320,25 @@ class TestController extends Controller
      */
     public function create_index(Request $request)
     {
-        $words= Word::where('id', $request->id)->get();
-        $types = Type:: all()->pluck('type', 'id');
-        $textbooks = Textbook:: all()->pluck('textbook', 'id');
-        return view('create',[
-            'words' =>$words,
-            'types' =>$types,
-            'textbooks' =>$textbooks,
+        $words = Word::where('id', $request->id)->get();
+        $types = Type::all()->pluck('type', 'id');
+        $textbooks = Textbook::all()->pluck('textbook', 'id');
+        return view('create', [
+            'words' => $words,
+            'types' => $types,
+            'textbooks' => $textbooks,
         ]);
     }
-     /**
+    /**
      * 新しいテストを作成し保存＆ポイント付与
      *
      * @param  Request  $request
      * @return Response
      */
-    public function create(Request $request){
+    public function create(Request $request)
+    {
 
-        $validate = $request -> validate([
+        $validate = $request->validate([
             'type' => 'required',
             'textbook' => 'required',
             'test_name' => 'required|max:25',
@@ -351,9 +369,9 @@ class TestController extends Controller
         $word = new Word;
         $word->type = $request->type;
         $word->textbook = $request->textbook;
-        $word->test_name = $request->test_type.$request->test_name;
-        $word->user_name =User::where('id','=',Auth::id())
-        ->value('user_name');
+        $word->test_name = $request->test_type . $request->test_name;
+        $word->user_name = User::where('id', '=', Auth::id())
+            ->value('user_name');
         $word->ja1 = $request->ja1;
         $word->ja2 = $request->ja2;
         $word->ja3 = $request->ja3;
@@ -376,30 +394,29 @@ class TestController extends Controller
         $word->en10 = $request->en10;
         $word->save();
         /**作成によるポイント付与 */
-        $point = User::where('id','=',Auth::id())
+        $point = User::where('id', '=', Auth::id())
             ->value('point');
 
-        $newpoint = $point +3;
-        $point = User::where('id','=',Auth::id())
-        ->update([
-            'point' => $newpoint
-        ]);
+        $newpoint = $point + 3;
+        $point = User::where('id', '=', Auth::id())
+            ->update([
+                'point' => $newpoint
+            ]);
 
         $words = Word::orderBy('created_at', 'desc')->paginate(15);
         $user = Auth::user();
         $count = Nice::where('created_id',  '=', Auth::user()->id)->count();
         $follower = Nice::where('user_id', '=', Auth::user()->id)->pluck('created_id')->toArray();
-        $nices =User:: where('id', '=',$follower)->pluck('user_name')->toArray();
+        $nices = User::where('id', '=', $follower)->pluck('user_name')->toArray();
         $point = $newpoint;
         return redirect('all_list');
-     /*    return view('profile', [
+        /*    return view('profile', [
             'words'=>$words,
             'user'=>$user,
             'count'=>$count,
             'nices'=>$nices,
             'point'=>$point
         ]); */
-
     }
 
     /**
@@ -408,7 +425,7 @@ class TestController extends Controller
      * @param Request $request
      * @return Response
      */
-   #
+    #
     /**検索画面へ */
     public function show(Request $request)
     {
@@ -433,7 +450,7 @@ class TestController extends Controller
         $textbookId = $request->input('textbookId'); //カテゴリの値
 
         $query = Word::query();
-       /*  $date = Carbon::now();
+        /*  $date = Carbon::now();
         $hour =$date->addHour(6);
         $query=$query->where('created_at','<',$hour); */
         //商品名が入力された場合、m_productsテーブルから一致する商品を$queryに代入
@@ -452,8 +469,8 @@ class TestController extends Controller
         $words = $query->orderBy('id', 'desc')->paginate(10);
 
         //m_categoriesテーブルからgetLists();関数でtype_nameとidを取得する
-        $types = Type::pluck('type','id');
-        $textbooks = Textbook::pluck('textbook','id');
+        $types = Type::pluck('type', 'id');
+        $textbooks = Textbook::pluck('textbook', 'id');
 
         return view('search_result', [
             'words' => $words,
@@ -472,17 +489,17 @@ class TestController extends Controller
     }
 
     /*並び替え機能*/
-    public function sort (Request $request)
+    public function sort(Request $request)
     {
-        $select =$request->narabi;
-        if($select == 'asc'){
-            $words =Word::orderBy('created_at', 'asc')->paginate(15);
-        } elseif($select == 'desc') {
-            $words =Word::orderBy('created_at', 'desc')->paginate(15);
+        $select = $request->narabi;
+        if ($select == 'asc') {
+            $words = Word::orderBy('created_at', 'asc')->paginate(15);
+        } elseif ($select == 'desc') {
+            $words = Word::orderBy('created_at', 'desc')->paginate(15);
         } else {
-            $words =Word::all();
+            $words = Word::all();
         }
-       /*  dd($select); */
+        /*  dd($select); */
         return view('all_list', compact('words'));
     }
     /**
@@ -491,14 +508,13 @@ class TestController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function edit(Request $request,$id)
+    public function edit(Request $request, $id)
     {
         $word = Word::where('id', $request->id)->first();
-        return view('edit',[
+        return view('edit', [
             'id' => $id,
             'word' => $word,
         ]);
-
     }
     /**
      * 選択したリストを削除
@@ -510,7 +526,5 @@ class TestController extends Controller
     {
         $word = Word::where('id', $request->id)->delete();
         return redirect('profile');
-
     }
-
 }

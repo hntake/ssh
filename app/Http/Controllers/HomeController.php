@@ -51,6 +51,17 @@ class HomeController extends Controller
             ]);
         }
     }
+    public function id_view( Request $request, $id)
+    {
+            $user = User::where('id', $request->id)->first();
+            $test_ids = History::where('tested_user', '=',$user)->get()->pluck('test_id')->toArray();
+
+            $words = Word::whereIn('id', $test_ids)->paginate(15);
+            return view('id_view', [
+                'words' => $words,
+            ]);
+        }
+
     /**全リスト */
     public function list()
     {
