@@ -34,15 +34,11 @@
     <table class="table-hover">
     <thead>
                 <tr style="background-color:darkseagreen">
-                    <th style="width:5%">学年</th>
-                    <th style="width:20%">教科書名</th>
                     <th style="width:20%">テスト名</th>
                 </tr>
             </thead>
             <tbody id="tbl">
                 <tr>
-                    <td><input type="text" name="type" value="{{ $word->Type->type }}" class="form-control"></td>
-                    <td><input type="text" name="textbook" value="{{ $word->Textbook->textbook }}" class="form-control"></td>
                     <td><input type="text" name="test_name" value="{{ $word->test_name }}" class="form-control"></td>
                 </tr>
             </tbody>
