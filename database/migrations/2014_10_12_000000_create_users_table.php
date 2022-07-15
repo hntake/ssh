@@ -17,8 +17,8 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('user_name')->unique();
-            $table->string('school1')->nullable()->default('未選択')->index();
-            $table->string('school2')->nullable()->default('未選択')->index();
+            $table->string('school1')->nullable()->default('000')->index();
+            $table->string('school2')->nullable()->default('000')->index();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
