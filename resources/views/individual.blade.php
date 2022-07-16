@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
-<title>ユーザー検索画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<title>個別データ検索画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 
 @section('content')
 
@@ -13,7 +13,7 @@
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
             <ul>
-                <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
+                <li><a href="{{ url('admin') }}"><h3>管理者画面に戻る</h3></a></li>
                 <li><a href="{{ url('history') }}"><h3>全履歴</h3></a></li>
                 <li><a href="{{ url('profile') }}"><h3>Myページ</h3></a></li>
                 <li><a href="{{ url('all_list') }}"><h3>テスト一覧</h3></a></li>
@@ -33,19 +33,18 @@
 </div>
 
 <div class="searchtable-responsive" >
-        <div class="test">
-      <br>
-      <h2 class="text-center">ユーザー検索画面</h2>
+    <div class="test">
+      <h2 class="text-center">個別データ検索画面</h2>
       <br>
       <!--検索フォーム-->
       <div class="row">
         <div class="col-sm">
-          <form method="GET" action="{{ route('individual',['id'])}}">
+        <form method="GET" action="{{ route('individual',['id' => $id])}}">
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" >ユーザー名</label>
               <!--入力-->
               <div class="col-sm-5">
-              <input type="text" name="searchWord" placeholder="検索したい生徒名を入力してください">
+              <input type="text" name="searchWord" placeholder="検索したい生徒名を入力してください" value="{{ $searchWord }}">
               </div>
               <div class="col-sm-auto">
                 <button type="submit" class="btn btn-primary ">生徒検索</button>

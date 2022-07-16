@@ -34,12 +34,16 @@
     <table class="table-hover">
     <thead>
                 <tr style="background-color:darkseagreen">
+                    <th style="width:20%"></th>
                     <th style="width:20%">テスト名</th>
+                    <th style="width:20%"></th>
                 </tr>
             </thead>
             <tbody id="tbl">
                 <tr>
+                    <td></td>
                     <td><input type="text" name="test_name" value="{{ $word->test_name }}" class="form-control"></td>
+                    <td></td>
                 </tr>
             </tbody>
         <thead>

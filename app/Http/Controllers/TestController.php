@@ -47,39 +47,25 @@ class TestController extends Controller
     /*個別データ検索へ*/
     public function individual(Request $request,$id)
     {
-        /*入力ワード*/
+        /*入力ワード受け取り*/
         $searchWord = $request->input('searchWord');
-        /*検索対象データ*/
+        /*検索対象データ*///クエリ生成
         $query = User::where('school1', '=', $id)->orWhere('school2', '=', $id);
-        /*'name'で検索*/
+        //名前が入力された場合、ユーザーテーブルから一致する名前を$queryに代入
         if(!empty($searchWord)) {
-            $query->where('name', 'LIKE', "%{$searchWord}%");
+            $query = User::where('name', 'LIKE', "%{$searchWord}%")->where('school1', '=', $id)->orWhere('school2', '=', $id);
         }
-
+        //$queryをtuser_idの昇順に並び替えて$usersに代入
         $users = $query->orderBy('id', 'desc')->paginate(10);
 
 
         return view('individual', [
-            'users' => $users,
-        ]);
-    }
-    public function individual_search(Request $request,$id)
-    {
-        $searchWord = $request->input('searchWord');
-
-        $query = User::where('school1', '=', $id)->orWhere('school2', '=', $id);
-        if (isset($searchWord)) {
-            $query->where('name', 'like', '%' . self::escapeLike($searchWord) . '%');
-        }
-
-        $users = $query->orderBy('id', 'desc')->paginate(10);
-
-
-        return view('individual', [
+            'id' => $id,
             'users' => $users,
             'searchWord' => $searchWord,
         ]);
     }
+
     /*データ抽出*/
 
     public function select_today(Request $request, $id)

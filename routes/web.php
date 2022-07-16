@@ -43,9 +43,7 @@ Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'adm
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
 /*全テスト画面へ*/
 Route::get('all_list',[App\Http\Controllers\HomeController::class,'list'])->name('list');
-/*検索画面へ*/
-/* Route::get('search',[App\Http\Controllers\TestController::class,'search'])->name('search');
- *//*テスト検索する*/
+ /*テスト検索する*/
 Route::get('search_result',[App\Http\Controllers\TestController::class,'search_result'])->name('search_result');
 /*ユーザー検索する*/
 Route::get('search_user',[App\Http\Controllers\HomeController::class,'search_user'])->name('search_user');
@@ -64,7 +62,6 @@ Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class,'
 
 //送信完了ページ
 Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
-/* Auth::routes();*/
 /*他人のプロフィール画面へ*/
 Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
 /*テスト採点*/
@@ -124,10 +121,9 @@ Route::get('/admin/login', function () {
 /*管理者ダッシュボード*/
 Route::get('/admin',[App\Http\Controllers\TestController::class,'by_school'])->name('admin-home')
 ->middleware('auth:admin');
-/*個別データ検索へ*/
+/*個別データ検索*/
 Route::get('/individual/{id}',[App\Http\Controllers\TestController::class,'individual'])->name('individual');
-/*個別データ検索結果へ*/
-Route::get('/individual_search',[App\Http\Controllers\TestController::class,'individual_search'])->name('individual_search');
+
 /*個別履歴表示*/
 Route::get('/id_view/{id}', [App\Http\Controllers\HomeController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
 

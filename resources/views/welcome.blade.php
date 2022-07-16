@@ -78,12 +78,12 @@
         </div>
         <footer>
   	        <p>© All rights reserved by llco</p>
-              <div class="contact">
+            <!--   <div class="contact">
                   <h3>
                     教育関係者向けモニタリングサービス（有料）の案内
                   </h3>
                   <a href="{{ url('monitor') }}" class="button" style="font-size: 1.0rem; font-weight: 700;letter-spacing: normal;text-decoration: none;color: aliceblue;">モニタリングサービス</a>
-               </div>
+               </div> -->
               <div class="contact">
                   <h3>
                       お問い合わせ・ご質問はこちら迄

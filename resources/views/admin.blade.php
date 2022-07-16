@@ -63,7 +63,7 @@
                         <tbody id="tbl">
                             @foreach ($users as $user)
                             <tr>
-                                <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->name }}</a></td>
+                                <td>{{ $user->name }}</a></td>
                                 <td>{{ $user->point }}</td>
                                 <td>{{ \Carbon\Carbon::parse($user->updated_at)->toDateString()}}</td>
                                 @endforeach
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="individual">
-                <a href="{{ route('individual',['id'=>Auth::user()->school])}}">個別データ検索へ</a>
+            <div class="button"><a href="{{ route('individual',['id'=>Auth::user()->school])}}">個別データ検索へ</a></div>
             </div>
             <div class="admincard">
                 <div class="school">
