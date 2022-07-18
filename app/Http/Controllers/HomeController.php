@@ -53,27 +53,15 @@ class HomeController extends Controller
     }
     public function id_view( Request $request, $id)
     {
-            $user = User::where('id', $request->id)->first();
+            $user = User::where('id', '=',$id)->pluck('user_name');
             $test_ids = History::where('tested_user', '=',$user)->get()->pluck('test_id')->toArray();
-
-            $words = Word::whereIn('id', $test_ids)->paginate(15);
+            $histories = History::whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(15);
             return view('id_view', [
-                'words' => $words,
+                'histories' => $histories,
             ]);
         }
 
-    /**全リスト */
-    public function list()
-    {
-        $date = Carbon::now();
-   /*      $hour =$date->addHour(6); */
-        $words = Word::orderBy('created_at', 'desc')->paginate(10);
-        return view('all_list', [
-            'words' => $words,
-            'date' =>$date,
-/*             'hour'=>$hour,
- */        ]);
-    }
+
     /*プロフィールページ*/
     public function profile(Request $request)
     {
@@ -103,20 +91,7 @@ class HomeController extends Controller
             'images'=>$images,
         ]);
     }
-    /*他人のプロフィール画面表示*/
-    public function mypicture( Request $request, $id)
-    {
-        $user = User::where('id', $request->id)->first();
-        $words = Word::where('user_name', '=', $user->user_name)->get();
-        $nice=Nice::where('created_id', $request->id)->where('user_id', auth()->user()->id)->first();
-        $count = Nice::where('created_id', $request->id)->count();
-        return view('mypicture', [
-            'user' => $user,
-            'words' => $words,
-            'nice' => $nice,
-            'count' =>$count,
-        ]);
-    }
+
     /**
      * 選択したユーザーの編集画面へ
      *

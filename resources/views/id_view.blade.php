@@ -14,27 +14,10 @@
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
             <ul>
-                <li><a href="{{ url('home') }}">
-                        <h3>ホーム画面に戻る</h3>
-                    </a></li>
-                <li><a href="{{ url('history') }}">
-                        <h3>全履歴</h3>
-                    </a></li>
-                <li><a href="{{ url('profile') }}">
-                        <h3>Myページ</h3>
-                    </a></li>
-                <li><a href="{{ url('all_list') }}">
-                        <h3>テスト一覧</h3>
-                    </a></li>
-                <li><a href="{{ url('create') }}">
-                        <h3>新規作成</h3>
-                    </a></li>
-                <li><a href="{{ url('search_result') }}">
-                        <h3>テスト検索</h3>
-                    </a></li>
-                <li><a href="{{ url('search_user') }}">
-                        <h3>ユーザー検索</h3>
-                    </a></li>
+            <li><a href="{{ url('admin') }}"><h3>管理者画面に戻る</h3></a></li>
+                <li><a href="{{ url('all_list') }}"><h3>テスト一覧</h3></a></li>
+                <li><a href="{{ url('search_result') }}"><h3>テスト検索</h3></a></li>
+                <li><a href="{{ url('search_user') }}"><h3>ユーザー検索</h3></a></li>
             </ul>
         </div>
         <script>
@@ -51,23 +34,25 @@
     <table class="table-all">
         <thead>
             <tr>
-                <th style="width:20%">学年</th>
+                <th style="width:10%">学年</th>
                 <th style="width:20%">教科書名</th>
                 <th style="width:20%">テスト名</th>
-                <th style="width:20%">作成者</th>
-                <th style="width:20%"></th>
+                <th style="width:20%">得点</th>
+                <th style="width:20%">利用日時</th>
+                <th style="width:10%"></th>
 
             </tr>
         </thead>
         <tbody id="tbl">
-            @foreach ($words as $word)
+            @foreach ($histories as $history)
             <tr>
-                <td>{{ $word->Type->type }}</td>
-                <td>{{ $word->Textbook->textbook }}</td>
-                <td>{{ $word->test_name }}</td>
-                <td>{{ $word->user_name }}</td>
+                <td>{{ $history->Type->type }}</td>
+                <td>{{ $history->Textbook->textbook }}</td>
+                <td>{{ $history->test_name }}</td>
+                <td>{{ $history->score }}</td>
+                <td>{{ $history->created_at}}</td>
                 <td>
-                    <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
+                    <div class="button"><a href="{{ route('test',['id'=>$history->id]) }}">表示</a></div>
                 </td>
 
                 @endforeach

@@ -14,10 +14,7 @@
         <div id="nav-content">
             <ul>
                 <li><a href="{{ url('admin') }}"><h3>管理者画面に戻る</h3></a></li>
-                <li><a href="{{ url('history') }}"><h3>全履歴</h3></a></li>
-                <li><a href="{{ url('profile') }}"><h3>Myページ</h3></a></li>
                 <li><a href="{{ url('all_list') }}"><h3>テスト一覧</h3></a></li>
-                <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
                 <li><a href="{{ url('search_result') }}"><h3>テスト検索</h3></a></li>
                 <li><a href="{{ url('search_user') }}"><h3>ユーザー検索</h3></a></li>
             </ul>

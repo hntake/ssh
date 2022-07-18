@@ -25,6 +25,12 @@ footer{
     width: 500px;
     border: none;
 }
+.llco{
+    background-color: lightgreen;
+}
+.rec img{
+
+}
 /*モニタリングツール紹介ページ*/
 .rule{
     width:75%;
@@ -57,6 +63,10 @@ footer{
         border: none;
     }
     .llco img{
+        width: 100%;
+        border: none;
+    }
+    .regist img{
         width: 100%;
         border: none;
     }

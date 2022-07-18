@@ -307,6 +307,10 @@ svg {
     width: 1000px;
     border: none;
 }
+.regist img{
+    width: 1000px;
+    border: none;
+}
 
 .image-list{
     display: table;

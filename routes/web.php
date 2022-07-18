@@ -42,7 +42,7 @@ Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'adm
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
 /*全テスト画面へ*/
-Route::get('all_list',[App\Http\Controllers\HomeController::class,'list'])->name('list');
+Route::get('all_list',[App\Http\Controllers\TestController::class,'list'])->name('list');
  /*テスト検索する*/
 Route::get('search_result',[App\Http\Controllers\TestController::class,'search_result'])->name('search_result');
 /*ユーザー検索する*/
@@ -63,7 +63,7 @@ Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class,'
 //送信完了ページ
 Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
 /*他人のプロフィール画面へ*/
-Route::get('/mypicture/{id}',[App\Http\Controllers\HomeController::class,'mypicture'])->name('mypicture');
+Route::get('/mypicture/{id}',[App\Http\Controllers\RankController::class,'mypicture'])->name('mypicture');
 /*テスト採点*/
 Route::post('/result/{id}', [App\Http\Controllers\TestController::class,'result'])->name('result');
 

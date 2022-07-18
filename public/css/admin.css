@@ -32,3 +32,17 @@ button.btn {
     position:absolute;
 
 }
+ul {
+    list-style: none;
+}
+.form{
+    border: solid 1px;
+    margin: 100px 100px;
+    width: fit-content;
+    padding-right: 100px;
+}
+@media (max-width: 480px){
+    .form{
+        margin:100px 0;
+    }
+}

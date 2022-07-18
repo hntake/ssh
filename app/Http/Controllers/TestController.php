@@ -16,6 +16,16 @@ use Carbon\Carbon;
 
 class TestController extends Controller
 {
+    /**全リスト */
+    public function list()
+    {
+        $date = Carbon::now();
+        $words = Word::orderBy('created_at', 'desc')->paginate(10);
+        return view('all_list', [
+            'words' => $words,
+            'date' =>$date,
+       ]);
+    }
     /*選択したテスト表示*/
     public function test(Request $request, $id)
     {
@@ -34,6 +44,7 @@ class TestController extends Controller
 
         ]);
     }
+
     /*学校ごと履歴*/
     public function by_school(Request $request)
     {
@@ -229,6 +240,7 @@ class TestController extends Controller
             $history->tested_user = $user->user_name;
             $history->tested_name = $user->name;
             $history->school = $user->school1;
+            $history->score = $score;
             $history->save();
             if (isset($user->school2)) {
                 $history = new History;
@@ -240,6 +252,7 @@ class TestController extends Controller
                 $history->tested_user = $user->user_name;
                 $history->tested_name = $user->name;
                 $history->school = $user->school2;
+                $history->score = $score;
                 $history->save();
             }
 

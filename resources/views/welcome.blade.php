@@ -67,13 +67,17 @@
                     <img src="img/welcome2.png" alt="welcome2">
                 </div>
             </div>
+            <div class="rec">
+                <h2>おススメの利用方法!!</h2>
+                <img src="img/recomend.png" alt="rec" style="width:60%;">
+            </div>
             <div class="llco">
             <a href="img/video.mp4" alt="llco"><img src="img/showvideo.png" alt="showvideo"></a>
             </div>
-            <div class="llco">
+            <div class="regist">
             <a href="{{ route('register') }}"><img src="img/welcome3.png" alt="llco"></a>
             </div>
-            <h2 style="font-family: 'Noto Sans JP', sans-serif; color:orangered">登録は無料です</h2>
+            <h2 style="font-family: 'Noto Sans JP', sans-serif; color:orangered">登録は完全無料です</h2>
             <p>画像をクリックすると登録画面に移動します↑</p>
         </div>
         <footer>
