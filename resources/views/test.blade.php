@@ -49,6 +49,7 @@
 <div class="test">
     <form class="form-inline" action="{{route('result',['id'=>$id])}}" method="POST">
         @csrf
+        @if (!empty($word))
         <table class="table-box" style="border:solid 1px gray; margin:0 auto;">
             <thead>
                 <tr style="background-color:darkseagreen">
@@ -122,6 +123,8 @@
 
 
                 </tbody>
+
+
             </table>
             @if ($errors->any())
             <p class="error-message">!! 空欄がないようにしてください !!</p>
@@ -132,10 +135,18 @@
                 </button>
             </div>
     </form>
+
 </div>
 
-@endsection
 <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://itcha50.com/test/{{$id}}" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
 <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="新しいテストを作ったよ！テスト名”{{ $word->test_name }}”" data-show-count="false">Tweet</a>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+@else
+<p>テストは削除されました。</p>
+@if(Route::has('auth.admin'))
+<p>管理者の方は</p>
+<a href="{{ url('admin') }}" class="center-button">管理者画面へ</a>
+@endif
+@endif
+@endsection

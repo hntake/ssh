@@ -50,11 +50,11 @@
                         <!-- Authentication Links -->
                         @guest
 
-                            @if (Route::has('login'))
+                        <!--     @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="button" href="{{ route('login') }}">{{ __('ログインする') }}</a>
                                 </li>
-                            @endif
+                            @endif -->
                             <!--モニター時は表から登録できない
                             @if (Route::has('register'))
                                 <li class="nav-item">
