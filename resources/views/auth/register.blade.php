@@ -43,7 +43,7 @@
                             <label for="school2" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号その２') }}</label>
                             <p>（二か所から番号をもらっているなら、ここにもう一つの番号を入力して下さい）</p>
                             <div class="col-md-6">
-                                <input id="school2" type="text" class="form-control " name="school2" value="{{ old('school2') }}" autocomplete="school2" autofocus>
+                                <input id="school2" type="text" class="form-control " name="school2" value="00000{{ old('school2') }}" autocomplete="school2" autofocus>
                             </div>
                         </div>
                         <div class="r-box">
