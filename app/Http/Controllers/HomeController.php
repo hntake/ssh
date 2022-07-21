@@ -221,7 +221,6 @@ class HomeController extends Controller
         $users = $query->orderBy('id', 'asc')->paginate(15);
 
 
-
         return view('search_user', [
             'users' => $users,
         ]);

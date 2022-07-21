@@ -212,6 +212,14 @@ class TestController extends Controller
             ->update([
                 'point' => $crnewpoint
             ]);
+        /*テスト利用回数カウント*/
+        $count =Word::where('id','=',$request->id)->value('count');
+        $newcount = $count +1;
+        $count =Word::where('id','=',$request->id)
+            ->update([
+                'count' =>$newcount
+            ]);
+
         /*ログインしていたら*/
         if (Auth::check()) {
             /**テスト実践によるポイント付与 */

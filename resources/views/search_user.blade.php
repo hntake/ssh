@@ -71,6 +71,11 @@
         <tr>
           <td>{{ $user->user_name }}</td>
           <td>{{$user->year }}</td>
+          @if(!$user->image == null)
+          <td><img src="{{ asset('storage/' . $user->image) }}" alt="image">
+          @else
+          <td><img src="/img/icon_man.png" alt="man_icon"></td>
+          @endif
           <td ><div  class="button"><a href="{{ route('mypicture',['id'=>$user->id]) }}">表示</a></div></td>
         </tr>
         @endforeach

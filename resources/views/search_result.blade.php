@@ -95,6 +95,7 @@
             <th style="width:20%">テスト名</th>
             <th style="width:20%">学年カテゴリ</th>
             <th style="width:20%">教科書名</th>
+            <th style="width:20%">作成者</th>
             <th style="width:20%"></th>
           </tr>
         </thead>
@@ -103,6 +104,7 @@
           <td>{{ $word->test_name }}</td>
           <td>{{ $word->Type->type }}</td>
           <td>{{ $word->Textbook->textbook }}</td>
+          <td>{{ $word->user_name}}</td>
           <td ><div  class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div></td>
         </tr>
         @endforeach

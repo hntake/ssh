@@ -15,7 +15,7 @@
             @endforeach
         @endif
         <div class="form">
-
+            <h2>管理者専用ログイン</h2>
 
             <form method="POST" action="{{ route("admin.login") }}">  {{--  routeはここと同じ --}}
                 @csrf
