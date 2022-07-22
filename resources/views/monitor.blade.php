@@ -36,9 +36,9 @@
 
                 </h3>
             </div>
-            <div class="video">
+        <!--     <div class="video">
                 <a href="img/monitor.mp4">こちらから動画で確認できます</a>
-            </div>
+            </div> -->
             <div class="monitor">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">管理者画面トップページ</h2>
                 <p>まずは、自分の生徒全体の利用履歴が最新順に表示されます</p>
