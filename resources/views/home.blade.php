@@ -46,34 +46,94 @@
         </script>
     </div>
 </div>
-<div class="testtable-responsive">
-    <p>My履歴</p>
-    <table class="table-all">
-        <thead>
-            <tr>
-                <th style="width:20%">学年</th>
-                <th style="width:20%">教科書名</th>
-                <th style="width:20%">テスト名</th>
-                <th style="width:20%">作成者</th>
-                <th style="width:20%"></th>
+<div class="wrap">
+    <div class="testtable-responsive">
+        <p>My履歴</p>
+        <table class="table-all">
+            <thead style="display:contents;">
+                <tr>
+                    <th style="width:20%">学年</th>
+                    <th style="width:20%">教科書名</th>
+                    <th style="width:20%">テスト名</th>
+                    <th style="width:20%">作成者</th>
+                    <th style="width:20%"></th>
 
-            </tr>
-        </thead>
-        <tbody id="tbl">
-            @foreach ($words as $word)
-            <tr>
-                <td>{{ $word->Type->type }}</td>
-                <td>{{ $word->Textbook->textbook }}</td>
-                <td>{{ $word->test_name }}</td>
-                <td>{{ $word->user_name }}</td>
-                <td>
-                    <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
-                </td>
+                </tr>
+            </thead>
+            <tbody id="tbl">
+                @foreach ($words as $word)
+                <tr>
+                    <td>{{ $word->Type->type }}</td>
+                    <td>{{ $word->Textbook->textbook }}</td>
+                    <td>{{ $word->test_name }}</td>
+                    <td>{{ $word->user_name }}</td>
+                    <td>
+                        <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
+                    </td>
 
-                @endforeach
-            </tr>
-        </tbody>
-    </table>
+                    @endforeach
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="testtable-responsive">
+        <p>Myフォロー</p>
+        <table class="table-all">
+            <thead style="display:contents;">
+                <tr>
+                    <th style="width:20%">学年</th>
+                    <th style="width:20%">教科書名</th>
+                    <th style="width:20%">テスト名</th>
+                    <th style="width:20%">作成者</th>
+                    <th style="width:20%"></th>
+
+                </tr>
+            </thead>
+            <tbody id="tbl">
+                @foreach ($ftests as $ftest)
+                <tr>
+                    <td>{{ $ftest->Type->type }}</td>
+                    <td>{{ $ftest->Textbook->textbook }}</td>
+                    <td>{{ $ftest->test_name }}</td>
+                    <td>{{ $ftest->user_name }}</td>
+                    <td>
+                        <div class="button"><a href="{{ route('test',['id'=>$ftest->id]) }}">表示</a></div>
+                    </td>
+
+                    @endforeach
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="testtable-responsive">
+        <p>おススメ</p>
+        <table class="table-all">
+            <thead style="display:contents;">
+                <tr>
+                    <th style="width:20%">学年</th>
+                    <th style="width:20%">教科書名</th>
+                    <th style="width:20%">テスト名</th>
+                    <th style="width:20%">作成者</th>
+                    <th style="width:20%"></th>
+
+                </tr>
+            </thead>
+            <tbody id="tbl">
+                @foreach ($counts as $count)
+                <tr>
+                    <td>{{ $count->Type->type }}</td>
+                    <td>{{ $count->Textbook->textbook }}</td>
+                    <td>{{ $count->test_name }}</td>
+                    <td>{{ $count->user_name }}</td>
+                    <td>
+                        <div class="button"><a href="{{ route('test',['id'=>$count->id]) }}">表示</a></div>
+                    </td>
+
+                    @endforeach
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 @endsection
 <a href="#" class="gotop">トップへ</a>

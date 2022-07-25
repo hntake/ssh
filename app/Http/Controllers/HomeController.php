@@ -42,12 +42,45 @@ class HomeController extends Controller
             ]);
         }
         /*自分の利用履歴*/ else {
+            /**My履歴 */
             $user = Auth::user();
             $test_ids = History::where('tested_user', '=', Auth::user()->user_name)->get()->pluck('test_id')->toArray();
 
             $words = Word::whereIn('id', $test_ids)->paginate(15);
+            /*MYフォロー*/
+            $follows = Nice::where('user_id','=',$user->id)->get()->pluck('created_id')->toArray();
+            $fids = User::where('id','=',$follows)->get()->pluck('user_name')->toArray();
+            $ftests = Word::where('user_name','=', $fids)->orderBy('created_at', 'desc')->paginate(10);
+            /**おススメ */
+            if($user->year  == "中１"){
+                $counts= Word::where('type','=','2')->orderBy('count', 'desc')->paginate(10);
+            }
+            elseif($user->year  == "中２"){
+                $counts= Word::where('type','=','3')->orderBy('count', 'desc')->paginate(10);
+            }
+            elseif($user->year  ==  "中３"){
+                $counts= Word::where('type','=','4')->orderBy('count', 'desc')->paginate(10);
+            }
+            elseif($user->year  ==  "高１"){
+                $counts= Word::where('type','=','5')->orderBy('count', 'desc')->paginate(10);
+            }
+            elseif($user->year  ==  "高２"){
+                $counts= Word::where('type','=','6')->orderBy('count', 'desc')->paginate(10);
+            }
+            elseif($user->year  ==  "高３"){
+                $counts= Word::where('type','=','7')->orderBy('count', 'desc')->paginate(10);
+            }
+            elseif($user->year  ==  "未選択"){
+                $counts= Word::where('type','=','8')->orderBy('count', 'desc')->paginate(10);
+            }
+            else{
+                $counts= Word::where('type','=','1')->orderBy('count', 'desc')->paginate(10);
+            }
+
             return view('home', [
                 'words' => $words,
+                'ftests' => $ftests,
+                'counts' => $counts,
             ]);
         }
     }

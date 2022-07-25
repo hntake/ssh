@@ -338,8 +338,8 @@ svg {
     flex-direction: column;
     margin: 0 auto;
 }
-.card{
-
+.wrap{
+    margin:0 auto;
 }
 .container{
     margin-right: auto;
