@@ -23,6 +23,7 @@ class CreateHistoriesTable extends Migration
             $table->string('tested_user');
             $table->string('tested_name');
             $table->string('school')->index();
+            $table->integer('score')->default(0);
             $table->timestamps();
         });
     }

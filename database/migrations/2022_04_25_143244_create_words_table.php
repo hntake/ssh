@@ -39,6 +39,7 @@ class CreateWordsTable extends Migration
             $table->string('en8');
             $table->string('en9');
             $table->string('en10');
+            $table->integer('count')->default(0);
             $table->timestamps();
         });
     }

@@ -55,7 +55,7 @@ class HomeController extends Controller
     {
             $user = User::where('id', '=',$id)->pluck('user_name');
             $test_ids = History::where('tested_user', '=',$user)->get()->pluck('test_id')->toArray();
-            $histories = History::whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(15);
+            $histories = History::where('school', '=', Auth::user()->school)->whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(15);
             return view('id_view', [
                 'histories' => $histories,
             ]);

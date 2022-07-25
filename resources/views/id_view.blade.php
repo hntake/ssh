@@ -39,7 +39,6 @@
                 <th style="width:20%">テスト名</th>
                 <th style="width:20%">得点</th>
                 <th style="width:20%">利用日時</th>
-                <th style="width:10%"></th>
 
             </tr>
         </thead>
@@ -51,9 +50,7 @@
                 <td>{{ $history->test_name }}</td>
                 <td>{{ $history->score }}</td>
                 <td>{{ $history->created_at}}</td>
-                <td>
-                    <div class="button"><a href="{{ route('test',['id'=>$history->id]) }}">表示</a></div>
-                </td>
+
 
                 @endforeach
             </tr>

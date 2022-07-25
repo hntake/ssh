@@ -67,9 +67,14 @@
                     <img src="img/welcome2.png" alt="welcome2">
                 </div>
             </div>
+            <div class="point_detail">
+                <img src="img/monitor2.png" alt="point_detail" style="width:50%; height:auto;">
+            </div>
             <div class="rec">
-                <h2>おススメの利用方法!!</h2>
+                <h2>おススメの利用方法①</h2>
+                <h3 style="color:red;">"テストを作ってポイントを稼ごう！"</h3>
                 <img src="img/recomend.png" alt="rec" style="width:60%;">
+                <h3>作成で<span style="color:red;">3点</span>+利用されて<span style="color:red;">1点</span>+自分も受ければ<span style="color:red;">1~3点</span>=<span style="color:red;">5~7点</span>加算されます！</h3>
             </div>
             <div class="llco">
             <a href="img/video.mp4" alt="llco"><img src="img/showvideo.png" alt="showvideo"></a>

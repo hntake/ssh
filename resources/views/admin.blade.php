@@ -50,9 +50,9 @@
                     </table>
                     {{ $histories->links() }}
                 </div>
-                <div class="school">
+                <div class="point_school">
                     <p>学内ポイントランキング</p>
-                    <table class="admin">
+                    <table class="admin_point">
                         <thead>
                             <tr>
                                 <th style="width:20%">ユーザー名</th>
@@ -76,8 +76,7 @@
             <div class="button"><a href="{{ route('individual',['id'=>Auth::user()->school])}}">個別データ検索へ</a></div>
             </div>
             <div class="admincard">
-                <div class="school">
-                    <div class="button"><a href="{{ route('point') }}">全体ランキング表示</a></div>
+
                     <!--検索フォーム-->
                     <div class="row">
                         <h3>データ抽出</h3>

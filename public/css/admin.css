@@ -41,6 +41,9 @@ ul {
     width: fit-content;
     padding-right: 100px;
 }
+table.admin_point{
+    margin: 0 auto;
+}
 @media (max-width: 480px){
     .form{
         margin:100px 0;

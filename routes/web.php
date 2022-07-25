@@ -105,7 +105,7 @@ Route::get('/reply/unnice/{id}',[App\Http\Controllers\HomeController::class, 'un
 
 });
 /*ポイントランキング表へ*/
-Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point');
+/* Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point'); */
 
 
 

@@ -48,7 +48,7 @@ class TestController extends Controller
     /*学校ごと履歴*/
     public function by_school(Request $request)
     {
-        $histories = History::where('school', '=', Auth::user()->school)->orderBy('created_at')->paginate(5);
+        $histories = History::where('school', '=', Auth::user()->school)->orderBy('created_at','desc')->paginate(5);
         $users = User::where('school1', '=', Auth::user()->school)->orWhere('school2', '=', Auth::user()->school)->orderBy('point', 'desc')->paginate(15);
         return view('admin', [
             'histories' => $histories,
