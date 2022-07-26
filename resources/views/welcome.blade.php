@@ -81,7 +81,17 @@
                 <h3>作成で<span style="color:red;">3点</span>+利用されて<span style="color:red;">1点</span>+自分も受ければ<span style="color:red;">1~3点</span>=<span style="color:red;">5~7点</span>加算されます！</h3>
             </div>
             <div class="llco">
-            <a href="img/video.mp4" alt="llco"><img src="img/showvideo.png" alt="showvideo"></a>
+            <img src="img/showvideo.png" alt="showvideo">
+                <div class="video">
+                    <a href="img/logintest.mp4" alt="llco">動画①ログインからテストを受けるまで</a>
+                </div>
+                <div class="video">
+                    <a href="img/createTest.mp4" alt="llco">動画②新しいテストを作る</a>
+                </div>
+                <div class="video">
+                    <a href="img/profile.mp4" alt="llco">動画③プロフィール編集方法</a>
+                </div>
+                <p>クリックすると動画が始まります</p>
             </div>
             <div class="regist">
             <a href="{{ route('register') }}"><img src="img/welcome3.png" alt="llco"></a>

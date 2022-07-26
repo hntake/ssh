@@ -80,6 +80,9 @@
                 </div>
             </div>
         </div>
+        <div class="top">
+            <a href="{{ url('/') }}"><h3>エーゴメトップページに戻る</h3></a>
+         </div>
         <footer>
   	        <p>© All rights reserved by llco</p>
               <div class="contact">

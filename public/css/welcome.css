@@ -29,8 +29,20 @@ footer{
 .llco{
     background-color: lightgreen;
 }
-.rec img{
+.video{
+    color: #1422d1;
+    font-weight: bold;
+    background-color: beige;
+    text-decoration: none;
+    padding: 3px 10px;
+    border: solid green;
+    margin-right: 10px;
+    width: 20%;
+    margin: 10px auto;
+}
 
+a{
+    text-decoration: none;
 }
 /*モニタリングツール紹介ページ*/
 .rule{
