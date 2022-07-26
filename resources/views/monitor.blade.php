@@ -73,9 +73,11 @@
                     <li>初年度年会費<span>無料</span></li>
                     <li>次年度より年会費:1,000円</li>
                   </ul>
-            </div>
-            <div class="llco">
-            <div  class="button"><a href="{{ route('admin_form') }}">申込ページへ</a></div>
+                  <h4>保証期間：登録から一年間</h4>
+                  <h4>※サーバートラブルなど一時的な停止を除く長期の利用不可が生じた場合は<span style="color:red;">全額返金致します。</span></h4>
+                  <div class="llco" style="background-color:unset;">
+                    <div  class="button" ><a href="{{ route('admin_form') }}" style="background-color:none;">申込ページへ</a></div>
+                </div>
             </div>
         </div>
         <footer>

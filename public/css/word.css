@@ -56,6 +56,9 @@ a#name{
     border: solid green;
     margin-right:10px;
 }
+.button{
+    margin-bottom:10px;
+}
 a.button{
 
     color: #1422d1;

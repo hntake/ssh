@@ -2,6 +2,7 @@ footer{
     border-top: 1px solid black;
     background-color:lightgreen;
     margin-top: 30px;
+    padding-bottom: 10px;
 }
 .contact{
     background-color: aliceblue;
@@ -37,6 +38,8 @@ footer{
     margin:0 auto;
 }
 .monitor{
+    border: solid 1px;
+    margin: 10px 20%;
 }
 .monitor img{
     width:80%;

@@ -56,7 +56,8 @@
     </table>
 
     <div  class="button"><input type="submit" value="更新">
-        <p>更新ボタンを押さないと変更されません</p>
+        <h4>更新ボタンを押さないと変更されません</h4>
+        <h4>!!空欄のままだとエラーになります。クラス番号を削除するときは<span style="color:red;">000</span>を入力してください!!</h4>
     </div>
 
 </div>

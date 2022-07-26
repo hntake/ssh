@@ -48,7 +48,10 @@
 
     <h3>ユーザー名：{{ $user->user_name }}</h3>
     <h3>エリア：{{ $user->place }}</h3>
-    <h3>クラス番号：{{ $user->school }}</h3>
+    <h3>クラス番号：{{ $user->school1}}</h3>
+    @if(!$user->school2==null)
+    <h3>クラス番号2：{{ $user->school2}}</h3>
+    @endif
     <h3>学年：{{ $user->year }}</h3>
     {{ $user->updated_at }}
     <p>時点</p>
