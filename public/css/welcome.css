@@ -57,6 +57,13 @@ a{
     width:80%;
     margin-bottom: 20px;
 }
+.rec{
+    display:flex;
+}
+.cartoon{
+    background-color:#E6FFE9	;
+    margin:5px 10px;
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     .left{

@@ -82,7 +82,7 @@ class TestController extends Controller
     public function select_today(Request $request, $id)
     {
         $date = new Carbon('now');
-        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $date->subDay())->get();
+        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $date->subDay())->orderBy('created_at','desc')->get();
         return view('select_result', [
             'results' => $results,
         ]);
@@ -90,7 +90,7 @@ class TestController extends Controller
     public function select_week(Request $request, $id)
     {
         $sevendays = Carbon::today()->subDay(7);
-        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $sevendays)->get();
+        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $sevendays)->orderBy('created_at','desc')->get();
         return view('select_result', [
             'results' => $results,
         ]);
@@ -98,7 +98,7 @@ class TestController extends Controller
     public function select_twoweeks(Request $request, $id)
     {
         $twoweeks = Carbon::today()->subDay(14);
-        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $twoweeks)->get();
+        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $twoweeks)->orderBy('created_at','desc')->get();
         return view('select_result', [
             'results' => $results,
         ]);
@@ -106,7 +106,7 @@ class TestController extends Controller
     public function select_month(Request $request, $id)
     {
         $date = new Carbon('now');
-        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $date->subMonth())->get();
+        $results = History::where('school', '=', $id)->whereDate('created_at', '>=', $date->subMonth())->orderBy('created_at','desc')->get();
         return view('select_result', [
             'results' => $results,
         ]);
