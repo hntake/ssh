@@ -3,6 +3,9 @@
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
 @section('content')
+<div class="top">
+<a href="{{ url('/') }}"><h3>トップページに戻る</h3></a>
+         </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

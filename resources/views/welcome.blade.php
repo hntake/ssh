@@ -28,7 +28,7 @@
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </head>
     <body >
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        <div class="loginbutton">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -38,12 +38,11 @@
                         <a href="{{ route('login') }}" class="button">ログイン</a>
                         <P>今日もポイント貯めよう！!</P>
                     </div>
-                    <!-- モニター時は表から登録できない
                     <div class="register-button">
                         @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="button">新規登録</a>
-                        <p>登録してポイントを貯めよう!</p>
-                    </div> -->
+                        <p>登録してポイントを貯めよう!(完全無料）</p>
+                    </div>
                         @endif
                     @endauth
                 </div>
@@ -79,7 +78,7 @@
                     <h2>おススメの利用方法①</h2>
                     <h3 style="color:red;">"テストを作ってポイントを稼ごう！"</h3>
                     <img src="img/recomend.png" alt="rec" style="width:60%;">
-                    <h3>作成で<span style="color:red;">3点</span>+利用されて<span style="color:red;">1点</span>+自分も受ければ<span style="color:red;">1~3点</span>=<span style="color:red;">5~7点</span>加算されます！</h3>
+                    <h4>作成で<span style="color:red;">3点</span>+利用されて<span style="color:red;">1点</span>+自分も受ければ<span style="color:red;">1~3点</span>=<span style="color:red;">5~7点</span>加算されます！</h4>
                 </div>
                 <div class="cartoon">
                     <h2>おススメの利用方法②</h2>
@@ -108,12 +107,12 @@
         </div>
         <footer>
   	        <p>© All rights reserved by llco</p>
-            <!--   <div class="contact">
+            <div class="contact">
                   <h3>
                     教育関係者向けモニタリングサービス（有料）の案内
                   </h3>
                   <a href="{{ url('monitor') }}" class="button" style="font-size: 1.0rem; font-weight: 700;letter-spacing: normal;text-decoration: none;color: aliceblue;">モニタリングサービス</a>
-               </div> -->
+               </div>
               <div class="contact">
                   <h3>
                       お問い合わせ・ご質問はこちら迄

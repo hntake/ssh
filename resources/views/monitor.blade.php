@@ -36,9 +36,9 @@
 
                 </h3>
             </div>
-        <!--     <div class="video">
-                <a href="img/monitor.mp4">こちらから動画で確認できます</a>
-            </div> -->
+            <div class="video">
+                <a href="img/admin.mp4">こちらから動画で確認できます</a>
+            </div>
             <div class="monitor">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">管理者画面トップページ</h2>
                 <p>まずは、自分の生徒全体の利用履歴が最新順に表示されます</p>
@@ -47,6 +47,9 @@
             <div class="monitor">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">個別データ検索画面</h2>
                 <p>個別での利用履歴も確認できます</p>
+                <img src="img/ideviews.png" alt="monitor2" style="width: 500px; height:auto;">
+                <img src="img/ideview.png" alt="monitor2" style="width: 500px; height:auto;">
+
             </div>
             <div class="monitor">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">ポイント内訳</h3>
