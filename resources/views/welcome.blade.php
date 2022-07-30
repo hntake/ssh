@@ -89,15 +89,15 @@
             <div class="llco">
             <img src="img/showvideo.png" alt="showvideo">
                 <div class="video">
-                    <a href="img/logintest.mp4" alt="llco">動画①ログインからテストを受けるまで</a>
+                    <a href="https://youtu.be/8kKhNYq1wxI" alt="llco">動画①ログインからテストを受けるまで</a>
                 </div>
                 <div class="video">
-                    <a href="img/createTest.mp4" alt="llco">動画②新しいテストを作る</a>
+                    <a href="https://youtu.be/_fvpFhgU-J8" alt="llco">動画②新しいテストを作る</a>
                 </div>
                 <div class="video">
-                    <a href="img/profile.mp4" alt="llco">動画③プロフィール編集方法</a>
+                    <a href="https://youtu.be/51Ruxi-rBiI" alt="llco">動画③プロフィール編集方法</a>
                 </div>
-                <p>クリックすると動画が始まります</p>
+                <p>クリックするとYoutubeで動画が始まります</p>
             </div>
             <div class="regist">
             <a href="{{ route('register') }}"><img src="img/welcome3.png" alt="llco"></a>

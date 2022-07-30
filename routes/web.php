@@ -49,10 +49,7 @@ Route::get('search_result',[App\Http\Controllers\TestController::class,'search_r
 Route::get('search_user',[App\Http\Controllers\HomeController::class,'search_user'])->name('search_user');
 /*並び替えする*/
 Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
-Route::get('select_twoweeks{id}',[App\Http\Controllers\TestController::class,'select_twoweeks'])->name('select_twoweeks');
-Route::get('select_today{id}',[App\Http\Controllers\TestController::class,'select_today'])->name('select_today');
-Route::get('select_week{id}',[App\Http\Controllers\TestController::class,'select_week'])->name('select_week');
-Route::get('select_month{id}',[App\Http\Controllers\TestController::class,'select_month'])->name('select_month');
+
 
 //入力ページ
 Route::get('/contact', [App\Http\Controllers\ContactController::class,'contact'])->name('contact.index');
@@ -122,7 +119,11 @@ Route::get('/admin/login', function () {
 Route::get('/admin',[App\Http\Controllers\TestController::class,'by_school'])->name('admin-home')
 ->middleware('auth:admin');
 /*個別データ検索*/
-Route::get('/individual/{id}',[App\Http\Controllers\TestController::class,'individual'])->name('individual');
+Route::get('/individual/{id}',[App\Http\Controllers\TestController::class,'individual'])->name('individual')->middleware('auth:admin');
+Route::get('select_twoweeks{id}',[App\Http\Controllers\TestController::class,'select_twoweeks'])->name('select_twoweeks')->middleware('auth:admin');
+Route::get('select_today{id}',[App\Http\Controllers\TestController::class,'select_today'])->name('select_today')->middleware('auth:admin');
+Route::get('select_week{id}',[App\Http\Controllers\TestController::class,'select_week'])->name('select_week')->middleware('auth:admin');
+Route::get('select_month{id}',[App\Http\Controllers\TestController::class,'select_month'])->name('select_month')->middleware('auth:admin');
 
 /*個別履歴表示*/
 Route::get('/id_view/{id}', [App\Http\Controllers\HomeController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
