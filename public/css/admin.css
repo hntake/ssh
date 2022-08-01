@@ -44,6 +44,9 @@ ul {
 table.admin_point{
     margin: 0 auto;
 }
+.point_school{
+    background-color: rgb(213, 244, 224);
+}
 @media (max-width: 480px){
     .form{
         margin:100px 0;

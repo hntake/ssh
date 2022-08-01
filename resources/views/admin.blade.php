@@ -20,8 +20,8 @@
                     <table class="admin">
                         <thead>
                             <tr>
-                                <th style="width:5%">テストID</th>
-                                <th style="width:5%">学年</th>
+                                <th style="width:7%">テストID</th>
+                                <th style="width:7%">学年</th>
                                 <th style="width:15%">教科書名</th>
                                 <th style="width:15%">テスト名</th>
                                 <th style="width:15%">作成者</th>
