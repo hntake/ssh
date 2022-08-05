@@ -63,7 +63,7 @@
             </div>
             <div class="monitor">
             <h2 style="font-family: 'Noto Sans JP', sans-serif;">直近のデータを抽出表示</h3>
-                    <img src="img/monitor4.png" alt="monitor4">
+                    <img src="img/monitor41.png" alt="monitor4"style="width: 500px; height:auto;">
             </div>
             <div class="monitor">
                     <p>仮に直近一週間利用をクリックした場合は、以下の様に表示されます</p>
