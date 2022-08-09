@@ -37,7 +37,8 @@
                 <th style="width:10%">学年</th>
                 <th style="width:20%">教科書名</th>
                 <th style="width:20%">テスト名</th>
-                <th style="width:20%">得点</th>
+                <th style="width:10%">テストID</th>
+                <th style="width:10%">得点</th>
                 <th style="width:20%">利用日時</th>
 
             </tr>
@@ -48,6 +49,7 @@
                 <td>{{ $history->Type->type }}</td>
                 <td>{{ $history->Textbook->textbook }}</td>
                 <td>{{ $history->test_name }}</td>
+                <td>{{ $history->test_id }}</td>
                 <td>{{ $history->score }}</td>
                 <td>{{ $history->created_at}}</td>
 
