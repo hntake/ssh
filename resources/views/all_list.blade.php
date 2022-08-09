@@ -63,9 +63,10 @@
         </form>
         <thead>
             <tr>
-                <th style="width:10%">学年</th>
+                <th style="width:5%">学年</th>
                 <th style="width:10%">教科書名</th>
                 <th style="width:20%">テスト名</th>
+                <th style="width:5%">テストID</th>
                 <th style="width:20%">作成者</th>
                 <th style="width:20%">作成日時</th>
                 <th style="width:20%"></th>
@@ -78,6 +79,7 @@
                 <td>{{ $word->Type->type }}</td>
                 <td>{{ $word->Textbook->textbook }}</td>
                 <td>{{ $word->test_name }}</td>
+                <td>{{ $word->id }}</td>
                 <td>{{ $word->user_name }}</td>
                 <td>{{\Carbon\Carbon::parse($word->created_at)->toDateString() }}</td>
                 <td>
