@@ -87,7 +87,8 @@
 
                         <div class="r-box">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ※必須') }}</label>
-<p>（登録したメールアドレスに認証メールが送信されます。<br>間違いがないように気を付けて入力してください。）</p>
+                                <p style="text-align: left; width: 80%;">（登録したメールアドレスに<span style="color:red;">認証メール</span>が送信されます。間違いがないように気を付けて入力してください。）</p>
+                                <p style="text-align: left; width: 80%;">(docomo、au、softbankなど各キャリアのセキュリティ設定により受信拒否と認識されているか、迷惑メール対策などでドメイン指定受信を設定している場合に、メールが正しく届かないことがございます。<span style="color:red;">gmailなどのフリーメールでの登録</span>をおすすめします。)</p>
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 

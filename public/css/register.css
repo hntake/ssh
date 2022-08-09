@@ -1,3 +1,17 @@
 p{
     margin:0 auto;
 }
+.card{
+    width:60%;
+}
+@media (max-width: 480px){
+    .card{
+        width:fit-content;
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .card{
+        width: fit-content;
+    }
+
+}
