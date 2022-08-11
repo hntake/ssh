@@ -31,6 +31,7 @@
                         @if ($errors->has('email'))
                         <p class="error-message">{{ $errors->first('email') }}</p>
                         @endif
+                        <p>（キャリアメールなどでドメイン指定受信を設定されている方は@gmail.comから指定できるように設定してから送信してください。もしくはフリーメールのアドレスをご利用ください。）</p>
                     </li>
                     <li>
                         <label>タイトル</label>

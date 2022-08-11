@@ -11,7 +11,7 @@
         <div class="col-md-8">
             <div class="card-header">{{ __('登録画面') }}</div>
             <div class="sampleform">
-                <a href="img/sample.png" target=_blank>記入例</a>
+                <a href="img/sample1.png" target=_blank>記入例</a>
             </div>
             <div class="card">
 
