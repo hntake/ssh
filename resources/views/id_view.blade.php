@@ -59,5 +59,36 @@
         </tbody>
     </table>
 </div>
+<div class="testtable-responsive">
+    <p>生徒作成テスト</p>
+    <table class="table-all">
+        <thead>
+            <tr>
+                <th style="width:10%">学年</th>
+                <th style="width:20%">教科書名</th>
+                <th style="width:20%">テスト名</th>
+                <th style="width:10%">テストID</th>
+                <th style="width:20%">作成日時</th>
+                <th style="width:10%"></th>
+
+            </tr>
+        </thead>
+        <tbody id="tbl">
+            @foreach ($histories as $word)
+            <tr>
+                <td>{{ $word->Type->type }}</td>
+                <td>{{ $word->Textbook->textbook }}</td>
+                <td>{{ $word->test_name }}</td>
+                <td>{{ $word->id }}</td>
+                <td>{{ $word->created_at}}</td>
+                <td>
+                    <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
+                </td>
+
+                @endforeach
+            </tr>
+        </tbody>
+    </table>
+</div>
 @endsection
 <a href="#" class="gotop">トップへ</a>

@@ -78,6 +78,7 @@ class HomeController extends Controller
             }
 
             return view('home', [
+                'user'=>$user,
                 'words' => $words,
                 'ftests' => $ftests,
                 'counts' => $counts,
@@ -89,8 +90,11 @@ class HomeController extends Controller
             $user = User::where('id', '=',$id)->pluck('user_name');
             $test_ids = History::where('tested_user', '=',$user)->get()->pluck('test_id')->toArray();
             $histories = History::where('school', '=', Auth::user()->school)->where('tested_user', '=',$user)->whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(15);
+            $crtest = Word::where('user_name','=',$user)->get()->pluck('id')->toArray();
+            $words = Word::where('user_name','=',$user)->whereIn('id',$crtest)->OrderBy('created_at', 'desc')->paginate(15);
             return view('id_view', [
                 'histories' => $histories,
+                'words'=> $words,
             ]);
         }
 

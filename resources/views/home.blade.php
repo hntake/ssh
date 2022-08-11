@@ -47,6 +47,13 @@
     </div>
 </div>
 <div class="wrap">
+    <div class="status">
+        <h2>マイステータス</h2>
+            <ul>
+                <li>ポイント数：{{$user->point}}</li>
+                <li>レベル：{{$user->level}}</li>
+            </ul>
+    </div>
     <div class="testtable-responsive">
         <p>My履歴</p>
         <table class="table-all">

@@ -352,6 +352,12 @@ svg {
     margin: 10 auto;
 
 }
+.status{
+    border: solid 1px white;
+    background-color: white;
+    margin: 10px 50px;
+    width: 80%;
+}
 /*リスト画面*/
 .list{
 /*     padding: 0 35%;
@@ -698,6 +704,9 @@ footer.bottom{
     tr.onetest{
         display: grid;
         width: 100%;
+    }
+    .status{
+        width:100%;
     }
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
