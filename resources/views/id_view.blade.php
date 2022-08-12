@@ -74,7 +74,7 @@
             </tr>
         </thead>
         <tbody id="tbl">
-            @foreach ($histories as $word)
+            @foreach ($words as $word)
             <tr>
                 <td>{{ $word->Type->type }}</td>
                 <td>{{ $word->Textbook->textbook }}</td>
