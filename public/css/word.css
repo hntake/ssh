@@ -727,4 +727,7 @@ footer.bottom{
             display: grid;
             width: 100%;
         }
+        .table-hover{
+            width:100%;
+        }
     }
