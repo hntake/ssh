@@ -33,6 +33,9 @@ Route::get('/aboutus',function(){
 Route::get('/faq',function(){
     return view('faq');
 });
+Route::get('/consumer',function(){
+    return view('consumer');
+});
 
 //入力ページ
 Route::get('/admin_form', [App\Http\Controllers\ContactController::class,'admin_form'])->name('admin_form');

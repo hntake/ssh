@@ -129,6 +129,9 @@
                 <div class="terms">
                         <a href="{{ url('aboutus') }}" class="button">About Us</a>
                 </div>
+                <div class="terms">
+                        <a href="{{ url('consumer') }}" class="button">特定商取引</a>
+                </div>
             </div>
          </footer>
     </body>
