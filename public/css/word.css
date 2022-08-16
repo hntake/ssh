@@ -358,6 +358,14 @@ svg {
     margin: 10px 50px;
     width: 80%;
 }
+/* 点滅 */
+@keyframes blinking {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+li.blink{
+        animation: blinking 1s ease-in-out infinite alternate;
+}
 /*リスト画面*/
 .list{
 /*     padding: 0 35%;

@@ -42,6 +42,7 @@ class HomeController extends Controller
             ]);
         }
         /*自分の利用履歴*/ else {
+            $date = Carbon::today()->subDay(7);
             /**My履歴 */
             $user = Auth::user();
             $test_ids = History::where('tested_user', '=', Auth::user()->user_name)->get()->pluck('test_id')->toArray();
@@ -76,12 +77,13 @@ class HomeController extends Controller
             else{
                 $counts= Word::where('type','=','1')->orderBy('count', 'desc')->paginate(10);
             }
-
             return view('home', [
                 'user'=>$user,
                 'words' => $words,
                 'ftests' => $ftests,
                 'counts' => $counts,
+                'date' => $date,
+
             ]);
         }
     }

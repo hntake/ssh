@@ -50,7 +50,7 @@
     <div class="status">
         <h2>マイステータス</h2>
             <ul>
-                <li>ポイント数：{{$user->point}}</li>
+                <li  class="blink" style="color:red; font-weight:bold;">ポイント数：{{$user->point}}</li>
                 <li>レベル：{{$user->level}}</li>
             </ul>
     </div>
@@ -103,10 +103,16 @@
                     <td>{{ $ftest->Textbook->textbook }}</td>
                     <td>{{ $ftest->test_name }}</td>
                     <td>{{ $ftest->user_name }}</td>
+                    @if($ftest -> created_at > $date)
+                    <td>
+                        <img src="img/new.png" alt="new" style="width:30px; height:auto;">
+                        <div class="button"><a href="{{ route('test',['id'=>$ftest->id]) }}">表示</a></div>
+                    </td>
+                    @else
                     <td>
                         <div class="button"><a href="{{ route('test',['id'=>$ftest->id]) }}">表示</a></div>
                     </td>
-
+                    @endif
                     @endforeach
                 </tr>
             </tbody>
