@@ -117,11 +117,12 @@
             <p class="error-message">!! 空欄がないようにしてください !!</p>
             @endif
             <div class="check">
-                <button type="submit">
-                    <i class="fa fa-plus"></i> check!
+                <button type="submit"style="padding:10px;">
+                    <i class="fa fa-plus"></i> 採点する
                 </button>
             </div>
     </form>
+    <div  class="button"><a href="{{ route('answer',['id'=>$id]) }}">正解はこちら</a></div>
 
 </div>
 

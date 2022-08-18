@@ -46,55 +46,55 @@
                         <tr class="onetest">
                             <td>1</td>
                             <td>{{ $word->ja1}}</td>
-                            <td>{{ $word->en1}}</td>
+                            <td style="color:red;font-weight:bold;">{{ $word->en1}}</td>
                         </tr>
                         <tr class="onetest">
                             <td>2</td>
                             <td>{{ $word->ja2}}</td>
-                            <td>{{ $word->en2}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en2}}</td>
                         </tr>
                         <tr class="onetest">
                             <td>3</td>
                             <td>{{ $word->ja3}}</td>
-                            <td>{{ $word->en3}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en3}}</td>
                         </tr>
                         <tr class="onetest">
                             <td>4</td>
                             <td>{{ $word->ja4}}</td>
-                            <td>{{ $word->en4}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en4}}</td>
                         </tr>
                         <tr class="onetest">
                             <td>5</td>
                             <td>{{ $word->ja5}}</td>
-                            <td>{{ $word->en5}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en5}}</td>
                         <tr class="onetest">
                             <td>6</td>
                             <td>{{ $word->ja6}}</td>
-                            <td>{{ $word->en6}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en6}}</td>
                         </tr>
                             <tr class="onetest">
                             <td>7</td>
                             <td>{{ $word->ja7}}</td>
-                            <td>{{ $word->en7}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en7}}</td>
                         </tr>
                         <tr class="onetest">
                             <td>8</td>
                             <td>{{ $word->ja8}}</td>
-                            <td>{{ $word->en8}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en8}}</td>
                         </tr>
                             <tr class="onetest">
                             <td>9</td>
                             <td>{{ $word->ja9}}</td>
-                            <td>{{ $word->en9}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en9}}</td>
                         </tr>
                         <tr class="onetest">
                             <td>10</td>
                             <td>{{ $word->ja10}}</td>
-                            <td>{{ $word->en10}}</td>
+                            <td  style="color:red;font-weight:bold;">{{ $word->en10}}</td>
                         </tr>
                 </tbody>
     </table>
-    <div  class="button"><a href="{{ route('test',['id'=>$id]) }}">再チャレンジ！</a></div>
+    <div  class="button"><a href="{{ route('test',['id'=>$id]) }}">受けてみよう！</a></div>
 
         </div>
 @endsection
