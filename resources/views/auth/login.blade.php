@@ -66,9 +66,14 @@
                                 @endif
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
+            <div class="register-button" style="margin-top:10px;border-radius:unset;padding-top:0px;padding-bottom:10px;">
+                <p>登録して全ての機能を使おう！(完全無料）</p>
+            <a href="{{ route('register') }}" class="button">新規登録</a>
+        </div>
         </div>
     </div>
     <div class="news">

@@ -34,7 +34,7 @@
   </div>
 <div class="testtable-responsive" >
     <table class="table-all">
-        <h1>正解</h1>
+        <h1>テストID{{$word->id}}の正解です</h1>
         <thead>
             <tr>
                 <th style="width:20%">番号</th>
@@ -94,7 +94,7 @@
                         </tr>
                 </tbody>
     </table>
-    <div  class="button"><a href="{{ route('test',['id'=>$id]) }}">受けてみよう！</a></div>
-
-        </div>
+    <div  class="button"><a href="{{ route('test',['id'=>$id]) }}">受けてみよう！</a>
+    </div>
+</div>
 @endsection
