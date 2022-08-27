@@ -319,6 +319,23 @@ class TestController extends Controller
             'word' => $word,
         ]);
     }
+
+    public function alert(Request $request, $id)
+    {
+        $word = Word::where('id', $request->id)->first();
+
+        $alert = Word::where('id', $request->id)->value('alert');
+        $newalert = 1;
+        $alert= Word::where('id', $request->id)
+        ->update([
+            'alert'=> $newalert
+        ]);
+        $words = Word::where('alert','=',1)->paginate(10);
+        return view('alert',[
+            'words' => $words,
+        ]
+        );
+    }
     /**
      * 新規作成画面へ遷移
      *

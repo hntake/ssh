@@ -14,7 +14,7 @@
       <label class="nav-unshown" id="nav-close" for="nav-input"></label>
       <div id="nav-content">
           <ul>
-          <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
+                <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
                 <li><a href="{{ url('history') }}"><h3>全履歴</h3></a></li>
                 <li><a href="{{ url('profile') }}"><h3>Myページ</h3></a></li>
                 <li><a href="{{ url('all_list') }}"><h3>テスト一覧</h3></a></li>
@@ -94,7 +94,15 @@
                         </tr>
                 </tbody>
     </table>
-    <div  class="button"><a href="{{ route('test',['id'=>$id]) }}">受けてみよう！</a>
-    </div>
+        <div  class="button"><a href="{{ route('test',['id'=>$id]) }}">受けてみよう！</a>
+        </div>
+<form class="form-inline" action="{{route('alert',['id'=>$id])}}" method="POST">
+@csrf
+        <div class="check">
+                <button type="submit"style="padding:10px;">
+                    <i class="fa fa-plus"></i> テストの間違い報告はここをクリック！
+                </button>
+            </div>
+    </form>
 </div>
 @endsection

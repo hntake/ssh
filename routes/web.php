@@ -36,6 +36,9 @@ Route::get('/faq',function(){
 Route::get('/consumer',function(){
     return view('consumer');
 });
+Route::get('/alert',function(){
+    return view('alert');
+});
 
 //入力ページ
 Route::get('/admin_form', [App\Http\Controllers\ContactController::class,'admin_form'])->name('admin_form');
@@ -93,6 +96,7 @@ Route::get('/list/{id}', [App\Http\Controllers\TestController::class,'delete_lis
 Route::get('/delete_user/{id}', [App\Http\Controllers\HomeController::class,'delete_user'])->name('delete_user');
 /*正答画面へ*/
 Route::get('/answer/{id}', [App\Http\Controllers\TestController::class,'answer'])->name('answer');
+Route::post('/answer/{id}', [App\Http\Controllers\TestController::class,'alert'])->name('alert');
 /*テスト作成画面へ*/
 Route::get('/create', [App\Http\Controllers\TestController::class,'create_index'])->name('create');
 /*全履歴画面へ*/
