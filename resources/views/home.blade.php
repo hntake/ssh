@@ -47,13 +47,20 @@
     </div>
 </div>
 <div class="wrap">
-    <div class="status">
+    <div class="testtable-responsive">
         <h2>マイステータス</h2>
             <ul>
                 <li  class="blink" style="color:red; font-weight:bold;">ポイント数：{{$user->point}}</li>
                 <li>レベル：{{$user->level}}</li>
             </ul>
+            <div class="comment" style="background-color:white; width:80%;margin:0 auto;">
+                <h2 >講師からの連絡</h2>
+                <ul>
+                    <li  style="color:red; font-weight:bold;">{{$user->comment}}</li>
+                </ul>
+            </div>
     </div>
+
     <div class="testtable-responsive">
         <p>My履歴</p>
         <table class="table-all">

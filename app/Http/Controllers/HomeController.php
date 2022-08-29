@@ -36,9 +36,13 @@ class HomeController extends Controller
         /*テスト未利用の場合*/
         if (Auth::user()->point === 0) {
 
+            $user = Auth::user();
+            $comment = $user->comment;
             $words = Word::orderBy('created_at', 'desc')->paginate(10);
             return view('all_list', [
                 'words' => $words,
+                'user' =>$user,
+                'comment'=>$comment,
             ]);
         }
         /*自分の利用履歴*/ else {
@@ -94,10 +98,27 @@ class HomeController extends Controller
             $histories = History::where('school', '=', Auth::user()->school)->where('tested_user', '=',$user)->whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(15);
             $crtest = Word::where('user_name','=',$user)->get()->pluck('id')->toArray();
             $words = Word::where('user_name','=',$user)->whereIn('id',$crtest)->OrderBy('created_at', 'desc')->paginate(15);
+            $users =User::where('id', '=',$id)->OrderBy('created_at', 'desc')->paginate(15);
+
             return view('id_view', [
+                'id' => $id,
                 'histories' => $histories,
                 'words'=> $words,
+                'users'=>$users,
             ]);
+        }
+    public function comment( Request $request, $id)
+    {
+            $comment= User::where('id', '=',$id)->pluck('comment');
+            $postcomment = $request->comment;
+            $commnet = User::where('id', '=',$id)
+            ->update([
+                'comment' => $postcomment
+            ]);
+
+            return redirect()->route('id_view', [
+                'id' => $id,
+            ])->with('status','コメント投稿しました');
         }
 
 

@@ -137,6 +137,8 @@ Route::get('select_month{id}',[App\Http\Controllers\TestController::class,'selec
 
 /*個別履歴表示*/
 Route::get('/id_view/{id}', [App\Http\Controllers\HomeController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
+/*生徒へコメント*/
+Route::post('/comment/{id}', [App\Http\Controllers\HomeController::class, 'comment'])->name('comment')->middleware('auth:admin');
 
 Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
 
