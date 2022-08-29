@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->integer('level')->default(0);
             $table->rememberToken();
             $table->timestamps();
+            $table->text('comment')->nullable();
         });
     }
 
