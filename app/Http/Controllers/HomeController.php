@@ -53,7 +53,7 @@ class HomeController extends Controller
 
             $words = Word::whereIn('id', $test_ids)->paginate(15);
             /*MYフォロー*/
-            $follows = Nice::where('user_id','=',$user->id)->get()->pluck('created_id')->toArray();
+            $follows = Nice::where('user_id','=',Auth::user()->id)->get()->pluck('created_id')->toArray();
             $fids = User::where('id','=',$follows)->get()->pluck('user_name')->toArray();
             $ftests = Word::where('user_name','=', $fids)->orderBy('created_at', 'desc')->paginate(10);
             /**おススメ */
