@@ -23,8 +23,8 @@ class TestController extends Controller
         $words = Word::orderBy('created_at', 'desc')->paginate(10);
         return view('all_list', [
             'words' => $words,
-            'date' =>$date,
-       ]);
+/*             'date' =>$date,
+ */       ]);
     }
     /*選択したテスト表示*/
     public function test(Request $request, $id)

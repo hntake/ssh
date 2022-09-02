@@ -125,9 +125,9 @@
                 </tr>
             </thead>
             <tbody id="tbl">
-                @foreach(array_map(NULL, $nices, $niceids,$images) as [ $nice, $niceid, $image ])
+                @foreach(array_map(NULL, $followers, $niceids,$images) as [ $follower, $niceid, $image ])
                 <tr>
-                    <td>{{ $nice }}</td>
+                    <td>{{ $follower }}</td>
                     @if(!$image == null)
                     <td><img src="{{ asset('storage/' . $image) }}" alt="image">
                      @else

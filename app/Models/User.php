@@ -70,6 +70,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function Place() {
         return $this->hasOne(Place::class, 'id','place');
     }
+    
     /*お気に入り登録*/
      public function posts() {
         return $this->hasMany('App\Models\Word');

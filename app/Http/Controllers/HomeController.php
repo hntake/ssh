@@ -53,9 +53,8 @@ class HomeController extends Controller
 
             $words = Word::whereIn('id', $test_ids)->paginate(15);
             /*MYフォロー*/
-            $follows = Nice::where('user_id','=',Auth::user()->id)->get()->pluck('created_id')->toArray();
-            $fids = User::where('id','=',$follows)->get()->pluck('user_name')->toArray();
-            $ftests = Word::where('user_name','=', $fids)->orderBy('created_at', 'desc')->paginate(10);
+            $follows = Nice::where('user_id','=', Auth::user()->id)->get()->pluck('created_user')->toArray();/*自分がフォローしているユーザー名を取得*/
+            $ftests = Word::whereIn('user_name', $follows)->orderBy('created_at', 'desc')->paginate(10);/*取得したユーザー名が一致するテストを取得する
             /**おススメ */
             if($user->year  == "中１"){
                 $counts= Word::where('type','=','2')->orderBy('count', 'desc')->paginate(10);
@@ -84,6 +83,7 @@ class HomeController extends Controller
             return view('home', [
                 'user'=>$user,
                 'words' => $words,
+                'follows' => $follows,
                 'ftests' => $ftests,
                 'counts' => $counts,
                 'date' => $date,
@@ -138,15 +138,15 @@ class HomeController extends Controller
         /*フォロワー数表示*/
         $count = Nice::where('created_id',  '=', Auth::user()->id)->count();
         /*フォロー一覧表示*/
-        $follower = Nice::where('user_id', '=', Auth::user()->id)->pluck('created_id')->toArray();
-        $nices =User:: where('id', '=',$follower)->pluck('user_name')->toArray();
-        $niceids=User:: where('id', '=',$follower)->pluck('id')->toArray();
-        $images=User:: where('id', '=',$follower)->pluck('image')->toArray();
+        $followers = Nice::where('user_id', '=', Auth::user()->id)->get()->pluck('created_user')->toArray();
+
+        $niceids=User:: whereIn('user_name', $followers)->get()->pluck('id')->toArray();
+        $images=User:: whereIn('id', $followers)->pluck('image')->toArray();
         return view('profile', [
             'user' => $user,
             'words' => $words,
             'count' =>$count,
-            'nices' =>$nices,
+            'followers' =>$followers,
             'niceids'=>$niceids,
             'images'=>$images,
         ]);
@@ -287,8 +287,10 @@ class HomeController extends Controller
     }
     /*フォロー登録*/
     public function nice(Request $request,$id){
+        $user = User::find($id);
         $nice=New Nice();
-        $nice->created_id=$request->id;
+        $nice->created_id=$user->id;
+        $nice->created_user=$user->user_name;
         $nice->user_id=Auth::user()->id;
         $nice->save();
         return back();
