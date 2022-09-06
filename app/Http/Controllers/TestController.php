@@ -9,10 +9,13 @@ use App\Models\User;
 use App\Models\Nice;
 use App\Models\Textbook;
 use App\Models\History;
+use App\Mail\Reported;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB; // DB ファサードを use する
 use Illuminate\Pagination\Paginator;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
+
 
 class TestController extends Controller
 {
@@ -325,16 +328,30 @@ class TestController extends Controller
         $word = Word::where('id', $request->id)->first();
 
         $alert = Word::where('id', $request->id)->value('alert');
+        if($alert === 0){
         $newalert = 1;
         $alert= Word::where('id', $request->id)
         ->update([
             'alert'=> $newalert
         ]);
         $words = Word::where('alert','=',1)->paginate(10);
+
+        $data = $request->all();
+
+        \Mail::to('info@itcha50.com')->send(new Reported($data));
+
         return view('alert',[
             'words' => $words,
         ]
         );
+        }
+        else{
+            $words = Word::where('alert','=',1)->paginate(10);
+            return view('alert',[
+                'words' => $words,
+            ]
+            );
+        }
     }
     /**
      * 新規作成画面へ遷移
