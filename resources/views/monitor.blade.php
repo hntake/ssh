@@ -31,13 +31,20 @@
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">
                 モニタリングツールとは？
                 </h2>
-                <h3 style="">
+                <h3 >
                 エーゴメを利用する各生徒に特定の番号（クラス番号）を登録してもらうことで、その番号を持つ生徒の利用履歴などをウェブ上で確認することが出来るシステム
-
                 </h3>
             </div>
             <div class="video">
                 <a href="img/admin.mp4">こちらから動画で確認できます</a>
+            </div>
+            <div class="monitor">
+                <h3 style="color:red;"> <img src="img/new.png" alt="new" style="width:30px; height:auto;">追加機能</h3>
+                <p>生徒にコメントを残せるようになりました</p>
+                <img src="img/post.png" style="border:1px black solid;  height:auto;">
+                <p>以下の様に生徒のホーム画面に表示されます</p>
+                <img src="img/comment.png">
+
             </div>
             <div class="monitor">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">管理者画面トップページ</h2>
@@ -47,14 +54,14 @@
             <div class="monitor">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">個別データ検索画面</h2>
                 <p>個別での利用履歴も確認できます</p>
-                <img src="img/ideviews.png" alt="monitor2" style="width: 500px; height:auto;">
-                <img src="img/ideview.png" alt="monitor2" style="width: 500px; height:auto;">
+                <img src="img/ideviews.png" alt="monitor2" style=" height:auto;">
+                <img src="img/ideview.png" alt="monitor2" style=" height:auto;">
 
             </div>
             <div class="monitor">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">ポイント内訳</h3>
                 <p>利用でポイントが加算されるシステムは、以下の様に加算されています</p>
-                <img src="img/monitor2.png" alt="monitor2" style="width: 500px; height:auto;">
+                <img src="img/monitor2.png" alt="monitor2" style=" height:auto;">
             </div>
             <div class="monitor">
                 <h2 style="font-family: 'Noto Sans JP', sans-serif;">対象グループ内ポイントランキング</h3>
@@ -63,7 +70,7 @@
             </div>
             <div class="monitor">
             <h2 style="font-family: 'Noto Sans JP', sans-serif;">直近のデータを抽出表示</h3>
-                    <img src="img/monitor41.png" alt="monitor4"style="width: 500px; height:auto;">
+                    <img src="img/monitor41.png" alt="monitor4"style=" height:auto;">
             </div>
             <div class="monitor">
                     <p>仮に直近一週間利用をクリックした場合は、以下の様に表示されます</p>

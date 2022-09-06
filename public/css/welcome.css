@@ -54,7 +54,7 @@ a{
     margin: 10px 20%;
 }
 .monitor img{
-    width:80%;
+    width:500px;
     margin-bottom: 20px;
 }
 .rec{
@@ -92,6 +92,14 @@ a{
         width: 100%;
         border: none;
     }
+    .monitor{
+        border:unset;
+        margin: 10px 20%;
+    }
+    .monitor img{
+        width:100%;
+        margin-bottom: 20px;
+    }
 }
      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait)  {
         .top img{
@@ -104,4 +112,9 @@ a{
         .contact{
             width:100%;
         }
+        .monitor{
+            border:unset;
+            margin: 10px 20%;
+        }
+
     }
