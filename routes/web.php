@@ -116,8 +116,8 @@ Route::get('/reply/unnice/{id}',[App\Http\Controllers\HomeController::class, 'un
 
 
 
-Route::get('/auth/verifyemail/{token}', [App\Http\Controllers\Auth\RegisterController::class,'verify']);
-/* Auth::routes();*/
+/* Route::get('/auth/verifyemail/{token}', [App\Http\Controllers\Auth\RegisterController::class,'verify']);
+ *//* Auth::routes();*/
 //登録後メール
 Auth::routes(['verify' => true]);
 
