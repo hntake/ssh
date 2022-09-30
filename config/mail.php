@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+            'host' => env('MAIL_HOST', 'mx.zoho.jp'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME','hntake@gmail.com'),
-            'password' => env('MAIL_PASSWORD','akwxnvjvbdclwknf'),
+            'username' => env('MAIL_USERNAME','info@itcha50.c0m'),
+            'password' => env('MAIL_PASSWORD','EtCejcGhe0bX'),
             'timeout' => null,
             'auth_mode' => null,
         ],
