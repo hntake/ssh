@@ -3,16 +3,14 @@
     width: 80%;
     height: auto;
     margin: 0 50px;
-    border: solid green;
-    padding-bottom: 30px
+   padding-bottom: 30px
 }
 .searchtable-responsive{
     background-color: lightgreen;
     width: 80%;
     height: auto;
     margin: 0 50px;
-    border: solid green;
-    padding-bottom: 30px
+   padding-bottom: 30px
 }
 .testtable-responsive th{
     border:1px solid #000066;

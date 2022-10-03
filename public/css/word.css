@@ -6,7 +6,6 @@
     width: 500px;
 }
 .card{
-    border:solid green;
     background-color: #c1f6b3;
 
 }
@@ -40,7 +39,6 @@ li.name{
     text-decoration: none;
     margin-top: 10px;
     padding: 3px 10px;
-    border: solid green;
     margin-right:10px;
 }
 .top{
@@ -53,7 +51,6 @@ a#name{
     text-decoration: none;
     margin-top: 10px;
     padding: 3px 10px;
-    border: solid green;
     margin-right:10px;
 }
 .button{
@@ -67,7 +64,6 @@ a.button{
     text-decoration: none;
     margin-top: 10px;
     padding: 3px 10px;
-    border: solid green;
     margin-right:10px;
 
 }
@@ -249,7 +245,6 @@ header {
     width:80%;
     height:auto;
     margin: 0 50px;
-    border: solid green;
     padding-bottom: 30px;
 }
 .py-4{/* mainエリア */
@@ -269,7 +264,6 @@ header {
     width: 80%;
     height: auto;
     margin: 0 50px;
-    border: solid green;
     padding-bottom: 30px
 }
 .table-responsive th{
@@ -377,7 +371,6 @@ li.blink{
     margin-top: 10px;
     padding: 3px 10px;
     font-weight: 500;
-    border: solid green;
     margin-left: 5px;
 }
 .route{
@@ -389,7 +382,6 @@ li.blink{
     text-decoration: none;
     padding: 3px 10px;
     font-weight: 500;
-    border: solid green;
     margin-top: 30px;
     float: left;
     margin-right: 10px;
@@ -421,7 +413,6 @@ input.pro_button{
     margin-top: 10px;
     padding: 3px 10px;
     font-weight: 500;
-    border: solid green;
 }
 .pro_button a{
     color: #1422d1;
@@ -430,7 +421,6 @@ input.pro_button{
     margin-top: 10px;
      padding: 3px 10px;
     font-weight: 500;
-    border: solid green;
     font-size:smaller
 }
 /*編集ページ*/
@@ -449,7 +439,6 @@ a.follow {
     margin-top: 10px;
 /*     padding: 3px 3px;
  */    font-weight: 500;
-    border: solid green;
 }
 span.follow{
 
