@@ -739,3 +739,25 @@ footer.bottom{
             width:100%;
         }
     }
+    @media only screen and (min-width:800px) and (max-width:1200px){
+        .button a{
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            width: 50%;
+        }
+
+        .profile{
+            margin:0;
+        }
+        thead{
+            display:none;
+        }
+        tr.onetest{
+            display: grid;
+            width: 100%;
+        }
+        .table-hover{
+            width:100%;
+        }
+    }
