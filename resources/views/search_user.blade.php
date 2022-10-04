@@ -65,6 +65,8 @@
           <tr>
             <th style="width:20%">ユーザー名</th>
             <th style="width:20%">学年</th>
+            <th style="width:20%"></th>
+            <th style="width:20%"></th>
           </tr>
         </thead>
         @foreach($users as $user)

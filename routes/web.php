@@ -39,6 +39,9 @@ Route::get('/consumer',function(){
 Route::get('/alert',function(){
     return view('alert');
 });
+Route::get('/movies',function(){
+    return view('movies');
+});
 
 //入力ページ
 Route::get('/admin_form', [App\Http\Controllers\ContactController::class,'admin_form'])->name('admin_form');

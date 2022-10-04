@@ -145,7 +145,7 @@
                 @endif
     </form>
 </div>
-<img src="img/create.png" alt="boy">
+<!-- <img src="img/create.png" alt="boy"> -->
 @endsection
 <a href="#" class="gotop">トップへ</a>
 
