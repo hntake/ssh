@@ -56,22 +56,22 @@ class HomeController extends Controller
             $follows = Nice::where('user_id','=', Auth::user()->id)->get()->pluck('created_user')->toArray();/*自分がフォローしているユーザー名を取得*/
             $ftests = Word::whereIn('user_name', $follows)->orderBy('created_at', 'desc')->paginate(10);/*取得したユーザー名が一致するテストを取得する
             /**おススメ */
-            if($user->year  == "中１"){
+            if($user->year  == "中1"){
                 $counts= Word::where('type','=','2')->orderBy('count', 'desc')->paginate(10);
             }
-            elseif($user->year  == "中２"){
+            elseif($user->year  == "中2"){
                 $counts= Word::where('type','=','3')->orderBy('count', 'desc')->paginate(10);
             }
-            elseif($user->year  ==  "中３"){
+            elseif($user->year  ==  "中3"){
                 $counts= Word::where('type','=','4')->orderBy('count', 'desc')->paginate(10);
             }
-            elseif($user->year  ==  "高１"){
+            elseif($user->year  ==  "高1"){
                 $counts= Word::where('type','=','5')->orderBy('count', 'desc')->paginate(10);
             }
-            elseif($user->year  ==  "高２"){
+            elseif($user->year  ==  "高2"){
                 $counts= Word::where('type','=','6')->orderBy('count', 'desc')->paginate(10);
             }
-            elseif($user->year  ==  "高３"){
+            elseif($user->year  ==  "高3"){
                 $counts= Word::where('type','=','7')->orderBy('count', 'desc')->paginate(10);
             }
             elseif($user->year  ==  "未選択"){
@@ -141,7 +141,7 @@ class HomeController extends Controller
         $followers = Nice::where('user_id', '=', Auth::user()->id)->get()->pluck('created_user')->toArray();
 
         $niceids=User:: whereIn('user_name', $followers)->get()->pluck('id')->toArray();
-        $images=User:: whereIn('id', $followers)->pluck('image')->toArray();
+        $images=User:: whereIn('user_name', $followers)->get()->pluck('image')->toArray();
         return view('profile', [
             'user' => $user,
             'words' => $words,

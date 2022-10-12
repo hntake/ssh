@@ -14,9 +14,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-       /*  $user_names = ['red', 'yellow', 'purple', 'orange', 'pink', 'black', 'white','black','brown','purple'];
-        $user_name = $user_names[rand(0, count($user_names) - 1)];
- */
+  
 
         return [
             'name' => $this->faker->name(),
