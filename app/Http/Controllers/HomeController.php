@@ -7,6 +7,7 @@ use App\Models\Word;
 use App\Models\User;
 use App\Models\Nice;
 use App\Models\History;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Storage;
@@ -107,6 +108,7 @@ class HomeController extends Controller
                 'users'=>$users,
             ]);
         }
+        /*コメント投稿*/
     public function comment( Request $request, $id)
     {
             $comment= User::where('id', '=',$id)->pluck('comment');
@@ -116,12 +118,33 @@ class HomeController extends Controller
                 'comment' => $postcomment
             ]);
 
+            $user =User::find($id);
+            $comment = new Comment;
+            $comment->name =$user->name;
+            $comment->school1= $user->school1;
+            $comment->comment = $postcomment;
+            $comment->save();
+
             return redirect()->route('id_view', [
                 'id' => $id,
             ])->with('status','コメント投稿しました');
         }
 
 
+        /*オーナーコメント表示*/
+        public function comment_index(Request $request )
+    {
+        if ($request->user('admin')?->admin_level > 1) {
+            $comments = Comment::where('school1','=',  Auth::user()->school)->orderBy('updated_at','desc')->paginate(10);
+
+            return view('comment',[
+                'comments' => $comments,
+            ]);
+        }
+        else{
+            return view('adminLogin');
+        }
+    }
     /*プロフィールページ*/
     public function profile(Request $request)
     {

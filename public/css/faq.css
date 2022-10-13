@@ -137,3 +137,39 @@ li{
 a{
     text-decoration: none;
 }
+  /*iPad*/
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .category{
+        width:100%;
+    }
+    footer{
+        width:100%;
+        margin-top: 100px;
+    }
+    .policy a{
+        font-size:20px;
+    }
+  }
+/*iPhone12レスポンシブ対応*/
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+    .category{
+        width:100%;
+    }
+    footer{
+        width:100%;
+        margin-top: 100px;
+    }
+    .policy a{
+        font-size:20px;
+    }
+    .gotop{
+        width: 75px;
+        height:75px;
+    }
+    .gotop::before{
+        top:15%;
+    }
+  }

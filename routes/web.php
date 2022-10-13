@@ -39,8 +39,23 @@ Route::get('/consumer',function(){
 Route::get('/alert',function(){
     return view('alert');
 });
-Route::get('/movies',function(){
-    return view('movies');
+Route::get('/feature',function(){
+    return view('feature');
+});
+Route::get('/plan',function(){
+    return view('plan');
+});
+Route::get('/case',function(){
+    return view('case');
+});
+Route::get('/blog',function(){
+    return view('blog');
+});
+Route::get('/news',function(){
+    return view('news');
+});
+Route::get('/partner',function(){
+    return view('partner');
 });
 
 //入力ページ
@@ -142,6 +157,8 @@ Route::get('select_month{id}',[App\Http\Controllers\TestController::class,'selec
 Route::get('/id_view/{id}', [App\Http\Controllers\HomeController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
 /*生徒へコメント*/
 Route::post('/comment/{id}', [App\Http\Controllers\HomeController::class, 'comment'])->name('comment')->middleware('auth:admin');
+/*コメント一覧*/
+Route::get('/comment', [App\Http\Controllers\HomeController::class, 'comment_index'])->name('comment_index')->middleware('auth:admin');
 
 Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
 
@@ -150,20 +167,7 @@ Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'admi
 Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
 
 Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
-/* Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
- */
-/* Route::prefix('user')->middleware(['auth'])->group(function() {
- */
-    // 課金
-   /*  Route::get('subscription', [App\Http\Controllers\StripeController::class,'index']);
-    Route::get('ajax/subscription/status',  [App\Http\Controllers\Ajax\StripeController::class,'status']);
-    Route::post('ajax/subscription/subscribe', [App\Http\Controllers\Ajax\StripeController::class,'subscribe']);
-    Route::post('ajax/subscription/cancel', [App\Http\Controllers\Ajax\StripeController::class,'cancel']);
-    Route::post('ajax/subscription/resume', [App\Http\Controllers\Ajax\StripeController::class,'resume']);
-    Route::post('ajax/subscription/change_plan', [App\Http\Controllers\Ajax\StripeController::class,'change_plan']);
-    Route::post('ajax/subscription/update_card', [App\Http\Controllers\Ajax\StripeController::class,'update_card']); */
 
-/* }); */
 
 Route::middleware([
     'auth:sanctum',

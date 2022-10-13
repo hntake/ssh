@@ -1,0 +1,69 @@
+li.title_image{
+    width:500px;
+}
+.youtube_kv{
+    height:50%;
+    width:100%;
+    position:relative;
+    z-index:5;
+    line-height:1;
+    margin:300px  0 50px 0;
+}
+.elementor-image a img{
+    background-color: rgba(34, 34, 34, 0.9);
+    width: 10%;
+    border-radius: 50px;
+
+}
+.elementor-widget{
+    position:relative;
+    text-align: center;
+}
+.elementor-image{
+    position:absolute;
+    top:50%;
+    left:50%;
+}
+.elementor-widget img{
+    width:50%;
+    height: auto;
+}
+/*mordal*/
+/*動画表示のモーダルの余白を変更したい場合*/
+.modaal-video .modaal-inner-wrapper{
+	padding:0;
+}
+
+/*モーダルのボタンの色を変更したい場合*/
+.modaal-close:after,
+.modaal-close:before{
+	background:rgb(233, 29, 29);
+}
+
+.modaal-close:focus:after,
+.modaal-close:focus:before,
+.modaal-close:hover:after,
+.modaal-close:hover:before{
+	background:#666;
+}
+
+ /*iPad*/
+ @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .elementor-widget img{
+        width:80%;
+        height: auto;
+    }
+ }
+/*iPhone12レスポンシブ対応*/
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+    .youtube_kv{
+        margin-top: 100px;
+    }
+    .elementor-widget img{
+        width:80%;
+        height: auto;
+    }
+  }

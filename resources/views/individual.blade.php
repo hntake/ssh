@@ -1,10 +1,11 @@
 @extends('layouts.app')
-<link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
-<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
 <title>個別データ検索画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}"> <!-- word.cssと連携 -->
 
 <div class="header-logo-menu">
     <div id="nav-drawer">

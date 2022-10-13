@@ -1,12 +1,24 @@
+body{
+    background-color: #e7e7eb;
+}
+
 .admincard{
    background-color: #c1f6b3;
     width:1000px;
     margin-top:10px;
 }
+.admincard-header{
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
 thead{
 background-color: aliceblue;
 }
 button.btn {
+    padding:10px;
 
 }
 .aboutus{
@@ -18,7 +30,7 @@ button.btn {
     font-weight: 700;
     letter-spacing: normal;
     text-decoration: none;
-    color:aliceblue
+    color:mediumseagreen;
 }
 .button{
     border: none;
@@ -35,19 +47,141 @@ ul {
     list-style: none;
 }
 .form{
-    border: solid 1px;
-    margin: 100px 100px;
-    width: fit-content;
-    padding-right: 100px;
+    position: relative;
+    margin: 30px auto;
+    padding: 20px 20px 20px;
+    width: 310px;
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
+.form:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+}
+.form h2 {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f3f3f3;
+    border-bottom: 1px solid #cfcfcf;
+    border-radius: 3px 3px 0 0;
+    background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
+    background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
+    -webkit-box-shadow: 0 1px whitesmoke;
+    box-shadow: 0 1px whitesmoke;
+}
+.form p {
+margin: 20px 0 0;
+}
+
+.form p:first-child {
+margin-top: 0;
+}
+
+.form input[type=text], .form input[type=password] {
+width: 278px;
+}
+
+.form p.remember_me {
+float: left;
+line-height: 31px;
+}
+
+.form p.remember label {
+font-size: 12px;
+color: #777;
+cursor: pointer;
+}
+
+.form p.remember input {
+position: relative;
+bottom: 1px;
+margin-right: 4px;
+vertical-align: middle;
+}
+
+.form p.submit {
+text-align: right;
+}
+
 table.admin_point{
     margin: 0 auto;
 }
 .point_school{
     background-color: rgb(213, 244, 224);
 }
+.row{
+    padding-bottom: 10px;
+}
+.wrap{
+    display:flex;
+}
+.id_view{
+    width:60%;
+}
+.comment th{
+    padding:5px;
+}
+.comment td{
+    padding:10px;
+}
+.check button{
+    margin-top:10px;
+}
+.admin{
+    border: solid 5px lightgray;
+}
+.create{
+    display:none;
+}
 @media (max-width: 480px){
     .form{
         margin:100px 0;
     }
+    .wrap{
+        display:block;
+    }
+    .id_view{
+        width:100%;
+    }
+    th{
+        width:auto;
+    }
+    td{
+        width:auto;
+    }
 }
+  /*iPad*/
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .wrap{
+        display:block;
+    }
+    .id_view{
+        width:100%;
+    }
+  }
+ /*LenovoTab*/
+
+ @media only screen and (min-width:800px) and (max-width:1200px){
+    .wrap{
+        display:block;
+    }
+    .id_view{
+        width:100%;
+    }
+ }

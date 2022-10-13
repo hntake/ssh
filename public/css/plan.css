@@ -1,0 +1,79 @@
+.site-content{
+    background-color: aliceblue;
+    padding: 100px 300px;
+    height: auto;
+}
+.bottom-inner{
+    text-align: center;
+    background-color: #03C75A;
+
+}
+.bottom-left{
+    width:100%;
+    line-height:200px;
+}
+a.bottom_button{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 34px;
+    letter-spacing: -1px;
+    fill: #03C75A;
+    color: #03C75A;
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    padding: 18px 100px 18px 100px;
+}
+section{
+    margin-bottom: 0;
+}
+/*lenovo*/
+@media only screen and (min-width:800px) and (max-width:1200px){
+
+}
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .site-content{
+        padding:100px 0 0 30px;
+    }
+    .selections{
+        margin:0;
+    }
+    .box{
+        display:block;
+        width:100%;
+    }
+    section.elementor-inner-section{
+        margin-bottom:50px;
+    }
+    .elementor-row{
+        width:99%;
+        padding:0;
+    }
+}
+
+@media (max-width: 480px){
+    .box{
+        display:block;
+        width:100%;
+    }
+    .elementor-button a{
+        padding:15px 70px;
+    }
+    .elementor-row{
+        padding:0;
+    }
+    .site-content{
+        padding: 100px 10px 0 30px;
+    }
+    .option-row{
+        display:block;
+    }
+    .option-wrap{
+        padding:10px;
+        width:90%;
+    }
+    a.bottom_button{
+        padding:10px 20px;
+    }
+}

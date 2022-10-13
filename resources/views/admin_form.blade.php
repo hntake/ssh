@@ -62,7 +62,7 @@
                         @endif
                     </li>
                     <li >
-                        <label>ご質問等あれば</label><br>
+                        <label>ご質問、オプション商品についてはこちらにご記入下さい。</label><br>
                         <textarea name="body" style="height: 200px; width:80%;">{{ old('body') }}</textarea>
                     </li>
 

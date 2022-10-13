@@ -95,12 +95,80 @@
                                 @endif
                                 <li class="header_nav_itm">
                                     <div class="register-button">
-                                        <a href="" class="header_nav_itm_link">説明動画</a>
+                                        <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
                                         <div class="description1">マニュアル動画ページへ</div>
                                     </div>
                                 </li>
                             </ul>
                         </nav>
+                    </div>
+                    <div class="mobile-login">
+                        <ul>
+                        <li class="header_nav_itm">
+                        @if (Route::has('login'))
+                                    @auth
+                                    <div class="home-button">
+                                        <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
+                                        <div class="description1">Myホーム画面へ移動する </div>
+                                    </div>
+                                </li>
+                                <li class="header_nav_itm">
+                                    @else
+                                    <div class="login-button">
+                                        <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
+                                        <div class="description1">ログイン画面へ移動する </div>
+                                    </div>
+                                </li>
+                                <li class="header_nav_itm">
+                                    <div class="register-button">
+                                        @if (Route::has('register'))
+                                        <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
+                                        <div class="description1">登録して完全無料の全機能を使う </div>
+
+                                    </div>
+                                </li>
+
+                                    @endif
+                                @endauth
+                                @endif
+                        </ul>
+                    </div>
+                   <!--  ハンバーガーメニュー -->
+                    <div class="mobile-menu">
+                        <div id="nav-drawer">
+                            <input id="nav-input" type="checkbox" class="nav-unshown">
+                            <label id="nav-open" for="nav-input"><span></span></label>
+                            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+                            <div id="nav-content">
+                            <ul class="header_nav_list">
+                                    <li><a href="{{ url('search_result') }}">
+                                            <h3>テスト検索</h3>
+                                        </a></li>
+                                    <li><a href="#use">
+                                            <h3>使い方</h3>
+                                        </a></li>
+                                    <li><a href="#useful">
+                                            <h3>便利な機能</h3>
+                                        </a></li>
+                                    <li><a href="#monitor">
+                                            <h3>教育関係者向け</h3>
+                                        </a></li>
+                                    <li class="header_nav_itm">
+                                        <div class="register-button">
+                                            <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
+                                            <div class="description1">マニュアル動画ページへ</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <script>
+                                $(function() {
+                                    $('#nav-content li a').on('click', function(event) {
+                                        $('#nav-input').prop('checked', false);
+                                    });
+                                });
+                            </script>
+                        </div>
                     </div>
                 </header>
                 <div class="main-column">
@@ -123,7 +191,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <img class="image" src="img/engTopSky.png" alt="top" >
+                                    <img class="image" src="img/engTopSky.png" alt="top" style="width:80%; height:auto;">
                                     <div class="post_title2">
                                         <h2 class="post_titile">
                                             Achieve your dream!
@@ -138,6 +206,7 @@
                                         </h2>
                                     </div>
                                 </li>
+
                         </ul>
                         </div>
                     </div>
@@ -154,11 +223,15 @@
                             <input id="tab1" type="radio" name="tab_btn" checked>
                             <input id="tab2" type="radio" name="tab_btn">
                             <input id="tab3" type="radio" name="tab_btn">
-
-                            <div class="tab_area">
-                                <label class="tab1_label" for="tab1">まずは登録</label>
-                                <label class="tab2_label" for="tab2">テストを作れる</label>
-                                <label class="tab3_label" for="tab3">テストを受ける</label>
+                            <div class="nav-wrap">
+                                <div class="scroll-nav">
+                                    <div class="tab_area">
+                                        <label class="tab1_label" for="tab1">まずは登録</label>
+                                        <label class="tab2_label" for="tab2">テストを作れる</label>
+                                        <label class="tab3_label" for="tab3">テストを受ける</label>
+                                    </div>
+                                </div>
+                                <div class="next-btn">＞</div>
                             </div>
                             <div class="panel_area">
                                 <div id="panel1" class="tab_panel">
@@ -228,11 +301,14 @@
                                                 単元を入力すると検索できます<br>
                                                 <br>
                                                 ※詳細は画像をクリックして拡大してみてください
+                                                <div class="llco" style="background-color:unset;">
+                        <div  class="admin_button" ><a href="{{ route('search_result') }}" style="background-color:none; color:#7791DE;">テスト検索ページへ</a></div>
                                             </div>
                                         </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                     <div class="element">
                         <div class="use">
@@ -246,12 +322,16 @@
                             <input id="tab5" type="radio" name="tab_btn2">
                             <input id="tab6" type="radio" name="tab_btn2">
                             <input id="tab7" type="radio" name="tab_btn2">
-
-                            <div class="tab_area">
-                                <label class="tab4_label" for="tab4">フォロー機能</label>
-                                <label class="tab5_label" for="tab5">プロフィール機能</label>
-                                <label class="tab6_label" for="tab6">ポイント機能</label>
-                                <label class="tab7_label" for="tab7">デバイスフリー</label>
+                            <div class="nav-wrap">
+                                <div class="scroll-nav">
+                                    <div class="tab_area">
+                                        <label class="tab4_label" for="tab4">フォロー機能</label>
+                                        <label class="tab5_label" for="tab5">プロフィール機能</label>
+                                        <label class="tab6_label" for="tab6">ポイント機能</label>
+                                        <label class="tab7_label" for="tab7">デバイスフリー</label>
+                                    </div>
+                                </div>
+                                <div class="next-btn">＞</div>
                             </div>
                             <div class="panel_area">
                                 <div id="panel4" class="tab_panel">
@@ -297,7 +377,7 @@
                                                 <th class="arrow_box">テストを受ける</th>
                                                 <td> 得点9～10点 +3<br>
                                                 得点6～8点 +2<br>
-                                                得点0～5点 +
+                                                得点0～5点 +1
                                                 </td>
                                                 </tr>
                                                 <tr>
@@ -341,6 +421,7 @@
                                 </div>
                         </div>
                     </div>
+                    </div>
                     <div class="element">
                         <div class="use">
                         <!-- リンク内移動-->
@@ -354,11 +435,16 @@
                             <input id="tab10" type="radio" name="tab_btn3">
                             <input id="tab11" type="radio" name="tab_btn3">
 
-                            <div class="tab_area">
-                                <label class="tab8_label" for="tab8">モニタリング</label>
-                                <label class="tab9_label" for="tab9">メッセージ</label>
-                                <label class="tab10_label" for="tab10">個人情報対策</label>
-                                <label class="tab11_label" for="tab11">料金内訳</label>
+                            <div class="nav-wrap">
+                                <div class="scroll-nav">
+                                        <div class="tab_area">
+                                        <label class="tab8_label" for="tab8">モニタリング</label>
+                                        <label class="tab9_label" for="tab9">メッセージ</label>
+                                        <label class="tab10_label" for="tab10">個人情報対策</label>
+                                        <label class="tab11_label" for="tab11">料金内訳</label>
+                                    </div>
+                                </div>
+                                <div class="next-btn">＞</div>
                             </div>
                             <div class="panel_area">
                                 <div id="panel8" class="tab_panel">
@@ -372,8 +458,9 @@
                                                 <br>
                                                 ※詳細は画像をクリックして拡大してみてください
                                                 <div class="llco" style="background-color:unset;">
-                        <div  class="admin_button" ><a href="{{ route('admin_form') }}" style="background-color:none; color:#7791DE;">申込ページへ</a></div>
-                    </div>
+                                                    <div  class="admin_button" ><a href="{{ route('admin_form') }}" style="background-color:none; color:#7791DE;">申込ページへ</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                 </div>
@@ -438,19 +525,20 @@
                                                 アカウント設定を利用しなければ<br>
                                                 初回3000円のみで始められます<br>
                                                 <h4>保証期間：登録から一年間</h4>
-                    ※サーバートラブルなど一時的な停止を除く長期の利用不可が生じた場合は<span style="color:red;">全額返金致します。</span>
-                    <div class="llco" style="background-color:unset;">
-                        <div  class="admin_button" ><a href="{{ route('admin_form') }}" style="background-color:none; color:#7791DE;">申込ページへ</a></div>
-                    </div>
+                                                ※サーバートラブルなど一時的な停止を除く長期の利用不可が生じた場合は<span style="color:red;">全額返金致します。</span>
+                                                    <div class="llco" style="background-color:unset;">
+                                                    <div  class="admin_button" ><a href="{{ route('admin_form') }}" style="background-color:none; color:#7791DE;">申込ページへ</a>
+                                                    </div>
+                                                    </div>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
+                          </div>
                         </div>
                     </div>
                 </section>
-                <selction class="bottom">
+                <section class="bottom">
                     <div class="bottom-container">
                         <div class="bottom-element">
                             <div class="bottom-element-top">
@@ -473,7 +561,7 @@
 
                         </div>
                     </div>
-                </selction>
+                </section>
             </div>
         </div>
             <footer class="site-footer">
@@ -483,10 +571,10 @@
                             <h2 class="widget-title">製品紹介</h2>
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
-                                    <li><a href="">機能</a></li>
-                                    <li><a href="">利用料金</a></li>
-                                    <li><a href="">導入事例</a></li>
-                                    <li><a href="{{ url('adminLogin') }}">管理者画面</a></li>
+                                    <li><a href="{{ url('feature') }}">機能</a></li>
+                                    <li><a href="{{ url('plan') }}">利用料金</a></li>
+                                    <li><a href="{{ url('case') }}">導入事例</a></li>
+                                    <li><a href="{{ url('/admin/login')}}">管理者画面</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -494,9 +582,9 @@
                             <h2 class="widget-title">関連情報</h2>
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
-                                    <li><a href="">ブログ</a></li>
-                                    <l><a href="">お知らせ</a></li>
-                                    <li><a href="">パートナー</a></li>
+                                    <li><a href="{{ url('blog')}}">ブログ</a></li>
+                                    <l><a href="{{ url('news')}}">お知らせ</a></li>
+                                    <li><a href="{{ url('partner')}}">パートナー</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -504,8 +592,8 @@
                             <h2 class="widget-title">サポート</h2>
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
-                                    <li><a href="{{ route('contact.index') }}">お問い合わせ</a></li>
-                                    <li><a href="{{ url('faq') }}">FAQ</a></li>
+                                    <li><a href="{{ route('contact.index')}}">お問い合わせ</a></li>
+                                    <li><a href="{{ url('faq')}}">FAQ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -513,10 +601,10 @@
                             <h2 class="widget-title">会社情報</h2>
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
-                                    <li><a href="{{ url('policy') }}'">プライバシー</a></li>
-                                    <li><a href="{{ url('rule') }}">利用規約</a></li>
-                                    <li><a href="{{ url('aboutus') }}">About Us</a></li>
-                                    <li><a href="{{ url('consumer') }}">特定商取引</a></li>
+                                    <li><a href="{{ url('policy')}}">プライバシー</a></li>
+                                    <li><a href="{{ url('rule')}}">利用規約</a></li>
+                                    <li><a href="{{ url('aboutus')}}">About Us</a></li>
+                                    <li><a href="{{ url('consumer')}}">特定商取引</a></li>
                                 </ul>
                             </div>
                         </div>

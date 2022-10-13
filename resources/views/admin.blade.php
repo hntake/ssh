@@ -1,12 +1,13 @@
 @extends('layouts.app', ['authgroup'=>'admin'])
-<link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <title>管理者専用画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
 @section('content')
+<link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="admincard">
-                <div class="card-header">{{Auth::user()->school}}管理者 {{ __('Dashboard') }}</div>
+                <div class="admincard-header">{{Auth::user()->school}}管理者 {{ __('Dashboard') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,6 +15,9 @@
                         {{ session('status') }}
                     </div>
                     @endif
+                </div>
+                <div class="nav-item">
+                                    <a class="button" href="{{ route('admin.logout') }}">{{ __('ログアウトする') }}</a>
                 </div>
                 <div class="school">
                     <p>利用履歴一覧</p>
@@ -55,7 +59,7 @@
                     <table class="admin_point">
                         <thead>
                             <tr>
-                                <th style="width:20%">ユーザー名</th>
+                                <th style="width:20%">名前</th>
                                 <th style="width:20%">総ポイント数</th>
                                 <th style="width:20%">更新日時</th>
                             </tr>

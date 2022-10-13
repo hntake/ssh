@@ -19,20 +19,22 @@
 
             <form method="POST" action="{{ route("admin.login") }}">  {{--  routeはここと同じ --}}
                 @csrf
-                <ul>
-                    <li>
+                    <p>
                         <label for="email">Mail</label>
                         <input type="text" id="email" name="email">
-                    </li>
-                    <li>
+                    </p>
+                    <p>
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password">
-                    </li>
-                    <li>
-                        <button type="submit">Login</button>
+                    </p>
+                    <p>
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                    </li>
-                </ul>
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('←ログイン状態を維持する') }}
+                                    </label>
+                    </p>
+                    <p class="submit"><input type="submit" name="commit" value="Login"></p>
             </form>
         </div>
           <!-- <li>

@@ -1,0 +1,152 @@
+.title_image{
+    margin-left:100px;
+    margin-top:20px;
+}
+.title_image img{
+    width:10%;
+}
+.partner_kv{
+    height: 50%;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    line-height: 1;
+}
+.post_title1{
+    position: absolute;
+    top: 200px;
+    left: 300px;
+}
+.elementor-widget-mobile{
+    display:none;
+}
+ .post_title {
+    font-size: 40px;
+    color: white;
+    text-shadow: 1px 2px 3px #808080;
+}
+.elementor-bottom{
+    width: 100%;
+    background: #03c75a;
+    margin-top:-3px;
+}
+.elementor-bottom-nest{
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.elementor-heading-title{
+    font-size: 28px;
+    color: #fff;
+    line-height: 1.4;
+    margin: 0 0 20px;
+    font-weight: bold;
+}
+.partner_logo h2{
+    font-size: 50px;
+    font-family: 'Homemade Apple', cursive;
+}
+section{
+    width: 60%;
+    margin: 50px auto;
+}
+.partner_image{
+    text-align: center;
+    margin:80px;
+}
+.admin_button::after{
+    content:"\f178";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color:#7791DE;
+ }
+.sales{
+    display:flex;
+}
+.sales img{
+    display: block;
+	width: 100%;
+	height: auto;
+}
+.sales_discription{
+    padding:100px 50px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape)  {
+
+    .elementor-widget-mobile{
+        display:block;
+        margin-top:100px;
+    }
+
+}
+
+
+/*iPad*/
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+   .elementor-widget{
+       display:none;
+   }
+   .elementor-widget-mobile{
+    display:block;
+    margin-top:100px;
+}
+   .title_image img{
+       width:40%;
+   }
+   .post_title1{
+       top:100px;
+       left:100px;
+   }
+   section{
+    width:100%;
+   }
+   .partner_logo h2 {
+    font-size: 40px;
+   }
+
+   .sales_discription {
+    padding: 0px 50px;
+}
+.item{
+    width:auto;
+    }
+}
+
+/*iPhone12レスポンシブ対応*/
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+    .elementor-widget-mobile{
+        display:block;
+        margin-top:100px;
+    }
+    .elementor-widget{
+        display:none;
+    }
+    .title_image img{
+        width:40%;
+    }
+    .title_image{
+        margin-left:50px;
+    }
+    .post_title1{
+        top:100;
+        left:100px;
+    }
+    .post_title{
+        font-size: 25px;
+    }
+    .elementor-heading-title {
+        font-size: unset;
+    }
+    .partner_logo h2 {
+        font-size: 30px;
+    }
+    .sales{
+        display:block;
+    }
+}

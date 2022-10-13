@@ -52,7 +52,9 @@ table {
 }
 th, td {
     border:1px solid #333;
+    padding:5px;
   }
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 .testtable-responsive{
     margin:0 ;
@@ -66,6 +68,12 @@ th, td {
 }
 td{
     padding-top:20px;
+}
+.admin{
+    width:100%;
+}
+table.admin_point{
+    width:60%;
 }
 }
 @media (max-width: 480px){
@@ -89,6 +97,7 @@ td{
         padding-top:20px;
     }
 }
+/*lenovo*/
 @media only screen and (min-width:800px) and (max-width:1200px){
     .button a{
         display: block;
@@ -109,5 +118,11 @@ td{
     }
     .table-hover{
         width:100%;
+    }
+    .admin{
+        width:100%;
+    }
+    table.admin_point{
+        width:60%;
     }
 }
