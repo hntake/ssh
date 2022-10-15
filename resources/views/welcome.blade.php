@@ -199,7 +199,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <img class="image" src="img/engTopRiv.png" alt="top" >
+                                    <img class="image" src="img/engTopRiv_sm.png" alt="top" >
                                     <div class="post_title3">
                                         <h2 class="post_titile">
                                             You can do anything!
