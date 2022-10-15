@@ -47,7 +47,7 @@
                 <header id="header" class="header is-open">
 
                     <div class="header_inner">
-                        <nav id="menu" class="header_nav js-menu">
+                        <nav id="menu" class="header_nav">
 
 
                         @if (Route::has('login'))
@@ -276,7 +276,7 @@
                                     </table>
                                 </div>
                                 <div id="panel2" class="tab_panel">
-                                    <a href="img/create_use.png" data-lightbox="group"> <img src="img/create_use.png" alt="create" style="width:30%;"></a>
+                                    <a href="img/create_use.webp" data-lightbox="group"> <img src="img/create_use.webp" alt="create" style="width:30%;"></a>
                                         <div class="sright">
                                             <div class="slide-head">自分だけのテストを作る</div>
                                             <div class="slide-description">
@@ -348,7 +348,7 @@
                                         </div>
                                 </div>
                                 <div id="panel5" class="tab_panel">
-                                    <a href="img/mylist.png" data-lightbox="group"> <img src="img/mylist.png" alt="create" style="width:30%;"></a>
+                                    <a href="img/mylist.webp" data-lightbox="group"> <img src="img/mylist.webp" alt="create" style="width:30%;"></a>
                                         <div class="sright">
                                             <div class="slide-head">テスト期間に便利</div>
                                             <div class="slide-description">
