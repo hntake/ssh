@@ -183,7 +183,7 @@
                         <div class="bx-viewport">
                             <ul class="bxslider">
                                 <li>
-                                    <img class="image" src="img/engTop.png" alt="top" style="width:70%; height:auto;" >
+                                    <img class="image" src="img/engTop.webp" alt="top" style="width:70%; height:auto;" >
                                     <div class="post_title1">
                                         <h2 class="post_titile">
                                             To the World!
@@ -191,7 +191,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <img class="image" src="img/engTopSky.png" alt="top" style="width:80%; height:auto;">
+                                    <img class="image" src="img/engTopSky.webp" alt="top" style="width:80%; height:auto;">
                                     <div class="post_title2">
                                         <h2 class="post_titile">
                                             Achieve your dream!
@@ -199,7 +199,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <img class="image" src="img/engTopRiv_sm.png" alt="top" >
+                                    <img class="image" src="img/engTopRiv_sm.webp" alt="top" >
                                     <div class="post_title3">
                                         <h2 class="post_titile">
                                             You can do anything!
@@ -335,7 +335,7 @@
                             </div>
                             <div class="panel_area">
                                 <div id="panel4" class="tab_panel">
-                                            <a href="img/myfollow.png" data-lightbox="group"><img src="img/myfollow.png" alt="register" style="width:30%;"></a>
+                                            <a href="img/myfollow.webp" data-lightbox="group"><img src="img/myfollow.webp" alt="register" style="width:30%;"></a>
                                         <div class="sright">
                                             <div class="slide-head">友達をフォローする</div>
                                             <div class="slide-description">
@@ -448,7 +448,7 @@
                             </div>
                             <div class="panel_area">
                                 <div id="panel8" class="tab_panel">
-                                            <a href="img/monitor_pc.png" data-lightbox="group"><img src="img/monitor_pc.png" alt="monitor" style="width:30%;"></a>
+                                            <a href="img/monitor_pc.webp" data-lightbox="group"><img src="img/monitor_pc.webp" alt="monitor" style="width:30%;"></a>
                                         <div class="sright">
                                             <div class="slide-head">簡単表示</div>
                                             <div class="slide-description">
