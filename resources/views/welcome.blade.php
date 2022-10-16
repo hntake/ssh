@@ -59,15 +59,15 @@
                                 <div class="description1">テストを受けてみる</div>
                                 </li>
                                 <li class="header_nav_itm">
-                                <a href="#use" class="header_nav_itm_link">使い方</a>
+                                <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
                                 <div class="description1">エーゴメの使い方</div>
                                 </li>
                                 <li class="header_nav_itm">
-                                <a href="#useful" class="header_nav_itm_link">便利な機能</a>
+                                <a href="{{ url('feature') }}" class="header_nav_itm_link">便利な機能</a>
                                 <div class="description1">フォロー機能やポイントシステム</div>
                                 </li>
                                 <li class="header_nav_itm">
-                                <a href="#monitor" class="header_nav_itm_link">教育関係者向け</a>
+                                <a href="{{ url('plan') }}" class="header_nav_itm_link">教育関係者向け</a>
                                 <div class="description1">モニタリングサービスのご案内</div>
                                 </li>
                                 <li class="header_nav_itm">
@@ -144,13 +144,13 @@
                                     <li><a href="{{ url('search_result') }}">
                                             <h3>テスト検索</h3>
                                         </a></li>
-                                    <li><a href="#use">
+                                    <li><a href="{{ url('feature') }}">
                                             <h3>使い方</h3>
                                         </a></li>
-                                    <li><a href="#useful">
+                                    <li><a href="{{ url('feature') }}">
                                             <h3>便利な機能</h3>
                                         </a></li>
-                                    <li><a href="#monitor">
+                                    <li><a href="{{ url('plan') }}">
                                             <h3>教育関係者向け</h3>
                                         </a></li>
                                     <li class="header_nav_itm">
