@@ -16,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
         <link rel="stylesheet" type="text/css" href="css/9-6-2.css">
         <!-- Styles -->
-         <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+        <!--  <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> -->
          <link rel="stylesheet" href="{{ asset('css/feature.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,10 +103,13 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="mobile-login">
+                    <div class="mobile">
                         <ul>
-                        <li class="header_nav_itm">
-                        @if (Route::has('login'))
+                                <li class="header_nav_itm">
+                                <a href="{{url('/')}}" class=""><img src="img/title2.png" style="width:30%; height:auto;"></a>
+                                </li>
+                                <li class="header_nav_itm">
+                                 @if (Route::has('login'))
                                     @auth
                                     <div class="home-button">
                                         <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
@@ -149,7 +152,14 @@
                                         </a></li>
                                     <li><a href="{{ url('plan') }}">
                                             <h3>利用料金</h3>
-                                        </a></li>
+                                        </a>
+                                    </li>
+                                    <li class="header_nav_itm">
+                                        <div class="register-button">
+                                            <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
+                                            <div class="description1">マニュアル動画ページへ</div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                             <script>
@@ -519,7 +529,7 @@
                             </div>
                         </div>
                     </section>
-                    <section class="bottom">
+                    <div class="bottom">
                         <div class="bottom-container">
                             <div class="bottom-element">
                                 <div class="bottom-element-top">
@@ -542,7 +552,7 @@
 
                             </div>
                         </div>
-                    </section>
+                            </div>
             </div>
         </div>
             <footer class="site-footer">

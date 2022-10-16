@@ -212,7 +212,7 @@
                     </div>
                 </div>
 
-                <section class="bottom">
+                <div class="bottom">
                     <div class="bottom-container">
                         <div class="bottom-element">
                             <div class="bottom-element-top">
@@ -235,7 +235,7 @@
 
                         </div>
                     </div>
-                </section>
+                            </div>
             </div>
         </div>
             <footer class="site-footer">

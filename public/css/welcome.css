@@ -1386,7 +1386,7 @@ a.use{
     top:-5rem;
 }
 .bottom-container{
-    display:none;
+    display:flex;
 }
 .site-footer .site-info{
     padding-top: 45rem;
@@ -1681,7 +1681,7 @@ a.use{
         top:-5rem;
     }
     .bottom-container{
-        display:none;
+        display:flex;
     }
     .header_nav_list {
         display: block;

@@ -13,7 +13,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
         <!-- Styles -->
-         <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
          <link rel="stylesheet" href="{{ asset('css/plan.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,6 +92,11 @@
                             </ul>
                         </nav>
                     </div>
+                    <div class="mobile">
+                                <li class="header_nav_itm">
+                                <a href="{{url('/')}}" class=""><img src="img/title2.png" style="width:30%; height:auto;"></a>
+                                </li>
+                    </div>
                             <!--  ハンバーガーメニュー -->
                             <div class="mobile-menu">
                         <div id="nav-drawer">
@@ -106,7 +110,14 @@
                                         </a></li>
                                     <li><a href="#monitor">
                                             <h3>オプション商品</h3>
-                                        </a></li>
+                                        </a>
+                                    </li>
+                                    <li class="header_nav_itm">
+                                        <div class="register-button">
+                                            <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
+                                            <div class="description1">マニュアル動画ページへ</div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                             <script>
@@ -249,6 +260,22 @@
                         </section>
                     </div>
                 </div>
+                <!--説明動画-->
+                <div class="youtube_kv">
+                        <div class="movie_cap">
+                        <div class="elementor-widget">
+                            <a name="monitor">
+                                <img src="img/movieCap2.png" >
+                            </a>
+                            </div>
+                            <div class="youtube">
+                                <div class="elementor-image">
+                                    <a href="https://www.youtube.com/embed/d5Yjn2f3-9c" class="video-open"><img src="img/play.png"></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                         <section class="option-section">
                             <div class="site-content">
                                 <div class="elementor-column">
@@ -313,13 +340,16 @@
                             </div>
 
                     </section>
-                    <div class="bottom-inner">
-                                <div class="bottom-left">
-                                        <a href="{{route('contact.index')}}" target="_blanlk" class="bottom_button">
-                                            <span class="elementor-button">オプション商品問い合わせ</span>
-                                        </a>
-                                </div>
-                </div>
+                    <div class="bottom-container">
+
+                        <div class="bottom-inner">
+                                    <div class="bottom-left">
+                                            <a href="{{route('contact.index')}}" target="_blanlk" class="bottom_button">
+                                                <span class="elementor-button">オプション商品問い合わせ</span>
+                                            </a>
+                                    </div>
+                        </div>
+                    </div>
             </div>
         </div>
             <footer class="site-footer">

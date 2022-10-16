@@ -16,8 +16,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
         <link rel="stylesheet" type="text/css" href="css/9-6-2.css">
         <!-- Styles -->
-         <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
-         <link rel="stylesheet" href="{{ asset('css/feature.css') }}">
+      <!--    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> -->
+         <!-- <link rel="stylesheet" href="{{ asset('css/feature.css') }}"> -->
          <link rel="stylesheet" href="{{ asset('css/partner.css') }}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -144,30 +144,7 @@
                             </div>
                         </div>
                     </section>
-               <!--      <section class="bottom">
-                        <div class="bottom-container">
-                            <div class="bottom-element">
-                                <div class="bottom-element-top">
-                                    <h2 class="bottom-element-top">
-                                        今すぐはじめてみよう！
-                                    </h2>
-                                </div>
-                                <div class="bottom-inner">
-                                    <div class="bottom-left">
-                                            <a href="{{route('search_result')}}" target="_blanlk" class="bottom_button">
-                                                <span class="elementor-button">テストを受ける</span>
-                                            </a>
-                                    </div>
-                                    <div class="bottom-right">
-                                            <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
-                                            <span class="elementor-button">新規登録する</span>
-                                            </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </section> -->
+              
             </div>
         </div>
             <footer class="site-footer">
