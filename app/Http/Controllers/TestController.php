@@ -23,7 +23,7 @@ class TestController extends Controller
     public function list()
     {
         $date = Carbon::now();
-        $words = Word::orderBy('created_at', 'desc')->paginate(10);
+        $words = Word::orderBy('id', 'desc')->paginate(10);
         return view('all_list', [
             'words' => $words,
 /*             'date' =>$date,

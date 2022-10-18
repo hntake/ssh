@@ -12,7 +12,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
-        <!--mordal-->
+        <!--mordal_youtube-->
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/css/modaal.min.css">
         <link rel="stylesheet" type="text/css" href="css/9-6-2.css">
         <!-- Styles -->
@@ -36,7 +36,7 @@
     <script src="js/jquery.bxslider.js"></script>
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <script type="text/javascript">
-    jQuery(document).ready(function($){
+    jQuery(document).on('load', function($){
     $('.bxslider').bxSlider({
     auto: true,
    captions: true,
@@ -218,7 +218,7 @@
                                     <div class="scroll-nav">
                                         <div class="tab_area">
                                             <label class="tab1_label" for="tab1">まずは登録</label>
-                                            <label class="tab2_label" for="tab2">テストを作れる</label>
+                                            <label class="tab2_label" for="tab2">テストを作る</label>
                                             <label class="tab3_label" for="tab3">テストを受ける</label>
                                         </div>
                                     </div>
@@ -288,7 +288,7 @@
                                                 <div class="slide-head">テストを受ける</div>
                                                 <div class="slide-description">
                                                     <b>簡単検索</b>
-                                                    学年・教科書はそして<br>
+                                                    学年・教科書、そして<br>
                                                     単元を入力すると検索できます<br>
                                                     <br>
                                                     ※詳細は画像をクリックして拡大してみてください
