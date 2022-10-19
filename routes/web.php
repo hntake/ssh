@@ -48,9 +48,7 @@ Route::get('/plan',function(){
 Route::get('/case',function(){
     return view('case');
 });
-Route::get('/blog',function(){
-    return view('blog');
-});
+
 Route::get('/news',function(){
     return view('news');
 });
@@ -167,6 +165,11 @@ Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'admi
 Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
 
 Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
+/*ブログ書き込み権限*/
+Route::get('/blog', [\App\Http\Controllers\FormController::class, 'postpage'])->middleware('auth:admin')->name('blog.form');
+Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin')->name('blog.form');
+Route::post('/newpostsend', [\App\Http\Controllers\FormController::class, 'savenew'])->middleware('auth:admin');
+Route::get('/blog/index', [\App\Http\Controllers\FormController::class, 'index'])->name('blog.index');
 
 
 Route::middleware([

@@ -144,7 +144,7 @@
                             </div>
                         </div>
                     </section>
-              
+
             </div>
         </div>
             <footer class="site-footer">
@@ -165,7 +165,7 @@
                             <h2 class="widget-title">関連情報</h2>
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
-                                    <li><a href="{{ url('blog')}}">ブログ</a></li>
+                                    <li><a href="{{ url('blog/index')}}">ブログ</a></li>
                                     <l><a href="{{ url('news')}}">お知らせ</a></li>
                                     <li><a href="{{ url('partner')}}">パートナー</a></li>
                                 </ul>
