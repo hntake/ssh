@@ -170,6 +170,7 @@ Route::get('/blog', [\App\Http\Controllers\FormController::class, 'postpage'])->
 Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin')->name('blog.form');
 Route::post('/newpostsend', [\App\Http\Controllers\FormController::class, 'savenew'])->middleware('auth:admin');
 Route::get('/blog/index', [\App\Http\Controllers\FormController::class, 'index'])->name('blog.index');
+Route::get('/blog/page{id}', [\App\Http\Controllers\FormController::class, 'page'])->name('blog.page');
 
 
 Route::middleware([

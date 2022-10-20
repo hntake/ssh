@@ -10,6 +10,16 @@ class Form extends Model
 {
     use HasFactory;
 
+      /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'title','main','category',
+
+    ];
+
     public function Category() {
         return $this->hasOne(Category::class, 'id','category');
     }

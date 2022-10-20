@@ -25,5 +25,8 @@
         "tailwindcss": "^3.0.0",
         "vue": "^2.6.12",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "vue-quill-editor": "^3.0.6"
     }
 }

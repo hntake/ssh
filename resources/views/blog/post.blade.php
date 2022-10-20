@@ -115,7 +115,7 @@
                                     @foreach($eng as $engs)
                                     <div class="all_blogs_item">
 
-                                        <a href=""><h1>{{$engs->title}}</h1></a>
+                                        <a href="{{ route('blog.page',['id'=>$engs->id]) }}"><h1>{{$engs->title}}</h1></a>
                                         <ul class="category_title">
                                             <li>
                                                 <h5>{{\Carbon\Carbon::parse($engs->updated_at)->toDateString() }}</h5>
@@ -150,7 +150,7 @@
                                 @foreach($vs as $vss)
                                 <div class="all_blogs_item">
 
-                                    <a href=""><h1>{{$vss->title}}</h1></a>
+                                    <a href="{{ route('blog.page',['id'=>$vss->id]) }}"><h1>{{$vss->title}}</h1></a>
                                     <ul class="category_title">
                                             <li>
                                                 <h5>{{\Carbon\Carbon::parse($engs->updated_at)->toDateString() }}</h5>
@@ -159,7 +159,8 @@
                                                 <h5 style="color:black;">{{$vss->Category->category}}</h5>
 
                                             </li>
-                                        </ul>                                    <div class="thumbnail">
+                                        </ul>
+                                    <div class="thumbnail">
                                         @if(file_exists(public_path().'/storage/post_img/'. $vss->id .'.jpg'))
                                         <img src="/storage/post_img/{{ $vss->id }}.jpg">
                                         @elseif(file_exists(public_path().'/storage/post_img/'. $vss->id .'.jpeg'))
@@ -184,7 +185,7 @@
                                 @foreach($etc as $etcs)
                                 <div class="all_blogs_item">
 
-                                    <a href=""><h1>{{$etcs->title}}</h1></a>
+                                    <a href="{{ route('blog.page',['id'=>$etcs->id]) }}"><h1>{{$etcs->title}}</h1></a>
                                     <ul class="category_title">
                                             <li>
                                                 <h5>{{\Carbon\Carbon::parse($engs->updated_at)->toDateString() }}</h5>
@@ -217,7 +218,7 @@
                             <div class="allBlogs_list">
                                 @foreach($data as $datas)
                                 <div class="all_blogs_item">
-                                    <a href=""><h1>{{$datas->title}}</h1></a>
+                                    <a href="{{ route('blog.page',['id'=>$datas->id]) }}"><h1>{{$datas->title}}</h1></a>
                                     <ul class="category_title">
                                             <li>
                                                 <h5>{{\Carbon\Carbon::parse($datas->updated_at)->toDateString() }}</h5>

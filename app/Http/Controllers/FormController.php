@@ -51,4 +51,11 @@ class FormController extends Controller
              'etc'   => $etc,
         ]);
       }
+     public function page (Request $request,$id){
+        $data = Form::where('id', $request->id)->first();
+        return view('blog/page', [
+            'id' => $id,
+            'data' => $data,
+        ]);
+      }
 }
