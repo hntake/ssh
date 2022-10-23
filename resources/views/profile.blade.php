@@ -47,12 +47,20 @@
 <div class="profile">
 
     <h3>ユーザー名：{{ $user->user_name }}</h3>
+    @if(!$user->place==null)
     <h3>エリア：{{ $user->place }}</h3>
+    @else
+    <h3>エリア：未選択</h3>
+    @endif
     <h3>クラス番号：{{ $user->school1}}</h3>
     @if(!$user->school2==null)
     <h3>クラス番号2：{{ $user->school2}}</h3>
     @endif
+    @if(!$user->year==null)
     <h3>学年：{{ $user->year }}</h3>
+    @else
+    <h3>学年：未選択</h3>
+    @endif
     {{ $user->updated_at }}
     <p>時点</p>
     <h3>レベル :{{$user->level}}</h3>
