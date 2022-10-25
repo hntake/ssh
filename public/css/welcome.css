@@ -161,7 +161,7 @@ a.header_nav_itm_link {
     position:relative;
     z-index:5;
     line-height:1;
-    margin:150px  0 50px 0;
+    margin:370px  0 50px 0;
 }
 /*スライドの上の文字*/
 .home_kv .post_title1{
@@ -1189,6 +1189,9 @@ a.use{
     top:0;
     width:80%;
     position:unset;
+    margin-top:100px;
+}
+.home_kv{
     margin-top:100px;
 }
 .home_kv .post_title1{

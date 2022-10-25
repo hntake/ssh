@@ -24,10 +24,10 @@
 <div class="header_inner">
     <nav id="menu" class="header_nav">
 
-
+    @if (Route::has('login'))
         <ul class="header_nav_list">
             <li class="header_nav_itm">
-            <a href="{{url('/aboutus')}}" class=""><img src="../img/favicon500.png" style="width:30%; height:auto;"></a>
+            <a href="{{url('/')}}" class=""><img src="../img/title2.png" style="width:30%; height:auto;"></a>
             </li>
             <li class="header_nav_itm">
             <a href="{{ url('search_result') }}" class="header_nav_itm_link">テスト検索</a>
@@ -45,7 +45,29 @@
             <a href="{{ url('plan') }}" class="header_nav_itm_link">教育関係者向け</a>
             <div class="description1">モニタリングサービスのご案内</div>
             </li>
+            <li class="header_nav_itm">
+                                    @auth
+                                        <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
+                                        <div class="description1">Myホーム画面へ移動する </div>
+                                </li>
+                                <li class="header_nav_itm">
+                                    @else
+                                    <div class="login-button">
+                                        <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
+                                        <div class="description1">ログイン画面へ移動する </div>
+                                    </div>
+                                </li>
+                                <li class="header_nav_itm">
+                                    <div class="register-button">
+                                        @if (Route::has('register'))
+                                        <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
+                                        <div class="description1">登録して完全無料の全機能を使う </div>
 
+                                    </div>
+                                </li>
+                                    @endif
+                                @endauth
+                                @endif
             <li class="header_nav_itm">
                 <div class="register-button">
                     <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
