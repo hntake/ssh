@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ブログ｜webアプリ制作会社llco</title>
-        <link rel="stylesheet" href="{{asset('../css/news.css')}}">
+        <link rel="stylesheet" href="{{asset('../css/page.css')}}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -96,141 +96,32 @@
 </header>
     <main>
         <div class="pagecontainer">
-        <div class="elementor-column">
-                            <div class="elementor-top">
-                                <div class="elementor-heading-title">
-                                お知らせ
-                                </div>
-                            </div>
-                            <div class="elementor-bottom">
-                                <div class="elementor-heading-title">
-                               エーゴメのアップデートやメンテナンスに関する情報をお知らせします。
-                                </div>
-                            </div>
-                        </div>
+
            <!--  <div class="sidebar">
                 <a href="https://itcha50.com"><p>自閉症支援ツールVS4Auti</p></a>
             </div> -->
             <div class="area">
-
-                <input type="radio" name="tab_name" id="tab2" checked>
-                <label class="tab_class" for="tab2">サービス</label>
                     <div class="content_class">
                         <div class="allBlogs">
                                 <div class="allBlogs_list">
-                                    @foreach($service as $services)
                                     <div class="all_blogs_item">
-
-                                        <a href="{{ route('blog.page',['id'=>$services->id]) }}"><h1>{{$services->title}}</h1></a>
-                                        <ul class="category_title">
-                                            <li>
-                                                <h5>{{\Carbon\Carbon::parse($services->updated_at)->toDateString() }}</h5>
-                                            </li>
-                                            <li >
-                                                <h5 style="color:black;">{{$services->Category->category}}</h5>
-
-                                            </li>
-                                        </ul>
+                                        <div class="category_title">
+                                            <h5 style="color:black;">{{$data->Category->category}}</h5>
+                                        </div>
+                                       <h1>{{$data->title}}</h1>
+                                       <div class="date">
+                                           <h5>{{\Carbon\Carbon::parse($data->updated_at)->toDateString() }}</h5>
+                                       </div>
+                                       <div class="blog_main">
+                                           <h5>{!!$data->main!!}</h5>
+                                       </div>
+                                        
                                     </div>
-                                        @endforeach
                                 </div>
                             </div>
                     </div>
-                <input type="radio" name="tab_name" id="tab3" checked>
-                <label class="tab_class" for="tab3">メンテナンス</label>
-                    <div class="content_class">
-                    <div class="allBlogs">
-                            <div class="allBlogs_list">
-                                @foreach($mente as $mentes)
-                                <div class="all_blogs_item">
 
-                                    <a href="{{ route('blog.page',['id'=>$mentes->id]) }}"><h1>{{$mentes->title}}</h1></a>
-                                    <ul class="category_title">
-                                            <li>
-                                                <h5>{{\Carbon\Carbon::parse($mentes->updated_at)->toDateString() }}</h5>
-                                            </li>
-                                            <li >
-                                                <h5 style="color:black;">{{$mentes->Category->category}}</h5>
-
-                                            </li>
-                                        </ul>
-        </div>
-                                    @endforeach
-                            </div>
-                        </div>
-                    </div>
-                <input type="radio" name="tab_name" id="tab4" checked>
-                <label class="tab_class" for="tab4">リリース</label>
-                    <div class="content_class">
-                    <div class="allBlogs">
-                            <div class="allBlogs_list">
-                                @foreach($lelease as $leleases)
-                                <div class="all_blogs_item">
-
-                                    <a href="{{ route('blog.page',['id'=>$leleases->id]) }}"><h1>{{$leleases->title}}</h1></a>
-                                    <ul class="category_title">
-                                            <li>
-                                                <h5>{{\Carbon\Carbon::parse($leleases->updated_at)->toDateString() }}</h5>
-                                            </li>
-                                            <li >
-                                                <h5 style="color:black;">{{$leleases->Category->category}}</h5>
-
-                                            </li>
-                                        </ul>
-
-        </div>
-                                    @endforeach
-                            </div>
-                        </div>
-                    </div>
-                <input type="radio" name="tab_name" id="tab4" checked>
-                <label class="tab_class" for="tab4">その他</label>
-                    <div class="content_class">
-                    <div class="allBlogs">
-                            <div class="allBlogs_list">
-                                @foreach($etc as $etcs)
-                                <div class="all_blogs_item">
-
-                                    <a href="{{ route('blog.page',['id'=>$etcs->id]) }}"><h1>{{$etcs->title}}</h1></a>
-                                    <ul class="category_title">
-                                            <li>
-                                                <h5>{{\Carbon\Carbon::parse($etcs->updated_at)->toDateString() }}</h5>
-                                            </li>
-                                            <li >
-                                                <h5 style="color:black;">{{$etcs->Category->category}}</h5>
-
-                                            </li>
-                                        </ul>
-
-        </div>
-                                    @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <input type="radio" name="tab_name" id="tab1" checked>
-                <label class="tab_class" for="tab1" >全て</label>
-                    <div class="content_class">
-                        <div class="allBlogs">
-                            <div class="allBlogs_list">
-                                @foreach($data as $datas)
-                                <div class="all_blogs_item">
-                                    <a href="{{ route('blog.page',['id'=>$datas->id]) }}"><h1>{{$datas->title}}</h1></a>
-                                    <ul class="category_title">
-                                            <li>
-                                                <h5>{{\Carbon\Carbon::parse($datas->updated_at)->toDateString() }}</h5>
-                                            </li>
-                                            <li >
-                                                <h5 style="color:black;">{{$datas->Category->category}}</h5>
-
-                                            </li>
-                                        </ul>
-
-                             </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-            </div>
+                </div>
         </div>
         <footer class="site-footer">
                 <div class="bc-sitemap-wrapper">

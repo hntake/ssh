@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//welcomeページ
+Route::get('/',[App\Http\Controllers\TestController::class,'welcome'])->name('welcome');
+
 Route::get('/monitor', function () {
     return view('monitor');
 });
@@ -71,7 +71,7 @@ Route::get('all_list',[App\Http\Controllers\TestController::class,'list'])->name
  /*テスト検索する*/
 Route::get('search_result',[App\Http\Controllers\TestController::class,'search_result'])->name('search_result');
 /*ユーザー検索する*/
-Route::get('search_user',[App\Http\Controllers\HomeController::class,'search_user'])->name('search_user');
+Route::get('search_user',[App\Http\Controllers\TestController::class,'search_user'])->name('search_user');
 /*並び替えする*/
 Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
 
@@ -152,11 +152,11 @@ Route::get('select_week{id}',[App\Http\Controllers\TestController::class,'select
 Route::get('select_month{id}',[App\Http\Controllers\TestController::class,'select_month'])->name('select_month')->middleware('auth:admin');
 
 /*個別履歴表示*/
-Route::get('/id_view/{id}', [App\Http\Controllers\HomeController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
+Route::get('/id_view/{id}', [App\Http\Controllers\AdminController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
 /*生徒へコメント*/
-Route::post('/comment/{id}', [App\Http\Controllers\HomeController::class, 'comment'])->name('comment')->middleware('auth:admin');
+Route::post('/comment/{id}', [App\Http\Controllers\TestController::class, 'comment'])->name('comment')->middleware('auth:admin');
 /*コメント一覧*/
-Route::get('/comment', [App\Http\Controllers\HomeController::class, 'comment_index'])->name('comment_index')->middleware('auth:admin');
+Route::get('/comment', [App\Http\Controllers\TestController::class, 'comment_index'])->name('comment_index')->middleware('auth:admin');
 
 Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
 
@@ -169,11 +169,19 @@ Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class,
 Route::get('/blog', [\App\Http\Controllers\FormController::class, 'postpage'])->middleware('auth:admin')->name('blog.form');
 Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin')->name('blog.form');
 Route::post('/newpostsend', [\App\Http\Controllers\FormController::class, 'savenew'])->middleware('auth:admin');
+/*NEws書き込み権限*/
+Route::get('/news', [\App\Http\Controllers\FormController::class, 'news'])->middleware('auth:admin')->name('news.form');
+Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_news'])->middleware('auth:admin');
+/**news表示 */
+Route::get('/news/index', [\App\Http\Controllers\FormController::class, 'news_index'])->name('news.index');
+Route::get('/news/page{id}', [\App\Http\Controllers\FormController::class, 'news_page'])->name('news.page');
+/*ブログ表示*/
 Route::get('/blog/index', [\App\Http\Controllers\FormController::class, 'index'])->name('blog.index');
 Route::get('/blog/page{id}', [\App\Http\Controllers\FormController::class, 'page'])->name('blog.page');
 
 
 Route::middleware([
+
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'

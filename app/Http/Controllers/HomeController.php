@@ -7,6 +7,7 @@ use App\Models\Word;
 use App\Models\User;
 use App\Models\Nice;
 use App\Models\History;
+use App\Models\News;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
@@ -26,6 +27,9 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+
+
+
 
     /**
      * Show the application dashboard.
@@ -92,59 +96,7 @@ class HomeController extends Controller
             ]);
         }
     }
-    public function id_view( Request $request, $id)
-    {
-            $user = User::where('id', '=',$id)->pluck('user_name');
-            $test_ids = History::where('tested_user', '=',$user)->get()->pluck('test_id')->toArray();
-            $histories = History::where('school', '=', Auth::user()->school)->where('tested_user', '=',$user)->whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(15);
-            $crtest = Word::where('user_name','=',$user)->get()->pluck('id')->toArray();
-            $words = Word::where('user_name','=',$user)->whereIn('id',$crtest)->OrderBy('created_at', 'desc')->paginate(15);
-            $users =User::where('id', '=',$id)->OrderBy('created_at', 'desc')->paginate(15);
 
-            return view('id_view', [
-                'id' => $id,
-                'histories' => $histories,
-                'words'=> $words,
-                'users'=>$users,
-            ]);
-        }
-        /*コメント投稿*/
-    public function comment( Request $request, $id)
-    {
-            $comment= User::where('id', '=',$id)->pluck('comment');
-            $postcomment = $request->comment;
-            $commnet = User::where('id', '=',$id)
-            ->update([
-                'comment' => $postcomment
-            ]);
-
-            $user =User::find($id);
-            $comment = new Comment;
-            $comment->name =$user->name;
-            $comment->school1= $user->school1;
-            $comment->comment = $postcomment;
-            $comment->save();
-
-            return redirect()->route('id_view', [
-                'id' => $id,
-            ])->with('status','コメント投稿しました');
-        }
-
-
-        /*オーナーコメント表示*/
-        public function comment_index(Request $request )
-    {
-        if ($request->user('admin')?->admin_level > 1) {
-            $comments = Comment::where('school1','=',  Auth::user()->school)->orderBy('updated_at','desc')->paginate(10);
-
-            return view('comment',[
-                'comments' => $comments,
-            ]);
-        }
-        else{
-            return view('adminLogin');
-        }
-    }
     /*プロフィールページ*/
     public function profile(Request $request)
     {
@@ -286,28 +238,7 @@ class HomeController extends Controller
         $user = User::where('id', $request->id)->delete();
         return redirect('home')->with('success', '登録を削除しました');
     }
-    /*==================================
-   ユーザー検索メソッド(searchproduct)
-    ==================================*/
-    public function search_user(Request $request)
-    {
-            $keyword = $request->input('keyword');
 
-            $query = User::query();
-
-            if(!empty($keyword)) {
-                $query->where('user_name', 'LIKE', "%{$keyword}%");
-            }
-
-
-        //$queryをtype_idの昇順に並び替えて$productsに代入
-        $users = $query->orderBy('id', 'asc')->paginate(15);
-
-
-        return view('search_user', [
-            'users' => $users,
-        ]);
-    }
     /*フォロー登録*/
     public function nice(Request $request,$id){
         $user = User::find($id);
@@ -324,4 +255,5 @@ class HomeController extends Controller
         $nice->delete();
         return back();
     }
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Form;
+use App\Models\News;
 
 class FormController extends Controller
 {
@@ -19,6 +20,9 @@ class FormController extends Controller
 
     public function wys (){
         return view ('/blog/wysiwyg');
+      }
+    public function news (){
+        return view ('/news/wysiwyg');
       }
     public function savenew (Request $request){
         $post = new Form;
@@ -39,11 +43,23 @@ class FormController extends Controller
         return redirect ('/blog/index');
        }
 
+    public function save_news (Request $request){
+        $post = new News;
+        $post->title = $request->title;
+        $post->main = $request->main;
+        $post->category = $request->category;
+        $post->save();
+
+
+
+        return redirect ('/news/index');
+       }
+
      public function index (Request $request){
         $data = Form::orderBy('created_at', 'desc')->paginate(10);
-        $eng = Form::where('category','=', '1')->orderBy('created_at', 'desc')->paginate(10);
-        $vs = Form::where('category','=', '2')->orderBy('created_at', 'desc')->paginate(10);
-        $etc = Form::where('category','=', '3')->orderBy('created_at', 'desc')->paginate(10);
+        $eng = Form::where('category','=', '4')->orderBy('created_at', 'desc')->paginate(10);
+        $vs = Form::where('category','=', '5')->orderBy('created_at', 'desc')->paginate(10);
+        $etc = Form::where('category','=', '6')->orderBy('created_at', 'desc')->paginate(10);
         return view('/blog/post')->with(
             ['data' => $data,
              'eng'  => $eng,
@@ -51,9 +67,32 @@ class FormController extends Controller
              'etc'   => $etc,
         ]);
       }
+     public function news_index (Request $request){
+        $data = News::orderBy('created_at', 'desc')->paginate(10);
+        $service = News::where('category','=', '7')->orderBy('created_at', 'desc')->paginate(10);
+        $mente = News::where('category','=', '8')->orderBy('created_at', 'desc')->paginate(10);
+        $etc = News::where('category','=', '6')->orderBy('created_at', 'desc')->paginate(10);
+        $lelease= News::where('category','=', '9')->orderBy('created_at', 'desc')->paginate(10);
+        return view('/news/post')->with(
+            ['data' => $data,
+             'service'  => $service,
+             'mente'   => $mente,
+             'etc'   => $etc,
+             'lelease'   => $lelease,
+        ]);
+      }
+
      public function page (Request $request,$id){
         $data = Form::where('id', $request->id)->first();
         return view('blog/page', [
+            'id' => $id,
+            'data' => $data,
+        ]);
+      }
+
+     public function news_page (Request $request,$id){
+        $data = News::where('id', $request->id)->first();
+        return view('news/page', [
             'id' => $id,
             'data' => $data,
         ]);

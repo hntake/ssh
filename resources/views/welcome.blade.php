@@ -100,6 +100,18 @@
                                     </div>
                                 </li>
                             </ul>
+                            <div class="news">
+                                <ul><p style="font-weight:bold;">お知らせ</p>
+                                    <li>
+                                    <a href="{{ url('news/index')}}">
+                                        {{$new->created_at}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        {!!$new->main!!}
+                                    </li>
+                                </ul>
+                            </div>
                         </nav>
                     </div>
                     <div class="mobile-login">
@@ -131,7 +143,8 @@
                                     @endif
                                 @endauth
                                 @endif
-                        </ul>
+                            </ul>
+
                     </div>
                    <!--  ハンバーガーメニュー -->
                     <div class="mobile-menu">
@@ -160,6 +173,7 @@
                                         </div>
                                     </li>
                                 </ul>
+
                             </div>
                             <script>
                                 $(function() {
@@ -172,13 +186,28 @@
                     </div>
                 </header>
                 <div class="main-column">
-                    <h2 class="home_copy">
+                    <div class="mobile-login-news">
+                                <div class="news">
+                                    <ul><p style="font-weight:bold;">お知らせ</p>
+                                        <li>
+                                        <a href="{{ url('news/index')}}">
+                                            {{$new->created_at}}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            {!!$new->title!!}
+                                        </li>
+                                    </ul>
+                                </div>
+                    </div>
+                    <div class="home_copy">
                         <span class="tategaki" style="opacity:1;">
                         英単語テストを作ったり
                         <br class="sp_only">
                         受けたりできるサイト
                         </span>
-                    </h2>
+
+                    </div>
                     <div class="home_kv">
                         <div class="bx-viewport">
                             <ul class="bxslider">
@@ -199,7 +228,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <img class="image" src="img/engTopRiv_sm.webp" alt="top" >
+                                    <img class="image" src="img/engTopRiv_sm.webp" alt="top"  style="width:80%; height:auto;" >
                                     <div class="post_title3">
                                         <h2 class="post_titile">
                                             You can do anything!
@@ -257,7 +286,7 @@
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
                                     <li><a href="{{ url('blog/index')}}">ブログ</a></li>
-                                    <l><a href="{{ url('news')}}">お知らせ</a></li>
+                                    <l><a href="{{ url('news/index')}}">お知らせ</a></li>
                                     <li><a href="{{ url('partner')}}">パートナー</a></li>
                                 </ul>
                             </div>

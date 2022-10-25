@@ -153,7 +153,7 @@
                                     <a href="{{ route('blog.page',['id'=>$vss->id]) }}"><h1>{{$vss->title}}</h1></a>
                                     <ul class="category_title">
                                             <li>
-                                                <h5>{{\Carbon\Carbon::parse($engs->updated_at)->toDateString() }}</h5>
+                                                <h5>{{\Carbon\Carbon::parse($vss->updated_at)->toDateString() }}</h5>
                                             </li>
                                             <li >
                                                 <h5 style="color:black;">{{$vss->Category->category}}</h5>
@@ -188,7 +188,7 @@
                                     <a href="{{ route('blog.page',['id'=>$etcs->id]) }}"><h1>{{$etcs->title}}</h1></a>
                                     <ul class="category_title">
                                             <li>
-                                                <h5>{{\Carbon\Carbon::parse($engs->updated_at)->toDateString() }}</h5>
+                                                <h5>{{\Carbon\Carbon::parse($etcs->updated_at)->toDateString() }}</h5>
                                             </li>
                                             <li >
                                                 <h5 style="color:black;">{{$etcs->Category->category}}</h5>

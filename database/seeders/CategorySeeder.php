@@ -19,6 +19,9 @@ class CategorySeeder extends Seeder
             ['category' => 'エーゴメ'],
             ['category' => 'vs4auti'],
             ['category' => 'etc'],
+            ['category' => 'サービス'],
+            ['category' => 'メンテナンス'],
+            ['category' => 'リリース'],
         ];
         DB::table('categories')->insert($categories);
     }

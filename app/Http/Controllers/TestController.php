@@ -8,6 +8,7 @@ use App\Models\Type;
 use App\Models\User;
 use App\Models\Nice;
 use App\Models\Textbook;
+use App\Models\News;
 use App\Models\History;
 use App\Mail\Reported;
 use Illuminate\Support\Facades\Auth;
@@ -567,5 +568,36 @@ class TestController extends Controller
     {
         $word = Word::where('id', $request->id)->delete();
         return redirect('profile');
+    }
+
+    //top_page
+    public function welcome()
+    {
+        $new = News::orderBy('created_at','desc')->first();
+        return view('welcome',[
+            'new'=>$new
+        ]);
+    }
+        /*==================================
+   ユーザー検索メソッド(searchproduct)
+    ==================================*/
+    public function search_user(Request $request)
+    {
+            $keyword = $request->input('keyword');
+
+            $query = User::query();
+
+            if(!empty($keyword)) {
+                $query->where('user_name', 'LIKE', "%{$keyword}%");
+            }
+
+
+        //$queryをtype_idの昇順に並び替えて$productsに代入
+        $users = $query->orderBy('id', 'asc')->paginate(15);
+
+
+        return view('search_user', [
+            'users' => $users,
+        ]);
     }
 }
