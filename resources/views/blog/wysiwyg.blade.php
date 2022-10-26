@@ -22,9 +22,9 @@
    @csrf
    <p>
 
-	<label for="inq1"><input type="radio" id="inq1" name="category" value="1" >エーゴメ</label>
-	<label for="inq2"><input type="radio" id="inq2" name="category" value="2">vs4auti</label>
-	<label for="inq3"><input type="radio" id="inq3" name="category" value="3">その他</label>
+	<label for="inq1"><input type="radio" id="inq1" name="category" value="4" >エーゴメ</label>
+	<label for="inq2"><input type="radio" id="inq2" name="category" value="5">vs4auti</label>
+	<label for="inq3"><input type="radio" id="inq3" name="category" value="6">その他</label>
 </p>
    <p>タイトル</p>
    <input type="text" name="title" class="formtitle">

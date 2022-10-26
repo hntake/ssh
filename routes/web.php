@@ -154,7 +154,7 @@ Route::get('select_month{id}',[App\Http\Controllers\TestController::class,'selec
 /*個別履歴表示*/
 Route::get('/id_view/{id}', [App\Http\Controllers\AdminController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
 /*生徒へコメント*/
-Route::post('/comment/{id}', [App\Http\Controllers\TestController::class, 'comment'])->name('comment')->middleware('auth:admin');
+Route::post('/comment/{id}', [App\Http\Controllers\AdminController::class, 'comment'])->name('comment')->middleware('auth:admin');
 /*コメント一覧*/
 Route::get('/comment', [App\Http\Controllers\TestController::class, 'comment_index'])->name('comment_index')->middleware('auth:admin');
 

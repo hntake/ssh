@@ -18,10 +18,24 @@ class FormController extends Controller
         }
        }
 
-    public function wys (){
+    public function wys (Request $request){
+        if ($request->user('admin')?->admin_level === 10) {
+
+            return view ('/blog/form');
+        }
+        else{
+            return view('adminLogin');
+        }
         return view ('/blog/wysiwyg');
       }
-    public function news (){
+    public function news (Request $request){
+        if ($request->user('admin')?->admin_level === 10) {
+
+            return view ('/blog/form');
+        }
+        else{
+            return view('adminLogin');
+        }
         return view ('/news/wysiwyg');
       }
     public function savenew (Request $request){
