@@ -92,15 +92,15 @@ a.header_nav_itm_link {
 .description1:before {
     content: "";
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 50%;
     border: 15px solid transparent;
-    border-top: 15px solid  rgb(97, 93, 93);
+    border-bottom: 15px solid  rgb(97, 93, 93);
     margin-left: -15px;
 }
 .header_nav_itm:hover .description1{
     display: inline-block;
-    top: -70px;
+    bottom: -70px;
     left: -30px;
 }
 li.title_image{
