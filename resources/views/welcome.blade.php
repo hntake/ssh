@@ -172,6 +172,33 @@
                                             <div class="description1">マニュアル動画ページへ</div>
                                         </div>
                                     </li>
+                                    <li class="header_nav_itm">
+                                @if (Route::has('login'))
+                                    @auth
+                                    <div class="home-button">
+                                        <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
+                                        <div class="description1">Myホーム画面へ移動する </div>
+                                    </div>
+                                </li>
+                                <li class="header_nav_itm">
+                                    @else
+                                    <div class="login-button">
+                                        <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
+                                        <div class="description1">ログイン画面へ移動する </div>
+                                    </div>
+                                </li>
+                                <li class="header_nav_itm">
+                                    <div class="register-button">
+                                        @if (Route::has('register'))
+                                        <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
+                                        <div class="description1">登録して完全無料の全機能を使う </div>
+
+                                    </div>
+                                </li>
+
+                                    @endif
+                                @endauth
+                                @endif
                                 </ul>
 
                             </div>
