@@ -32,8 +32,42 @@
 </div>
 <div class="wrap">
     <div class="id_view">
+    <div class="comment">
+        <p>前回の投稿</p>
+        <table class="table-all">
+                <thead>
+                    <tr>
+                        <th style="width:10%">生徒名</th>
+                        <th style="width:10%">作成日時</th>
+                        <th style="width:20%">投稿内容</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tbl">
+                    @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->name}}</td>
+                        <td>{{ $user->updated_at}}</td>
+                        <td>{{ $user->comment}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>新しい投稿</p>
+            <form class="form-inline" action="{{route('comment',['id'=>$id])}}" method="POST">
+            @csrf
+                <input type="text" name="comment" id="comment" class="form-control" size="150" placeholder="" value="{{ old('comment') }}" style="width: 400px; height: 100px;">
+                <div class="check">
+                        <button type="submit" >
+                            投稿
+                        </button>
+                </div>
+            </form>
+    </div>
         <div class="testtable-responsive">
-        <p>生徒履歴</p>
+        <p>{{$user->name}} 履歴(最新順)</p>
+        @endforeach
+
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -94,39 +128,7 @@
             </table>
         </div>
     </div>
-    <div class="comment">
-        <p>前回の投稿</p>
-        <table class="table-all">
-                <thead>
-                    <tr>
-                        <th style="width:10%">生徒名</th>
-                        <th style="width:10%">作成日時</th>
-                        <th style="width:20%">投稿内容</th>
 
-                    </tr>
-                </thead>
-                <tbody id="tbl">
-                    @foreach ($users as $user)
-                    <tr>
-                        <td>{{ $user->name}}</td>
-                        <td>{{ $user->updated_at}}</td>
-                        <td>{{ $user->comment}}</td>
-                        @endforeach
-                    </tr>
-                </tbody>
-            </table>
-
-            <p>新しい投稿</p>
-            <form class="form-inline" action="{{route('comment',['id'=>$id])}}" method="POST">
-            @csrf
-                <input type="text" name="comment" id="comment" class="form-control" size="150" placeholder="" value="{{ old('comment') }}" style="width: 400px; height: 100px;">
-                <div class="check">
-                        <button type="submit" >
-                            投稿
-                        </button>
-                </div>
-            </form>
-    </div>
     @endsection
 </div>
 <a href="#" class="gotop">トップへ</a>
