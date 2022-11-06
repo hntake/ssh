@@ -39,7 +39,7 @@ return [
             'host' => env('MAIL_HOST', 'mx.zoho.jp'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME','info@itcha50.c0m'),
+            'username' => env('MAIL_USERNAME','info@itcha50.com'),
             'password' => env('MAIL_PASSWORD','EtCejcGhe0bX'),
             'timeout' => null,
             'auth_mode' => null,

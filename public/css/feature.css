@@ -46,6 +46,7 @@ display:none;
     list-style: none;
     letter-spacing: 3px;
     font-size: 1.5rem;
+    width:100%;
 }
 .header_nav_list:first-child {
     flex: 1;
@@ -58,6 +59,7 @@ display:none;
     position: relative;
     cursor: pointer;
     display: inline-block;
+    width:25%;
 }
 a.header_nav_itm_link {
     display: block;
