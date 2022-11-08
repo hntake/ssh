@@ -7,7 +7,6 @@ use App\Models\Word;
 use App\Models\User;
 use App\Models\Nice;
 use App\Models\History;
-use App\Models\News;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;

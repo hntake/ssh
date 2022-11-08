@@ -49,9 +49,7 @@ Route::get('/case',function(){
     return view('case');
 });
 
-Route::get('/news',function(){
-    return view('news');
-});
+
 Route::get('/partner',function(){
     return view('partner');
 });
