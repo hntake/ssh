@@ -156,13 +156,12 @@
 
                                         <ul class="category_title">
                                             <li class="notice-date">
-                                                <h5>{{\Carbon\Carbon::parse($services->updated_at)->toDateString() }}</h5>
+                                                {{\Carbon\Carbon::parse($services->updated_at)->toDateString() }}
                                             </li>
-                                            <li class="notice-cate">
-                                                <h5 style="color:black;">{{$services->Category->category}}</h5>
+                                            <li class="notice-cate"       style="color:black;">{{$services->Category->category}}
                                             </li>
                                             <li class="notice-title">
-                                                <a href="{{ route('news.page',['id'=>$services->id]) }}"><h5>{{$services->title}}</h5></a>
+                                                <a href="{{ route('news.page',['id'=>$services->id]) }}">{{$services->title}}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -180,13 +179,13 @@
 
                                     <ul class="category_title">
                                         <li class="notice-date">
-                                            <h5>{{\Carbon\Carbon::parse($mentes->updated_at)->toDateString() }}</h5>
+                                            {{\Carbon\Carbon::parse($mentes->updated_at)->toDateString() }}
                                         </li>
-                                        <li class="notice-cate">
-                                            <h5 style="color:black;">{{$mentes->Category->category}}</h5>
+                                        <li class="notice-cate"
+                                             style="color:black;">{{$mentes->Category->category}}
                                         </li>
                                         <li class="notice-title">
-                                        <a href="{{ route('news.page',['id'=>$mentes->id]) }}"><h5>{{$mentes->title}}</h5></a>
+                                        <a href="{{ route('news.page',['id'=>$mentes->id]) }}">{{$mentes->title}}</a>
                                         </li>
                                         </ul>
                                 </div>
@@ -204,14 +203,14 @@
 
                                     <ul class="category_title">
                                         <li class="notice-date">
-                                            <h5>{{\Carbon\Carbon::parse($leleases->updated_at)->toDateString() }}</h5>
+                                            {{\Carbon\Carbon::parse($leleases->updated_at)->toDateString() }}
                                         </li>
-                                        <li class="notice-cate">
-                                            <h5 style="color:black;">{{$leleases->Category->category}}</h5>
+                                        <li class="notice-cate"
+                                            style="color:black;">{{$leleases->Category->category}}
 
                                         </li>
                                         <li  class="notice-title">
-                                            <a href="{{ route('news.page',['id'=>$leleases->id]) }}"><h5>{{$leleases->title}}</h5></a>
+                                            <a href="{{ route('news.page',['id'=>$leleases->id]) }}">{{$leleases->title}}</a>
                                         </li>
                                         </ul>
                                 </div>
@@ -228,14 +227,14 @@
                                 <div class="all_blogs_item">
                                     <ul class="category_title">
                                         <li class="notice-date">
-                                            <h5>{{\Carbon\Carbon::parse($etcs->updated_at)->toDateString() }}</h5>
+                                            {{\Carbon\Carbon::parse($etcs->updated_at)->toDateString() }}
                                         </li>
-                                        <li class="notice-cate" >
-                                            <h5 style="color:black;">{{$etcs->Category->category}}</h5>
+                                        <li class="notice-cate"
+                                             style="color:black;">{{$etcs->Category->category}}
 
                                         </li>
                                         <li  class="notice-title">
-                                            <a href="{{ route('news.page',['id'=>$etcs->id]) }}"><h5>{{$etcs->title}}</h5></a>
+                                            <a href="{{ route('news.page',['id'=>$etcs->id]) }}">{{$etcs->title}}</a>
                                         </li>
                                         </ul>
                                 </div>
@@ -252,13 +251,12 @@
                                 <div class="all_blogs_item">
                                     <ul class="category_title">
                                         <li class="notice-date">
-                                            <h5>{{\Carbon\Carbon::parse($datas->updated_at)->toDateString() }}</h5>
+                                            {{\Carbon\Carbon::parse($datas->updated_at)->toDateString() }}
                                         </li>
-                                        <li class="notice-cate" >
-                                            <h5 style="color:black;">{{$datas->Category->category}}</h5>
+                                        <li class="notice-cate" style="color:black;">{{$datas->Category->category}}
                                         </li>
                                         <li  class="notice-title">
-                                            <a href="{{ route('news.page',['id'=>$datas->id]) }}"><h5>{{$datas->title}}</h5></a>
+                                            <a href="{{ route('news.page',['id'=>$datas->id]) }}">{{$datas->title}}</a>
                                         </li>
                                         </ul>
                              </div>

@@ -106,16 +106,16 @@
                                 <div class="allBlogs_list">
                                     <div class="all_blogs_item">
                                         <div class="category_title">
-                                            <h5 style="color:black;">{{$data->Category->category}}</h5>
+                                            <h5 style="color:black;">{{$data->Category->category}}
                                         </div>
                                        <h1>{{$data->title}}</h1>
                                        <div class="date">
-                                           <h5>{{\Carbon\Carbon::parse($data->updated_at)->toDateString() }}</h5>
+                                           {{\Carbon\Carbon::parse($data->updated_at)->toDateString() }}
                                        </div>
                                        <div class="blog_main">
-                                           <h5>{!!$data->main!!}</h5>
+                                           {!!$data->main!!}
                                        </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
                                     <li><a href="{{ url('blog/index')}}">ブログ</a></li>
-                                    <l><a href="{{ url('news')}}">お知らせ</a></li>
+                                    <l><a href="{{ url('news/index')}}">お知らせ</a></li>
                                     <li><a href="{{ url('partner')}}">パートナー</a></li>
                                 </ul>
                             </div>

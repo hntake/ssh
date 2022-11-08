@@ -258,6 +258,7 @@ display:none;
     list-style: none;
     letter-spacing: 3px;
     font-size: 1.5rem;
+    width:100%;
 }
 .header_nav_list:first-child {
     flex: 1;
@@ -270,6 +271,7 @@ display:none;
     position: relative;
     cursor: pointer;
     display: inline-block;
+    width:20%;
 }
 a.header_nav_itm_link {
     display: block;
@@ -437,11 +439,22 @@ a.header_nav_itm_link {
     }
     .area{
         width:100%;
+        margin-left:10px;
     }
     .allBlogs_list{
-        display: grid;
+        display: block;
         grid-template-columns: repeat(2, 1fr);
         gap: 65px 30px;
+    }
+    .elementor-column{
+        width: auto;
+        padding:50px 20px;
+    }
+    .elementor-widget{
+        font-size:20px;
+    }
+    ul.category_title{
+        font-size:20px;
     }
 }
 /*iPhone12レスポンシブ対応*/

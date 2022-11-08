@@ -266,7 +266,7 @@
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
                                     <li><a href="{{ url('blog/index')}}">ブログ</a></li>
-                                    <l><a href="{{ url('news')}}">お知らせ</a></li>
+                                    <l><a href="{{ url('news/index')}}">お知らせ</a></li>
                                     <li><a href="{{ url('partner')}}">パートナー</a></li>
                                 </ul>
                             </div>
