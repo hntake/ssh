@@ -164,8 +164,8 @@ Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 
 
 Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
 /*ブログ書き込み権限*/
-Route::get('/blog', [\App\Http\Controllers\FormController::class, 'postpage'])->middleware('auth:admin')->name('blog.form');
-Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin')->name('blog.form');
+/* Route::get('/blog', [\App\Http\Controllers\FormController::class, 'postpage'])->middleware('auth:admin')->name('blog.form');
+ */Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin');
 Route::post('/newpostsend', [\App\Http\Controllers\FormController::class, 'savenew'])->middleware('auth:admin');
 /*NEws書き込み権限*/
 Route::get('/news', [\App\Http\Controllers\FormController::class, 'news'])->middleware('auth:admin')->name('news.form');

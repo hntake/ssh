@@ -54,8 +54,67 @@
         <div class="wrap">
             <div class="container">
                 <header id="header" class="header is-open">
-                    <div class="title_image">
-                                <a href="{{url('/')}}" class=""><img src="img/title2.png" ></a>
+                <div class="header_inner">
+                        <nav id="menu" class="header_nav js-menu">
+
+
+                        <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
+                            <ul class="header_nav_list">
+                                <li class="header_nav_itm">
+                                <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/title2.png" style="width:30%; height:auto;"></a>
+                                </li>
+                                <li class="header_nav_itm">
+                                <a href="#paid" class="header_nav_itm_link">ディストリビュータープログラム</a>
+                                <div class="description1">普及のお願い</div>
+                                </li>
+
+                                <li class="header_nav_itm">
+                                <a href="#monitor" class="header_nav_itm_link">サポータープログラム</a>
+                                <div class="description1">広告のお願い</div>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="mobile">
+                                <li class="header_nav_itm">
+                                <a href="{{url('/')}}" class=""><img src="img/title2.png" style="width:30%; height:auto;"></a>
+                                </li>
+                                <li class="header_nav_itm">
+                                <a href="#paid" class="header_nav_itm_link">ディストリビュータープログラム</a>
+                                <div class="description1">普及のお願い</div>
+                                </li>
+
+                                <li class="header_nav_itm">
+                                <a href="#monitor" class="header_nav_itm_link">サポータープログラム</a>
+                                <div class="description1">広告のお願い</div>
+                                </li>
+                    </div>
+                            <!--  ハンバーガーメニュー -->
+                            <div class="mobile-menu">
+                        <div id="nav-drawer">
+                            <input id="nav-input" type="checkbox" class="nav-unshown">
+                            <label id="nav-open" for="nav-input"><span></span></label>
+                            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+                            <div id="nav-content">
+                            <ul class="header_nav_list">
+                                    <li><a href="#paid">
+                                            ディストリビュータープログラム
+                                        </a></li>
+                                    <li><a href="#monitor">
+                                            サポータープログラム
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <script>
+                                $(function() {
+                                    $('#nav-content li a').on('click', function(event) {
+                                        $('#nav-input').prop('checked', false);
+                                    });
+                                });
+                            </script>
+                        </div>
                     </div>
                 </header>
                     <div class="partner_kv">
@@ -100,6 +159,7 @@
                                 </div>
                         </div>
                         <div class="middle-partner">
+                        <a name="paid">
                             <div class="partner_logo">
                                 <h2>エーゴメ <br>ディストリビュータープログラム</h2>
                             </div>
@@ -116,6 +176,7 @@
                             </div>
                         </div>
                         <div class="middle-partner">
+                        <a name="monitor">
                             <div class="partner_logo">
                                 <h2>エーゴメ <br>サポートプログラム</h2>
                             </div>

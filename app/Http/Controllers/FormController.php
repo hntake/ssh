@@ -8,7 +8,7 @@ use App\Models\News;
 
 class FormController extends Controller
 {
-    public function postpage (Request $request){
+/*     public function postpage (Request $request){
         if ($request->user('admin')?->admin_level === 10) {
 
             return view ('/blog/form');
@@ -17,26 +17,24 @@ class FormController extends Controller
             return view('adminLogin');
         }
        }
-
+ */
     public function wys (Request $request){
         if ($request->user('admin')?->admin_level === 10) {
 
-            return view ('/blog/form');
-        }
+            return view ('/blog/wysiwyg');        }
         else{
             return view('adminLogin');
         }
-        return view ('/blog/wysiwyg');
+
       }
     public function news (Request $request){
         if ($request->user('admin')?->admin_level === 10) {
 
-            return view ('/blog/form');
+            return view ('/news/wysiwyg');
         }
         else{
             return view('adminLogin');
         }
-        return view ('/news/wysiwyg');
       }
     public function savenew (Request $request){
         $post = new Form;

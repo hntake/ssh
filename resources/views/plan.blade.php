@@ -50,7 +50,6 @@
                         <nav id="menu" class="header_nav js-menu">
 
 
-                        @if (Route::has('login'))
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
                             <ul class="header_nav_list">
                                 <li class="header_nav_itm">
@@ -65,30 +64,7 @@
                                 <a href="#monitor" class="header_nav_itm_link">オプション商品</a>
                                 <div class="description1">より快適なサービスの利用</div>
                                 </li>
-                                <li class="header_nav_itm">
-                                    @auth
-                                        <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
-                                        <div class="description1">Myホーム画面へ移動する </div>
-                                </li>
-                                <li class="header_nav_itm">
-                                    @else
-                                    <div class="login-button">
-                                        <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
-                                        <div class="description1">ログイン画面へ移動する </div>
-                                    </div>
-                                </li>
-                                <li class="header_nav_itm">
-                                    <div class="register-button">
-                                        @if (Route::has('register'))
-                                        <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                        <div class="description1">登録して完全無料の全機能を使う </div>
-
-                                    </div>
-                                </li>
-                                    @endif
-                                @endauth
-                                @endif
-
+                               
                             </ul>
                         </nav>
                     </div>
