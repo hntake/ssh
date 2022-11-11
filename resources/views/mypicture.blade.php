@@ -97,9 +97,6 @@
                 <th style="width:20%">教科書名</th>
                 <th style="width:20%">テスト名</th>
                 <th style="width:15%"></th>
-                <th style="width:15%"></th>
-                <th style="width:15%"></th>
-
             </tr>
         </thead>
         <tbody id="tbl">
@@ -111,12 +108,7 @@
                 <td>
                     <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
                 </td>
-                <td>
-                    <div class="button"><a href="{{ route('edit',['id'=>$word->id]) }}">編集</a></div>
-                </td>
-                <td>
-                    <div class="button"><a href="{{ route('delete_list',['id'=> $word->id]) }}">削除</a></div>
-                </td>
+
                 @endforeach
             </tr>
         </tbody>
