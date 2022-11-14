@@ -159,6 +159,9 @@ table.admin_point{
     .id_view{
         width:100%;
     }
+    thead{
+        display:contents;
+    }
     th{
         width:auto;
     }
@@ -173,6 +176,9 @@ table.admin_point{
     }
     .id_view{
         width:100%;
+    }
+    thead{
+        display:contents;
     }
   }
  /*LenovoTab*/
