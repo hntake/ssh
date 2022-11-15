@@ -1,6 +1,6 @@
 @extends('layouts.app', ['authgroup'=>'admin'])
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
-<title>管理者専用画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<title>管理者専用画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 @section('content')
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 <div class="container">
@@ -17,7 +17,7 @@
                     @endif
                 </div>
                 <div class="nav-item">
-                                    <a class="button" href="{{ route('admin.logout') }}">{{ __('ログアウトする') }}</a>
+                    <a class="button" href="{{ route('admin.logout') }}">{{ __('ログアウトする') }}</a>
                 </div>
                 <div class="school">
                     <p>利用履歴一覧</p>
@@ -77,37 +77,37 @@
                 </div>
             </div>
             <div class="individual">
-            <div class="button"><a href="{{ route('individual',['id'=>Auth::user()->school])}}">個別データ検索へ</a></div>
+                <div class="button"><a href="{{ route('individual',['id'=>Auth::user()->school])}}">個別データ検索へ</a></div>
             </div>
             <div class="admincard">
 
-                    <!--検索フォーム-->
-                    <div class="row">
-                        <h3>データ抽出</h3>
-                        <div class="col-sm">
-                            <form method="GET" action="{{ route('select_today',['id'=>Auth::user()->school])}}">
-                                <button type="submit" class="btn ">直近24時間以内利用</button>
-                            </form>
-                        </div>
-                        <div class="col-sm">
-                            <form method="GET" action="{{ route('select_week',['id'=>Auth::user()->school])}}">
-                                <button type="submit" class="btn ">直近一週間利用</button>
-                            </form>
-                        </div>
-                        <div class="col-sm">
-                            <form method="GET" action="{{ route('select_twoweeks',['id'=>Auth::user()->school])}}">
-                                <button type="submit" class="btn  ">直近2週間以内利用</button>
-                            </form>
-                        </div>
-                        <div class="col-sm">
-                            <form method="GET" action="{{ route('select_month',['id'=>Auth::user()->school])}}">
-                                <button type="submit" class="btn">直近一か月利用</button>
-                            </form>
-                        </div>
+                <!--検索フォーム-->
+                <div class="row">
+                    <h3>データ抽出</h3>
+                    <div class="col-sm">
+                        <form method="GET" action="{{ route('select_today',['id'=>Auth::user()->school])}}">
+                            <button type="submit" class="btn ">直近24時間以内利用</button>
+                        </form>
+                    </div>
+                    <div class="col-sm">
+                        <form method="GET" action="{{ route('select_week',['id'=>Auth::user()->school])}}">
+                            <button type="submit" class="btn ">直近一週間利用</button>
+                        </form>
+                    </div>
+                    <div class="col-sm">
+                        <form method="GET" action="{{ route('select_twoweeks',['id'=>Auth::user()->school])}}">
+                            <button type="submit" class="btn  ">直近2週間以内利用</button>
+                        </form>
+                    </div>
+                    <div class="col-sm">
+                        <form method="GET" action="{{ route('select_month',['id'=>Auth::user()->school])}}">
+                            <button type="submit" class="btn">直近一か月利用</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

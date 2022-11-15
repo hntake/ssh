@@ -37,15 +37,15 @@ class AdminForm extends Mailable
     public function build()
     {
         return $this
-        ->from('info@itcha50.com')
-        ->to('hntake@gmail.com')
-        ->subject('エーゴメより自動送信メールです')
-        ->view('admin_mail')
-        ->with([
-            'email' => $this->email,
-            'name' => $this->name,
-            'group'  => $this->group,
-            'phone'  => $this->phone,
-        ]);
+            ->from('info@itcha50.com')
+            ->to('hntake@gmail.com')
+            ->subject('エイゴメより自動送信メールです')
+            ->view('admin_mail')
+            ->with([
+                'email' => $this->email,
+                'name' => $this->name,
+                'group'  => $this->group,
+                'phone'  => $this->phone,
+            ]);
     }
 }

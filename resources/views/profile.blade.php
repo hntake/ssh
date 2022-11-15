@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
-<title>マイプロフィール画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<title>マイプロフィール画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 
 @section('content')
 
@@ -138,9 +138,9 @@
                     <td>{{ $follower }}</td>
                     @if(!$image == null)
                     <td><img src="{{ asset('storage/' . $image) }}" alt="image">
-                     @else
+                        @else
                     <td><img src="/img/icon_man.png" alt="man_icon"></td>
-                     @endif
+                    @endif
                     <td>
                         <div class="button"><a href="{{ route('mypicture',['id'=>$niceid]) }}">表示</a></div>
                     </td>
@@ -151,4 +151,3 @@
     </div>
 </div>
 @endsection
-

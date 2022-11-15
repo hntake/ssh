@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ブログ｜webアプリ制作会社llco</title>
+    <title>導入事例TOP｜webアプリ制作会社llco</title>
     <link rel="stylesheet" href="{{asset('../css/blog.css')}}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -100,8 +100,8 @@
             <div class="pagecontainer">
                 <div class="pageheader">
                     <h1 class="pageheader_title">
-                        <div class="jp">ブログ</div>
-                        <div class="en">Blog</div>
+                        <div class="jp">導入事例</div>
+                        <div class="en">Case</div>
                     </h1>
                 </div>
                 <!--  <div class="sidebar">
@@ -117,7 +117,7 @@
                                 @foreach($eng as $engs)
                                 <div class="all_blogs_item">
 
-                                    <a href="{{ route('blog.page',['id'=>$engs->id]) }}">
+                                    <a href="{{ route('case.page',['id'=>$engs->id]) }}">
                                         <h1>{{$engs->title}}</h1>
                                     </a>
                                     <ul class="category_title">
@@ -154,7 +154,7 @@
                                 @foreach($vs as $vss)
                                 <div class="all_blogs_item">
 
-                                    <a href="{{ route('blog.page',['id'=>$vss->id]) }}">
+                                    <a href="{{ route('case.page',['id'=>$vss->id]) }}">
                                         <h1>{{$vss->title}}</h1>
                                     </a>
                                     <ul class="category_title">
@@ -191,7 +191,7 @@
                                 @foreach($etc as $etcs)
                                 <div class="all_blogs_item">
 
-                                    <a href="{{ route('blog.page',['id'=>$etcs->id]) }}">
+                                    <a href="{{ route('case.page',['id'=>$etcs->id]) }}">
                                         <h1>{{$etcs->title}}</h1>
                                     </a>
                                     <ul class="category_title">
@@ -227,7 +227,7 @@
                             <div class="allBlogs_list">
                                 @foreach($data as $datas)
                                 <div class="all_blogs_item">
-                                    <a href="{{ route('blog.page',['id'=>$datas->id]) }}">
+                                    <a href="{{ route('case.page',['id'=>$datas->id]) }}">
                                         <h1>{{$datas->title}}</h1>
                                     </a>
                                     <ul class="category_title">

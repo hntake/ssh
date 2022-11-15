@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
-<title>ホーム画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<title>ホーム画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 
 @section('content')
 
@@ -49,16 +49,16 @@
 <div class="wrap">
     <div class="testtable-responsive">
         <h2>マイステータス</h2>
+        <ul>
+            <li class="blink" style="color:red; font-weight:bold;">ポイント数：{{$user->point}}</li>
+            <li>レベル：{{$user->level}}</li>
+        </ul>
+        <div class="comment" style="background-color:white; width:80%;margin:0 auto;">
+            <h2>講師からの連絡</h2>
             <ul>
-                <li  class="blink" style="color:red; font-weight:bold;">ポイント数：{{$user->point}}</li>
-                <li>レベル：{{$user->level}}</li>
+                <li style="color:red; font-weight:bold;">{{$user->comment}}</li>
             </ul>
-            <div class="comment" style="background-color:white; width:80%;margin:0 auto;">
-                <h2 >講師からの連絡</h2>
-                <ul>
-                    <li  style="color:red; font-weight:bold;">{{$user->comment}}</li>
-                </ul>
-            </div>
+        </div>
     </div>
 
     <div class="testtable-responsive">

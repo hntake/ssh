@@ -2,34 +2,43 @@
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
-<title>ポイントランキング 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<title>ポイントランキング 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 
 @section('content')
 
 
 <div class="header-logo-menu">
-  <div id="nav-drawer">
-      <input id="nav-input" type="checkbox" class="nav-unshown">
-      <label id="nav-open" for="nav-input"><span></span></label>
-      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-      <div id="nav-content">
-          <ul>
-          <li><li><a href="{{ url('admin') }}"><h3>管理者画面に戻る</h3></a></li>
-                <li><a href="{{ url('all_list') }}"><h3>テスト一覧</h3></a></li>
-                <li><a href="{{ url('search_result') }}"><h3>テスト検索</h3></a></li>
-                <li><a href="{{ url('search_user') }}"><h3>ユーザー検索</h3></a></li>
-          </ul>
-      </div>
-      <script>
-        $(function() {
-         $('#nav-content li a').on('click', function(event) {
-        $('#nav-input').prop('checked', false);
-        });
-        });
-      </script>
+    <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+            <ul>
+                <li>
+                <li><a href="{{ url('admin') }}">
+                        <h3>管理者画面に戻る</h3>
+                    </a></li>
+                <li><a href="{{ url('all_list') }}">
+                        <h3>テスト一覧</h3>
+                    </a></li>
+                <li><a href="{{ url('search_result') }}">
+                        <h3>テスト検索</h3>
+                    </a></li>
+                <li><a href="{{ url('search_user') }}">
+                        <h3>ユーザー検索</h3>
+                    </a></li>
+            </ul>
+        </div>
+        <script>
+            $(function() {
+                $('#nav-content li a').on('click', function(event) {
+                    $('#nav-input').prop('checked', false);
+                });
+            });
+        </script>
     </div>
-  </div>
-<div class="testtable-responsive" >
+</div>
+<div class="testtable-responsive">
     <p>ポイント数ランキング</p>
     <table class="table-hover">
         <thead>
@@ -42,14 +51,14 @@
             </tr>
         </thead>
         <tbody id="tbl">
-        @foreach ($users as $user)
+            @foreach ($users as $user)
             <tr>
                 <td><a href="{{route('mypicture',['id'=>$user->id])}}">{{ $user->name }}</a></td>
                 <td>{{ $user->place }}</a></td>
                 <td>{{ $user->year}}</a></td>
                 <td>{{ $user->point }}</td>
                 <td>{{\Carbon\Carbon::parse($user->created_at)->toDateString() }}</td>
-        @endforeach
+                @endforeach
             </tr>
         </tbody>
     </table>

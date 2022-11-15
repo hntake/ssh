@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>ログイン画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<title>ログイン画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -17,11 +17,11 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 <div class="error">
-                                @error('email')
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -32,11 +32,11 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 <div class="error">
-                                @error('password')
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -60,9 +60,9 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('パスワードを忘れましたか?') }}
-                                    </a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('パスワードを忘れましたか?') }}
+                                </a>
                                 @endif
                             </div>
                         </div>
@@ -72,8 +72,8 @@
             </div>
             <div class="register-button" style="margin-top:10px;border-radius:unset;padding-top:0px;padding-bottom:10px;">
                 <p>登録して全ての機能を使おう！(完全無料）</p>
-            <a href="{{ route('register') }}" class="button">新規登録</a>
-        </div>
+                <a href="{{ route('register') }}" class="button">新規登録</a>
+            </div>
         </div>
     </div>
     <div class="news">

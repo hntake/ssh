@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>newsite</title>
+    <title>cases</title>
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('../css/blog.css') }}">
 
@@ -22,7 +22,7 @@
         <div class="content_wrapper">
             <div class="content2">
 
-                <form action="/newpostsend" method="post" name="ansform" enctype="multipart/form-data">
+                <form action="/case_post" method="post" name="ansform" enctype="multipart/form-data">
                     @csrf
                     <p>
 

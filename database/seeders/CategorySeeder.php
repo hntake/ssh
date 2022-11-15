@@ -15,8 +15,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categories =[
-            ['category' => 'エーゴメ'],
+        $categories = [
+            ['category' => 'エイゴメ'],
             ['category' => 'vs4auti'],
             ['category' => 'etc'],
             ['category' => 'サービス'],

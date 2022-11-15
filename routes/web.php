@@ -42,6 +42,9 @@ Route::get('/alert',function(){
 Route::get('/feature',function(){
     return view('feature');
 });
+Route::get('/use',function(){
+    return view('use');
+});
 Route::get('/plan',function(){
     return view('plan');
 });
@@ -164,18 +167,29 @@ Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 
 
 Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
 /*ブログ書き込み権限*/
-/* Route::get('/blog', [\App\Http\Controllers\FormController::class, 'postpage'])->middleware('auth:admin')->name('blog.form');
- */Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin');
+Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin');
 Route::post('/newpostsend', [\App\Http\Controllers\FormController::class, 'savenew'])->middleware('auth:admin');
 /*NEws書き込み権限*/
 Route::get('/news', [\App\Http\Controllers\FormController::class, 'news'])->middleware('auth:admin')->name('news.form');
 Route::post('/news_post', [\App\Http\Controllers\FormController::class, 'save_news'])->middleware('auth:admin');
+/*Case書き込み権限*/
+Route::get('/cases', [\App\Http\Controllers\FormController::class, 'case'])->middleware('auth:admin')->name('case.form');
+Route::post('/case_post', [\App\Http\Controllers\FormController::class, 'savecase'])->middleware('auth:admin');
 /**news表示 */
 Route::get('/news/index', [\App\Http\Controllers\FormController::class, 'news_index'])->name('news.index');
 Route::get('/news/page{id}', [\App\Http\Controllers\FormController::class, 'news_page'])->name('news.page');
 /*ブログ表示*/
 Route::get('/blog/index', [\App\Http\Controllers\FormController::class, 'index'])->name('blog.index');
 Route::get('/blog/page{id}', [\App\Http\Controllers\FormController::class, 'page'])->name('blog.page');
+/*事象表示*/
+Route::get('/case/index', [\App\Http\Controllers\FormController::class, 'caseindex'])->name('case.index');
+Route::get('/case/page{id}', [\App\Http\Controllers\FormController::class, 'case_page'])->name('case.page');
+
+/*お店ページ*/
+Route::get('/guest/index/{id}', [\App\Http\Controllers\GuestController::class, 'index'])->name('guest.index');
+Route::get('/guest/create', [\App\Http\Controllers\GuestController::class, 'create_index'])->middleware('auth:admin')->name('guest.create');
+Route::get('/guest/list', [\App\Http\Controllers\GuestController::class, 'list'])->middleware('auth:admin')->name('guest.list');
+Route::post('/guest/create', [\App\Http\Controllers\GuestController::class, 'uuid'])->middleware('auth:admin')->name('guest.uuid');
 
 
 Route::middleware([

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-<title>テスト画面 自分の英単語テストを作って公開しよう！英語学習サイト”エーゴメ”</title>
+<title>テスト画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
@@ -13,14 +13,30 @@
         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
         <div id="nav-content">
             <ul>
-                <li><a href="{{ url('home') }}"><h3>ホーム画面に戻る</h3></a></li>
-                <li><a href="{{ url('history') }}"><h3>全履歴</h3></a></li>
-                <li><a href="{{ url('profile') }}"><h3>Myページ</h3></a></li>
-                <li><a href="{{ url('all_list') }}"><h3>テスト一覧</h3></a></li>
-                <li><a href="{{ url('create') }}"><h3>新規作成</h3></a></li>
-                <li><a href="{{ url('search_result') }}"><h3>テスト検索</h3></a></li>
-                <li><a href="{{ url('search_user') }}"><h3>ユーザー検索</h3></a></li>
-                <li><a href="{{ url('admin') }}"><h3>管理者画面に戻る</h3></a></li>
+                <li><a href="{{ url('home') }}">
+                        <h3>ホーム画面に戻る</h3>
+                    </a></li>
+                <li><a href="{{ url('history') }}">
+                        <h3>全履歴</h3>
+                    </a></li>
+                <li><a href="{{ url('profile') }}">
+                        <h3>Myページ</h3>
+                    </a></li>
+                <li><a href="{{ url('all_list') }}">
+                        <h3>テスト一覧</h3>
+                    </a></li>
+                <li><a href="{{ url('create') }}">
+                        <h3>新規作成</h3>
+                    </a></li>
+                <li><a href="{{ url('search_result') }}">
+                        <h3>テスト検索</h3>
+                    </a></li>
+                <li><a href="{{ url('search_user') }}">
+                        <h3>ユーザー検索</h3>
+                    </a></li>
+                <li><a href="{{ url('admin') }}">
+                        <h3>管理者画面に戻る</h3>
+                    </a></li>
             </ul>
         </div>
         <script>
@@ -117,12 +133,12 @@
             <p class="error-message">!! 空欄がないようにしてください !!</p>
             @endif
             <div class="check">
-                <button type="submit"style="padding:10px;">
+                <button type="submit" style="padding:10px;">
                     <i class="fa fa-plus"></i> 採点する
                 </button>
             </div>
     </form>
-    <div  class="button"><a href="{{ route('answer',['id'=>$id]) }}">正解はこちら</a></div>
+    <div class="button"><a href="{{ route('answer',['id'=>$id]) }}">正解はこちら</a></div>
 
 </div>
 

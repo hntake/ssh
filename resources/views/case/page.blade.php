@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ブログ｜webアプリ制作会社llco</title>
-    <link rel="stylesheet" href="{{asset('../css/blog.css')}}">
+    <title>導入事例｜webアプリ制作会社llco</title>
+    <link rel="stylesheet" href="{{asset('../css/page.css')}}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -98,164 +98,42 @@
         </header>
         <main>
             <div class="pagecontainer">
-                <div class="pageheader">
-                    <h1 class="pageheader_title">
-                        <div class="jp">ブログ</div>
-                        <div class="en">Blog</div>
-                    </h1>
-                </div>
+
                 <!--  <div class="sidebar">
                 <a href="https://itcha50.com"><p>自閉症支援ツールVS4Auti</p></a>
             </div> -->
                 <div class="area">
-
-                    <input type="radio" name="tab_name" id="tab2" checked>
-                    <label class="tab_class" for="tab2">エイゴメ</label>
                     <div class="content_class">
                         <div class="allBlogs">
                             <div class="allBlogs_list">
-                                @foreach($eng as $engs)
                                 <div class="all_blogs_item">
-
-                                    <a href="{{ route('blog.page',['id'=>$engs->id]) }}">
-                                        <h1>{{$engs->title}}</h1>
-                                    </a>
-                                    <ul class="category_title">
-                                        <li>
-                                            <h5>{{\Carbon\Carbon::parse($engs->updated_at)->toDateString() }}</h5>
-                                        </li>
-                                        <li>
-                                            <h5 style="color:black;">{{$engs->Category->category}}</h5>
-
-                                        </li>
-                                    </ul>
+                                    <div class="category_title">
+                                        <h5 style="color:black;">{{$data->Category->category}}</h5>
+                                    </div>
+                                    <h1>{{$data->title}}</h1>
+                                    <div class="date">
+                                        <h5>{{\Carbon\Carbon::parse($data->updated_at)->toDateString() }}</h5>
+                                    </div>
+                                    <div class="blog_main">
+                                        <h5>{!!$data->main!!}</h5>
+                                    </div>
                                     <div class="thumbnail">
-                                        @if(file_exists(public_path().'/storage/post_img/'. $engs->id .'.jpg'))
-                                        <img src="/storage/post_img/{{ $engs->id }}.jpg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $engs->id .'.jpeg'))
-                                        <img src="/storage/post_img/{{ $engs->id }}.jpeg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $engs->id .'.png'))
-                                        <img src="/storage/post_img/{{ $engs->id }}.png">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $engs->id .'.gif'))
-                                        <img src="/storage/post_img/{{ $engs->id }}.gif">
+                                        @if(file_exists(public_path().'/storage/post_img/'. $data->id .'.jpg'))
+                                        <img src="/storage/post_img/{{ $data->id }}.jpg">
+                                        @elseif(file_exists(public_path().'/storage/post_img/'. $data->id .'.jpeg'))
+                                        <img src="/storage/post_img/{{ $data->id }}.jpeg">
+                                        @elseif(file_exists(public_path().'/storage/post_img/'. $data->id .'.png'))
+                                        <img src="/storage/post_img/{{ $data->id }}.png">
+                                        @elseif(file_exists(public_path().'/storage/post_img/'. $data->id .'.gif'))
+                                        <img src="/storage/post_img/{{ $data->id }}.gif">
                                         @endif
                                     </div>
 
                                 </div>
-                                @endforeach
                             </div>
                         </div>
                     </div>
-                    <input type="radio" name="tab_name" id="tab3" checked>
-                    <label class="tab_class" for="tab3">vs4auti</label>
-                    <div class="content_class">
-                        <div class="allBlogs">
-                            <div class="allBlogs_list">
-                                @foreach($vs as $vss)
-                                <div class="all_blogs_item">
 
-                                    <a href="{{ route('blog.page',['id'=>$vss->id]) }}">
-                                        <h1>{{$vss->title}}</h1>
-                                    </a>
-                                    <ul class="category_title">
-                                        <li>
-                                            <h5>{{\Carbon\Carbon::parse($vss->updated_at)->toDateString() }}</h5>
-                                        </li>
-                                        <li>
-                                            <h5 style="color:black;">{{$vss->Category->category}}</h5>
-
-                                        </li>
-                                    </ul>
-                                    <div class="thumbnail">
-                                        @if(file_exists(public_path().'/storage/post_img/'. $vss->id .'.jpg'))
-                                        <img src="/storage/post_img/{{ $vss->id }}.jpg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $vss->id .'.jpeg'))
-                                        <img src="/storage/post_img/{{ $vss->id }}.jpeg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $vss->id .'.png'))
-                                        <img src="/storage/post_img/{{ $vss->id }}.png">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $vss->id .'.gif'))
-                                        <img src="/storage/post_img/{{ $vss->id }}.gif">
-                                        @endif
-                                    </div>
-
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <input type="radio" name="tab_name" id="tab4" checked>
-                    <label class="tab_class" for="tab4">etc</label>
-                    <div class="content_class">
-                        <div class="allBlogs">
-                            <div class="allBlogs_list">
-                                @foreach($etc as $etcs)
-                                <div class="all_blogs_item">
-
-                                    <a href="{{ route('blog.page',['id'=>$etcs->id]) }}">
-                                        <h1>{{$etcs->title}}</h1>
-                                    </a>
-                                    <ul class="category_title">
-                                        <li>
-                                            <h5>{{\Carbon\Carbon::parse($etcs->updated_at)->toDateString() }}</h5>
-                                        </li>
-                                        <li>
-                                            <h5 style="color:black;">{{$etcs->Category->category}}</h5>
-
-                                        </li>
-                                    </ul>
-                                    <div class="thumbnail">
-                                        @if(file_exists(public_path().'/storage/post_img/'. $etcs->id .'.jpg'))
-                                        <img src="/storage/post_img/{{ $etcs->id }}.jpg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $etcs->id .'.jpeg'))
-                                        <img src="/storage/post_img/{{ $etcs->id }}.jpeg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $etcs->id .'.png'))
-                                        <img src="/storage/post_img/{{ $etcs->id }}.png">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $etcs->id .'.gif'))
-                                        <img src="/storage/post_img/{{ $datas->id }}.gif">
-                                        @endif
-                                    </div>
-
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                    <input type="radio" name="tab_name" id="tab1" checked>
-                    <label class="tab_class" for="tab1">all</label>
-                    <div class="content_class">
-                        <div class="allBlogs">
-                            <div class="allBlogs_list">
-                                @foreach($data as $datas)
-                                <div class="all_blogs_item">
-                                    <a href="{{ route('blog.page',['id'=>$datas->id]) }}">
-                                        <h1>{{$datas->title}}</h1>
-                                    </a>
-                                    <ul class="category_title">
-                                        <li>
-                                            <h5>{{\Carbon\Carbon::parse($datas->updated_at)->toDateString() }}</h5>
-                                        </li>
-                                        <li>
-                                            <h5 style="color:black;">{{$datas->Category->category}}</h5>
-
-                                        </li>
-                                    </ul>
-                                    <div class="thumbnail">
-                                        @if(file_exists(public_path().'/storage/post_img/'. $datas->id .'.jpg'))
-                                        <img src="/storage/post_img/{{ $datas->id }}.jpg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $datas->id .'.jpeg'))
-                                        <img src="/storage/post_img/{{ $datas->id }}.jpeg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $datas->id .'.png'))
-                                        <img src="/storage/post_img/{{ $datas->id }}.png">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $datas->id .'.gif'))
-                                        <img src="/storage/post_img/{{ $datas->id }}.gif">
-                                        @endif
-                                    </div>
-
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <footer class="site-footer">
