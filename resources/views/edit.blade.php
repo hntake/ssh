@@ -45,6 +45,9 @@
     </div>
 </div>
 <div class="test">
+    <form method="POST" action="{{route('update_test',['id'=> $word->id])}}" enctype="multipart/form-data">
+        @csrf
+        @method('patch')
     <table class="table-hover">
         <thead>
             <tr style="background-color:darkseagreen">
@@ -119,7 +122,6 @@
             </tr>
         </tbody>
     </table>
-    <div class="button"><a href="{{ route('profile') }}">編集完了</a></div>
-
+    <div class="button"><input type="submit" value="編集完了">
 </div>
 @endsection

@@ -160,6 +160,40 @@ class HomeController extends Controller
         return redirect('profile');
     }
     /**
+     * 選択したtestを編集する
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function update_test(Request $request, $id)
+    {
+        $word = Word::find($id);
+        $word->ja1 = $request->input('ja1');
+        $word->en1 = $request->input('en1');
+        $word->ja2 = $request->input('ja2');
+        $word->en2 = $request->input('en2');
+        $word->ja3 = $request->input('ja3');
+        $word->en3 = $request->input('en3');
+        $word->ja4 = $request->input('ja4');
+        $word->en4 = $request->input('en4');
+        $word->ja5 = $request->input('ja5');
+        $word->en5 = $request->input('en5');
+        $word->ja6 = $request->input('ja6');
+        $word->en6 = $request->input('en6');
+        $word->ja7 = $request->input('ja7');
+        $word->en7 = $request->input('en7');
+        $word->ja8 = $request->input('ja8');
+        $word->en8 = $request->input('en8');
+        $word->ja9 = $request->input('ja9');
+        $word->en9 = $request->input('en9');
+        $word->ja10 = $request->input('ja10');
+        $word->en10 = $request->input('en10');
+
+        $word->save();
+
+        return redirect('profile');
+    }
+    /**
      * 選択したユーザーの写真編集画面へ
      *
      * @param Request $request

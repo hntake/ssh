@@ -107,6 +107,8 @@ Route::patch('/uploadpic', [App\Http\Controllers\HomeController::class, 'uploadp
 Route::get('/deletepic/{id}', [App\Http\Controllers\HomeController::class, 'deletepic'])->name('deletepic');
 /*選択したユーザーを編集する*/
 Route::patch('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update_user');
+/*選択したtestを編集する*/
+Route::patch('edit/{id}',[App\Http\Controllers\HomeController::class,'update_test'])->name('update_test');
 /*選択したテストを削除する*/
 Route::get('/list/{id}', [App\Http\Controllers\TestController::class,'delete_list'])->name('delete_list');
 /*選択したユーザーを削除する*/
@@ -122,6 +124,8 @@ Route::get('/history', [App\Http\Controllers\TestController::class,'history'])->
 Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->name('create');
 /*自分のプロフィール画面へ*/
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
+
+
 
 /*フォロー登録*/
 Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');
