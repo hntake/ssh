@@ -75,6 +75,7 @@ Route::get('search_result',[App\Http\Controllers\TestController::class,'search_r
 Route::get('search_user',[App\Http\Controllers\TestController::class,'search_user'])->name('search_user');
 /*並び替えする*/
 Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
+Route::get('searc_id',[App\Http\Controllers\TestController::class,'search_id'])->name('search_id');
 
 
 //入力ページ

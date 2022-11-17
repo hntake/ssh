@@ -48,19 +48,37 @@
 <div class="testtable-responsive">
     <p>全リスト</p>
     <table class="table-all">
-        <!--sort button-->
-        <form action="{{ route('sort') }}" method="GET">
-            @csrf
-            <select name="narabi">
-                <option value="asc">古い順</option>
-                <option value="desc">新しい順</option>
-            </select>
-            <div class="form-group">
-                <div class="button">
-                    <input type="submit" value="で並び替え"></input>
-                </div>
-            </div>
-        </form>
+        <ul>
+            <li>
+                <form method="GET" action="{{ route('search_id')}}">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">ID番号</label>
+                        <!--入力-->
+                        <div class="col-sm-5">
+                        <input type="text" class="form-control" name="searchId" placeholder="検索したいid番号を入力してください">
+                        </div>
+                        <div class="col-sm-auto">
+                        <button type="submit" class="btn btn-primary ">テスト検索</button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <!--sort button-->
+            <li>
+                <form action="{{ route('sort') }}" method="GET">
+                    @csrf
+                    <select name="narabi">
+                        <option value="asc">古い順</option>
+                        <option value="desc">新しい順</option>
+                    </select>
+                    <div class="form-group">
+                        <div class="button">
+                            <input type="submit" value="で並び替え"></input>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
         <thead>
             <tr>
                 <th style="width:5%">学年</th>
@@ -91,5 +109,7 @@
     </table>
     {{ $words->links() }}
 </div>
+
+
 @endsection
 <a href="#" class="gotop">トップへ</a>
