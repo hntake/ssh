@@ -168,6 +168,7 @@ class HomeController extends Controller
     public function update_test(Request $request, $id)
     {
         $word = Word::find($id);
+        $word->test_name = $request->input('test_name');
         $word->ja1 = $request->input('ja1');
         $word->en1 = $request->input('en1');
         $word->ja2 = $request->input('ja2');
