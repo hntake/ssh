@@ -243,7 +243,7 @@
             <div class="movie_cap">
                 <div class="elementor-widget">
                     <a name="monitor">
-                        <img src="img/movieCap2.png">
+                        <img src="img/movieCap2new.png">
                     </a>
                 </div>
                 <div class="youtube">

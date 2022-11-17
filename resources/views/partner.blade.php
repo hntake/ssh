@@ -153,7 +153,7 @@
                     <h2>エイゴメ<br>
                         パートナープログラム</h2>
                     <div class="partner_image">
-                        <img src="img/partner.png" alt="partner" style="width:100%; height:auto;">
+                        <img src="img/partner2.png" alt="partner" style="width:100%; height:auto;">
                     </div>
                     <div class="sales_discription">
                         エイゴメパートナープログラムは、教育機関にエイゴメを普及していただくパートナーを対象とした「ディストリビューターパートナープログラム」と、英語を習得し世界へ羽ばたく子供たち向けの広告を掲載をしたいパートナーを対象とした『サポートプログラム』の２つのプログラムで構成されます。<br>
