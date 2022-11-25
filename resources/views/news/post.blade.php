@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 <!--  <div class="sidebar">
-                <a href="https://itcha50.com"><p>自閉症支援ツールVS4Auti</p></a>
+                <a href="https://itcha50.com"><p>視覚支援ツールVS4</p></a>
             </div> -->
                 <div class="area">
 

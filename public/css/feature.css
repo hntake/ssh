@@ -220,49 +220,49 @@ input[type="radio"]{
     background:#fff; color:#000;
 }
 #tab1:checked ~ .panel_area #panel1{
-    display:block;
+    display:flex;;
     width:60%;
 }
 #tab2:checked ~ .tab_area .tab2_label{
     background:#fff; color:#000;
 }
 #tab2:checked ~ .panel_area #panel2{
-    display:block;
+    display:flex;;
     width:50%;
 }
 #tab3:checked ~ .tab_area .tab3_label{
     background:#fff; color:#000;
 }
 #tab3:checked ~ .panel_area #panel3{
-    display:block;
+    display:flex;;
     width:50%;
 }
 #tab4:checked ~ .tab_area .tab4_label{
     background:#fff; color:#000;
 }
 #tab4:checked ~ .panel_area #panel4{
-    display:block;
+    display:flex;
     width:50%;
 }
 #tab5:checked ~ .tab_area .tab5_label{
     background:#fff; color:#000;
 }
 #tab5:checked ~ .panel_area #panel5{
-    display:block;
+    display:flex;
     width:50%;
 }
 #tab6:checked ~ .tab_area .tab6_label{
     background:#fff; color:#000;
 }
 #tab6:checked ~ .panel_area #panel6{
-    display:block;
-    width:50%;
+    display:flex;
+    width:70%;
 }
 #tab7:checked ~ .tab_area .tab7_label{
     background:#fff; color:#000;
 }
 #tab7:checked ~ .panel_area #panel7{
-    display:block;
+    display:flex;
     width:50%;
 }
 #tab8:checked ~ .tab_area .tab8_label{
@@ -342,6 +342,9 @@ input[type="radio"]{
 }
 #panel4 #panel5 #panel6 .panel_area2{
     width:50%;
+}
+.sleft{
+    width:100%;
 }
 .sright{
     float: right;

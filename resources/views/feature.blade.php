@@ -269,7 +269,9 @@
                                 </table>
                             </div>
                             <div id="panel2" class="tab_panel">
-                                <a href="img/create_use.png" data-lightbox="group"> <img src="img/create_use.png" alt="create" style="width:30%;"></a>
+                                <div class="sleft">
+                                    <a href="img/create_use.png" data-lightbox="group"> <img src="img/create_use.png" alt="create" style="width:80%;"></a>
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">自分だけのテストを作る</div>
                                     <div class="slide-description">
@@ -284,8 +286,10 @@
                                 </div>
 
                             </div>
-                            <div id="panel3" class="tab_panel">
-                                <a href="img/search.png" data-lightbox="group"> <img src="img/search.png" alt="search" style="width:30%;"></a>
+                                <div id="panel3" class="tab_panel">
+                                    <div class="sleft">
+                                        <a href="img/search.png" data-lightbox="group"> <img src="img/search.png" alt="search" style="width:80%;"></a>
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">テストを受ける</div>
                                     <div class="slide-description">
@@ -328,7 +332,9 @@
                         </div>
                         <div class="panel_area">
                             <div id="panel4" class="tab_panel">
-                                <a href="img/myfollow.png" data-lightbox="group"><img src="img/myfollow.png" alt="register" style="width:30%;"></a>
+                                <div class="sleft">
+                                    <a href="img/myfollow.png" data-lightbox="group"><img src="img/myfollow.png" alt="register" style="width:80%;"></a>
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">友達をフォローする</div>
                                     <div class="slide-description">
@@ -341,7 +347,9 @@
                                 </div>
                             </div>
                             <div id="panel5" class="tab_panel">
-                                <a href="img/mylist.png" data-lightbox="group"> <img src="img/mylist.png" alt="create" style="width:30%;"></a>
+                                <div class="sleft">
+                                    <a href="img/mylist.png" data-lightbox="group"> <img src="img/mylist.png" alt="create" style="width:80%;"></a>
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">テスト期間に便利</div>
                                     <div class="slide-description">
@@ -395,8 +403,9 @@
                                 </div>
                             </div>
                             <div id="panel7" class="tab_panel">
-                                <img src="img/smafo.png" alt="create" style="width:30%;">
-                                <div class="sright">
+                                <div class="sleft">
+                                    <img src="img/smafo.png" alt="create" style="width:80%;">
+                                </div>                                <div class="sright">
                                     <div class="slide-head">自分にあった使い方</div>
                                     <div class="slide-description">
                                         <b>PC、スマホ、タブレット</b>

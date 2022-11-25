@@ -165,15 +165,15 @@
                             <br>英単語を強化しよう</a>
                     </div>
                     <div class="tab_wrap">
-                        <input id="tab1" type="radio" name="tab_btn" checked>
+                        <input id="tab3" type="radio" name="tab_btn" checked>
+                        <input id="tab1" type="radio" name="tab_btn" >
                         <input id="tab2" type="radio" name="tab_btn">
-                        <input id="tab3" type="radio" name="tab_btn">
                         <div class="nav-wrap">
                             <div class="scroll-nav">
                                 <div class="tab_area">
+                                    <label class="tab3_label" for="tab3">テストを受ける</label>
                                     <label class="tab1_label" for="tab1">まずは登録</label>
                                     <label class="tab2_label" for="tab2">テストを作る</label>
-                                    <label class="tab3_label" for="tab3">テストを受ける</label>
                                 </div>
                             </div>
                             <div class="next-btn">＞</div>
@@ -215,13 +215,19 @@
                                             それ以外の機能は一切利用できません<br>
                                             <br>
                                             <div class="llco" style="background-color:unset;">
-                                                <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
+                                            <div class="register-button">
+                                                <a href="https://youtube.com/embed/0_OJutYQxLM" class="header_nav_itm_link">説明動画</a>
+                                            </div>
+                                            <div class="admin_button">
+                                                <a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                                             </div>
                                         </div>
                                 </table>
                             </div>
                             <div id="panel2" class="tab_panel">
-                                <a href="img/create_use.png" data-lightbox="group"> <img src="img/create_use.png" alt="create" style="width:30%;"></a>
+                                <div class="sleft">
+                                    <a href="img/create_use.png" data-lightbox="group"> <img src="img/create_use.png" alt="create" style="width:80%;"></a>
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">自分だけのテストを作る</div>
                                     <div class="slide-description">
@@ -232,22 +238,31 @@
                                         <br>
                                         ※一つでも空欄があるとエラーになります<br>
                                         ※詳細は画像をクリックして拡大してみてください
+                                        <div class="register-button">
+                                            <a href="https://youtube.com/embed/0C4VCt9kWvA" class="header_nav_itm_link">説明動画</a>
+                                        </div>
                                     </div>
                                 </div>
 
                             </div>
                             <div id="panel3" class="tab_panel">
-                                <a href="img/search.png" data-lightbox="group"> <img src="img/search.png" alt="search" style="width:30%;"></a>
+                                <div class="sleft">
+                                    <a href="img/search.png" data-lightbox="group"> <img src="img/search.png" alt="search" style="width:80%;"></a>
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">テストを受ける</div>
                                     <div class="slide-description">
-                                        <b>簡単検索</b>
+                                        <b>登録無しでも</b>
                                         学年・教科書、そして<br>
                                         単元を入力すると検索できます<br>
                                         <br>
                                         ※詳細は画像をクリックして拡大してみてください
                                         <div class="llco" style="background-color:unset;">
-                                            <div class="admin_button"><a href="{{ route('search_result') }}" style="background-color:none; color:#7791DE;">テスト検索ページへ</a></div>
+                                        <div class="register-button">
+                                            <a href="https://youtube.com/embed/TqhOe38OWQE" class="header_nav_itm_link">説明動画</a>
+                                        </div>
+                                        <div class="admin_button">
+                                                <a href="{{ route('search_result') }}" style="background-color:none; color:#7791DE;">テスト検索ページへ</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -280,7 +295,9 @@
                         </div>
                         <div class="panel_area">
                             <div id="panel4" class="tab_panel">
-                                <a href="img/myfollow.png" data-lightbox="group"><img src="img/myfollow.png" alt="register" style="width:30%;"></a>
+                                <div class="sleft">
+                                    <a href="img/myfollow.png" data-lightbox="group"><img src="img/myfollow.png" alt="register" style="width:80%;"></a>
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">友達をフォローする</div>
                                     <div class="slide-description">
@@ -293,7 +310,9 @@
                                 </div>
                             </div>
                             <div id="panel5" class="tab_panel">
-                                <a href="img/mylist.png" data-lightbox="group"> <img src="img/mylist.png" alt="create" style="width:30%;"></a>
+                                <div class="sleft">
+                                    <a href="img/mylist.png" data-lightbox="group"> <img src="img/mylist.png" alt="create" style="width:80%;"></a>
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">テスト期間に便利</div>
                                     <div class="slide-description">
@@ -347,7 +366,9 @@
                                 </div>
                             </div>
                             <div id="panel7" class="tab_panel">
-                                <img src="img/smafo.png" alt="create" style="width:30%;">
+                                <div class="sleft">
+                                    <img src="img/smafo.png" alt="create" style="width:80%;">
+                                </div>
                                 <div class="sright">
                                     <div class="slide-head">自分にあった使い方</div>
                                     <div class="slide-description">

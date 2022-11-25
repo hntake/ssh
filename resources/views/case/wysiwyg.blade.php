@@ -27,7 +27,7 @@
                     <p>
 
                         <label for="inq1"><input type="radio" id="inq1" name="category" value="4">エイゴメ</label>
-                        <label for="inq2"><input type="radio" id="inq2" name="category" value="5">vs4auti</label>
+                        <label for="inq2"><input type="radio" id="inq2" name="category" value="5">VS4</label>
                         <label for="inq3"><input type="radio" id="inq3" name="category" value="6">その他</label>
                     </p>
                     <p>タイトル</p>

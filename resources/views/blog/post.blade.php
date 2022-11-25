@@ -105,7 +105,7 @@
                     </h1>
                 </div>
                 <!--  <div class="sidebar">
-                <a href="https://itcha50.com"><p>自閉症支援ツールVS4Auti</p></a>
+                <a href="https://itcha50.com"><p>視覚支援ツールVS4</p></a>
             </div> -->
                 <div class="area">
 
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                     <input type="radio" name="tab_name" id="tab3" checked>
-                    <label class="tab_class" for="tab3">vs4auti</label>
+                    <label class="tab_class" for="tab3">VS4</label>
                     <div class="content_class">
                         <div class="allBlogs">
                             <div class="allBlogs_list">
