@@ -33,26 +33,19 @@
                         </li>
                         <li class="header_nav_itm">
                             <a href="{{ url('search_result') }}" class="header_nav_itm_link">テスト検索</a>
-                            <div class="description1">テストを受けてみる</div>
+                            <div class="description1">エイゴメでテストを受けてみる</div>
                         </li>
                         <li class="header_nav_itm">
-                            <a href="{{ url('feature') }}" class="header_nav_itm_link">使い方</a>
+                            <a href="{{ url('feature') }}" class="header_nav_itm_link">エイゴメとは</a>
                             <div class="description1">エイゴメの使い方</div>
                         </li>
                         <li class="header_nav_itm">
-                            <a href="{{ url('feature') }}" class="header_nav_itm_link">便利な機能</a>
-                            <div class="description1">フォロー機能やポイントシステム</div>
+                            <a href=https://itcha50.com/create_sort class="header_nav_itm_link">絵スケジュールを作成</a>
+                            <div class="description1">VS4で絵スケジュールを作る</div>
                         </li>
                         <li class="header_nav_itm">
-                            <a href="{{ url('plan') }}" class="header_nav_itm_link">教育関係者向け</a>
-                            <div class="description1">モニタリングサービスのご案内</div>
-                        </li>
-
-                        <li class="header_nav_itm">
-                            <div class="register-button">
-                                <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
-                                <div class="description1">マニュアル動画ページへ</div>
-                            </div>
+                            <a href=https://itcha50.com/feature class="header_nav_itm_link">VS4とは</a>
+                            <div class="description1">VS4の使い方</div>
                         </li>
                     </ul>
                 </nav>
@@ -65,25 +58,19 @@
                     <label id="nav-open" for="nav-input"><span></span></label>
                     <label class="nav-unshown" id="nav-close" for="nav-input"></label>
                     <div id="nav-content">
-                        <ul class="header_nav_list">
+                        <ul class="">
                             <li><a href="{{ url('search_result') }}">
                                     <h3>テスト検索</h3>
                                 </a></li>
                             <li><a href="{{ url('feature') }}">
-                                    <h3>使い方</h3>
+                                    <h3>エイゴメとは</h3>
                                 </a></li>
-                            <li><a href="{{ url('feature') }}">
-                                    <h3>便利な機能</h3>
+                            <li><a href=https://itcha50.com/create_sort>
+                                    <h3>絵スケジュールを作成</h3>
                                 </a></li>
-                            <li><a href="{{ url('plan') }}">
-                                    <h3>教育関係者向け</h3>
+                            <li><a href=https://itcha50.com/feature>
+                                    <h3>VS4とは</h3>
                                 </a></li>
-                            <li class="header_nav_itm">
-                                <div class="register-button">
-                                    <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
-                                    <div class="description1">マニュアル動画ページへ</div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                     <script>
@@ -140,23 +127,13 @@
                 <div class="bc-sitemap-wrapper">
                     <div class="sitemap clearfix">
                         <div id="nav_menu2" class="widget_nav_menu">
-                            <h2 class="widget-title">製品紹介</h2>
-                            <div class="menu-site-map-1-container">
-                                <ul id="menu-site-map-1" class="menu">
-                                    <li><a href="{{ url('feature') }}">機能</a></li>
-                                    <li><a href="{{ url('plan') }}">利用料金</a></li>
-                                    <li><a href="{{ url('case') }}">導入事例</a></li>
-                                    <li><a href="{{ url('/admin/login')}}">管理者画面</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div id="nav_menu2" class="widget_nav_menu">
                             <h2 class="widget-title">関連情報</h2>
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
                                     <li><a href="{{ url('blog/index')}}">ブログ</a></li>
                                     <l><a href="{{ url('news/index')}}">お知らせ</a></li>
-                                        <li><a href="{{ url('partner')}}">パートナー</a></li>
+                                        <li><a href="{{ url('partner')}}">エイゴメパートナー</a></li>
+                                        <li><a href=https://itcha50.com/partner>VS4パートナー</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -165,7 +142,9 @@
                             <div class="menu-site-map-1-container">
                                 <ul id="menu-site-map-1" class="menu">
                                     <li><a href="{{ route('contact.index')}}">お問い合わせ</a></li>
-                                    <li><a href="{{ url('faq')}}">FAQ</a></li>
+                                    <li><a href="{{ url('faq')}}">エイゴメFAQ</a></li>
+                                    <li><a href=https://itcha50.com/faq>VS4FAQ</a></li>
+                                    <li><a href="{{ url('/admin/login')}}">管理者画面</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -176,7 +155,8 @@
                                     <li><a href="{{ url('policy')}}">プライバシー</a></li>
                                     <li><a href="{{ url('rule')}}">利用規約</a></li>
                                     <li><a href="{{ url('aboutus')}}">About Us</a></li>
-                                    <li><a href="{{ url('consumer')}}">特定商取引</a></li>
+                                    <li><a href="{{ url('consumer')}}">エイゴメ特定商取引</a></li>
+                                    <li><a href=https://itcha50.com/consumer>VS4特定商取引</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -18,7 +18,7 @@
             <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose">
                 <h1>特定商取引法に基づく表示</h1>
                 <h2>サービス名</h2>
-                <p>英単語強化サイト”えーご・め”モニタリングツール</p>
+                <p>英単語強化サイト”エイゴメ”モニタリングツール</p>
 
                 <h2>販売価格</h2>
                 <p>購入手続きの際に画面に表示されます。消費税は内税として表示しております。</p>

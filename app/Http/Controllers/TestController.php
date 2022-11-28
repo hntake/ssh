@@ -469,7 +469,7 @@ class TestController extends Controller
      */
     #
     /**検索画面へ */
-    public function show(Request $request)
+ /*    public function show(Request $request)
     {
         //フォームを機能させるために各情報を取得し、viewに返す
         $searchWord = $request->input('searchWord');
@@ -479,7 +479,7 @@ class TestController extends Controller
             'searchWord' => $searchWord,
             'typeId' => $typeId
         ]);
-    }
+    } */
 
     /*==================================
     検索メソッド(searchproduct)
@@ -487,6 +487,7 @@ class TestController extends Controller
     public function search_result(Request $request)
     {
         //入力される値nameの中身を定義する
+        $searchId = $request->input('searchId'); //商品名の値
         $searchWord = $request->input('searchWord'); //商品名の値
         $typeId = $request->input('typeId'); //カテゴリの値
         $textbookId = $request->input('textbookId'); //カテゴリの値
@@ -506,6 +507,9 @@ class TestController extends Controller
         if (isset($textbookId)) {
             $query->where('textbook', $textbookId);
         }
+        if (isset($searchId)) {
+            $query->where('searchId', $searchId);
+        }
 
         //$queryをtype_idの昇順に並び替えて$productsに代入
         $words = $query->orderBy('id', 'desc')->paginate(10);
@@ -519,8 +523,25 @@ class TestController extends Controller
             'types' => $types,
             'textbooks' => $textbooks,
             'searchWord' => $searchWord,
+            'searchId' => $searchId,
             'typeId' => $typeId,
             'textbookId' => $textbookId
+        ]);
+    }
+    public function search_id(Request $request)
+    {
+        //入力される値nameの中身を定義する
+        $searchId = $request->input('searchId'); //商品名の値
+
+        $query = Word::query();
+
+        $query->where('id', $searchId);
+
+        //$queryをtype_idの昇順に並び替えて$productsに代入
+        $word= $query->first();
+
+        return view('search_id', [
+            'word' => $word,
         ]);
     }
 
@@ -584,7 +605,6 @@ class TestController extends Controller
     public function search_user(Request $request)
     {
             $keyword = $request->input('keyword');
-
             $query = User::query();
 
             if(!empty($keyword)) {

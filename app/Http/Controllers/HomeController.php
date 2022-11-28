@@ -51,8 +51,13 @@ class HomeController extends Controller
         }
         /*自分の利用履歴*/ else {
             $date = Carbon::today()->subDay(7);
-            /**My履歴 */
+
             $user = Auth::user();
+            /**ポイント数からレベルを判定 */
+            $point = $user->point;
+            $level = $user->level;
+            $user->level=intdiv($point, 100);
+            /**My履歴 */
             $test_ids = History::where('tested_user', '=', Auth::user()->user_name)->get()->pluck('test_id')->toArray();
 
             $words = Word::whereIn('id', $test_ids)->paginate(15);
