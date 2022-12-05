@@ -103,6 +103,7 @@
                     </tr>
                 </tbody>
             </table>
+            {{ $histories->links() }}
         </div>
         <div class="testtable-responsive">
             <p>生徒作成テスト</p>
@@ -134,6 +135,7 @@
                     </tr>
                 </tbody>
             </table>
+            {{ $words->links() }}
         </div>
     </div>
 

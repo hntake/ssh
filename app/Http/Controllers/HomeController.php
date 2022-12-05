@@ -60,7 +60,7 @@ class HomeController extends Controller
             /**My履歴 */
             $test_ids = History::where('tested_user', '=', Auth::user()->user_name)->get()->pluck('test_id')->toArray();
 
-            $words = Word::whereIn('id', $test_ids)->paginate(15);
+            $words = Word::whereIn('id', $test_ids)->OrderBy('id', 'desc')->paginate(15);
             /*MYフォロー*/
             $follows = Nice::where('user_id','=', Auth::user()->id)->get()->pluck('created_user')->toArray();/*自分がフォローしているユーザー名を取得*/
             $ftests = Word::whereIn('user_name', $follows)->orderBy('created_at', 'desc')->paginate(10);/*取得したユーザー名が一致するテストを取得する

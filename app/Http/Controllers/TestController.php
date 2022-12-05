@@ -140,12 +140,12 @@ class TestController extends Controller
         ]);
 
 
+        
 
         /**テスト採点 */
         $words = Word::all();
         foreach ($words as $words) {
             $words = Word::where('id', $id)->first();
-
             $score = 0;
             if ($request->en1 === $words->en1) {
                 $score = $score + 1;
