@@ -61,11 +61,12 @@
     <table class="table table-hover">
       <thead style="background-color: #ffd900">
         <tr>
-          <th style="width:20%">テスト名</th>
-          <th style="width:20%">学年カテゴリ</th>
-          <th style="width:20%">教科書名</th>
-          <th style="width:20%">作成者</th>
-          <th style="width:20%"></th>
+            <th style="width:20%">テスト名</th>
+            <th style="width:5%">学年カテゴリ</th>
+            <th style="width:10%">教科書名</th>
+            <th style="width:20%">作成者</th>
+            <th style="width:10%"></th>
+            <th style="width:10%"></th>
         </tr>
       </thead>
       <tr>
@@ -74,7 +75,10 @@
         <td>{{ $word->Textbook->textbook }}</td>
         <td>{{ $word->user_name}}</td>
         <td>
-          <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
+          <div class="test_button"><a href="{{ route('test',['id'=>$word->id]) }}">テスト表示</a></div>
+        </td>
+        <td>
+          <div class="test_button"><a href="{{ route('study',['id'=>$word->id]) }}">学習ページへ</a></div>
         </td>
       </tr>
     </table>

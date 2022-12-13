@@ -87,7 +87,7 @@
                 <th style="width:5%">テストID</th>
                 <th style="width:20%">作成者</th>
                 <th style="width:20%">作成日時</th>
-                <th style="width:20%"></th>
+                <th style="width:10%"></th>
 
             </tr>
         </thead>
@@ -103,6 +103,7 @@
                 <td>
                     <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
                 </td>
+                
                 @endforeach
             </tr>
         </tbody>

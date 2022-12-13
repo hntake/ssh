@@ -75,7 +75,7 @@ Route::get('search_result',[App\Http\Controllers\TestController::class,'search_r
 Route::get('search_user',[App\Http\Controllers\TestController::class,'search_user'])->name('search_user');
 /*並び替えする*/
 Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
-Route::get('searc_id',[App\Http\Controllers\TestController::class,'search_id'])->name('search_id');
+Route::get('search_id',[App\Http\Controllers\TestController::class,'search_id'])->name('search_id');
 
 
 //入力ページ
@@ -125,12 +125,26 @@ Route::get('/history', [App\Http\Controllers\TestController::class,'history'])->
 Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->name('create');
 /*自分のプロフィール画面へ*/
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
-
+/*学習ページへ*/
+Route::get('/study{id}',[App\Http\Controllers\StudyController::class,'index'])->name('study');
+Route::get('ja1/{id}',[App\Http\Controllers\StudyController::class,'one'])->name('one');
+Route::get('ja2/{id}',[App\Http\Controllers\StudyController::class,'two'])->name('two');
+Route::get('ja3/{id}',[App\Http\Controllers\StudyController::class,'three'])->name('three');
+Route::get('ja4/{id}',[App\Http\Controllers\StudyController::class,'four'])->name('four');
+Route::get('ja5/{id}',[App\Http\Controllers\StudyController::class,'five'])->name('five');
+Route::get('ja6/{id}',[App\Http\Controllers\StudyController::class,'six'])->name('six');
+Route::get('ja7/{id}',[App\Http\Controllers\StudyController::class,'seven'])->name('seven');
+Route::get('ja8/{id}',[App\Http\Controllers\StudyController::class,'eight'])->name('eight');
+Route::get('ja9/{id}',[App\Http\Controllers\StudyController::class,'nine'])->name('nine');
+Route::get('ja10/{id}',[App\Http\Controllers\StudyController::class,'ten'])->name('ten');
 
 
 /*フォロー登録*/
 Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');
 Route::get('/reply/unnice/{id}',[App\Http\Controllers\HomeController::class, 'unnice'])->name('unnice');
+/*あとで登録*/
+Route::post('/reply/later/{id}',[App\Http\Controllers\HomeController::class,'later'])->name('later');
+Route::get('/reply/nomore/{id}',[App\Http\Controllers\HomeController::class, 'nomore'])->name('nomore');
 
 });
 /*ポイントランキング表へ*/
@@ -192,9 +206,61 @@ Route::get('/case/page{id}', [\App\Http\Controllers\FormController::class, 'case
 
 /*お店ページ*/
 Route::get('/guest/index/{id}', [\App\Http\Controllers\GuestController::class, 'index'])->name('guest.index');
+/*お客様テスト結果*/
+Route::post('/guest/test/{id}/test_id/{test_id}', [\App\Http\Controllers\GuestController::class, 'test'])->name('guest.test');
+
+/**お客様リテスト */
+Route::get('/guest/retest/{id}/test_id/{test_id}',
+[\App\Http\Controllers\GuestController::class, 'retest'])->name('guest.retest');
+Route::post('/guest/retest/{id}/test_id/{test_id}', [\App\Http\Controllers\GuestController::class, 'retest_result'])->name('guest.retest_result');
+/*クーポン申込メール*/
+Route::post('/guest/coupon/{id}', [\App\Http\Controllers\GuestController::class, 'confirm'])->name('coupon.confirm');
+
+
+/* Route::get('/guest/mail/{id}', [\App\Http\Controllers\GuestController::class, 'mail_index'])->name('guest.mail');
+ *///確認ページ
+Route::post('/guest/mail/{id}', [\App\Http\Controllers\GuestController::class, 'confirm'])->name('mail.confirm');
+//送信完了ページ
+Route::post('/guest/confirm/{coupon_id}', [\App\Http\Controllers\GuestController::class, 'send'])->name('mail.send');
+
+
+/*NEW*/
+/*お店ページ(コード入力)*/
+Route::get('/coupon/code/{id}', [\App\Http\Controllers\CouponController::class, 'code_form'])->name('coupon.code_form');
+Route::post('/coupon/code/{id}', [\App\Http\Controllers\CouponController::class, 'code'])->name('coupon.code');
+/*店舗テストへ移動*/
+Route::get('/coupon/test/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'test'])->name('coupon.test');
+/*お客様テスト結果*/
+Route::post('/coupon/test/{coupon_id}/test_id/{test_id}', [\App\Http\Controllers\CouponController::class, 'result'])->name('coupon.result');
+
+/**お客様リテスト */
+Route::get('/coupon/retest/{coupon_id}/test_id/{test_id}',
+[\App\Http\Controllers\CouponController::class, 'retest'])->name('coupon.retest');
+Route::post('/coupon/retest/{coupon_id}/test_id/{test_id}', [\App\Http\Controllers\CouponController::class, 'retest_result'])->name('coupon.retest_result');
+/*クーポン申込メール*/
+Route::post('/coupon/coupon/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'confirm'])->name('coupon.confirm');
+/*クーポン掲示ページ*/
+Route::get('/coupon/index/{id}/coupon/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'about'])->name('coupon.about');
+/*クーポン利用ポスト*/
+Route::post('/coupon/index/{id}/coupon/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'coupon.use'])->name('coupon.use');
+/*クーポン表示ページ*/
+Route::get('/coupon/done/{id}', [\App\Http\Controllers\CouponController::class, 'coupon.done'])->name('coupon.done');
+
+/* Route::get('/coupon/mail/{id}', [\App\Http\Controllers\CouponController::class, 'mail_index'])->name('coupon.mail');
+ *///確認ページ
+Route::post('/coupon/mail/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'confirm'])->name('coupon.confirm');
+//送信完了ページ
+Route::post('/coupon/confirm/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'send'])->name('coupon.send');
+//データ消去ページ
+Route::get('/coupon/thanks/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'thanks'])->name('coupon.done');
+Route::post('/coupon/thanks/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'done'])->name('coupon.clear');
+
+/**お店登録 */
 Route::get('/guest/create', [\App\Http\Controllers\GuestController::class, 'create_index'])->middleware('auth:admin')->name('guest.create');
-Route::get('/guest/list', [\App\Http\Controllers\GuestController::class, 'list'])->middleware('auth:admin')->name('guest.list');
 Route::post('/guest/create', [\App\Http\Controllers\GuestController::class, 'uuid'])->middleware('auth:admin')->name('guest.uuid');
+/**登録店舗リスト */
+Route::get('/guest/list', [\App\Http\Controllers\GuestController::class, 'list'])->middleware('auth:admin')->name('guest.list');
+
 
 
 Route::middleware([
