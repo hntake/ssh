@@ -78,12 +78,16 @@ table.admin_point{
 }
 @media (max-width: 480px){
 
+    span.follow{
+        font-size:5px;
+    }
     .testtable-responsive{
         width: 100%;
         margin:0 ;
     }
     .searchtable-responsive{
-        width: 100%;
+        width: 120%;
+        margin:0;
     }
     .table-hover{
         width:100%

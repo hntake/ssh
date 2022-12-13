@@ -373,6 +373,16 @@ li.blink{
     font-weight: 500;
     margin-left: 5px;
 }
+.test_button a{
+    color: #5560f5;
+    background-color:#bfecc4;
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 3px 10px;
+    font-weight: 500;
+    margin-left: 5px;
+    font-size:10px;
+}
 .route{
     overflow: hidden;
 }
@@ -620,6 +630,9 @@ footer.bottom{
 }
 /*レスポンシブ対応*/
 @media (max-width: 480px){
+    main{
+        width:120%;
+    }
     img{
         zoom:80%;
     }
@@ -694,6 +707,13 @@ footer.bottom{
         width: 50%;
 
     }
+    .test_button a{
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        width: 50%;
+
+    }
     a.button{
         display: block;
         width:fit-content
@@ -708,6 +728,12 @@ footer.bottom{
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
         .button a{
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            width: 50%;
+        }
+        .test_button a{
             display: block;
             margin: 10px auto;
             text-align: center;
@@ -730,6 +756,12 @@ footer.bottom{
     }
     @media only screen and (min-width:800px) and (max-width:1200px){
         .button a{
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            width: 50%;
+        }
+        .test_button a{
             display: block;
             margin: 10px auto;
             text-align: center;
