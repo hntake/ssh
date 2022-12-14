@@ -361,9 +361,7 @@ li.blink{
         animation: blinking 1s ease-in-out infinite alternate;
 }
 /*リスト画面*/
-.list{
-/*     padding: 0 35%;
- */}
+
 .button a{
     color: #5560f5;
     background-color:#bfecc4;
@@ -712,6 +710,9 @@ footer.bottom{
         margin: 10px auto;
         text-align: center;
         width: 50%;
+        color: #5560f5;
+        background-color: #bfecc4;
+        text-decoration: none;
 
     }
     a.button{
@@ -738,6 +739,9 @@ footer.bottom{
             margin: 10px auto;
             text-align: center;
             width: 50%;
+            color: #5560f5;
+            background-color: #bfecc4;
+            text-decoration: none;
         }
 
         .profile{
@@ -766,6 +770,9 @@ footer.bottom{
             margin: 10px auto;
             text-align: center;
             width: 50%;
+            color: #5560f5;
+            background-color: #bfecc4;
+            text-decoration: none;
         }
 
         .profile{
