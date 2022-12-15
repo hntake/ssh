@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/policy.css') }}"> <!-- word.cssと連携 -->
+
     <title>利用規約 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 </head>
 

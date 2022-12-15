@@ -24,7 +24,7 @@
 
 
 
-       
+
         <div class="test">
             <div class="guest">
                 <h1>
@@ -64,6 +64,9 @@
             </div>
             <div class="timelimit">
                 <img src="/img/timelimit.png" alt="limit">
+            </div>
+            <div class="button">
+            <a href="{{ url('policy')}}">プライバシーポリシー</a>
             </div>
     </div>
     <input type="hidden" name="id" value="{{$id}}">
