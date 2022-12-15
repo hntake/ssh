@@ -1,0 +1,127 @@
+body
+{
+    margin: 30px 0px;
+    padding: 0px;
+    width: 100% !important;
+}
+table{
+    width:100%;
+}
+td{
+}
+.header {
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    color: #0085c3;
+    background-color: #ffffff;
+    font-weight: bold;
+    height: auto;
+    min-height: 152px;
+    padding: 0px 20px;
+    padding-bottom: 5px;
+    width: auto;
+}
+.subheadline {
+    color: black;
+    font-family: "Roboto", sans-serif;
+    color: #444444;
+    background-color: #ffffff;
+    font-size: 18px;
+    font-weight: normal;
+    vertical-align: text-top;
+    height: auto;
+    padding-top: 18px;
+    padding-bottom: 15px;
+    min-height: 152px;
+    width: auto;
+}
+.rightemailbox {
+    background-color: #ffffff;
+    height: auto;
+    padding: 0px 0px;
+    width: auto;
+    margin: 0 auto;
+}
+.submit {
+    background: #0085c3;
+    color: #FFFFFF;
+    border: none;
+    border-style: solid;
+    font-family: "Roboto", sans-serif;
+    /* text-transform: uppercase; */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px;
+    /* margin-top: 30px; */
+    /* width: 90px; */
+    width: auto;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.emailLabeltext {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    /* font-weight: bold; */
+    color: #444444;
+    padding:5px 20px;
+}
+td.tooltip {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    display: inline-block;
+    border-bottom: 0px dotted black;
+    width: 100%;
+    /* font-family: "Comic Sans MS"; */
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    /* width: 100%; */
+    background-color: #0085c3;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 8px;
+    font-size: 10px;
+    /* font-size: 30px; */
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    /* left: -20px; */
+    /* bottom: 0px; */
+}
+.rightemailbox input[type="text"] {
+    border: 1px solid #336190;
+    width: 358px;
+    padding: 5px 11px;
+    font-size: 14px;
+    color: #0085c3;
+}
+@media
+ only screen and
+(min-width:300px) and (max-width:768px){
+    .container {
+        margin: 0 auto;
+        width: 100%;
+}
+.body_container {
+    width: 95% !important;
+    margin: 0 auto !important;
+    padding: 0px !important;
+}
+*[class=logo] {
+    margin: 0px auto !important;
+    padding-top: 15px !important;
+}
+.header{
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    color: #0085c3;
+    /* background-color: #0085c3; */
+    height: auto !important;
+    min-height: 152px;
+    padding: 0px 20px;
+    width: auto;
+    margin: 0 auto !important;
+
+}
+}

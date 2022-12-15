@@ -10,6 +10,7 @@ use App\Models\Nice;
 use App\Models\Textbook;
 use App\Models\News;
 use App\Models\History;
+use App\Models\Later;
 use App\Mail\Reported;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB; // DB ファサードを use する
@@ -25,10 +26,10 @@ class TestController extends Controller
     {
         $date = Carbon::now();
         $words = Word::orderBy('id', 'desc')->paginate(10);
+
         return view('all_list', [
             'words' => $words,
-/*             'date' =>$date,
- */       ]);
+       ]);
     }
     /*選択したテスト表示*/
     public function test(Request $request, $id)
@@ -124,8 +125,8 @@ class TestController extends Controller
      */
     public function result(Request $request, $id)
     {
-
-        $validate = $request->validate([
+/**空欄OKに変更 */
+        /* $validate = $request->validate([
             'en1' => 'required|max:50',
             'en2' => 'required|max:50',
             'en3' => 'required|max:50',
@@ -138,9 +139,9 @@ class TestController extends Controller
             'en10' => 'required|max:50',
 
         ]);
+ */
 
 
-        
 
         /**テスト採点 */
         $words = Word::all();
@@ -513,10 +514,11 @@ class TestController extends Controller
 
         //$queryをtype_idの昇順に並び替えて$productsに代入
         $words = $query->orderBy('id', 'desc')->paginate(10);
-
         //m_categoriesテーブルからgetLists();関数でtype_nameとidを取得する
         $types = Type::pluck('type', 'id');
         $textbooks = Textbook::pluck('textbook', 'id');
+       
+
 
         return view('search_result', [
             'words' => $words,
@@ -525,7 +527,8 @@ class TestController extends Controller
             'searchWord' => $searchWord,
             'searchId' => $searchId,
             'typeId' => $typeId,
-            'textbookId' => $textbookId
+            'textbookId' => $textbookId,
+
         ]);
     }
     public function search_id(Request $request)

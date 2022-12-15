@@ -56,6 +56,9 @@ Route::get('/case',function(){
 Route::get('/partner',function(){
     return view('partner');
 });
+Route::get('/coupon/not')->name('coupon.not');
+Route::get('/coupon/overdue')->name('coupon.overdue');
+
 
 //入力ページ
 Route::get('/admin_form', [App\Http\Controllers\ContactController::class,'admin_form'])->name('admin_form');
@@ -242,7 +245,8 @@ Route::post('/coupon/coupon/{coupon_id}', [\App\Http\Controllers\CouponControlle
 /*クーポン掲示ページ*/
 Route::get('/coupon/index/{id}/coupon/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'about'])->name('coupon.about');
 /*クーポン利用ポスト*/
-Route::post('/coupon/index/{id}/coupon/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'coupon.use'])->name('coupon.use');
+Route::get('/coupon/use/{id}/coupon/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'use'])->name('coupon.use');
+Route::post('/coupon/use/{id}/coupon/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'used'])->name('coupon.used');
 /*クーポン表示ページ*/
 Route::get('/coupon/done/{id}', [\App\Http\Controllers\CouponController::class, 'coupon.done'])->name('coupon.done');
 

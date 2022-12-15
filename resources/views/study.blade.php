@@ -79,7 +79,7 @@
                     <tr class="onetest">
                         <td>1</td>
                         <td>{{ $word->en1}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button1" value="日本語で">
                             <div id="text1">
                                 <meta charset="utf8">
@@ -108,7 +108,7 @@
                     <tr class="onetest">
                         <td>2</td>
                         <td>{{ $word->en2}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button2" value="日本語で">
                             <div id="text2">
                                 <meta charset="utf8">
@@ -144,7 +144,7 @@
                     <tr class="onetest">
                         <td>3</td>
                         <td>{{ $word->en3}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button3" value="日本語で">
                             <div id="text3">
                                 <meta charset="utf8">
@@ -173,7 +173,7 @@
                     <tr class="onetest">
                         <td>4</td>
                         <td>{{ $word->en4}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button4" value="日本語で">
                             <div id="text4">
                                 <meta charset="utf8">
@@ -202,7 +202,7 @@
                     <tr class="onetest">
                         <td>5</td>
                         <td>{{ $word->en5}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button5" value="日本語で">
                             <div id="text5">
                                 <meta charset="utf8">
@@ -230,7 +230,7 @@
                     <tr class="onetest">
                         <td>6</td>
                         <td>{{ $word->en6}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button6" value="日本語で">
                             <div id="text6">
                                 <meta charset="utf8">
@@ -260,7 +260,7 @@
                     <tr class="onetest">
                         <td>7</td>
                         <td>{{ $word->en7}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button7" value="日本語で">
                             <div id="text7">
                                 <meta charset="utf8">
@@ -289,7 +289,7 @@
                     <tr class="onetest">
                         <td>8</td>
                         <td>{{ $word->en8}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button8" value="日本語で">
                             <div id="text8">
                                 <meta charset="utf8">
@@ -318,7 +318,7 @@
                     <tr class="onetest">
                         <td>9</td>
                         <td>{{ $word->en9}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button9" value="日本語で">
                             <div id="text9">
                                 <meta charset="utf8">
@@ -347,7 +347,7 @@
                     <tr class="onetest">
                         <td>10</td>
                         <td>{{ $word->en10}}</td>
-                        <td>
+                        <td style="color:red;">
                             <input type="button" id="button10" value="日本語で">
                             <div id="text10">
                                 <meta charset="utf8">

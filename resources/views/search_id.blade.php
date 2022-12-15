@@ -61,12 +61,12 @@
     <table class="table table-hover">
       <thead style="background-color: #ffd900">
         <tr>
-            <th style="width:20%">テスト名</th>
-            <th style="width:5%">学年カテゴリ</th>
-            <th style="width:10%">教科書名</th>
-            <th style="width:20%">作成者</th>
-            <th style="width:10%"></th>
-            <th style="width:10%"></th>
+          <th style="width:20%">テスト名</th>
+          <th style="width:5%">学年カテゴリ</th>
+          <th style="width:10%">教科書名</th>
+          <th style="width:20%">作成者</th>
+          <th style="width:10%"></th>
+          <th style="width:10%"></th>
         </tr>
       </thead>
       <tr>

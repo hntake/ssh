@@ -9,6 +9,10 @@
     background-color: #c1f6b3;
 
 }
+ul{
+    list-style: none;
+    display: flex;
+}
 li.name{
     display:flex;
 }
@@ -83,20 +87,9 @@ h2::before{
     content:  "\f549";
     padding-right: 5px;
     }
-h2::after{
-    font-family:  "Font Awesome 5 Free";
-    font-weight:  900;
-    content:  "\f518";
-    padding-right: 5px;
-    }
-h1::after{
-    font-family:  "Font Awesome 5 Free";
-    font-weight:  900;
-    content:  "\e1a8";
-    padding-right: 5px;
-    }
+
 body{
-    background-color: #e7e7eb ;
+    background-color: #d1e9cc ;
     text-align:center;
 }
 .center_image{
@@ -361,7 +354,9 @@ li.blink{
         animation: blinking 1s ease-in-out infinite alternate;
 }
 /*リスト画面*/
-
+.list{
+/*     padding: 0 35%;
+ */}
 .button a{
     color: #5560f5;
     background-color:#bfecc4;
@@ -371,18 +366,13 @@ li.blink{
     font-weight: 500;
     margin-left: 5px;
 }
-.test_button a{
-    color: #5560f5;
-    background-color:#bfecc4;
-    text-decoration: none;
-    margin-top: 10px;
-    padding: 3px 10px;
-    font-weight: 500;
-    margin-left: 5px;
-    font-size:10px;
-}
 .route{
     overflow: hidden;
+}
+.tooltip{
+    border: 1px solid darkgreen;
+    margin: 10px 10px;
+    padding: 5px;
 }
 .submit_button{
     color: #1422d1;
@@ -626,10 +616,22 @@ footer.bottom{
     position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
 }
+/*Timer*/
+p#timer{
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.08rem;
+    text-align: center;
+}
+.timelimit{
+    margin-top:10px;
+}
+
 /*レスポンシブ対応*/
 @media (max-width: 480px){
-    main{
-        width:120%;
+    ul{
+        display: block;
     }
     img{
         zoom:80%;
@@ -705,16 +707,6 @@ footer.bottom{
         width: 50%;
 
     }
-    .test_button a{
-        display: block;
-        margin: 10px auto;
-        text-align: center;
-        width: 50%;
-        color: #5560f5;
-        background-color: #bfecc4;
-        text-decoration: none;
-
-    }
     a.button{
         display: block;
         width:fit-content
@@ -733,16 +725,6 @@ footer.bottom{
             margin: 10px auto;
             text-align: center;
             width: 50%;
-        }
-        .test_button a{
-            display: block;
-            margin: 10px auto;
-            text-align: center;
-            width: 80%;
-            color: #5560f5;
-            background-color: #bfecc4;
-            text-decoration: none;
-            font-weight:bold;
         }
 
         .profile{
@@ -766,15 +748,6 @@ footer.bottom{
             text-align: center;
             width: 50%;
         }
-        .test_button a{
-            display: block;
-            margin: 10px auto;
-            text-align: center;
-            width: 50%;
-            color: #5560f5;
-            background-color: #bfecc4;
-            text-decoration: none;
-        }
 
         .profile{
             margin:0;
@@ -790,3 +763,132 @@ footer.bottom{
             width:100%;
         }
     }
+
+.testtable-responsive{
+    background-color: lightgreen;
+    width: 80%;
+    height: auto;
+    margin: 0 50px;
+   padding-bottom: 30px
+}
+.searchtable-responsive{
+    background-color: lightgreen;
+    width: 80%;
+    height: auto;
+    margin: 0 50px;
+   padding-bottom: 30px
+}
+.testtable-responsive th{
+    border:1px solid #000066;
+    background:royalblue;
+}
+.searchtable-responsive td{
+    border:1px solid #000066;
+    background:#ffffff;
+    height: 50px;
+    width: 100px
+}
+.testtable-responsive  th{
+    border:1px solid #000066;
+    background:royalblue;
+}
+.testtable-responsive td{
+    border:1px solid #000066;
+    background:#ffffff;
+    height: 50px;
+    width: 300px;
+    text-align: center;
+}
+.test{
+    width:50%;
+}
+input{
+    width: 350px;
+}
+.onetest td{
+    text-align: center;
+}
+img{
+    width: 50%;
+    height: auto;
+    margin: 0;
+}
+table {
+    border-collapse:  collapse;     /* セルの線を重ねる */
+}
+th, td {
+    border:1px solid #333;
+    padding:5px;
+  }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+.testtable-responsive{
+    margin:0 ;
+ }
+.radio-text{
+    margin-top:10px;
+    margin-left:10px;
+}
+.test{
+    width:auto;
+}
+td{
+    padding-top:20px;
+}
+.admin{
+    width:100%;
+}
+table.admin_point{
+    width:60%;
+}
+}
+@media (max-width: 480px){
+
+    .testtable-responsive{
+        width: 100%;
+        margin:0 ;
+    }
+    .searchtable-responsive{
+        width: 100%;
+    }
+    .table-hover{
+        width:100%
+    }
+    img{
+        width:100%;
+        background-color: rgb(115, 185, 239);
+
+    }
+    td{
+        padding-top:20px;
+    }
+}
+/*lenovo*/
+@media only screen and (min-width:800px) and (max-width:1200px){
+    .button a{
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        width: 50%;
+    }
+
+    .profile{
+        margin:0;
+    }
+    thead{
+        display:none;
+    }
+    tr.onetest{
+        display: grid;
+        width: 100%;
+    }
+    .table-hover{
+        width:100%;
+    }
+    .admin{
+        width:100%;
+    }
+    table.admin_point{
+        width:60%;
+    }
+}
