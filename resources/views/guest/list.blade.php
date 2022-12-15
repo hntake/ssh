@@ -20,15 +20,19 @@
                 <tr>
                     <th style="width:20%">店舗名</th>
                     <th style="width:10%">かな</th>
+                    <th style="width:10%">CODE</th>
                     <th style="width:10%">uuid</th>
                     <th style="width:10%">メールアドレス</th>
                     <th style="width:20%">電話番号</th>
+                    <th style="width:20%"></th>
                 </tr>
             </thead>
             @foreach($guests as $guest)
             <tr>
                 <td>{{ $guest->name }}</td>
                 <td>{{$guest->name_kana }}</td>
+                <td>{{$guest->code }}</td>
+                <td>{{$guest->type }}</td>
                 <td>{{$guest->uuid }}</td>
                 <td>{{$guest->email }}</td>
                 <td>{{$guest->tel }}</td>

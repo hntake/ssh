@@ -14,6 +14,6 @@ class Store extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name','uuid','tel','name_kana','email','image','type'
+        'name','uuid','tel','name_kana','email','image','type','code'
     ];
 }

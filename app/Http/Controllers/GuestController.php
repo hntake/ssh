@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Word;
 use App\Models\Store;
-use App\Models\User;
-use App\Models\Coupon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -15,9 +12,6 @@ use Carbon\Carbon;
 
 class GuestController extends Controller
 {
-
-
-
 
 
 
@@ -43,18 +37,13 @@ public function create_index (Request $request){
             'type' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'name_kana' => ['required', 'string', 'max:255'],
+            'code' => ['required', 'string', 'max:255'],
             'tel' => ['required','numeric','digits_between:10,11'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ]);
     }
 
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
     protected function storeRegisterDatabase(array $data)
     {
         $uploadImg = "";
@@ -70,6 +59,7 @@ public function create_index (Request $request){
             'type' => $data['type'],
             'name' => $data['name'],
             'name_kana' => $data['name_kana'],
+            'code' => $data['code'],
             'tel' => $data['tel'],
             'email' => $data['email'],
             'image' => $data['image'],
@@ -81,6 +71,7 @@ public function create_index (Request $request){
             'type' => $data['type'],
             'name' => $data['name'],
             'name_kana' => $data['name_kana'],
+            'code' => $data['code'],
             'tel' => $data['tel'],
             'email' => $data['email'],
             'uuid'=>(string) Str::uuid(),

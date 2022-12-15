@@ -31,7 +31,11 @@
             <label for="email">email</label>
             <input type="text" id="email" name="email">
         </div>
-     
+        <div>
+            <label for="email">5桁コード</label>
+            <input type="text" id="code" name="code">
+        </div>
+
         <div>
             <button type="submit">UUID生成</button>
         </div>
