@@ -16,7 +16,7 @@ class CreateCouponsTable extends Migration
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
             $table->string('email')->nullable();
-            $table->string('store_name');
+            $table->string('store_name')->index();
             $table->string('uuid')->unique();
             $table->integer('sent')->default(0);
             $table->integer('used')->default(0);
