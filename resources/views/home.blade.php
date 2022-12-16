@@ -100,33 +100,7 @@
             </tbody>
         </table>
     </div>
-    <!--    <div class="testtable-responsive">
-        <p>後で一覧</p>
-        <table class="table-all">
-            <thead style="display:contents;">
-                <tr>
-                    <th style="width:20%">学年</th>
-                    <th style="width:20%">教科書名</th>
-                    <th style="width:20%">テスト名</th>
-                    <th style="width:20%"></th>
 
-                </tr>
-            </thead>
-            <tbody id="tbl">
-                @foreach ($laters as $later)
-                <tr>
-                    <td>{{ $later->Type->type }}</td>
-                    <td>{{ $later->Textbook->textbook }}</td>
-                    <td>{{ $later->test_name }}</td>
-                    <td>
-                        <div class="button"><a href="{{ route('test',['id'=>$later->id]) }}">表示</a></div>
-                    </td>
-
-                    @endforeach
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
     <div class="testtable-responsive">
         <p>MyScore(最新順)</p>
         <table class="table-all">
