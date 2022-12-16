@@ -49,7 +49,7 @@ class HomeController extends Controller
                 'comment'=>$comment,
             ]);
         }
-        /*自分の利用履歴*/ else {
+        /*MyHome*/ else {
             $date = Carbon::today()->subDay(7);
 
             $user = Auth::user();
@@ -59,8 +59,11 @@ class HomeController extends Controller
             $user->level=intdiv($point, 100);
             /**My履歴 */
             $test_ids = History::where('tested_user', '=', Auth::user()->user_name)->get()->pluck('test_id')->toArray();
-
             $words = Word::whereIn('id', $test_ids)->OrderBy('id', 'desc')->paginate(15);
+
+            /**MyScore */
+            $user_name =Auth::user()->user_name;
+            $histories = History::where('tested_user', '=',$user_name)->whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(15);
             /*MYフォロー*/
             $follows = Nice::where('user_id','=', Auth::user()->id)->get()->pluck('created_user')->toArray();/*自分がフォローしているユーザー名を取得*/
             $ftests = Word::whereIn('user_name', $follows)->orderBy('created_at', 'desc')->paginate(10);/*取得したユーザー名が一致するテストを取得する
@@ -96,6 +99,7 @@ class HomeController extends Controller
                 'ftests' => $ftests,
                 'counts' => $counts,
                 'date' => $date,
+                'histories'=>$histories,
 
             ]);
         }
@@ -294,5 +298,6 @@ class HomeController extends Controller
         $nice->delete();
         return back();
     }
+
 
 }
