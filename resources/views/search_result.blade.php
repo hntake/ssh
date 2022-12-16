@@ -104,6 +104,7 @@
 
     <div class="test-hover">
         <p>全{{ $words->count() }}件</p>
+        <p class="only">※※クリックすると別タブで開きます※※</p>
         <table class="table table-hover">
             <thead style="background-color: #ffd900">
                 <tr>
@@ -123,10 +124,16 @@
                 <td>{{ $word->Textbook->textbook }}</td>
                 <td>{{ $word->user_name}}</td>
                 <td>
-                    <div class="test_button"><a href="{{ route('test',['id'=>$word->id]) }}">テスト表示</a></div>
+                    <div class="test_button" ontouchstart="">
+                        <a href="{{ route('test',['id'=>$word->id]) }}" target=”_blank”>テスト表示</a>
+
+                    </div>
                 </td>
                 <td>
-                    <div class="test_button"><a href="{{ route('study',['id'=>$word->id]) }}">学習ページへ</a></div>
+                    <div class="test_button" ontouchstart="">
+                        <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+
+                    </div>
                 </td>
             </tr>
             @endforeach

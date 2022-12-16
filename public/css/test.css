@@ -54,7 +54,11 @@ th, td {
     border:1px solid #333;
     padding:5px;
   }
-
+  .only{
+    display: block;
+    color:red;
+    font-weight: bold;
+}
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 .testtable-responsive{
     margin:0 ;
@@ -74,6 +78,12 @@ td{
 }
 table.admin_point{
     width:60%;
+}
+
+.only{
+    display: block;
+    color:red;
+    font-weight: bold;
 }
 }
 @media (max-width: 480px){

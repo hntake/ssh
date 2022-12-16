@@ -63,6 +63,7 @@
 
     <div class="testtable-responsive">
         <p>My履歴</p>
+        <p class="only">※※クリックすると別タブで開きます※※</p>
         <table class="table-all">
             <thead style="display:contents;">
                 <tr>
@@ -70,7 +71,8 @@
                     <th style="width:20%">教科書名</th>
                     <th style="width:20%">テスト名</th>
                     <th style="width:20%">作成者</th>
-                    <th style="width:20%"></th>
+                    <th style="width:10%"></th>
+                    <th style="width:10%"></th>
 
                 </tr>
             </thead>
@@ -82,8 +84,68 @@
                     <td>{{ $word->test_name }}</td>
                     <td>{{ $word->user_name }}</td>
                     <td>
-                        <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
+                        <div class="test_button">
+                            <a href="{{ route('test',['id'=>$word->id]) }}" target=”_blank”>テスト表示</a>
+
+                        </div>
                     </td>
+                    <td>
+                        <div class="test_button">
+                            <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+
+                        </div>
+                    </td>
+                    @endforeach
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--    <div class="testtable-responsive">
+        <p>後で一覧</p>
+        <table class="table-all">
+            <thead style="display:contents;">
+                <tr>
+                    <th style="width:20%">学年</th>
+                    <th style="width:20%">教科書名</th>
+                    <th style="width:20%">テスト名</th>
+                    <th style="width:20%"></th>
+
+                </tr>
+            </thead>
+            <tbody id="tbl">
+                @foreach ($laters as $later)
+                <tr>
+                    <td>{{ $later->Type->type }}</td>
+                    <td>{{ $later->Textbook->textbook }}</td>
+                    <td>{{ $later->test_name }}</td>
+                    <td>
+                        <div class="button"><a href="{{ route('test',['id'=>$later->id]) }}">表示</a></div>
+                    </td>
+
+                    @endforeach
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
+    <div class="testtable-responsive">
+        <p>MyScore(最新順)</p>
+        <table class="table-all">
+            <thead style="display:contents;">
+                <tr>
+                    <th style="width:20%">学年</th>
+                    <th style="width:20%">教科書名</th>
+                    <th style="width:20%">テスト名</th>
+                    <th style="width:20%">得点</th>
+
+                </tr>
+            </thead>
+            <tbody id="tbl">
+                @foreach ($histories as $history)
+                <tr>
+                    <td>{{ $history->Type->type }}</td>
+                    <td>{{ $history->Textbook->textbook }}</td>
+                    <td>{{ $history->test_name }}</td>
+                    <td>{{ $history->score }}</td>
 
                     @endforeach
                 </tr>
@@ -92,6 +154,7 @@
     </div>
     <div class="testtable-responsive">
         <p>Myフォロー</p>
+        <p class="only">※※クリックすると別タブで開きます※※</p>
         <table class="table-all">
             <thead style="display:contents;">
                 <tr>
@@ -99,7 +162,8 @@
                     <th style="width:20%">教科書名</th>
                     <th style="width:20%">テスト名</th>
                     <th style="width:20%">作成者</th>
-                    <th style="width:20%"></th>
+                    <th style="width:10%"></th>
+                    <th style="width:10%"></th>
 
                 </tr>
             </thead>
@@ -119,6 +183,12 @@
                     <td>
                         <div class="button"><a href="{{ route('test',['id'=>$ftest->id]) }}">表示</a></div>
                     </td>
+                    <td>
+                        <div class="test_button">
+                            <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+
+                        </div>
+                    </td>
                     @endif
                     @endforeach
                 </tr>
@@ -127,6 +197,7 @@
     </div>
     <div class="testtable-responsive">
         <p>おススメ</p>
+        <p class="only">※※クリックすると別タブで開きます※※</p>
         <table class="table-all">
             <thead style="display:contents;">
                 <tr>
@@ -134,7 +205,8 @@
                     <th style="width:20%">教科書名</th>
                     <th style="width:20%">テスト名</th>
                     <th style="width:20%">作成者</th>
-                    <th style="width:20%"></th>
+                    <th style="width:10%"></th>
+                    <th style="width:10%"></th>
 
                 </tr>
             </thead>
@@ -147,6 +219,12 @@
                     <td>{{ $count->user_name }}</td>
                     <td>
                         <div class="button"><a href="{{ route('test',['id'=>$count->id]) }}">表示</a></div>
+                    </td>
+                    <td>
+                        <div class="test_button">
+                            <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+
+                        </div>
                     </td>
 
                     @endforeach
