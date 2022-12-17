@@ -264,7 +264,12 @@ Route::get('/guest/create', [\App\Http\Controllers\GuestController::class, 'crea
 Route::post('/guest/create', [\App\Http\Controllers\GuestController::class, 'uuid'])->middleware('auth:admin')->name('guest.uuid');
 /**登録店舗リスト */
 Route::get('/guest/list', [\App\Http\Controllers\GuestController::class, 'list'])->middleware('auth:admin')->name('guest.list');
-
+/*選択したstoreの写真編集画面へ*/
+Route::get('/edit_store_picture/{id}', [App\Http\Controllers\GuestController::class, 'edit_picture'])->name('edit_store_picture');
+/*選択したstoreの写真変更*/
+Route::patch('/uploadpic_store/{id}', [App\Http\Controllers\GuestController::class, 'uploadpic'])->name('uploadpic_store');
+/*選択したユーザーの写真削除*/
+Route::get('/deletepic_store/{id}', [App\Http\Controllers\GuestController::class, 'deletepic_store'])->name('deletepic_store');
 
 
 Route::middleware([

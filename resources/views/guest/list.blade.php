@@ -13,18 +13,19 @@
 
     <!--検索結果テーブル 検索された時のみ表示する-->
     @if (!empty($guests))
-    <div class="test-hover">
+    <div class="test-hover" >
         <p>全{{ $guests->count() }}件</p>
-        <table class="table table-hover">
+        <table class="table table-hover" style="width:100%;">
             <thead style="background-color: #ffd900">
                 <tr>
                     <th style="width:20%">店舗名</th>
                     <th style="width:10%">かな</th>
-                    <th style="width:10%">CODE</th>
+                    <th style="width:5%">CODE</th>
                     <th style="width:10%">uuid</th>
                     <th style="width:10%">メールアドレス</th>
                     <th style="width:20%">電話番号</th>
-                    <th style="width:20%"></th>
+                    <th style="width:10%"></th>
+                    <th style="width:10%"></th>
                 </tr>
             </thead>
             @foreach($guests as $guest)
@@ -36,6 +37,7 @@
                 <td>{{$guest->uuid }}</td>
                 <td>{{$guest->email }}</td>
                 <td>{{$guest->tel }}</td>
+                <td> <div class="pro_button" style="margin:0;"><a href="{{ route('edit_store_picture',['id'=> $guest->id]) }}">画像変更</a></div></td>
             </tr>
             @endforeach
         </table>

@@ -31,6 +31,7 @@
                     <img src="/img/welcome.png" alt="welcome">
                     @endif
                 </h1>
+                {!! $store->name !!}クーポン<br>
                 <div class="due">
                 クーポン利用期限<span style="color:red; font-weight:bold;">{{$due}}</span>
                 </div>

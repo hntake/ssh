@@ -35,7 +35,10 @@
             <label for="email">5桁コード</label>
             <input type="text" id="code" name="code">
         </div>
-
+        <div class="store">
+                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('プロフィール写真') }}</label>
+                            <input type="file" name="image" id="image" class="form-control">
+                        </div>
         <div>
             <button type="submit">UUID生成</button>
         </div>

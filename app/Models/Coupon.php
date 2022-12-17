@@ -12,6 +12,17 @@ class Coupon extends Model
         'store_name',
         'email',
         'used',
+        'sent',
+
+    ];
+
+       /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
         'uuid',
+        'remember_token',
     ];
 }
