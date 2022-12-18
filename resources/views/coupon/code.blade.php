@@ -40,7 +40,7 @@
                                 @if($store->type == 1)
                                 <img src="/img/coupon100.png" alt="coupon">
                                 @elseif($store->type == 2)
-                                <img src="/img/coupon10%.png" alt="coupon">
+                                <img src="/img/coupon10.png" alt="coupon">
                                 @elseif($store->type == 3)
                                 <img src="/img/coupon5.png" alt="coupon">
                                 @elseif($store->type == 4)
