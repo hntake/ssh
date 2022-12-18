@@ -43,6 +43,14 @@
             <button type="submit">UUID生成</button>
         </div>
     </form>
+    <div class="selection">
+        <p>1:100円オフ</p>
+        <p>2:10%</p>
+        <p>3:5%</p>
+        <p>4:ドリンク</p>
+        <p>5:1デザート</p>
+
+    </div>
 </body>
 
 </html>

@@ -23,6 +23,7 @@ class CreateStoresTable extends Migration
             $table->string('image')->nullable();
             $table->string('code');
             $table->string('type')->default(1)->index();
+            $table->string('due')->default(1)->index();
             $table->string('uuid')->unique();
             $table->timestamps();
         });

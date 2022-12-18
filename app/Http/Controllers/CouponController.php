@@ -554,7 +554,16 @@ public function about(Request $request,$id,$coupon_id)
             if($coupon->used ==0){
                 $date = $coupon->created_at;
                 $now = new Carbon('now');
-                $due = $date->addDays(30);
+                $tomorrow= Carbon::tomorrow()->format('Y-m-d');
+                if($store->due ==1){
+                    $due = $date->addDays(30);
+                }
+                elseif($store->due ==2){
+                    $due = $date->addDays(60);
+                }
+                else{
+                    $due = $date->addDays(180);
+                }
                 $request->session()->regenerateToken();
                 /*期限以内なら*/
                 if($due > $now){
@@ -563,7 +572,8 @@ public function about(Request $request,$id,$coupon_id)
                         'id'=>$id,
                         'store'=>$store,
                         'coupon_id'=>$coupon_id,
-                        'due'=>$due
+                        'due'=>$due,
+                        'tomorrow'=>$tomorrow
                     ]);
                 }
                 else{
@@ -592,7 +602,16 @@ public function use(Request $request,$id,$coupon_id)
     if($coupon->used ==0){
     $date = $coupon->created_at;
     $now = new Carbon('now');
+    $tomorrow= Carbon::tomorrow()->format('Y-m-d');
+    if($store->due ==1){
     $due = $date->addDay(30)->format('Y-m-d');
+    }
+    elseif($store->due ==2){
+    $due = $date->addDay(60)->format('Y-m-d');
+    }
+    else{
+    $due = $date->addDay(180)->format('Y-m-d');
+    }
     /*期限以内なら*/
     if($due > $now){
         $request->session()->regenerateToken();
@@ -600,7 +619,8 @@ public function use(Request $request,$id,$coupon_id)
             'id'=>$id,
             'store'=>$store,
             'coupon_id'=>$coupon_id,
-            'due'=>$due
+            'due'=>$due,
+            'tomorrow'=>$tomorrow,
         ]);
     }
     else{

@@ -31,10 +31,7 @@ public function create_index (Request $request){
 /*UUID生成*/
 public function uuid (Request $request){
 
-   /*  $this->storeValidator($request->all())->validate();
 
-    $store = $this->storeRegisterDatabase($request->all());
- */
     $validate = $request->validate([
         'type' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],

@@ -38,7 +38,7 @@
                 </span>
             </div>
             <div class="due">
-                クーポン利用期限<span style="color:red; font-weight:bold;">{{$due}}</span>
+            クーポン利用期限：{{$tomorrow}}より<span style="color:red; font-weight:bold;">{{$due}}</span>
             </div>
         </div>
             <div>
