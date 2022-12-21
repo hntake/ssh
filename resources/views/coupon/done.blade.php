@@ -17,7 +17,11 @@
                 <div class="container">
                     <div class="body_container">
                                     <div class="header">
-                                        <h2>こちらの画面を<br>お店の方に見せてください。</h2>
+                                        <h3>こちらの画面を<br>お店の方に見せてください。</h3>
+                                    </div>
+                                    <span style=" font-weight:bold;">{!! $store->name !!}</span>クーポン<br>
+                                    <div class="due">
+                                        クーポン利用期限<br>{{$tomorrow}}より<span style="color:red; font-weight:bold;">{{$due}}</span>
                                     </div>
                                     <div style="text-align:center;">
                                         <span class="sp-none">
@@ -34,6 +38,7 @@
                                             @endif
                                         </span>
                                     </div>
+
                                     <div>
                                             <td class="subheadline" style="font-size:25px;">クーポン利用完了しました。<br>
                                             ご利用いただきありがとうございました。<br><br>又、<span style="color:green; font-weight:bold;">エイゴメ</span>をチャレンジしてみてください。

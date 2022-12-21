@@ -33,13 +33,13 @@
                 </h1>
                 {!! $store->name !!}クーポン<br>
                 <div class="due">
-                クーポン利用期限：{{$tomorrow}}より<span style="color:red; font-weight:bold;">{{$due}}</span>
+                クーポン利用期限<br>{{$tomorrow}}より<span style="color:red; font-weight:bold;">{{$due}}</span>
                 </div>
                 <div class="limit_time">
                     <p>30分以内にクリックしてください。<br>
                     30分過ぎると<span style="color:red; font-weight:bold;">利用不可</span>となります。</p>
-                    <p>1会計につき、1枚のみご使用頂けます。</p>
-                    <p>ご使用は一回限りとなります。</p>
+                    <p>1会計につき、1枚のみご利用頂けます。</p>
+                    <p>ご利用は一回限りとなります。</p>
                     <div class="time-container">
                     <p id="timer"></p>
                 </div>

@@ -24,7 +24,7 @@ class CouponController extends Controller
 public function code_form(Request $request,$id)
 {
     $store = Store::where('uuid','=',$request->id)->first();
-
+    
         return view('coupon/code',[
             'id'=>$id,
             'store'=>$store
@@ -57,12 +57,14 @@ public function code(Request $request,$id)
                     ->limit(1)
                     ->first();
         $test_id = $word->id;
+
         return view('coupon/test',[
             'id'=>$id,
             'store'=>$store,
             'coupon_id'=>$coupon_id,
             'test_id' =>$test_id,
             'word' =>$word,
+
         ]);
     }
     /*既に生成済み*/
@@ -86,26 +88,34 @@ public function code(Request $request,$id)
 */
 public function test(Request $request,$coupon_id)
 {
-    $sent = Coupon::where('id','=',$coupon_id)->value('sent');
-    if($sent==0){
-    $word = Word::inRandomOrder()
-                ->limit(1)
-                ->first();
-    $test_id = $word->id;
+/**メールが登録されてなければ*/
+    if($coupon_id->email==null){
+        $sent = Coupon::where('id','=',$coupon_id)->value('sent');
+        if($sent==0){
+        $word = Word::inRandomOrder()
+                    ->limit(1)
+                    ->first();
+        $test_id = $word->id;
 
-    $coupon_uuid= Coupon::where('id','=',$coupon_id)->value('uuid');
-    $store = Store::where('uuid','=',$coupon_uuid)->first();
-    return view('coupon/test',[
-        'word' =>$word,
-        'store'=>$store,
-         'test_id' =>$test_id,
-        'coupon_id'=>$coupon_id,
-    ]);
+
+        $coupon_uuid= Coupon::where('id','=',$coupon_id)->value('uuid');
+        $store = Store::where('uuid','=',$coupon_uuid)->first();
+        return view('coupon/test',[
+            'word' =>$word,
+            'store'=>$store,
+            'test_id' =>$test_id,
+            'coupon_id'=>$coupon_id,
+        ]);
+        }
+        else{
+            return view('coupon/clear');
+        }
     }
-    else{
-        return view('coupon/clear');
+        else{
+            return view('coupon/thanks');
+        }
     }
-}
+
 /**再テスト */
     /**
 * The attributes that are mass assignable.
@@ -114,23 +124,26 @@ public function test(Request $request,$coupon_id)
 */
 public function retest($coupon_id,$test_id)
 {
-    $sent = Coupon::where('id','=',$coupon_id)->value('sent');
-    if($sent==0){
-    $word = Word::where('id', $test_id)->first();
-    $test_id = $word->id;
-   /*  $store = Coupon::where('uuid','=',$coupon_id)->first(); */
-    return view('coupon/retest',[
-        'word' =>$word,
-        'test_id' =>$test_id,
-        'coupon_id'=>$coupon_id,
-        /* 'store'=>$store, */
+        $sent = Coupon::where('id','=',$coupon_id)->value('sent');
+        if($sent==0){
+        $word = Word::where('id', $test_id)->first();
+        $test_id = $word->id;
+       /*  $store = Coupon::where('uuid','=',$coupon_id)->first(); */
+        return view('coupon/retest',[
+            'word' =>$word,
+            'test_id' =>$test_id,
+            'coupon_id'=>$coupon_id,
+            /* 'store'=>$store, */
 
-    ]);
+        ]);
+            }
+            else{
+                return view('coupon/clear');
+            }
+
     }
-    else{
-        return view('coupon/clear');
-    }
-}
+
+
  /**
      * 採点ボタン→①履歴作成②テスト採点③coupon付与
      * @param  Request  $request
@@ -264,6 +277,7 @@ public function retest($coupon_id,$test_id)
             'coupon_id'=>$coupon_id,
 
         ]);
+
     }
 /**リテスト採点結果 */
 /**
@@ -386,6 +400,7 @@ public function retest($coupon_id,$test_id)
         // 二重送信防止
 /*         $request->session()->regenerateToken();
  */
+
         return view('coupon/coupon', [
             'test_id' => $test_id,
             'word' => $word,
@@ -403,6 +418,7 @@ public function retest($coupon_id,$test_id)
             'id'=>$coupon_id,
 
         ]);
+
     }
 /**クーポン申込メール表示 削除していい？ */
 public function mail_index($id)
@@ -554,7 +570,7 @@ public function about(Request $request,$id,$coupon_id)
             if($coupon->used ==0){
                 $date = $coupon->created_at;
                 $now = new Carbon('now');
-                $tomorrow= Carbon::tomorrow()->format('Y-m-d');
+                $tomorrow= $date->addDay()->format('Y-m-d');
                 if($store->due ==1){
                     $due = $date->addDays(30);
                 }
@@ -602,7 +618,7 @@ public function use(Request $request,$id,$coupon_id)
     if($coupon->used ==0){
     $date = $coupon->created_at;
     $now = new Carbon('now');
-    $tomorrow= Carbon::tomorrow()->format('Y-m-d');
+    $tomorrow= $date->addDay()->format('Y-m-d');
     if($store->due ==1){
     $due = $date->addDay(30)->format('Y-m-d');
     }
@@ -623,10 +639,12 @@ public function use(Request $request,$id,$coupon_id)
             'tomorrow'=>$tomorrow,
         ]);
     }
+    /*期限切れなら*/
     else{
         return view('coupon.overdue');
     }
     }
+    /*利用済みなら*/
     else{
         return view('coupon.not');
     }
@@ -641,16 +659,40 @@ public function used(Request $request,$id,$coupon_id)
 {
     $use = Coupon::where('id','=',$coupon_id)->first();
     $store = Store::where('uuid','=',$id)->first();
+    $coupon=Coupon::where('id','=',$coupon_id)->first();
+/*クーポン未使用なら*/
     if($use->used ==0){
-    $used =1;
-    $use = Coupon::where('id','=',$coupon_id)
-        ->update([
-            'used'=>$used
-        ]);
+        $date = $coupon->created_at;
+        $now = new Carbon('now');
+        $tomorrow= $date->addDay()->format('Y-m-d');
+        if($store->due ==1){
+        $due = $date->addDay(30)->format('Y-m-d');
+        }
+        elseif($store->due ==2){
+        $due = $date->addDay(60)->format('Y-m-d');
+        }
+        else{
+        $due = $date->addDay(180)->format('Y-m-d');
+        }
+        /*期限以内なら*/
+        if($due > $now){
+        $used =1;
+        $use = Coupon::where('id','=',$coupon_id)
+            ->update([
+                'used'=>$used
+            ]);
 
         return view('coupon/done',[
             'store'=>$store,
+            'tomorrow'=>$tomorrow,
+            'due'=>$due,
+
         ]);
+    }
+        /*期限切れなら*/
+        else{
+            return view('coupon.overdue');
+        }
     }
     else{
         return view('coupon.bad');

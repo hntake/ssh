@@ -64,12 +64,6 @@
                 </div>
 
     </div>
-    <div class="limit_time">
-        <p>制限時間は30分です。</p>
-        <div class="time-container">
-        <p id="timer"></p>
-        </div>
-    </div>
     <form class="form-inline" action="{{route('coupon.result',['coupon_id'=>$coupon_id,'test_id'=>$test_id])}}" method="POST">
         @csrf
         @if (!empty($word))
@@ -163,24 +157,8 @@
                 </button>
             </div>
     </form>
-
-
     </div>
 </div>
-<script>
-window.addEventListener('DOMContentLoaded', ()=>{
-  const t0=30*60*1000;
-  const t1=new Date().getTime();
-  setInterval(()=>{
-    const t2=new Date().getTime();
-    const t3=t0+t1-t2
-    const m=(parseInt(t3/60/1000)).toString().padStart(2,'0');
-    const s=(parseInt(t3/1000)%60).toString().padStart(2,'0');
-    const ms=(parseInt(t3/10)%100).toString().padStart(2,'0');
-    timer.textContent=`${m}:${s}.${ms}`;
-  },10);
-});
-</script>
  </body>
 
 
