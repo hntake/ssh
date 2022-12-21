@@ -18,6 +18,7 @@
                     <div class="body_container">
                                     <div class="header">
                                         <h3>こちらの画面を<br>お店の方に見せてください。</h3>
+                                        <p style="color:red; font-weight:bold;">!!こちらのページは5分後に消えます!!</p>
                                     </div>
                                     <span style=" font-weight:bold;">{!! $store->name !!}</span>クーポン<br>
                                     <div class="due">
@@ -49,14 +50,19 @@
                     </div>
                 </div>
     <script>
-$(function() {
-  history.pushState(null, null, null);
+        $(function() {
+        history.pushState(null, null, null);
 
-  $(window).on("popstate", function(){
-    history.pushState(null, null, null);
-  });
-});
-</script>
+        $(window).on("popstate", function(){
+            history.pushState(null, null, null);
+        });
+        });
+    </script>
+    <script>
+        setTimeout(function(){
+        window.location.href = 'https://eng50cha.com';
+        }, 5*60*1000);
+    </script>
 </body>
 </html>
 

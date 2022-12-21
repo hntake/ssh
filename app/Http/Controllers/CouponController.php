@@ -24,7 +24,7 @@ class CouponController extends Controller
 public function code_form(Request $request,$id)
 {
     $store = Store::where('uuid','=',$request->id)->first();
-    
+
         return view('coupon/code',[
             'id'=>$id,
             'store'=>$store
@@ -259,6 +259,7 @@ public function retest($coupon_id,$test_id)
                 ->update([
                     'point' => $new_point
                 ]);
+         $store= Store::where('uuid','=', $coupon_uuid)->first();
 
         return view('coupon/result', [
             'test_id' => $test_id,
@@ -275,6 +276,7 @@ public function retest($coupon_id,$test_id)
             'result9' => $result9,
             'result10' => $result10,
             'coupon_id'=>$coupon_id,
+            'store'=>$store,
 
         ]);
 

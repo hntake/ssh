@@ -20,7 +20,13 @@
             @if($score >7)
             <form method="POST" action="{{ route('coupon.confirm',['coupon_id'=>$coupon_id])}}">
             @csrf
+            @if($store->due == 1)
             <img src="/img/coupon_get.png" alt="coupon" style="width:100%; height:auto;">
+            @elseif($store->due == 2)
+            <img src="/img/coupon_get_60.png" alt="coupon" style="width:100%; height:auto;">
+            @else
+            <img src="/img/coupon_get_180.png" alt="coupon" style="width:100%; height:auto;">
+            @endif
             <div class="tooltip">
                 <input id="email" name="email" placeholder type="text" value="{{ old('email') }}">
                 <br>
