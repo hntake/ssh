@@ -15,6 +15,7 @@
         <div class="score">
             <h2>得点</h2>
             {{$score}}点
+            <p style="text-align:left;">エイゴメのテストは、色々な人によって作られたテストです。正答に間違いがある事もありますのでご了承ください</p>
         </div>
         <div class="coupon">
             @if($score >7)

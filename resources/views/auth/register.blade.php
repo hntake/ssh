@@ -75,7 +75,7 @@
                         </div>
                         <div class="r-box">
                             <label for="user_name" class="col-md-4 col-form-label text-md-end">{{ __('ユーザーネーム ※必須') }}</label>
-                            <p>（他の人と同じにならないように長めのユーザー名にしましょう）</p>
+                            <p>（他の人と同じにならないようなユーザー名にしましょう。最長10文字まで）</p>
                             <div class="col-md-6">
                                 <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
 

@@ -36,14 +36,12 @@
                 クーポン利用期限<br>{{$tomorrow}}より<span style="color:red; font-weight:bold;">{{$due}}</span>
                 </div>
                 <div class="limit_time">
-                    <p>30分以内にクリックしてください。<br>
-                    30分過ぎると<span style="color:red; font-weight:bold;">利用不可</span>となります。</p>
+                    <p>クーポンを使う時まで<br><span style="color:red; font-weight:bold;">クリックしない</span>でください<br><br>
+                    クリック後、30分を過ぎると<br><span style="color:red; font-weight:bold;">利用不可</span>となります。</p>
                     <p>1会計につき、1枚のみご利用頂けます。</p>
                     <p>ご利用は一回限りとなります。</p>
-                    <div class="time-container">
-                    <p id="timer"></p>
+
                 </div>
-    </div>
             </div>
         </div>
         <form method="GET" action="{{ route('coupon.use',['id'=>$id,'coupon_id'=>$coupon_id])}}">
@@ -63,19 +61,6 @@
                 <img src="/img/timelimit2.png" alt="limit">
             </div>
     </div>
-    <script>
-    window.addEventListener('DOMContentLoaded', ()=>{
-    const t0=30*60*1000;
-    const t1=new Date().getTime();
-    setInterval(()=>{
-        const t2=new Date().getTime();
-        const t3=t0+t1-t2
-        const m=(parseInt(t3/60/1000)).toString().padStart(2,'0');
-        const s=(parseInt(t3/1000)%60).toString().padStart(2,'0');
-        const ms=(parseInt(t3/10)%100).toString().padStart(2,'0');
-        timer.textContent=`${m}:${s}.${ms}`;
-    },10);
-    });
-    </script>
+   
     </body>
 

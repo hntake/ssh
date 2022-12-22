@@ -40,6 +40,9 @@
             <div class="due">
             クーポン利用期限<br>{{$tomorrow}}より<span style="color:red; font-weight:bold;">{{$due}}</span>
             </div>
+            <div class="time-container">
+                    <p id="timer"></p>
+            </div>
         </div>
             <div>
                 <form class="form-inline" action="{{route('coupon.used',['id'=>$id,'coupon_id'=>$coupon_id])}}" method="POST" autocomplete="off">
@@ -56,5 +59,19 @@
     </div>
     <input type="hidden" name="coupon_id" value="{{$coupon_id}}">
     <input type="hidden" name="id" value="{{$id}}">
+    <script>
+    window.addEventListener('DOMContentLoaded', ()=>{
+    const t0=30*60*1000;
+    const t1=new Date().getTime();
+    setInterval(()=>{
+        const t2=new Date().getTime();
+        const t3=t0+t1-t2
+        const m=(parseInt(t3/60/1000)).toString().padStart(2,'0');
+        const s=(parseInt(t3/1000)%60).toString().padStart(2,'0');
+        const ms=(parseInt(t3/10)%100).toString().padStart(2,'0');
+        timer.textContent=`${m}:${s}.${ms}`;
+    },10);
+    });
+    </script>
     </body>
 
