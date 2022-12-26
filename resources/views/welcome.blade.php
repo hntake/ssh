@@ -72,10 +72,10 @@
                                 <a href="{{ url('plan') }}" class="header_nav_itm_link">教育関係者向け</a>
                                 <div class="description1">モニタリングサービスのご案内</div>
                             </li>
-                            <li class="header_nav_itm">
+                          <!--   <li class="header_nav_itm">
                                 <a href="{{ url('commerce') }}" class="header_nav_itm_link">社会貢献</a>
                                 <div class="description1">協賛クーポンのご案内</div>
-                            </li>
+                            </li> -->
                             <li class="header_nav_itm">
                                 @auth
                                 <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
@@ -173,9 +173,9 @@
                                 <li><a href="{{ url('plan') }}">
                                         <h3>教育関係者向け</h3>
                                     </a></li>
-                                <li><a href="{{ url('commerce') }}">
+                             <!--    <li><a href="{{ url('commerce') }}">
                                         <h3>社会貢献</h3>
-                                    </a></li>
+                                    </a></li> -->
                                 <li class="header_nav_itm">
                                     <div class="register-button">
                                         <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
