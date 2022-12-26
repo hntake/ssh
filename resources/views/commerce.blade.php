@@ -112,7 +112,7 @@
             </div>
             <main>
                 <section class="section  bg-gray">
-                    <div class="container">
+                    <div class="explain">
                         <h2 class="headline">
                             エイゴメ協賛クーポンとは
                         </h2>
@@ -120,7 +120,7 @@
                         ”エイゴメ”は誰でも無料で英単語テストを作ったり、受けたりできるサイト  "エイゴメ"<br>エイゴメのテストを使ってお客様にクーポンを提供します
                         </p>
                         <div class="about-figure lg-none">
-                            <img class="img-fluid" src="img/coupon_flow.png">
+                            <img class="img-chart" src="img/coupon_flow.png">
                             <p class="about-figure-note">※クーポンを受け取るまでのイメージ図</p>
                         </div>
                         <p class="about-catch">
@@ -136,8 +136,6 @@
                     </div>
                 </section>
             </main>
-        </div>
-
         <!--説明動画-->
         <div class="youtube_kv">
             <div class="movie_cap">
@@ -213,7 +211,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <footer class="site-footer">
         <div class="bc-sitemap-wrapper">

@@ -20,6 +20,9 @@ body {
     width:100%;
 
 }
+.wrapper{
+    overflow:hidden;
+}
 #header {
     position: -webkit-sticky;
     position: sticky;
@@ -44,6 +47,11 @@ body {
 .container {
     width: 100%;
     max-width: 1120px;
+    padding-bottom:75px;
+}
+.explain {
+    width: 100%;
+    max-width: 1120px;
     margin: 0 auto;
 }
 .mv-content {
@@ -58,10 +66,10 @@ body {
     margin-top:150px;
 }
 .mv-description {
-    margin: 0 0 20px 330px;
+    margin: 0 0 0px 80px;
     text-align: left;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: bold;
 }
 .mv-logo {
     width: 350px;
@@ -70,7 +78,7 @@ body {
     width:60%;
 }
 .mv-catch {
-    margin: 10px 0 40px 200px;
+    margin: 10px 0 40px 50px;
     text-align: left;
     font-size: 36px;
     font-weight: 700;
@@ -78,15 +86,16 @@ body {
 }
 .mv-visual {
     position: absolute;
-    top: 50px;
-    right:-500px;
+    top: 100px;
+    right:300px;
     display: flex;
     align-items: center;
     padding: 0 0 0 60px;
-    width: calc(100% - 415px - ((100% - 1120px) / 2));
-    height: 100%;
+    width: calc(100% - 215px - ((100% - 1120px) / 2));
+    width: calc(80% - 215px - ((80% 0px) / 3));
+    height: 60%;
     padding: 0 60px;
-    /* background: url(/img/boston.jpg) no-repeat left top; */
+    background: url(/img/store.webp) no-repeat left top;
     background-size: cover;
 }
 
@@ -138,7 +147,11 @@ body {
     transition-property: transform, -webkit-transform;
 }
 .img-fluid {
-    width: 100%;
+    width: 80%;
+    height: auto;
+}
+.img-chart {
+    width: 80%;
     height: auto;
 }
 .bg-gray{
@@ -164,6 +177,7 @@ body {
 }
 .about-figure {
     margin: 0 0 70px;
+    margin: 0 100px 0 250px;
 }
 .about-description {
     margin: 0 0 80px;
@@ -188,6 +202,9 @@ body {
 }
 .youtube_kv{
     margin:0;
+}
+.option-row {
+    justify-content: center;
 }
 /*レスポンシブ対応*/
 @media (max-width: 768px){
