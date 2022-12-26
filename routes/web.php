@@ -51,6 +51,9 @@ Route::get('/plan',function(){
 Route::get('/case',function(){
     return view('case');
 });
+Route::get('/commerce',function(){
+    return view('commerce');
+});
 
 
 Route::get('/partner',function(){
