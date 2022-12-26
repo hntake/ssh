@@ -173,7 +173,7 @@
                                 <li><a href="{{ url('plan') }}">
                                         <h3>教育関係者向け</h3>
                                     </a></li>
-                                <li><a href="{{ url('plan') }}">
+                                <li><a href="{{ url('commerce') }}">
                                         <h3>社会貢献</h3>
                                     </a></li>
                                 <li class="header_nav_itm">
