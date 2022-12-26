@@ -45,56 +45,31 @@
                                 <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/title3.png" style="width:30%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="#paid" class="header_nav_itm_link">概要</a>
-                                <div class="description1">エイゴメ協賛クーポン説明</div>
+                                <a href="#monitor" class="header_nav_itm_link">概要</a>
+                                <div class="description1">エイゴメ協賛クーポン説明動画</div>
                             </li>
 
                             <li class="header_nav_itm">
-                                <a href="#monitor" class="header_nav_itm_link">費用</a>
+                                <a href="#paid" class="header_nav_itm_link">費用</a>
                                 <div class="description1">初年度は無料です</div>
                             </li>
 
                         </ul>
                     </nav>
                 <div class="mobile">
-                    <li class="header_nav_itm">
-                        <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
-                    </li>
-                    <li class="header_nav_itm">
-                                <a href="#paid" class="header_nav_itm_link">エイゴメ協賛クーポン概要</a>
-                            </li>
-                </div>
-                <!--  ハンバーガーメニュー -->
-                <div class="mobile-menu">
-                    <div id="nav-drawer">
-                        <input id="nav-input" type="checkbox" class="nav-unshown">
-                        <label id="nav-open" for="nav-input"><span></span></label>
-                        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-                        <div id="nav-content">
-                            <ul class="header_nav_list">
-                                <li><a href="#paid">
-                                        <h3>概要</h3>
-                                    </a></li>
-                                <li><a href="#monitor">
-                                        <h3>費用</h3>
-                                    </a>
+                    <ul class="header_nav_list">
+                        <li class="header_nav_itm">
+                            <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                        </li>
+                        <li class="header_nav_itm">
+                                    <a href="#monitor" class="header_nav_itm_link">エイゴメ協賛クーポン概要動画</a>
+                                    <div class="description1">エイゴメ協賛クーポン説明動画</div>
                                 </li>
-                                <li class="header_nav_itm">
-                                    <div class="register-button">
-                                        <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
-                                        <div class="description1">マニュアル動画ページへ</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <script>
-                            $(function() {
-                                $('#nav-content li a').on('click', function(event) {
-                                    $('#nav-input').prop('checked', false);
-                                });
-                            });
-                        </script>
-                    </div>
+                        <li class="header_nav_itm">
+                            <a href="#paid" class="header_nav_itm_link">費用</a>
+                            <div class="description1">初年度は無料です</div>
+                        </li>
+                    </ul>
                 </div>
             </header>
             <div class="mv">
@@ -142,7 +117,7 @@
                             エイゴメ協賛クーポンとは
                         </h2>
                         <p class="about-catch">
-                        ”エイゴメ”は誰でも無料で英単語テストを作ったり、受けたりできるサイト  "エイゴメ"のテストを使ってお客様にクーポンを提供します
+                        ”エイゴメ”は誰でも無料で英単語テストを作ったり、受けたりできるサイト  "エイゴメ"<br>エイゴメのテストを使ってお客様にクーポンを提供します
                         </p>
                         <div class="about-figure lg-none">
                             <img class="img-fluid" src="img/coupon_flow.png">
@@ -183,7 +158,7 @@
             <div class="site-content">
                 <div class="elementor-column">
                     <div class="elementor-top">
-                        <a name="monitor">
+                        <a name="paid">
                             <div class="elementor-heading-title">
                                 費用
                             </div>
