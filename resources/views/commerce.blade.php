@@ -164,7 +164,7 @@
                     </div>
                     <div class="elementor-bottom">
                         <div class="elementor-heading-title">
-                            初年度は無料で利用できます。
+                            無料で利用できます。
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                 <div class="option-row">
                     <div class="option-wrap">
                         <div cass="option-container">
-                            <div class="option-title1">店舗バナー作成</div>
+                            <div class="option-title1">店舗バナーのカスタム</div>
                         </div>
                         <div class="option-container-bottom">
                             <div class="option-price">
@@ -181,7 +181,7 @@
                             </div>
                         </div>
                         <div class="option-description">
-                            オリジナルのバナーを作成します。他でもご利用して頂いて問題ありません。
+                            オリジナルのバナーを<span style="color:red;">無料</span>で用意させていただきます。バナーのカスタム化は<span style="color:red;">有料</span>となります。
                         </div>
                     </div>
                     <div class="option-wrap">
@@ -190,11 +190,11 @@
                         </div>
                         <div class="option-container-bottom">
                             <div class="option-price">
-                                <b>￥2000</b>
+                                <b>￥0</b>
                             </div>
                         </div>
                         <div class="option-description">
-                            クーポンの提供だけでなく、定期的にクーポンの発行数・利用数データも提供いたします。
+                            クーポンの提供だけでなく、ご要望があれば定期的にクーポンの発行数・利用数データも提供いたします。
                         </div>
                     </div>
                 </div>
