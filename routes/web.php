@@ -73,6 +73,7 @@ Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'adm
 
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
+
 /*全テスト画面へ*/
 Route::get('all_list',[App\Http\Controllers\TestController::class,'list'])->name('list');
  /*テスト検索する*/
@@ -133,17 +134,10 @@ Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->n
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
 /*学習ページへ*/
 Route::get('/study{id}',[App\Http\Controllers\StudyController::class,'index'])->name('study');
-Route::get('ja1/{id}',[App\Http\Controllers\StudyController::class,'one'])->name('one');
-Route::get('ja2/{id}',[App\Http\Controllers\StudyController::class,'two'])->name('two');
-Route::get('ja3/{id}',[App\Http\Controllers\StudyController::class,'three'])->name('three');
-Route::get('ja4/{id}',[App\Http\Controllers\StudyController::class,'four'])->name('four');
-Route::get('ja5/{id}',[App\Http\Controllers\StudyController::class,'five'])->name('five');
-Route::get('ja6/{id}',[App\Http\Controllers\StudyController::class,'six'])->name('six');
-Route::get('ja7/{id}',[App\Http\Controllers\StudyController::class,'seven'])->name('seven');
-Route::get('ja8/{id}',[App\Http\Controllers\StudyController::class,'eight'])->name('eight');
-Route::get('ja9/{id}',[App\Http\Controllers\StudyController::class,'nine'])->name('nine');
-Route::get('ja10/{id}',[App\Http\Controllers\StudyController::class,'ten'])->name('ten');
-
+/*今日のテストを表示*/
+Route::get('/today', [App\Http\Controllers\TestController::class, 'today'])->name('today');
+/*今日のテスト採点*/
+Route::post('/result_today/{id}', [App\Http\Controllers\TestController::class,'result_today'])->name('result_today');
 
 /*フォロー登録*/
 Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');

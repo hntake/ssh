@@ -25,6 +25,9 @@
                 <li><a href="{{ url('all_list') }}">
                         <h3>テスト一覧</h3>
                     </a></li>
+                <li><a href="{{ url('today') }}">
+                        <h3>Today's TEST</h3>
+                    </a></li>
                 <li><a href="{{ url('create') }}">
                         <h3>新規作成</h3>
                     </a></li>
@@ -103,7 +106,7 @@
                 <td>
                     <div class="button"><a href="{{ route('test',['id'=>$word->id]) }}">表示</a></div>
                 </td>
-                
+
                 @endforeach
             </tr>
         </tbody>

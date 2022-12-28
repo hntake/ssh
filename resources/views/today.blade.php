@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
-<title>テスト画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
+        <title>Today's TEST 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 
-@section('content')
-<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
+        @section('content')
+        <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
+    <body>
+    <div class="wrapper">
 
-<div class="header-logo-menu">
+    <div class="header-logo-menu">
     <div id="nav-drawer">
         <input id="nav-input" type="checkbox" class="nav-unshown">
         <label id="nav-open" for="nav-input"><span></span></label>
@@ -52,19 +54,25 @@
     </div>
 </div>
 
+
 <div class="test">
-    <form class="form-inline" action="{{route('result',['id'=>$id])}}" method="POST">
+
+    <form class="form-inline" action="{{route('result_today',['id'=>$id])}}" method="POST">
         @csrf
         @if (!empty($word))
         <table class="table-box" style="border:solid 1px gray; margin:0 auto;">
             <thead>
                 <tr style="background-color:darkseagreen">
+                    <th style="width:15%">学年レベル</th>
                     <th style="width:15%">テスト名</th>
+                    <th style="width:15%">作成者</th>
                 </tr>
             </thead>
             <tbody id="tbl">
                 <tr>
+                    <td>{{ $word->Type->type }}</td>
                     <td>{{ $word->test_name }}</td>
+                    <td>{{ $word->user_name }}</td>
                 </tr>
             </tbody>
             <table class="table-all">
@@ -125,7 +133,7 @@
                         <td>{{ $word->ja10}}</td>
                         <td><input type="text" name="en10" id="en10" class="form-control" size="15" placeholder="英語で？" value="{{ old('en10') }}"></td>
                     </tr>
-                    <input type="hidden" name="user_name" value="{{$id}}">
+
 
 
                 </tbody>
@@ -136,14 +144,15 @@
             <p class="error-message">!! 空欄がないようにしてください !!</p>
             @endif
             <div class="check">
-                <button type="submit" style="padding:10px;">
+                <button type="submit"style="padding:10px;">
                     <i class="fa fa-plus"></i> 採点する
                 </button>
             </div>
     </form>
     <div class="button"><a href="{{ route('answer',['id'=>$id]) }}">正解はこちら</a></div>
-
+    </div>
 </div>
+ </body>
 
 
 @else
@@ -153,4 +162,3 @@
 <a href="{{ url('admin') }}" class="center-button">管理者画面へ</a>
 @endif
 @endif
-@endsection

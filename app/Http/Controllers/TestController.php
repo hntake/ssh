@@ -517,7 +517,7 @@ class TestController extends Controller
         //m_categoriesテーブルからgetLists();関数でtype_nameとidを取得する
         $types = Type::pluck('type', 'id');
         $textbooks = Textbook::pluck('textbook', 'id');
-       
+
 
 
         return view('search_result', [
@@ -623,4 +623,170 @@ class TestController extends Controller
             'users' => $users,
         ]);
     }
-}
+    /*今日のテスト表示*/
+    public function today(Request $request)
+    {
+        $word = Word::inRandomOrder()
+                    ->limit(1)
+                    ->first();
+        $id = $word->id;
+
+        return view('today',[
+            'id' =>$id,
+            'word' =>$word,
+
+        ]);
+    }
+
+    /**
+     * 採点ボタン→①履歴作成②テスト採点③ポイント付与
+     * @param  Request  $request
+     * @return Response
+     */
+    public function result_today(Request $request, $id)
+    {
+        /**テスト採点 */
+        $words = Word::all();
+        foreach ($words as $words) {
+            $words = Word::where('id', $id)->first();
+            $score = 0;
+            if ($request->en1 === $words->en1) {
+                $score = $score + 1;
+                $result1 = "O";
+            } else {
+                $result1 = "X";
+            }
+            if ($request->en2 === $words->en2) {
+                $score = $score + 1;
+                $result2 = "O";
+            } else {
+                $result2 = "X";
+            }
+            if ($request->en3 === $words->en3) {
+                $score = $score + 1;
+                $result3 = "O";
+            } else {
+                $result3 = "X";
+            }
+            if ($request->en4 === $words->en4) {
+                $score = $score + 1;
+                $result4 = "O";
+            } else {
+                $result4 = "X";
+            }
+            if ($request->en5 === $words->en5) {
+                $score = $score + 1;
+                $result5 = "O";
+            } else {
+                $result5 = "X";
+            }
+            if ($request->en6 === $words->en6) {
+                $score = $score + 1;
+                $result6 = "O";
+            } else {
+                $result6 = "X";
+            }
+            if ($request->en7 === $words->en7) {
+                $score = $score + 1;
+                $result7 = "O";
+            } else {
+                $result7 = "X";
+            }
+            if ($request->en8 === $words->en8) {
+                $score = $score + 1;
+                $result8 = "O";
+            } else {
+                $result8 = "X";
+            }
+            if ($request->en9 === $words->en9) {
+                $score = $score + 1;
+                $result9 = "O";
+            } else {
+                $result9 = "X";
+            }
+            if ($request->en10 === $words->en10) {
+                $score = $score + 1;
+                $result10 = "O";
+            } else {
+                $result10 = "X";
+            }
+        }
+        /*テスト作成者へのポイント付与*/
+        $tspoint = Word::where('id', '=',$id)->pluck('user_name');
+        $crpoint = User::where('user_name', '=', $tspoint)->value('point');
+        $crnewpoint = $crpoint + 1;
+        $crpoint = User::where('user_name', '=', $tspoint)
+            ->update([
+                'point' => $crnewpoint
+            ]);
+        /*テスト利用回数カウント*/
+        $count =Word::where('id','=',$request->id)->value('count');
+        $newcount = $count +1;
+        $count =Word::where('id','=',$request->id)
+            ->update([
+                'count' =>$newcount
+            ]);
+
+            /**テスト実践によるポイント付与 */
+            $point = User::where('id', '=', Auth::id())
+                ->value('point');
+            if ($score > 8) {
+                $newpoint = $point + 3;
+            } elseif ($score > 5) {
+                $newpoint = $point + 2;
+            } else {
+                $newpoint = $point + 1;
+            }
+            $point = User::where('id', '=', Auth::id())
+                ->update([
+                    'point' => $newpoint
+                ]);
+            /*履歴作成*/
+            $word = Word::find($id);
+            $user = Auth::user();
+            $history = new History;
+            $history->test_id = $word->id;
+            $history->type = $word->type;
+            $history->textbook = $word->textbook;
+            $history->test_name = $word->test_name;
+            $history->user_name = $word->user_name;
+            $history->tested_user = $user->user_name;
+            $history->tested_name = $user->name;
+            $history->school = $user->school1;
+            $history->score = $score;
+            $history->save();
+            if (isset($user->school2)) {
+                $history = new History;
+                $history->test_id = $word->id;
+                $history->type = $word->type;
+                $history->textbook = $word->textbook;
+                $history->test_name = $word->test_name;
+                $history->user_name = $word->user_name;
+                $history->tested_user = $user->user_name;
+                $history->tested_name = $user->name;
+                $history->school = $user->school2;
+                $history->score = $score;
+                $history->save();
+            }
+
+            return view('result', [
+                'id' => $id,
+                'word' => $word,
+                'score' => $score,
+                'result1' => $result1,
+                'result2' => $result2,
+                'result3' => $result3,
+                'result4' => $result4,
+                'result5' => $result5,
+                'result6' => $result6,
+                'result7' => $result7,
+                'result8' => $result8,
+                'result9' => $result9,
+                'result10' => $result10,
+
+            ]);
+        }
+
+    }
+
+
