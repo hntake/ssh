@@ -116,8 +116,8 @@
                     <th style="width:10%">教科書名</th>
                     <th style="width:20%">作成者</th>
                     <th style="width:10%"></th>
-                    <th style="width:10%"></th>
-
+<!--                     <th style="width:10%"></th>
+ -->
                 </tr>
             </thead>
             @foreach($words as $word)
@@ -132,12 +132,12 @@
 
                     </div>
                 </td>
-                <td>
+               <!--  <td>
                     <div class="test_button" ontouchstart="">
                         <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
 
                     </div>
-                </td>
+                </td> -->
             </tr>
             @endforeach
         </table>

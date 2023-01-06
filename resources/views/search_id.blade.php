@@ -70,8 +70,8 @@
                     <th style="width:10%">教科書名</th>
                     <th style="width:20%">作成者</th>
                     <th style="width:10%"></th>
-                    <th style="width:10%"></th>
-                </tr>
+<!--                     <th style="width:10%"></th>
+ -->                </tr>
             </thead>
             <tr>
                 <td>{{ $word->test_name }}</td>
@@ -84,12 +84,12 @@
 
                     </div>
                 </td>
-                <td>
+               <!--  <td>
                     <div class="test_button">
                         <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
 
                     </div>
-                </td>
+                </td> -->
             </tr>
         </table>
     </div>
