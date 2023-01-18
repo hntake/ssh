@@ -32,8 +32,10 @@
                     <img src="/img/coupon5_use.png" alt="coupon">
                     @elseif($store->type == 4)
                     <img src="/img/coupon_drink_use.png" alt="coupon">
-                    @else
+                    @elseif($store->type == 5)
                     <img src="/img/coupon_sweet_use.png" alt="coupon">
+                    @else
+                    <img src="/img/coupon50_use.png" alt="coupon">
                     @endif
                 </span>
             </div>

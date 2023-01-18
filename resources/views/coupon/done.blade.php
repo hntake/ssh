@@ -34,8 +34,10 @@
                                             <img src="/img/studies_5.png" alt="coupon" style="width:70%;">
                                             @elseif($store->type == 4)
                                             <img src="/img/studies_drink.png" alt="coupon" style="width:70%;">
-                                            @else
+                                            @elseif($store->type == 5)
                                             <img src="/img/studies_sweet.png" alt="coupon" style="width:70%;">
+                                            @else
+                                            <img src="/img/studies_50.png" alt="coupon" style="width:70%;">
                                             @endif
                                         </span>
                                     </div>
