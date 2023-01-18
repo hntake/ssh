@@ -463,10 +463,11 @@ table.result{
 /*     width: 30%;
  */}
 .score{
-    border: solid 1px;
-    width: 30%;
+    border:unset;
+    width: 50%;
     margin: 10 auto;
-    background-color:mintcream
+    background-color:mintcream;
+    padding:10px 20px;
 }
 .error-message{
     border: solid orange 1px;
@@ -625,6 +626,16 @@ p#timer{
 }
 .timelimit{
     margin-top:10px;
+}
+/*確認ボタン*/
+.confirm_button{
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 300px;
+    color: #2285b1;
+    font-size: 18px;
+    font-weight: 700;
+    border: 2px solid #2285b1;
 }
 
 /*レスポンシブ対応*/
