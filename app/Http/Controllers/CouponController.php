@@ -585,7 +585,7 @@ public function about(Request $request,$id,$coupon_id)
                 $request->session()->regenerateToken();
                 /*期限以内なら*/
                 if($due > $now){
-                $due= $due->format('Y-m-d');;
+                $due= $due->format('Y-m-d');
                     return view('coupon/index',[
                         'id'=>$id,
                         'store'=>$store,

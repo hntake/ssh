@@ -9,15 +9,19 @@
 
 <body class="antialiased">
 
-    <form method="POST" action="{{ route('guest.create') }}">
+    <form method="POST" action="{{ route('guest.uuid') }}">
         @csrf
         <div>
             <label for="name">店舗名</label>
             <input type="text" id="name" name="name">
         </div>
         <div>
-            <label for="name">クーポンタイプ</label>
+            <label for="type">クーポンタイプ</label>
             <input type="text" id="type" name="type">
+        </div>
+        <div>
+            <label for="code">クーポン期限</label>
+            <input type="text" id="due" name="due">
         </div>
         <div>
             <label for="name_kana">かな</label>
@@ -32,7 +36,7 @@
             <input type="text" id="email" name="email">
         </div>
         <div>
-            <label for="email">5桁コード</label>
+            <label for="code">5桁コード</label>
             <input type="text" id="code" name="code">
         </div>
         <div class="store">
@@ -49,7 +53,12 @@
         <p>3:5%</p>
         <p>4:ドリンク</p>
         <p>5:1デザート</p>
-
+        <p>6:50円オフ</p>
+    </div>
+    <div class="selection">
+        <p>1:30日間</p>
+        <p>2:60</p>
+        <p>3:180</p>
     </div>
 </body>
 

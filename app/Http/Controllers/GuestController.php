@@ -33,16 +33,15 @@ public function uuid (Request $request){
 
 
     $validate = $request->validate([
-        'type' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'name_kana' => ['required', 'string', 'max:255'],
             'code' => ['required', 'string', 'max:255'],
             'tel' => ['required','numeric','digits_between:10,11'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ]);
 
         $store= new Store;
         $store->type = $request->type;
+        $store->due = $request->due;
         $store->name =$request->name;
         $store->name_kana =$request->name_kana;
         $store->code = $request->code;
