@@ -65,4 +65,10 @@ class Word extends Model
     public function nices() {
         return $this->hasMany('App\Models\Nice');
     }
+
+    /*later*/
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User')->withTimestamps();
+    }
 }

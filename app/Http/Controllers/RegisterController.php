@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Models\AdminUser;
+use App\Models\Game;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -53,5 +54,32 @@ class RegisterController extends Controller
         if ($user) {
             return view('admin', ['registered' => true, 'registered_email' => $user->email]);
         }
+    }
+    public function gameRegisterForm(Request $request)
+    {
+        return view('gameRegister');
+    }
+
+    protected function gameValidator(array $data)
+    {
+        return Validator::make($data, [
+            'user_id' => ['required', 'string', 'max:255','unique:App\Models\Game'],
+
+        ]);
+    }
+
+    protected function gameRegisterDatabase(array $data)
+    {
+        return Game::create([
+            'user_id' => $data['user_id'],
+        ]);
+    }
+
+    public function gameRegister(Request $request)
+    {
+        $this->gameValidator($request->all())->validate();
+
+        $user = $this->gameRegisterDatabase($request->all());
+
     }
 }

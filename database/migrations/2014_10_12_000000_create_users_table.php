@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('year');
             $table->integer('point')->default(0);
             $table->integer('level')->default(0);
+            $table->integer('game_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->text('comment')->nullable();

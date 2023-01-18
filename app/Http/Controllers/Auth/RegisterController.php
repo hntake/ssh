@@ -88,9 +88,9 @@ class RegisterController extends Controller
                 'place' => $data['place'],
                 'image' => $data['image'],
                 'email' => $data['email'],
+                'game_id' => $data['game_id'],
                 'password' => Hash::make($data['password']),
                 'email_token' => base64_encode($data['email']),
-
             ]);
         }
         else{
@@ -103,6 +103,7 @@ class RegisterController extends Controller
                 'place' => $data['place'],
                 'image' => '',
                 'email' => $data['email'],
+                'game_id' => $data['game_id'],
                 'password' => Hash::make($data['password']),
             ]);
         }

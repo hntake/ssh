@@ -1,5 +1,7 @@
 @extends('layouts.app', ['authgroup'=>'admin'])
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+
 <title>管理者専用画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 @section('content')
 <link href="{{ asset('css/admin.css') }}" rel="stylesheet">

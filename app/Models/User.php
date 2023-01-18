@@ -34,6 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'point',
         'level',
         'comment',
+        'game_id',
     ];
 
     /**
@@ -70,7 +71,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function Place() {
         return $this->hasOne(Place::class, 'id','place');
     }
-    
+
     /*お気に入り登録*/
      public function posts() {
         return $this->hasMany('App\Models\Word');
@@ -79,4 +80,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function nices() {
         return $this->hasMany('App\Models\Nice');
     }
+
+    /*later*/
+    public function laters()
+    {
+        return $this->belongsToMany('App\Models\Word')->withTimestamps();
+    }
+
 }

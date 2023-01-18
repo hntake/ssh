@@ -16,6 +16,14 @@ class StudyController extends Controller
             'word' => $word,
         ]);
     }
+    public function index_livewire(Request $request, $id)
+    {
+        $word = Word::where('id', $request->id)->first();
+        return view('livewire', [
+            'id' => $id,
+            'word' => $word,
+        ]);
+    }
     public function one( $id)
     {
         $word = Word::where('id', $id)->value('ja1');

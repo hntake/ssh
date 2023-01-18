@@ -54,6 +54,9 @@ Route::get('/case',function(){
 Route::get('/commerce',function(){
     return view('commerce');
 });
+Route::get('/parent',function(){
+    return view('parent');
+});
 
 
 Route::get('/partner',function(){
@@ -63,13 +66,21 @@ Route::get('/coupon/not')->name('coupon.not');
 Route::get('/coupon/overdue')->name('coupon.overdue');
 
 
-//入力ページ
+//モニタリング申込者入力ページ
 Route::get('/admin_form', [App\Http\Controllers\ContactController::class,'admin_form'])->name('admin_form');
 //確認ページ
 Route::post('/admin_confirm', [App\Http\Controllers\ContactController::class,'admin_confirm'])->name('admin_confirm');
 
 //送信完了ページ
 Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'admin_send'])->name('admin_send');
+
+//親子機能申込者入力ページ
+Route::get('/game_form', [App\Http\Controllers\ContactController::class,'game_form'])->name('game_form');
+//確認ページ
+Route::post('/game_confirm', [App\Http\Controllers\ContactController::class,'game_confirm'])->name('game_confirm');
+
+//送信完了ページ
+Route::post('/game_thanks', [App\Http\Controllers\ContactController::class,'game_send'])->name('game_send');
 
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
@@ -134,10 +145,21 @@ Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->n
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
 /*学習ページへ*/
 Route::get('/study{id}',[App\Http\Controllers\StudyController::class,'index'])->name('study');
+Route::get('/livewire/{id}',[App\Http\Controllers\StudyController::class,'index_livewire'])->name('livewire');
+
 /*今日のテストを表示*/
 Route::get('/today', [App\Http\Controllers\TestController::class, 'today'])->name('today');
 /*今日のテスト採点*/
-Route::post('/result_today/{id}', [App\Http\Controllers\TestController::class,'result_today'])->name('result_today');
+Route::post('/today/{id}/test_id/{test_id}', [App\Http\Controllers\TestController::class,'result_today'])->name('result_today');
+/*今日のテストリテスト表示*/
+Route::get('/today_retest/{id}/test_id/{test_id}', [\App\Http\Controllers\TestController::class, 'today_retest'])->name('today_retest');
+
+/*合格確認へ*/
+Route::post('/confirm/{id}/test_id/{test_id}', [App\Http\Controllers\ParentController::class,'confirm'])->name('confirm');
+
+
+/*親子機能*/
+
 
 /*フォロー登録*/
 Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');
@@ -181,10 +203,12 @@ Route::get('/comment', [App\Http\Controllers\TestController::class, 'comment_ind
 Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
 
 Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'adminLogout'])->name('admin.logout');
-
+/*モニタリング登録作業*/
 Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegisterForm'])->middleware('auth:admin');
-
 Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'adminRegister'])->middleware('auth:admin')->name('admin.register');
+/*親子機能登録作業*/
+Route::get('/game/register', [\App\Http\Controllers\RegisterController::class, 'gameRegisterForm'])->middleware('auth:admin');
+Route::post('/game/register', [\App\Http\Controllers\RegisterController::class, 'gameRegister'])->middleware('auth:admin')->name('game.register');
 /*ブログ書き込み権限*/
 Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin');
 Route::post('/newpostsend', [\App\Http\Controllers\FormController::class, 'savenew'])->middleware('auth:admin');
@@ -267,6 +291,7 @@ Route::get('/edit_store_picture/{id}', [App\Http\Controllers\GuestController::cl
 Route::patch('/uploadpic_store/{id}', [App\Http\Controllers\GuestController::class, 'uploadpic'])->name('uploadpic_store');
 /*選択したユーザーの写真削除*/
 Route::get('/deletepic_store/{id}', [App\Http\Controllers\GuestController::class, 'deletepic_store'])->name('deletepic_store');
+
 
 
 Route::middleware([

@@ -1,0 +1,36 @@
+.fc-col-header-cell-cushion,
+.fc-daygrid-day-number,
+.fc-daygrid-day-top{
+    color: #333;
+}
+.fc-day-sat{
+    background-color: #cce3f6;
+}
+.fc-day-sun{
+    background-color: #f4d0df;
+}
+.number{
+    font-size: 70px;
+    font-weight: 900;
+}
+img{
+    width:30%;
+}
+.title{
+    font-size:50px;
+    color:#333;
+}
+.testtable-responsive{
+    background-color: unset;
+    width:auto;
+}
+
+@media (max-width: 480px){
+    img{
+        width:80%;
+        background-color: unset;
+    }
+    #imageArea{
+        width:50%;
+    }
+}

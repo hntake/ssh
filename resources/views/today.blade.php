@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-        <title>Today's TEST 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
+        <title>Today's TEST 英語学習サイト”エイゴメ”</title>
 
         @section('content')
+        <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+
         <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
     <body>
@@ -57,7 +59,7 @@
 
 <div class="test">
 
-    <form class="form-inline" action="{{route('result_today',['id'=>$id])}}" method="POST">
+    <form class="form-inline" action="{{route('result_today',['id'=>$id,'test_id'=>$test_id])}}" method="POST">
         @csrf
         @if (!empty($word))
         <table class="table-box" style="border:solid 1px gray; margin:0 auto;">

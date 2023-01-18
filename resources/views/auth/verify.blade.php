@@ -1,4 +1,3 @@
-@extends('layouts.app')
 <title>メールアドレスをご確認ください</title>
 @section('content')
 <div class="container">

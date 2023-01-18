@@ -4,6 +4,8 @@
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 
 

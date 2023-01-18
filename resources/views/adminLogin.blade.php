@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
+    <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
     <title>管理者ログイン画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 
 </head>

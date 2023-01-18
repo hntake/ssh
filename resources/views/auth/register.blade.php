@@ -1,11 +1,12 @@
 @extends('layouts.app')
 <title>新規登録画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+<link rel="stylesheet" href="{{ asset('css/word.css') }}">
 
 @section('content')
 <div class="top">
     <a href="{{ url('/') }}">
-        <h3>トップページに戻る</h3>
+        <h3 style="text-decoration: none; color: #090;">トップページに戻る</h3>
     </a>
 </div>
 <div class="container">
@@ -37,20 +38,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="r-box">
-                            <label for="school1" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号') }}</label>
-                            <p>（学校や塾で番号をもらった人は、000000を削除して、その番号を入力して下さい）</p>
-                            <div class="col-md-6">
-                                <input id="school1" type="text" class="form-control " name="school1" value="00000{{ old('school1') }}" autocomplete="school1" autofocus>
-                            </div>
-                        </div>
-                        <div class="r-box">
-                            <label for="school2" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号その２') }}</label>
-                            <p>（二か所から番号をもらっているなら、ここにもう一つの番号を入力して下さい）</p>
-                            <div class="col-md-6">
-                                <input id="school2" type="text" class="form-control " name="school2" value="00000{{ old('school2') }}" autocomplete="school2" autofocus>
-                            </div>
-                        </div>
+
                         <div class="r-box">
                             <label for="year" class="col-md-4 col-form-label text-md-end">{{ __('学年') }}</label>
 
@@ -123,7 +111,29 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
+                        <div class="box" style="margin-bottom: 10px; background-color:#84b4e5; padding: 0 50px;">
+                            ※<a href="{{url('plan')}}"><span style="color:red; font-weight:bold;">モニタリングサービス</span></a>申込みの方は以下の変更をお願いします。
+                            <div class="r-box">
+                                <label for="school1" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号') }}</label>
+                                <p>（学校や塾で番号をもらった人は、000000を削除して、その番号を入力して下さい）</p>
+                                <div class="col-md-6">
+                                    <input id="school1" type="text" class="form-control " name="school1" value="00000{{ old('school1') }}" autocomplete="school1" autofocus>
+                                </div>
+                            </div>
+                            <div class="r-box">
+                                <label for="school2" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号その２') }}</label>
+                                <p>（二か所から番号をもらっているなら、ここにもう一つの番号を入力して下さい）</p>
+                                <div class="col-md-6">
+                                    <input id="school2" type="text" class="form-control " name="school2" value="00000{{ old('school2') }}" autocomplete="school2" autofocus>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box" style="margin-bottom: 10px; background-color:#efb930; padding: 0 20px;">
+                            ※<a href="{{url('parent')}}"><span style="color:red; font-weight:bold;">親子機能</span></a>を申込む方はこちらをチェックしてください<br>
+                            <label for="game_id">
+                                <input id="game_id" type="checkbox" name="game_id" value="1"><br>
+                            </label>
+                        </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -138,7 +148,4 @@
     </div>
 </div>
 @endsection
-<div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://eng50cha.com/register" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
-<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="英単語強化サイト・エイゴメ登録無料！" data-show-count="false">Tweet</a>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+

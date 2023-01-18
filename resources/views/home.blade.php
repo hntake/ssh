@@ -102,6 +102,8 @@
                 </tr>
             </tbody>
         </table>
+        {{ $words->links() }}
+
     </div>
 
     <div class="testtable-responsive">
@@ -128,6 +130,8 @@
                 </tr>
             </tbody>
         </table>
+        {{ $histories->links() }}
+
     </div>
     <div class="testtable-responsive">
         <p>Myフォロー</p>
@@ -139,7 +143,6 @@
                     <th style="width:20%">教科書名</th>
                     <th style="width:20%">テスト名</th>
                     <th style="width:20%">作成者</th>
-                    <th style="width:10%"></th>
                     <th style="width:10%"></th>
 
                 </tr>
@@ -183,7 +186,6 @@
                     <th style="width:20%">テスト名</th>
                     <th style="width:20%">作成者</th>
                     <th style="width:10%"></th>
-                    <th style="width:10%"></th>
 
                 </tr>
             </thead>
@@ -208,6 +210,8 @@
                 </tr>
             </tbody>
         </table>
+        {{ $counts->links() }}
+
     </div>
 </div>
 @endsection
