@@ -41,7 +41,7 @@
                                             @endif
                                         </span>
                                     </div>
-                                    <input type="button" value="確認ボタン" onclick="window.location.reload();" />
+                                    <input type="button" value="確認ボタン" style="padding: 10px; font-size: 50px; color: red; font-weight: bold;"onclick="window.location.reload();" />
                                     <div>
                                             <td class="subheadline" style="font-size:25px;">クーポン利用完了しました。<br>
                                             ご利用いただきありがとうございました。<br><br>又、<span style="color:green; font-weight:bold;">エイゴメ</span>をチャレンジしてみてください。

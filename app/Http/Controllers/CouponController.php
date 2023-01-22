@@ -696,6 +696,7 @@ public function used(Request $request,$id,$coupon_id)
             return view('coupon.overdue');
         }
     }
+    /**利用済みなら */
     else{
         return view('coupon.bad');
     }
