@@ -50,14 +50,8 @@
                 <form class="form-inline" action="{{route('coupon.used',['id'=>$id,'coupon_id'=>$coupon_id])}}" method="POST" autocomplete="off">
                     @csrf
                     <div>
-                        <button type="submit"  autocomplete="new-password" id="btnReplace">クーポンを使う</button>
-                        <script>
-                        let btnReplace = document.getElementById('btnReplace');
-
-                        btnReplace.addEventListener('click', function(){
-                            location.replace('/');
-                        });
-                        </script>
+                        <button type="submit"  autocomplete="new-password" >クーポンを使う</button>
+                        
                     </div>
                     <div class="next">
                         <h3 style="color:red; font-weight:bold;">次の画面をお店の方に見せてください</h3>
