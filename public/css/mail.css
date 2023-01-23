@@ -96,6 +96,10 @@ td.tooltip {
     font-size: 14px;
     color: #0085c3;
 }
+/*ボタン中央*/
+.confirm{
+    text-align: center;
+}
 @media
  only screen and
 (min-width:300px) and (max-width:768px){

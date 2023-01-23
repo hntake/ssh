@@ -594,14 +594,17 @@ public function about(Request $request,$id,$coupon_id)
                         'tomorrow'=>$tomorrow
                     ]);
                 }
+                /**期限切れなら */
                 else{
                     return view('coupon.overdue');
                 }
             }
+                 /*クーポン使用済み*/
             else{
                 return view('coupon.not');
             }
         }
+        /*クーポンが生成されていない*/
         else{
             return view('coupon.clear');
         }
