@@ -18,14 +18,15 @@
         <table class="table table-hover" style="width:100%;">
             <thead style="background-color: #ffd900">
                 <tr>
-                    <th style="width:20%">店舗名</th>
+                    <th style="width:10%">店舗名</th>
                     <th style="width:10%">かな</th>
                     <th style="width:5%">CODE</th>
+                    <th style="width:5%">タイプ</th>
                     <th style="width:10%">uuid</th>
                     <th style="width:10%">メールアドレス</th>
-                    <th style="width:20%">電話番号</th>
-                    <th style="width:10%"></th>
-                    <th style="width:10%"></th>
+                    <th style="width:10%">電話番号</th>
+                    <th style="width:5%"></th>
+                    <th style="width:5%"></th>
                 </tr>
             </thead>
             @foreach($guests as $guest)
@@ -38,6 +39,7 @@
                 <td>{{$guest->email }}</td>
                 <td>{{$guest->tel }}</td>
                 <td> <div class="pro_button" style="margin:0;"><a href="{{ route('edit_store_picture',['id'=> $guest->id]) }}">画像変更</a></div></td>
+                <td> <div class="pro_button" style="margin:0;"><a href="{{ route('guest.used_coupon',['id'=> $guest->id]) }}">クーポン記録</a></div></td>
             </tr>
             @endforeach
         </table>

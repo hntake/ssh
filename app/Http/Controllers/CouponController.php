@@ -454,6 +454,7 @@ public function confirm(Request $request,$coupon_id)
             //couponテーブルへの受け渡し
             $coupon = Coupon::where('id',"=",$coupon_id)->whereDate('created_at', '>=',$date->subMinute(10))->orderBy('created_at','desc')->first();
             $coupon->email =$request->email;
+            $coupon->policy =1;
             $coupon->save();
           /*   $coupon_id = Coupon::where('email','=',$request->email)->whereDate('created_at', '>=',$date->subMinute(60))->value('id'); */
             if($coupon_id !== null){

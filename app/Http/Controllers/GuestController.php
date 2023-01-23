@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Store;
+use App\Models\Coupon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -139,5 +140,21 @@ public function list(Request $request)
             /* $user =User::where('id', $request->id)->value('image'); */
 
             return redirect('guest/list');
+    }
+    /*クーポン利用記録/
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function used_coupon($id)
+    {
+        $guest = Store::where('id','=',$id)->pluck('name');
+        $coupons = Coupon::where('store_name','=',$guest)->orderBy('created_at','desc')->paginate(20);
+
+
+        return view('guest/used_coupon', [
+            'coupons'=>$coupons
+        ]);
     }
 }

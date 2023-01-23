@@ -32,7 +32,9 @@
                 <input id="email" name="email" placeholder type="text" value="{{ old('email') }}">
                 <br>
                 <span class="tooltiptext">Eメールアドレスを入力してください。</span>
-                <input class="submit" type="submit" name="submitEmail" value="入力内容確認">
+                <input class="submit" type="submit" name="submitEmail" value="入力内容確認"><br>
+                当店からのメールレターを希望され方はこちらをチェックしてください
+                <input id="policy_id" type="checkbox" name="policy_id" value="1">
             </div>
             </form>
           @else

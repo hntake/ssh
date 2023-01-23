@@ -34,108 +34,108 @@
 
 <body>
     <div class="wrapper">
-            <header id="header" class="header is-open">
+        <header id="header" class="header is-open">
 
-                    <nav id="menu" class="header_nav js-menu">
+            <nav id="menu" class="header_nav js-menu">
 
 
-                        <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
-                        <ul class="header_nav_list">
-                            <li class="header_nav_itm">
-                                <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/title3.png" style="width:30%; height:auto;"></a>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="#monitor" class="header_nav_itm_link">概要</a>
-                                <div class="description1">エイゴメ協賛クーポン説明動画</div>
-                            </li>
+                <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
+                <ul class="header_nav_list">
+                    <li class="header_nav_itm">
+                        <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                    </li>
+                    <li class="header_nav_itm">
+                        <a href="#monitor" class="header_nav_itm_link">概要</a>
+                        <div class="description1">エイゴメ協賛クーポン説明動画</div>
+                    </li>
 
-                            <li class="header_nav_itm">
-                                <a href="#paid" class="header_nav_itm_link">費用</a>
-                                <div class="description1">初年度は無料です</div>
-                            </li>
+                    <li class="header_nav_itm">
+                        <a href="#paid" class="header_nav_itm_link">費用</a>
+                        <div class="description1">初年度は無料です</div>
+                    </li>
 
-                        </ul>
-                    </nav>
-                <div class="mobile">
-                    <ul class="header_nav_list">
-                        <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
-                        </li>
-                        <li class="header_nav_itm">
-                                    <a href="#monitor" class="header_nav_itm_link">エイゴメ協賛クーポン概要動画</a>
-                                    <div class="description1">エイゴメ協賛クーポン説明動画</div>
-                                </li>
-                        <li class="header_nav_itm">
-                            <a href="#paid" class="header_nav_itm_link">費用</a>
-                            <div class="description1">初年度は無料です</div>
-                        </li>
-                    </ul>
-                </div>
-            </header>
-            <div class="mv">
-                <section class="container">
-                    <div class="mv-content">
-                       <p class="mv-description">英語を身近に！</p>
-                       <p class="mv-logo">
+                </ul>
+            </nav>
+            <div class="mobile">
+                <ul class="header_nav_list">
+                    <li class="header_nav_itm">
+                        <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                    </li>
+                    <li class="header_nav_itm">
+                        <a href="#monitor" class="header_nav_itm_link">エイゴメ協賛クーポン概要動画</a>
+                        <div class="description1">エイゴメ協賛クーポン説明動画</div>
+                    </li>
+                    <li class="header_nav_itm">
+                        <a href="#paid" class="header_nav_itm_link">費用</a>
+                        <div class="description1">初年度は無料です</div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="mv">
+            <section class="container">
+                <div class="mv-content">
+                    <p class="mv-description">英語を身近に！</p>
+                    <p class="mv-logo">
                         <img class="img-fluid" src="img/coupon.png">
-                       </p>
-                       <p class="mv-catch">社会貢献とお店の活性化を</p>
-                    </div>
-                    <div class="mv-visual">
-                        <div class="mv-slide">
-                            <div class="swiper infinite-slider">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid" src="img/coupon_sm5.png">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid" src="img/coupon_sm6.png">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid" src="img/coupon_sm7.png">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid" src="img/coupon_sm1.png">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid" src="img/coupon_sm3.png">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-fluid" src="img/coupon_sm2.png">
-                                    </div>
-
+                    </p>
+                    <p class="mv-catch">社会貢献とお店の活性化を</p>
+                </div>
+                <div class="mv-visual">
+                    <div class="mv-slide">
+                        <div class="swiper infinite-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img class="img-fluid" src="img/coupon_sm5.png">
                                 </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid" src="img/coupon_sm6.png">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid" src="img/coupon_sm7.png">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid" src="img/coupon_sm1.png">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid" src="img/coupon_sm3.png">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img class="img-fluid" src="img/coupon_sm2.png">
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            <main>
-                <section class="section  bg-gray">
-                    <div class="explain">
-                        <h2 class="headline">
-                            エイゴメ協賛クーポンとは
-                        </h2>
-                        <p class="about-catch">
+                </div>
+            </section>
+        </div>
+        <main>
+            <section class="section  bg-gray">
+                <div class="explain">
+                    <h2 class="headline">
+                        エイゴメ協賛クーポンとは
+                    </h2>
+                    <p class="about-catch">
                         ”エイゴメ”は誰でも無料で英単語テストを作ったり、受けたりできるサイトです<br>エイゴメのテストを使ってお客様にクーポンを提供します
-                        </p>
-                        <div class="about-figure lg-none">
-                            <img class="img-chart" src="img/coupon_flow.png">
-                            <p class="about-figure-note">※クーポンを受け取るまでのイメージ図</p>
-                        </div>
-                        <p class="about-catch">
-                            英語を身近にするという社会貢献をしながら<br>リピーターの確保や客単価アップなどの機会を作れます
-                        </p>
-                        <div class="about-figure sm-none">
-                            <img class="img-fluid" src="img/coupon_flow.png">
-                            <p class="about-figure-note">※クーポンを受け取るまでのイメージ図</p>
-                        </div>
-                        <p class="about-catch">
-                            印刷代もなく費用手間を削減するだけでなく<br>利用データを蓄積・分析できます
-                        </p>
+                    </p>
+                    <div class="about-figure lg-none">
+                        <img class="img-chart" src="img/coupon_flow.png">
+                        <p class="about-figure-note">※クーポンを受け取るまでのイメージ図</p>
                     </div>
-                </section>
-            </main>
+                    <p class="about-catch">
+                        英語を身近にするという社会貢献をしながら<br>リピーターの確保や客単価アップなどの機会を作れます
+                    </p>
+                    <div class="about-figure sm-none">
+                        <img class="img-fluid" src="img/coupon_flow.png">
+                        <p class="about-figure-note">※クーポンを受け取るまでのイメージ図</p>
+                    </div>
+                    <p class="about-catch">
+                        印刷代もなく費用手間を削減するだけでなく<br>利用データを蓄積・分析できます
+                    </p>
+                </div>
+            </section>
+        </main>
         <!--説明動画-->
         <div class="youtube_kv">
             <div class="movie_cap">
@@ -146,7 +146,7 @@
                 </div>
                 <div class="youtube">
                     <div class="elementor-image">
-                        <a href="https://www.youtube.com/embed/ZkDpE0gTmVk" class="video-open" target="_blank" ><img src="img/play.png"></a>
+                        <a href="https://www.youtube.com/embed/Q4dmvJJAPOI" class="video-open" target="_blank"><img src="img/play.png"></a>
                     </div>
                 </div>
 
@@ -164,7 +164,7 @@
                     </div>
                     <div class="elementor-bottom">
                         <div class="elementor-heading-title">
-                            無料で利用できます。
+                            初年度は無料で利用できます。
                         </div>
                     </div>
                 </div>
@@ -190,11 +190,11 @@
                         </div>
                         <div class="option-container-bottom">
                             <div class="option-price">
-                                <b>￥0</b>
+                                <b>￥0(初年度)</b><br>
                             </div>
                         </div>
                         <div class="option-description">
-                            クーポンの提供だけでなく、ご要望があれば定期的にクーポンの発行数・利用数データも提供いたします。
+                            クーポンの提供だけでなく、定期的にクーポンの発行数・利用数データを提供いたします。
                         </div>
                     </div>
                 </div>
@@ -269,8 +269,8 @@
 
         <a href="#" class="gotop">トップへ</a>
     </footer>
-   <!-- CDN読み込み -->
-   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- CDN読み込み -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <!-- JSファイル読み込み -->
     <script src="js/main.js"></script>
 </body>
