@@ -41,10 +41,8 @@
                                             @endif
                                         </span>
                                     </div>
-                                    <div class="confirm">
-                                        <input type="button" value="確認ボタン" style="padding: 10px; font-size: 50px; color: red; font-weight: bold; background-color: pink;border-radius: 30px; border: 0;"onclick="window.location.reload();" />
+                                        <input type="button" value="確認ボタン" style="padding: 10px; margin-bottm:20px; font-size: 50px; color: red; font-weight: bold; background-color: pink;border-radius: 30px; border: 0;"onclick="window.location.reload();" />
 
-                                    </div>
                                     <div>
                                             <td class="subheadline" style="font-size:25px;">クーポン利用完了しました。<br>
                                             ご利用いただきありがとうございました。<br><br>又、<span style="color:green; font-weight:bold;">エイゴメ</span>をチャレンジしてみてください。
@@ -63,11 +61,11 @@
         });
         });
     </script>
-    <script>
+  <!--   <script>
         setTimeout(function(){
         window.location.href = 'https://eng50cha.com';
         }, 5*60*1000);
-    </script>
+    </script> -->
 </body>
 </html>
 

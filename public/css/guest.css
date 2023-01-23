@@ -337,7 +337,7 @@ svg {
 }
 .table-all{
     margin: 10 auto;
-
+    width: 100%;
 }
 .status{
     border: solid 1px white;
@@ -805,8 +805,7 @@ p#timer{
 .testtable-responsive td{
     border:1px solid #000066;
     background:#ffffff;
-    height: 50px;
-    width: 300px;
+    width: 100%;
     text-align: center;
 }
 .test{
