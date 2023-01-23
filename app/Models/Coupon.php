@@ -13,6 +13,7 @@ class Coupon extends Model
         'email',
         'used',
         'sent',
+        'policy',
 
     ];
 

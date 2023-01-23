@@ -20,6 +20,7 @@ class CreateCouponsTable extends Migration
             $table->string('uuid')->unique();
             $table->integer('sent')->default(0);
             $table->integer('used')->default(0);
+            $table->integer('policy')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
