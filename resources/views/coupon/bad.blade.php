@@ -43,12 +43,9 @@
                                             </td>
                                         </tr>
                                         <div class="header">
-                                            <tr>
-                                                <td>{{ __('またのご利用お待ちしております。') }}</td>
+                                        <tr>
+                                                <td>{{ __('クーポンは既に利用されています') }}</td>
                                             </tr>
-                                            <div class="logo">
-                                                <a href="{{ url('use') }}"><img src="/img/eng50cha.png" alt="logo" style="width:50%;"></a>
-                                            </div>
                                         </div>
                                     </tbody>
                                 </table>
