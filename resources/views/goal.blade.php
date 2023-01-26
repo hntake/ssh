@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-<title>目標設定ページ　英語学習サイト”エイゴメ”</title>
+<title>目標設定ページ 英語学習サイト”エイゴメ”</title>
 
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/guest.css') }}"> <!-- word.cssと連携 -->
 
 <div class="header-logo-menu">
     <div id="nav-drawer">
@@ -35,13 +35,28 @@
     </div>
 </div>
 
-<div class="searchtable-responsive">
+<div class="searchtable-responsive" style="font-family: 'Lato', sans-serif;
+  color: white;
+  background-color: teal;">
     <div class="comment">
         <br>
-        <form class="form-inline" action="{{route('goal',['id'=>$id])}}" method="POST">
+        <div class="old">
+            今の目標と目標点<br>
+            <tr>
+                <td>{{$game->goal}}/</td>
+                <td>{{$game->goal_point}}</td>
+            </tr>
+        </div>
+        <form class="form-inline" action="{{route('goal_post',['id'=>$id])}}" method="POST">
                 @csrf
-                <input type="text" name="point" id="point" class="form-control" size="50" placeholder="" value="{{ old('point') }}" style="width: 400px; height: 100px;">
-                <input type="text" name="goal" id="goal" class="form-control" size="150" placeholder="" value="{{ old('‘goal') }}" style="width: 400px; height: 100px;">
+                <div class="goal">
+                            目標
+                            <input type="text" name="goal_point" id="goal_point" class="form-control" size="50" value="{{ old('goal_point') }}" style="width: 40px; height: 40px;" >点
+                </div>
+                <div class="goal">
+                            リワード
+                            <input type="text" name="goal" id="goal" class="form-control" size="150"  value="{{ old('‘goal') }}" style="width: 400px; height: 100px;">
+                </div>
                 <div class="check">
                     <button type="submit">
                         変更

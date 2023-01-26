@@ -24,6 +24,15 @@ img{
     background-color: unset;
     width:auto;
 }
+.fish{
+    color: crimson;
+    font-size: 30px;
+    font-weight: bld;
+    font-weight: bold;
+    background-color: ghostwhite;
+    padding: 5px;
+    margin-bottom: 10px;
+}
 
 @media (max-width: 480px){
     img{

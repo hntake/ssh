@@ -630,12 +630,29 @@ p#timer{
 /*確認ボタン*/
 .confirm_button{
     margin-bottom: 20px;
-    padding: 10px;
-    width: 300px;
+    padding: 20px;
     color: #2285b1;
     font-size: 18px;
     font-weight: 700;
     border: 2px solid #2285b1;
+    border-radius: 20px;
+}
+.goal{
+    padding: 10px;
+}
+input#goal_point.form-control{
+    padding: 5px;
+    font-size: 20px;
+}
+input#goal.form-control{
+    padding: 10px;
+    font-size: 30px;
+}
+.old{
+    border: 1px solid white;
+    width: 30%;
+    margin: 0 auto;
+    padding:10px;
 }
 
 /*レスポンシブ対応*/
@@ -728,6 +745,13 @@ p#timer{
     .status{
         width:100%;
     }
+    .testtable-responsive td{
+        border:1px solid #000066;
+        background:#ffffff;
+        width: 100%;
+        text-align: center;
+        border-collapse: unset;
+    }
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
         .button a{
@@ -772,7 +796,6 @@ p#timer{
         .table-hover{
             width:100%;
         }
-    }
 
 .testtable-responsive{
     background-color: lightgreen;
@@ -871,6 +894,18 @@ table.admin_point{
     td{
         padding-top:20px;
     }
+    .table-responsive td{
+        border:1px solid #000066;
+        background:#ffffff;
+        height: 50px;
+        width: 100px
+    }
+    .testtable-responsive td{
+        border:1px solid #000066;
+        background:#ffffff;
+        width: 100%;
+        text-align: center;
+    }
 }
 /*lenovo*/
 @media only screen and (min-width:800px) and (max-width:1200px){
@@ -901,3 +936,4 @@ table.admin_point{
         width:60%;
     }
 }
+    }

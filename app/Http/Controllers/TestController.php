@@ -788,19 +788,17 @@ class TestController extends Controller
 
         /**親子機能有り */
         if (isset($user->game_id) && ($score > 7)) {
-            $user = Auth::user();
-            /*親子機能新登録*/
-            $game=new Game;
-            $game->user_id=$user->id;
-            $game->save();
+            /*親子ID確認*/
+            $user_id=$user->id;
+            $game = Game::where('user_id','=',$user_id)->first();
+            /**登録されてなかったら */
+            if($game===null){
+                /*親子機能新登録*/
+                $game=new Game;
+                $game->user_id=$user->id;
+                $game->save();
+            }
 
-          
-
-            $user = Auth::user();
-            $user_id = $user->id;
-            $game = Game::where('user_id', $user_id)->first();
-            $game->point++;
-            $game->save();
         }
         return view('today_result', [
             'id' => $id,

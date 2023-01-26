@@ -20,13 +20,13 @@
         <div class="confirm">
             <form method="POST" action="{{ route('confirm',['id'=>$id,'test_id'=>$test_id])}}">
                 @csrf
-                <button class="confirm_button" name="action" value="submit">確認おねがいします！</button>
+                <button class="confirm_button" name="action" value="submit" onclick="window.location.reload();">確認おねがいします！</button>
             </form>
         </div>
         @endif
         <div class="coupon">
             @if($score >7)
-            <img id="imageArea" src="/img/good_job6.png" alt="gj1" style="width:30%; height:auto;">
+            <img id="imageArea" src="/img/good_job6.png" alt="gj1" style="width:50%; height:auto;">
             <script>
                 const imageArea = document.getElementById('imageArea');
                 const images = [
@@ -48,7 +48,7 @@
                 <h3>テスト結果</h3>
             </div>
             <tr>
-                <th style="width:20%">番号</th>
+                <th style="width:10%">番号</th>
                 <th style="width:20%">結果</th>
                 <th style="width:20%">問題</th>
                 <th style="width:20%">正答</th>
@@ -169,4 +169,5 @@
 
 
 </div>
+
 @endsection

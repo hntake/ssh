@@ -16,6 +16,8 @@ class Game extends Model
     protected $fillable = [
         'user_id',
         'point',
+        'goal',
+        'goal_point',
     ];
 
 }

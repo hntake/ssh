@@ -7,7 +7,6 @@
 
         <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
         <link rel="stylesheet" href="{{ asset('css/calendar.css') }}"> <!-- word.cssと連携 -->
-
     <body>
     <div class="wrapper">
 
@@ -65,6 +64,14 @@
                 <li>
                     <div class="number">{{$total}}</div>
                 </li>
+                @if(!$game->goal ==NULL)
+                <li>
+                    <div class="fish">
+                        目標ポイント{{$game->goal_point}}<br>
+                        {{$game->goal}}
+                    </div>
+                </li>
+                @endif
                 <li>
                 <img id="imageArea" src="/img/good_job1.png" alt="gj1">
                 <script>
@@ -82,7 +89,7 @@
             </ul>
         </div>
         <div class="goal">
-            
+
         </div>
         <div class="testtable-responsive">
             <div class="title">My Record</div>
@@ -105,6 +112,15 @@
                 </tbody>
             </table>
         </div>
+        <script>
+        $(function() {
+        history.pushState(null, null, null);
+
+        $(window).on("popstate", function(){
+            history.pushState(null, null, null);
+        });
+        });
+    </script>
  </body>
 
 

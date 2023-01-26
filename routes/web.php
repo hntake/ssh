@@ -74,14 +74,6 @@ Route::post('/admin_confirm', [App\Http\Controllers\ContactController::class,'ad
 //送信完了ページ
 Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'admin_send'])->name('admin_send');
 
-//親子機能申込者入力ページ
-Route::get('/game_form', [App\Http\Controllers\ContactController::class,'game_form'])->name('game_form');
-//確認ページ
-Route::post('/game_confirm', [App\Http\Controllers\ContactController::class,'game_confirm'])->name('game_confirm');
-
-//送信完了ページ
-Route::post('/game_thanks', [App\Http\Controllers\ContactController::class,'game_send'])->name('game_send');
-
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
 
@@ -156,10 +148,9 @@ Route::get('/today_retest/{id}/test_id/{test_id}', [\App\Http\Controllers\TestCo
 
 /*合格確認へ*/
 Route::post('/confirm/{id}/test_id/{test_id}', [App\Http\Controllers\ParentController::class,'confirm'])->name('confirm');
-
-
-/*親子機能*/
-
+/**目標設定ページへ */
+Route::get('/goal', [App\Http\Controllers\ParentController::class,'goal'])->name('goal');
+Route::post('/goal/{id}', [App\Http\Controllers\ParentController::class,'goal_post'])->name('goal_post');
 
 /*フォロー登録*/
 Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');

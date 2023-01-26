@@ -19,6 +19,8 @@ class CreatedGamesTable extends Migration
             $table->id();
             $table->string('point')->default(0);
             $table->string('user_id')->index();
+            $table->string('goal')->nullable();
+            $table->integer('goal_point')->nullable();
             $table->timestamps();
 
             });
