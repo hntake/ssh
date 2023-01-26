@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 
         <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
+        <link rel="stylesheet" href="{{ asset('css/guest.css') }}"> <!-- word.cssと連携 -->
 
     <body>
     <div class="wrapper">

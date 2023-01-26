@@ -6,6 +6,8 @@
         <title>合格しよう！ 英単語強化サイトエイゴメ</title>
         <link rel="stylesheet" href="{{asset('../css/blog.css')}}">
         <link rel="stylesheet" href="{{ asset('css/guest.css') }}"> <!-- word.cssと連携 -->
+        <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 

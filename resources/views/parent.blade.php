@@ -70,7 +70,7 @@
                                 <div class="description1">親子機能の概要</div>
                             </li>
                             <li class="header_nav_itm">
-                                <a href="#monitor" class="header_nav_itm_link">申込方法</a>
+                                <a href="#use" class="header_nav_itm_link">申込方法</a>
                                 <div class="description1">親子機能の申込方法</div>
                             </li>
 
@@ -144,7 +144,7 @@
                                 <li><a href="#feature">
                                         <h3>親子機能</h3>
                                     </a></li>
-                                <li><a href="#monitor">
+                                <li><a href="#use">
                                         <h3>申込方法</h3>
                                     </a></li>
                                 <li class="header_nav_itm">
@@ -169,32 +169,18 @@
                 <div class="movie_cap">
                     <div class="elementor-widget">
                         <a name="feature">
-                            <img src="">
+                            <img src="img/movieCap_parent.png">
                         </a>
                     </div>
                     <div class="youtube">
                         <div class="elementor-image">
-                            <a href="https://www.youtube.com/embed/OnNhGpLqLlE" class="video-open"><img src="img/play.png"></a>
+                            <a href="https://www.youtube.com/embed/l1zFk_oF8oM" class="video-open"><img src="img/play.png"></a>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="monitor">
-                            <img src="">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://www.youtube.com/embed/d5Yjn2f3-9c" class="video-open"><img src="img/play.png"></a>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
             <section>
                 <div class="element">
                     <div class="use">
@@ -236,7 +222,7 @@
                             </div>
                             <div id="panel2" class="tab_panel">
                                 <div class="sleft">
-                                    <a href="img/create_use.png" data-lightbox="group"> <img src="img/create_use.png" alt="create" style="width:80%;"></a>
+                                    <a href="img/parent8.png" data-lightbox="group"> <img src="img/parent8.png" alt="create" style="width:80%;"></a>
                                 </div>
                                 <div class="sright">
                                     <div class="slide-head">一日一回の約束！</div>
@@ -247,14 +233,14 @@
                                         ランダムで今日のテストが表示されます<br>
                                         <br>
                                         <br>
-                                        ※詳細は画像をクリックして拡大してみてください
+                                        ※画像はクリックすると拡大して見れます
                                     </div>
                                 </div>
 
                             </div>
                                 <div id="panel3" class="tab_panel">
                                     <div class="sleft">
-                                        <a href="img/search.png" data-lightbox="group"> <img src="img/search.png" alt="search" style="width:80%;"></a>
+                                        <a href="img/parent7.png" data-lightbox="group"> <img src="img/parent7.png" alt="search" style="width:80%;"></a>
                                 </div>
                                 <div class="sright">
                                     <div class="slide-head">8点以上で合格したら</div>
@@ -265,246 +251,15 @@
                                         確認するとポイントが加算され<br>
                                         履歴ともに表示されます<br>
                                         <br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                       
+                                        ※画像はクリックすると拡大して見れます
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="element">
-                    <div class="use">
-                        <!-- リンク内移動-->
-                        <a name="useful" class="use">
-                            <br>ログインすると使える
-                            <br>便利な機能</a>
-                    </div>
-                    <div class="tab_wrap">
-                        <input id="tab4" type="radio" name="tab_btn2" checked>
-                        <input id="tab5" type="radio" name="tab_btn2">
-                        <input id="tab6" type="radio" name="tab_btn2">
-                        <input id="tab7" type="radio" name="tab_btn2">
-                        <div class="nav-wrap">
-                            <div class="scroll-nav">
-                                <div class="tab_area">
-                                    <label class="tab4_label" for="tab4">フォロー機能</label>
-                                    <label class="tab5_label" for="tab5">プロフィール機能</label>
-                                    <label class="tab6_label" for="tab6">ポイント機能</label>
-                                    <label class="tab7_label" for="tab7">デバイスフリー</label>
-                                </div>
-                            </div>
-                            <div class="next-btn">＞</div>
-                        </div>
-                        <div class="panel_area">
-                            <div id="panel4" class="tab_panel">
-                                <div class="sleft">
-                                    <a href="img/myfollow.png" data-lightbox="group"><img src="img/myfollow.png" alt="register" style="width:80%;"></a>
-                                </div>
-                                <div class="sright">
-                                    <div class="slide-head">友達をフォローする</div>
-                                    <div class="slide-description">
-                                        <b>簡単にテスト表示</b>
-                                        一緒にテストを共有したい友達を<br>
-                                        フォローするとホーム画面に表示されます<br>
-                                        <br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="panel5" class="tab_panel">
-                                <div class="sleft">
-                                    <a href="img/mylist.png" data-lightbox="group"> <img src="img/mylist.png" alt="create" style="width:80%;"></a>
-                                </div>
-                                <div class="sright">
-                                    <div class="slide-head">テスト期間に便利</div>
-                                    <div class="slide-description">
-                                        <b>簡単に編集削除</b>
-                                        自分の作ったテストは<br>
-                                        プロフィールページに表示されます<br>
-                                        覚えたら削除も出来ます<br>
-                                        利用履歴もホームページで表示されます
-                                        <br>
-                                        <br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                    </div>
-                                </div>
 
-                            </div>
-                            <div id="panel6" class="tab_panel">
-                                <div class="contents">
-                                    <div class="item">
-                                        <table class="company">
-                                            <tbody>
-                                                <tr>
-                                                    <th class="arrow_box">テストを作る</th>
-                                                    <td>+3</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="arrow_box">テストを受ける</th>
-                                                    <td> 得点9～10点 +3<br>
-                                                        得点6～8点 +2<br>
-                                                        得点0～5点 +1
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>自分のテストが利用される</th>
-                                                    <td>
-                                                        +1
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="item">
-                                        <div class="slide-head">ポイントを集めよう</div>
-                                        <div class="slide-description">
-                                            <b>やる気につながる</b>
-                                            各利用に対して<br>
-                                            ポイントが加算されます<br>
-                                            <br>
-                                            ※詳細は画像をクリックして拡大してみてください
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="panel7" class="tab_panel">
-                                <div class="sleft">
-                                    <img src="img/smafo.png" alt="create" style="width:80%;">
-                                </div>                                <div class="sright">
-                                    <div class="slide-head">自分にあった使い方</div>
-                                    <div class="slide-description">
-                                        <b>PC、スマホ、タブレット</b>
-                                        いずれのデバイスでも<br>
-                                        利用できます<br>
-                                        <br>
-                                        タイピング練習もかねてPC<br>
-                                        電車の中ではスマホなど
-                                        <br>
-                                        自分にあったやり方で英単語を強化できます
-                                        <br>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="element">
-                    <div class="use">
-                        <!-- リンク内移動-->
-                        <a name="monitor" class="use">
-                            <br>教育機関向け
-                            <br>有料サービス</a>
-                    </div>
-                    <div class="tab_wrap">
-                        <input id="tab8" type="radio" name="tab_btn3" checked>
-                        <input id="tab9" type="radio" name="tab_btn3">
-                        <input id="tab10" type="radio" name="tab_btn3">
-                        <input id="tab11" type="radio" name="tab_btn3">
-
-                        <div class="nav-wrap">
-                            <div class="scroll-nav">
-                                <div class="tab_area">
-                                    <label class="tab8_label" for="tab8">モニタリング</label>
-                                    <label class="tab9_label" for="tab9">メッセージ</label>
-                                    <label class="tab10_label" for="tab10">個人情報対策</label>
-                                    <label class="tab11_label" for="tab11">料金内訳</label>
-                                </div>
-                            </div>
-                            <div class="next-btn">＞</div>
-                        </div>
-                        <div class="panel_area">
-                            <div id="panel8" class="tab_panel">
-                                <a href="img/monitor_pc.png" data-lightbox="group"><img src="img/monitor_pc.png" alt="monitor" style="width:30%;"></a>
-                                <div class="sright">
-                                    <div class="slide-head">簡単表示</div>
-                                    <div class="slide-description">
-                                        <b>学習状況を可視化</b>
-                                        自生徒の利用が<br>
-                                        簡単に確認できます<br>
-                                        <br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                        <div class="llco" style="background-color:unset;">
-                                            <div class="admin_button"><a href="{{ route('admin_form') }}" style="background-color:none; color:#7791DE;">申込ページへ</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="panel9" class="tab_panel">
-                                <a href="img/commentBig.png" data-lightbox="group"> <img src="img/comment.png" alt="comment" style="width:30%;"></a>
-                                <div class="sright">
-                                    <div class="slide-head">簡単メッセージ機能</div>
-                                    <div class="slide-description">
-                                        <b>リモートで指示・指導</b>
-                                        講師や教師より<br>
-                                        アドバイスや指示を個別に送れます<br>
-                                        ※講師→生徒の一方向のメッセージです<br>
-                                        個人的なメッセージは出来ないようになっております
-                                        <br>
-                                        <br>
-                                        ※詳細は画像をクリックして拡大してみてください
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="panel10" class="tab_panel">
-                                <img src="img/security.png" alt="create" style="width:30%;">
-                                <div class="sright">
-                                    <div class="slide-head">情報流出を危惧されるなら</div>
-                                    <div class="slide-description">
-                                        <b>アカウント設定サービス</b>
-                                        ※別料金が必要となります<br>
-                                        専用のアカウントを全生徒分作成いたします<br>
-                                        <br>
-                                        <br>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div id="panel11" class="tab_panel">
-                                <div class="contents">
-                                    <div class="item">
-                                        <table class="company">
-                                            <tbody>
-                                                <tr>
-                                                    <th class="arrow_box">モニタリングサービス初期設定費用</th>
-                                                    <td>2000円</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="arrow_box">年会費</th>
-                                                    <td> 1000円
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>アカウント設定</th>
-                                                    <td>
-                                                        100円/1人
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="item">
-                                        <div class="slide-head">まずはご相談から</div>
-                                        <div class="slide-description">
-                                            <b>まずは一年間、使ってみませんか</b>
-                                            アカウント設定を利用しなければ<br>
-                                            初回3000円のみで始められます<br>
-                                            <h4>保証期間：登録から一年間</h4>
-                                            ※サーバートラブルなど一時的な停止を除く長期の利用不可が生じた場合は<span style="color:red;">全額返金致します。</span>
-                                            <div class="llco" style="background-color:unset;">
-                                                <div class="admin_button"><a href="{{ route('admin_form') }}" style="background-color:none; color:#7791DE;">申込ページへ</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
             <div class="bottom">
                 <div class="bottom-container">
