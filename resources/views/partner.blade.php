@@ -63,7 +63,7 @@
                         <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
                         <ul class="header_nav_list">
                             <li class="header_nav_itm">
-                                <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                                <a href="{{url('/')}}" class="header_nav_itm_link"><img src="img/title3.png" style="width:50%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#paid" class="header_nav_itm_link">ディストリビュータープログラム</a>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="mobile">
                     <li class="header_nav_itm">
-                        <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                        <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:80%; height:auto;"></a>
                     </li>
                     <li class="header_nav_itm">
                         <a href="#paid" class="header_nav_itm_link">ディストリビュータープログラム</a>

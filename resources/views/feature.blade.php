@@ -63,7 +63,7 @@
                         <ul class="header_nav_list">
 
                             <li class="title_image">
-                                <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                                <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:50%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#feature" class="header_nav_itm_link">エイゴメ</a>
@@ -108,7 +108,7 @@
                 <div class="mobile">
                     <ul>
                         <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                            <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:80%; height:auto;"></a>
                         </li>
                         <li class="header_nav_itm">
                             @if (Route::has('login'))
@@ -286,9 +286,9 @@
                                 </div>
 
                             </div>
-                                <div id="panel3" class="tab_panel">
-                                    <div class="sleft">
-                                        <a href="img/search.png" data-lightbox="group"> <img src="img/search.png" alt="search" style="width:80%;"></a>
+                            <div id="panel3" class="tab_panel">
+                                <div class="sleft">
+                                    <a href="img/search.png" data-lightbox="group"> <img src="img/search.png" alt="search" style="width:80%;"></a>
                                 </div>
                                 <div class="sright">
                                     <div class="slide-head">テストを受ける</div>
@@ -405,7 +405,8 @@
                             <div id="panel7" class="tab_panel">
                                 <div class="sleft">
                                     <img src="img/smafo.png" alt="create" style="width:80%;">
-                                </div>                                <div class="sright">
+                                </div>
+                                <div class="sright">
                                     <div class="slide-head">自分にあった使い方</div>
                                     <div class="slide-description">
                                         <b>PC、スマホ、タブレット</b>
