@@ -63,7 +63,7 @@
                         <ul class="header_nav_list">
 
                             <li class="title_image">
-                                <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                                <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:50%; height:auto;"></a>
                             </li>
                             <li class="header_nav_itm">
                                 <a href="#feature" class="header_nav_itm_link">概要</a>
@@ -103,7 +103,7 @@
                 <div class="mobile">
                     <ul>
                         <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                            <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:80%; height:auto;"></a>
                         </li>
                         <li class="header_nav_itm">
                             @if (Route::has('login'))
@@ -186,8 +186,8 @@
                     <div class="use">
                         <!-- リンク内移動-->
                         <a name="use" class="use">
-                            <br>エイゴメで
-                            <br>英単語を強化しよう</a>
+                            <br>小学生のうちから<br>
+                            英単語を強化しよう</a>
                     </div>
                     <div class="tab_wrap">
                         <input id="tab1" type="radio" name="tab_btn" checked>
