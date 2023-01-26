@@ -34,6 +34,7 @@
                 <li><a href="{{ url('search_user') }}">
                         <h3>ユーザー検索</h3>
                     </a></li>
+                    
             </ul>
         </div>
         <script>

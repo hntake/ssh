@@ -37,6 +37,9 @@
                 <li><a href="{{ url('search_user') }}">
                         <h3>ユーザー検索</h3>
                     </a></li>
+                <li><a href="{{ url('goal') }}">
+                    <h3>目標設定</h3>
+                </a></li>
             </ul>
         </div>
         <script>

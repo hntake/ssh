@@ -41,9 +41,9 @@
                 <li><a href="{{ url('search_user') }}">
                         <h3>ユーザー検索</h3>
                     </a></li>
-                <li><a href="{{ url('admin') }}">
-                        <h3>管理者画面に戻る</h3>
-                    </a></li>
+                <li><a href="{{ url('goal') }}">
+                    <h3>目標設定</h3>
+                </a></li>
             </ul>
         </div>
         <script>
