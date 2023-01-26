@@ -70,10 +70,10 @@
                                 <a href="{{ url('feature') }}" class="header_nav_itm_link">便利な機能</a>
                                 <div class="description1">フォロー機能やポイントシステム</div>
                             </li>
-                           <!--  <li class="header_nav_itm">
+                           <li class="header_nav_itm">
                                 <a href="{{ url('parent') }}" class="header_nav_itm_link">親子機能</a>
                                 <div class="description1">ペアレントチェックで英単語強化</div>
-                            </li> -->
+                            </li>
                             <li class="header_nav_itm">
                                 <a href="{{ url('plan') }}" class="header_nav_itm_link">教育関係者向け</a>
                                 <div class="description1">モニタリングサービスのご案内</div>
@@ -176,9 +176,9 @@
                                 <li><a href="{{ url('feature') }}">
                                         <h3>便利な機能</h3>
                                     </a></li>
-                               <!--  <li><a href="{{ url('parent') }}">
+                               <li><a href="{{ url('parent') }}">
                                         <h3>親子機能</h3>
-                                    </a></li> -->
+                                    </a></li>
                                 <li><a href="{{ url('plan') }}">
                                         <h3>教育関係者向け</h3>
                                     </a></li>

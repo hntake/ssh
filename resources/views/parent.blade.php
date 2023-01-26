@@ -211,8 +211,8 @@
                                         <div class="slide-head">親子機能を使うには</div>
                                         <div class="slide-description">
                                             <b>まずは登録</b>
-                                            ポイントを記録するため登録が必要で<br>
-                                            <a href="{{url('feature')}}">他の様々な機能</a>も使えます（完全無料）<br>
+                                            ポイントを記録するため登録が必要で
+                                            <a href="{{url('feature')}}">他にも様々な機能</a>も使えます<br>（完全無料）<br>
                                             <br>
                                             <div class="llco" style="background-color:unset;">
                                                 <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
@@ -229,9 +229,9 @@
                                     <div class="slide-description">
                                         <b>Today's Testを受けよう</b>
                                         漢字書き取りの様に<br>
-                                        英単語も毎日やることで効果が上がります<br>
-                                        ランダムで今日のテストが表示されます<br>
-                                        目標ポイントとご褒美を設定できるのでやる気に繋がります
+                                        英単語も毎日やることで効果が上がります。<br>
+                                        ランダムで今日のテストが表示され、
+                                        目標ポイントとご褒美を設定できるのでやる気に繋がります。
                                         <br><br>
                                         ※画像をクリックすると拡大して見れます
                                     </div>
@@ -249,7 +249,7 @@
                                         今日のテストに合格したら<br>
                                         家の人に確認してもらいます。<br>
                                         確認するとポイントが加算され<br>
-                                        履歴ともに表示されます<br>
+                                        履歴ともに表示されます。<br>
                                         <br>
                                         ※画像をクリックすると拡大して見れます
 
