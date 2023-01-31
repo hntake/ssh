@@ -7,6 +7,7 @@
     <title>英単語テストでクーポンをゲットしよう！</title>
     <link rel="stylesheet" href="{{asset('../css/blog.css')}}">
     <link rel="stylesheet" href="{{ asset('css/guest.css') }}"> <!-- word.cssと連携 -->
+    <link rel="stylesheet" href="{{ asset('css/coupon.css') }}"> <!-- word.cssと連携 -->
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -98,9 +99,9 @@
     </div>
     <input type="hidden" name="id" value="{{$id}}">
     <!--5分後に遷移する-->
-        <script>
-        setTimeout(function(){
-        window.location.href = 'https://eng50cha.com';
-        }, 5*60*1000);
-        </script>
+    <script>
+        setTimeout(function() {
+            window.location.href = 'https://eng50cha.com';
+        }, 5 * 60 * 1000);
+    </script>
 </body>

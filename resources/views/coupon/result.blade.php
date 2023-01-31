@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/guest.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/coupon.css') }}"> <!-- word.cssと連携 -->
+
 <meta http-equiv="Expires" content="0">
 
 
@@ -20,30 +22,30 @@
         <div class="coupon">
             @if($score >7)
             <form method="POST" action="{{ route('coupon.confirm',['coupon_id'=>$coupon_id])}}">
-            @csrf
-            @if($store->due == 1)
-            <img src="/img/coupon_get.png" alt="coupon" style="width:100%; height:auto;">
-            @elseif($store->due == 2)
-            <img src="/img/coupon_get_60.png" alt="coupon" style="width:100%; height:auto;">
-            @else
-            <img src="/img/coupon_get_180.png" alt="coupon" style="width:100%; height:auto;">
-            @endif
-            <div class="tooltip">
-                <input id="email" name="email" placeholder type="text" value="{{ old('email') }}">
-                <br>
-                <span class="tooltiptext">Eメールアドレスを入力してください。</span>
-                <input class="submit" type="submit" name="submitEmail" value="入力内容確認"><br>
-                当店からのメールレターを希望され方はこちらをチェックしてください
-                <input id="policy_id" type="checkbox" name="policy_id" value="1">
-            </div>
+                @csrf
+                @if($store->due == 1)
+                <img src="/img/coupon_get.png" alt="coupon" style="width:100%; height:auto;">
+                @elseif($store->due == 2)
+                <img src="/img/coupon_get_60.png" alt="coupon" style="width:100%; height:auto;">
+                @else
+                <img src="/img/coupon_get_180.png" alt="coupon" style="width:100%; height:auto;">
+                @endif
+                <div class="tooltip">
+                    <input id="email" name="email" placeholder type="text" value="{{ old('email') }}">
+                    <br>
+                    <span class="tooltiptext">Eメールアドレスを入力してください。</span>
+                    <input class="submit" type="submit" name="submitEmail" value="入力内容確認"><br>
+                    当店からのメールレターを希望され方はこちらをチェックしてください
+                    <input id="policy_id" type="checkbox" name="policy_id" value="1">
+                </div>
             </form>
-          @else
+            @else
             <a href="{{route('coupon.retest',['coupon_id'=>$coupon_id,'test_id'=>$test_id])}}"><img src="/img/again.png" alt="again" style="width:100%; height:auto;"></a>
             @endif
         </div>
         <thead>
             <div class="result-table">
-               <h3>テスト結果</h3>
+                <h3>テスト結果</h3>
             </div>
             <tr>
                 <th style="width:20%">番号</th>
