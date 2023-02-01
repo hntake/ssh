@@ -136,7 +136,6 @@ Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->n
 /*自分のプロフィール画面へ*/
 Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
 /*学習ページへ*/
-Route::get('/study{id}',[App\Http\Controllers\StudyController::class,'index'])->name('study');
 Route::get('/livewire/{id}',[App\Http\Controllers\StudyController::class,'index_livewire'])->name('livewire');
 
 /*今日のテストを表示*/

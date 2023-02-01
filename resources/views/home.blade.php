@@ -78,8 +78,8 @@
                     <th style="width:20%">テスト名</th>
                     <th style="width:20%">作成者</th>
                     <th style="width:10%"></th>
-<!--                     <th style="width:10%"></th>
- -->
+                    <th style="width:10%"></th>
+
                 </tr>
             </thead>
             <tbody id="tbl">
@@ -95,12 +95,12 @@
 
                         </div>
                     </td>
-                <!--     <td>
+                <td>
                         <div class="test_button">
-                            <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+                            <a href="{{ route('livewire',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
 
                         </div>
-                    </td> -->
+                    </td>
                     @endforeach
                 </tr>
             </tbody>
@@ -147,6 +147,7 @@
                     <th style="width:20%">テスト名</th>
                     <th style="width:20%">作成者</th>
                     <th style="width:10%"></th>
+                    <th style="width:10%"></th>
 
                 </tr>
             </thead>
@@ -166,12 +167,12 @@
                     <td>
                         <div class="button"><a href="{{ route('test',['id'=>$ftest->id]) }}">表示</a></div>
                     </td>
-                    <!-- <td>
+                    <td>
                         <div class="test_button">
-                            <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+                            <a href="{{ route('livewire',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
 
                         </div>
-                    </td> -->
+                    </td>
                     @endif
                     @endforeach
                 </tr>
@@ -189,6 +190,7 @@
                     <th style="width:20%">テスト名</th>
                     <th style="width:20%">作成者</th>
                     <th style="width:10%"></th>
+                    <th style="width:10%"></th>
 
                 </tr>
             </thead>
@@ -202,12 +204,12 @@
                     <td>
                         <div class="button"><a href="{{ route('test',['id'=>$count->id]) }}">表示</a></div>
                     </td>
-                    <!-- <td>
+                    <td>
                         <div class="test_button">
-                            <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+                            <a href="{{ route('livewire',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
 
                         </div>
-                    </td> -->
+                    </td>
 
                     @endforeach
                 </tr>

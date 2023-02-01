@@ -60,7 +60,7 @@
 
 <div class="test">
         @csrf
-        @if (!empty($word))
+     <!--    @if (!empty($word)) -->
         <table class="table-box" style="border:solid 1px gray; margin:0 auto;">
             <thead>
                 <tr style="background-color:darkseagreen">
@@ -72,138 +72,173 @@
                     <td>{{ $word->test_name }}</td>
                 </tr>
             </tbody>
+
             <table class="table-all">
-                <thead>
-                    <tr>
-                        <th style="width:5%">番号</th>
-                        <th style="width:30%">問題</th>
-                        <th style="width:30%">正解</th>
-                    </tr>
-                </thead>
-                <tbody id="tbl">
+    <thead>
+        <tr>
+            <th style="width:5%">番号</th>
+            <th style="width:30%">問題</th>
+            <th style="width:30%">正解</th>
+        </tr>
+    </thead>
+    <tbody id="tbl">
                     <tr class="onetest">
                         <td>1</td>
                         <td>{{ $word->en1}}</td>
                         <td style="color:red;">
-                            @livewire('study',['id'=>$id])
-                            @livewireScripts
-
+                        <button class='button1' data-id='{{$word->ja1}}'>日本語で</button>
+                        <p id='selected1'></p>
                         </td>
                     </tr>
                     <tr class="onetest">
-                        <td>2</td>
+                    <td>2</td>
                         <td>{{ $word->en2}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button2" value="日本語で">
-                            <div id="text2">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button2' data-id='{{$word->ja2}}'>日本語で</button>
+                        <p id='selected2'></p>                        </td>
                     </tr>
                     <tr class="onetest">
-                        <td>3</td>
+                    <td>3</td>
                         <td>{{ $word->en3}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button3" value="日本語で">
-                            <div id="text3">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button3' data-id='{{$word->ja3}}'>日本語で</button>
+                        <p id='selected3'></p>                        </td>
                     </tr>
                     <tr class="onetest">
-                        <td>4</td>
+                    <td>4</td>
                         <td>{{ $word->en4}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button4" value="日本語で">
-                            <div id="text4">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button4' data-id='{{$word->ja4}}'>日本語で</button>
+                        <p id='selected4'></p>                        </td>
                     </tr>
                     <tr class="onetest">
-                        <td>5</td>
+                    <td>5</td>
                         <td>{{ $word->en5}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button5" value="日本語で">
-                            <div id="text5">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button5' data-id='{{$word->ja5}}'>日本語で</button>
+                        <p id='selected5'></p>                        </td>
                     <tr class="onetest">
-                        <td>6</td>
+                    <td>6</td>
                         <td>{{ $word->en6}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button6" value="日本語で">
-                            <div id="text6">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button6' data-id='{{$word->ja6}}'>日本語で</button>
+                        <p id='selected6'></p>                        </td>
                     </tr>
                     <tr class="onetest">
-                        <td>7</td>
+                    <td>7</td>
                         <td>{{ $word->en7}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button7" value="日本語で">
-                            <div id="text7">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button7' data-id='{{$word->ja7}}'>日本語で</button>
+                        <p id='selected7'></p>                        </td>
                     </tr>
                     <tr class="onetest">
-                        <td>8</td>
+                    <td>8</td>
                         <td>{{ $word->en8}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button8" value="日本語で">
-                            <div id="text8">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button8' data-id='{{$word->ja8}}'>日本語で</button>
+                        <p id='selected8'></p>                        </td>
                     </tr>
                     <tr class="onetest">
-                        <td>9</td>
+                    <td>9</td>
                         <td>{{ $word->en9}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button9" value="日本語で">
-                            <div id="text9">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button9' data-id='{{$word->ja9}}'>日本語で</button>
+                        <p id='selected9'></p>                        </td>
                     </tr>
                     <tr class="onetest">
-                        <td>10</td>
+                    <td>10</td>
                         <td>{{ $word->en10}}</td>
                         <td style="color:red;">
-                            <input type="button" id="button10" value="日本語で">
-                            <div id="text10">
-                                <meta charset="utf8">
-                                <livewire:study>
-                            </div>
-                        </td>
+                        <button class='button10' data-id='{{$word->ja10}}'>日本語で</button>
+                        <p id='selected10'></p>                        </td>
                     </tr>
-                    <input type="hidden" name="user_name" value="{{$id}}">
 
 
                 </tbody>
 
-
             </table>
+            <script type="text/javascript">
+                $('.button1').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected1').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button2').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected2').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button3').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected3').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button4').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected4').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button5').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected5').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button6').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected6').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button7').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected7').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button8').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected8').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button9').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected9').text(click);
+                });
+            </script>
+            <script type="text/javascript">
+                $('.button10').on('click', function(){
+                    var click =  $(this).data('id');
+
+                    $('#selected10').text(click);
+                });
+            </script>
+
+
 
 
     <div class="button"><a href="{{ route('test',['id'=>$id]) }}">テストを受ける</a></div>
 
-</div>
+  @livewireScripts
+ </div>
 
 
-@else
-<p>テストは削除されました。</p>
+<!-- @else
+<p>テストは削除されました。</p> -->
 @if(Route::has('auth.admin'))
 <p>管理者の方は</p>
 <a href="{{ url('admin') }}" class="center-button">管理者画面へ</a>

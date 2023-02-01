@@ -87,12 +87,12 @@
 
                     </div>
                 </td>
-               <!--  <td>
+               <td>
                     <div class="test_button">
-                        <a href="{{ route('study',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+                        <a href="{{ route('livewire',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
 
                     </div>
-                </td> -->
+                </td>
             </tr>
         </table>
     </div>

@@ -18,7 +18,7 @@ class StudyController extends Controller
     }
     public function index_livewire(Request $request, $id)
     {
-        $word = Word::where('id', $request->id)->first();
+        $word = Word::where('id', $id)->first();
         return view('livewire', [
             'id' => $id,
             'word' => $word,
