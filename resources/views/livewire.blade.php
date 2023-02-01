@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 <title>テスト学習画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
-@livewireStyles
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
@@ -233,7 +232,6 @@
 
     <div class="button"><a href="{{ route('test',['id'=>$id]) }}">テストを受ける</a></div>
 
-  @livewireScripts
  </div>
 
 
