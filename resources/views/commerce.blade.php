@@ -101,7 +101,7 @@
                                     <img class="img-fluid" src="img/coupon_sm3.png">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img class="img-fluid" src="img/coupon_sm2.png">
+                                    <img class="img-fluid" src="img/coupon_index.png">
                                 </div>
 
                             </div>
@@ -190,11 +190,13 @@
                         </div>
                         <div class="option-container-bottom">
                             <div class="option-price">
-                                <b>￥0(初年度)</b><br>
+                                <b>￥0(初年度は無料です。
+                                次年度からも基本無料ですが、広告や寄付のお願いをする場合があるかもしれません。</b>
                             </div>
+                            <br>
                         </div>
                         <div class="option-description">
-                            クーポンの提供だけでなく、定期的にクーポンの発行数・利用数データを提供いたします。
+                            ※クーポンの提供だけでなく、定期的にクーポンの発行数・利用数データを提供いたします。
                         </div>
                     </div>
                 </div>
