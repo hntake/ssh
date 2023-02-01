@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="{{ asset('css/mail.css') }}">
 
 
-
-
-
 </head>
 <body>
     <table>

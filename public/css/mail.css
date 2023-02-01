@@ -128,4 +128,9 @@ td.tooltip {
     margin: 0 auto !important;
 
 }
+@media (max-width: 480px){
+    .subheadline{
+    text-align: start;
+    padding: 0 30px;
+    }
 }

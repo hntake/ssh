@@ -2,5 +2,20 @@
     img{
         width:100%;
     }
-
+    button{
+        margin-top: 20px;
+        margin-bottom:30px;
+    }
+    input.submit{
+        margin:20px 0;
+    }
+    input#email{
+        margin:20px 0;
+    }
+    input#policy_id{
+        margin:20px 0;
+    }
+    .tooltip{
+        padding:0 30px;
+    }
 }

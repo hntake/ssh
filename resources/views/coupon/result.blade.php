@@ -34,8 +34,8 @@
                     <input id="email" name="email" placeholder type="text" value="{{ old('email') }}">
                     <br>
                     <span class="tooltiptext">Eメールアドレスを入力してください。</span>
-                    <input class="submit" type="submit" name="submitEmail" value="入力内容確認"><br>
-                    当店からのメールレターを希望され方はこちらをチェックしてください
+                    <input class="submit" type="submit" name="submitEmail" value="入力内容確認"><br><span style="color:red; font-weight:bold;">
+                    当店からのメールレターを希望される方はこちらをチェックしてください</span>
                     <input id="policy_id" type="checkbox" name="policy_id" value="1">
                 </div>
             </form>
@@ -45,7 +45,7 @@
         </div>
         <thead>
             <div class="result-table">
-                <h3>テスト結果</h3>
+                <h3>テスト結果 正解</h3>
             </div>
             <tr>
                 <th style="width:20%">番号</th>
