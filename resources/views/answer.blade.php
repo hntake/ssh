@@ -67,51 +67,51 @@
             <tr class="onetest">
                 <td>1</td>
                 <td>{{ $word->ja1}}</td>
-                <td ><button onclick="readAloud1()" id="text" style="color:red;font-weight:bold;" >{{ $word->en1}}</button></td>
+                <td ><button onclick="readAloud1()" id="text" style="color:red;font-weight:bold;font-size:25px; padding:7px;" >{{ $word->en1}}</button></td>
             </tr>
             <tr class="onetest">
                 <td>2</td>
                 <td>{{ $word->ja2}}</td>
-                <td ><button onclick="readAloud2()"  id="text" style="color:red;font-weight:bold;">{{ $word->en2}}</button></td>
+                <td ><button onclick="readAloud2()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;">{{ $word->en2}}</button></td>
             </tr>
             <tr class="onetest">
                 <td>3</td>
                 <td>{{ $word->ja3}}</td>
-                <td ><button onclick="readAloud3()"  id="text" style="color:red;font-weight:bold;">{{ $word->en3}}</button></td>
+                <td ><button onclick="readAloud3()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;">{{ $word->en3}}</button></td>
             </tr>
             <tr class="onetest">
                 <td>4</td>
                 <td>{{ $word->ja4}}</td>
-                <td ><button onclick="readAloud4()"  id="text" style="color:red;font-weight:bold;" >{{ $word->en4}}</button></td>
+                <td ><button onclick="readAloud4()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;" >{{ $word->en4}}</button></td>
             </tr>
             <tr class="onetest">
                 <td>5</td>
                 <td>{{ $word->ja5}}</td>
-                <td ><button onclick="readAloud5()"  id="text" style="color:red;font-weight:bold;">{{ $word->en5}}</button></td>
+                <td ><button onclick="readAloud5()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;">{{ $word->en5}}</button></td>
             <tr class="onetest">
                 <td>6</td>
                 <td>{{ $word->ja6}}</td>
-                <td ><button onclick="readAloud6()"  id="text" style="color:red;font-weight:bold;" >{{ $word->en6}}</button></td>
+                <td ><button onclick="readAloud6()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;" >{{ $word->en6}}</button></td>
             </tr>
             <tr class="onetest">
                 <td>7</td>
                 <td>{{ $word->ja7}}</td>
-                <td ><button onclick="readAloud7()"  id="text" style="color:red;font-weight:bold;" >{{ $word->en7}}</button></td>
+                <td ><button onclick="readAloud7()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;" >{{ $word->en7}}</button></td>
             </tr>
             <tr class="onetest">
                 <td>8</td>
                 <td>{{ $word->ja8}}</td>
-                <td ><button onclick="readAloud8()"  id="text" style="color:red;font-weight:bold;">{{ $word->en8}}</button></td>
+                <td ><button onclick="readAloud8()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;">{{ $word->en8}}</button></td>
             </tr>
             <tr class="onetest">
                 <td>9</td>
                 <td>{{ $word->ja9}}</td>
-                <td ><button onclick="readAloud9()"  id="text" style="color:red;font-weight:bold;">{{ $word->en9}}</button></td>
+                <td ><button onclick="readAloud9()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;">{{ $word->en9}}</button></td>
             </tr>
             <tr class="onetest">
                 <td>10</td>
                 <td>{{ $word->ja10}}</td>
-                <td ><button onclick="readAloud10()"  id="text" style="color:red;font-weight:bold;" >{{ $word->en10}}</button></td>
+                <td ><button onclick="readAloud10()"  id="text" style="color:red;font-weight:bold; font-size:25px; padding:7px;" >{{ $word->en10}}</button></td>
             </tr>
         </tbody>
     </table>

@@ -83,73 +83,73 @@
     <tbody id="tbl">
                     <tr class="onetest">
                         <td>1</td>
-                        <td><button onclick="readAloud1()"  id="text" >{{ $word->en1}}</button></td>
+                        <td><button onclick="readAloud1()"  id="text" style="font-size:25px; padding:7px;">{{ $word->en1}}</button></td>
                         <td style="color:red;">
                         <button class='button1' data-id='{{$word->ja1}}'>日本語で</button>
-                        <p id='selected1'></p>
+                        <p id='selected1'style="margin-top: 0;"></p>
                         </td>
                     </tr>
                     <tr class="onetest">
                          <td>2</td>
-                         <td><button onclick="readAloud2()"  id="text" >{{ $word->en2}}</button></td>
+                         <td><button onclick="readAloud2()"  id="text" style="font-size:25px; padding:7px;" >{{ $word->en2}}</button></td>
                         <td style="color:red;">
                         <button class='button2' data-id='{{$word->ja2}}'>日本語で</button>
-                        <p id='selected2'></p>                        </td>
+                        <p id='selected2'style="margin-top: 0;"></p>                        </td>
                     </tr>
                     <tr class="onetest">
                         <td>3</td>
-                        <td><button onclick="readAloud3()"  id="text" >{{ $word->en3}}</button></td>
+                        <td><button onclick="readAloud3()"  id="text" style="font-size:25px; padding:7px;">{{ $word->en3}}</button></td>
                         <td style="color:red;">
                         <button class='button3' data-id='{{$word->ja3}}'>日本語で</button>
-                        <p id='selected3'></p>                        </td>
+                        <p id='selected3'style="margin-top: 0;"></p>                        </td>
                     </tr>
                     <tr class="onetest">
                     <td>4</td>
-                    <td><button onclick="readAloud4()"  id="text" >{{ $word->en4}}</button></td>
+                    <td><button onclick="readAloud4()"  id="text" style="font-size:25px; padding:7px;">{{ $word->en4}}</button></td>
                         <td style="color:red;">
                         <button class='button4' data-id='{{$word->ja4}}'>日本語で</button>
-                        <p id='selected4'></p>                        </td>
+                        <p id='selected4'style="margin-top: 0;"></p>                        </td>
                     </tr>
                     <tr class="onetest">
                     <td>5</td>
-                    <td><button onclick="readAloud5()"  id="text" >{{ $word->en5}}</button></td>
+                    <td><button onclick="readAloud5()"  id="text" style="font-size:25px; padding:7px;" >{{ $word->en5}}</button></td>
                         <td style="color:red;">
                         <button class='button5' data-id='{{$word->ja5}}'>日本語で</button>
-                        <p id='selected5'></p>                        </td>
+                        <p id='selected5'style="margin-top: 0;"></p>                        </td>
                     <tr class="onetest">
                     <td>6</td>
-                    <td><button onclick="readAloud6()"  id="text" >{{ $word->en6}}</button></td>
+                    <td><button onclick="readAloud6()"  id="text" style="font-size:25px; padding:7px;">{{ $word->en6}}</button></td>
                         <td style="color:red;">
                         <button class='button6' data-id='{{$word->ja6}}'>日本語で</button>
-                        <p id='selected6'></p>                        </td>
+                        <p id='selected6'style="margin-top: 0;"></p>                        </td>
                     </tr>
                     <tr class="onetest">
                     <td>7</td>
-                    <td><button onclick="readAloud7()"  id="text" >{{ $word->en7}}</button></td>
+                    <td><button onclick="readAloud7()"  id="text" style="font-size:25px; padding:7px;">{{ $word->en7}}</button></td>
                         <td style="color:red;">
                         <button class='button7' data-id='{{$word->ja7}}'>日本語で</button>
-                        <p id='selected7'></p>                        </td>
+                        <p id='selected7'style="margin-top: 0;"></p>                        </td>
                     </tr>
                     <tr class="onetest">
                     <td>8</td>
-                    <td><button onclick="readAloud8()"  id="text" >{{ $word->en8}}</button></td>
+                    <td><button onclick="readAloud8()"  id="text" style="font-size:25px; padding:7px;">{{ $word->en8}}</button></td>
                         <td style="color:red;">
                         <button class='button8' data-id='{{$word->ja8}}'>日本語で</button>
-                        <p id='selected8'></p>                        </td>
+                        <p id='selected8'style="margin-top: 0;"></p>                        </td>
                     </tr>
                     <tr class="onetest">
                     <td>9</td>
-                    <td><button onclick="readAloud9()"  id="text" >{{ $word->en9}}</button></td>
+                    <td><button onclick="readAloud9()"  id="text" style="font-size:25px; padding:7px;">{{ $word->en9}}</button></td>
                         <td style="color:red;">
                         <button class='button9' data-id='{{$word->ja9}}'>日本語で</button>
-                        <p id='selected9'></p>                        </td>
+                        <p id='selected9'style="margin-top: 0;"></p>                        </td>
                     </tr>
                     <tr class="onetest">
                     <td>10</td>
-                    <td><button onclick="readAloud10()"  id="text" >{{ $word->en10}}</button></td>
+                    <td><button onclick="readAloud10()"  id="text" style="font-size:25px; padding:7px;">{{ $word->en10}}</button></td>
                         <td style="color:red;">
                         <button class='button10' data-id='{{$word->ja10}}'>日本語で</button>
-                        <p id='selected10'></p>                        </td>
+                        <p id='selected10'style="margin-top: 0;"></p>                        </td>
                     </tr>
 
 
