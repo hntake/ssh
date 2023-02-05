@@ -91,7 +91,7 @@
                     </tr>
                     <tr class="onetest">
                          <td>2</td>
-                         <td><button onclick="readAloud2     ()"  id="text" >{{ $word->en2}}</button></td>
+                         <td><button onclick="readAloud2()"  id="text" >{{ $word->en2}}</button></td>
                         <td style="color:red;">
                         <button class='button2' data-id='{{$word->ja2}}'>日本語で</button>
                         <p id='selected2'></p>                        </td>

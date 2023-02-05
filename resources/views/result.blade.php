@@ -72,10 +72,10 @@
                 <td> {{$result1}}</td>
                 @if($result1 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja1}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en1}}</td>
+                <td ><button onclick="readAloud1()" id="text" style="color:red;font-weight:bold;" >{{ $word->en1}}</button></td>
                 @else
                 <td>{{ $word->ja1}}</td>
-                <td>{{ $word->en1}}</td>
+                <td><button onclick="readAloud1()"  id="text" >{{ $word->en1}}</button></td>
                 @endif
             </tr>
             <tr class="onetest">
@@ -83,10 +83,10 @@
                 <td> {{$result2}}</td>
                 @if($result2 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja2}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en2}}</td>
+                <td ><button onclick="readAloud2()"  id="text" style="color:red;font-weight:bold;">{{ $word->en2}}</button></td>
                 @else
                 <td>{{ $word->ja2}}</td>
-                <td>{{ $word->en2}}</td>
+                <td><button onclick="readAloud2()"  id="text" >{{ $word->en2}}</button></td>
                 @endif
             </tr>
             <tr class="onetest">
@@ -94,10 +94,10 @@
                 <td> {{$result3}}</td>
                 @if($result3 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja3}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en3}}</td>
+                <td ><button onclick="readAloud3()"  id="text" style="color:red;font-weight:bold;">{{ $word->en3}}</button></td>
                 @else
                 <td>{{ $word->ja3}}</td>
-                <td>{{ $word->en3}}</td>
+                <td><button onclick="readAloud3()"  id="text" >{{ $word->en3}}</button></td>
                 @endif
             </tr>
             <tr class="onetest">
@@ -105,10 +105,10 @@
                 <td> {{$result4}}</td>
                 @if($result4 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja4}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en4}}</td>
+                <td ><button onclick="readAloud4()"  id="text" style="color:red;font-weight:bold;" >{{ $word->en4}}</button></td>
                 @else
                 <td>{{ $word->ja4}}</td>
-                <td>{{ $word->en4}}</td>
+                <td><button onclick="readAloud4()"  id="text" >{{ $word->en4}}</button></td>
                 @endif
             </tr>
             <tr class="onetest">
@@ -116,20 +116,20 @@
                 <td> {{$result5}}</td>
                 @if($result5 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja5}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en5}}</td>
+                <td ><button onclick="readAloud5()"  id="text" style="color:red;font-weight:bold;">{{ $word->en5}}</button></td>
                 @else
                 <td>{{ $word->ja5}}</td>
-                <td>{{ $word->en5}}</td>
+                <td><button onclick="readAloud5()"  id="text" >{{ $word->en5}}</button></td>
                 @endif
             <tr class="onetest">
                 <td>6</td>
                 <td> {{$result6}}</td>
                 @if($result6 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja6}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en6}}</td>
+                <td ><button onclick="readAloud6()"  id="text" style="color:red;font-weight:bold;" >{{ $word->en6}}</button></td>
                 @else
                 <td>{{ $word->ja6}}</td>
-                <td>{{ $word->en6}}</td>
+                <td><button onclick="readAloud6()"  id="text" >{{ $word->en6}}</button></td>
                 @endif
             </tr>
             <tr class="onetest">
@@ -137,10 +137,10 @@
                 <td> {{$result7}}</td>
                 @if($result7 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja7}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en7}}</td>
+                <td ><button onclick="readAloud7()"  id="text" style="color:red;font-weight:bold;" >{{ $word->en7}}</button></td>
                 @else
                 <td>{{ $word->ja7}}</td>
-                <td>{{ $word->en7}}</td>
+                <td><button onclick="readAloud7()"  id="text" >{{ $word->en7}}</button></td>
                 @endif
             </tr>
             <tr class="onetest">
@@ -148,10 +148,10 @@
                 <td> {{$result8}}</td>
                 @if($result8 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja8}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en8}}</td>
+                <td ><button onclick="readAloud8()"  id="text" style="color:red;font-weight:bold;">{{ $word->en8}}</button></td>
                 @else
                 <td>{{ $word->ja8}}</td>
-                <td>{{ $word->en8}}</td>
+                <td><button onclick="readAloud8()"  id="text" >{{ $word->en8}}</button></td>
                 @endif
             </tr>
             <tr class="onetest">
@@ -159,10 +159,10 @@
                 <td> {{$result9}}</td>
                 @if($result9 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja9}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en9}}</td>
+                <td ><button onclick="readAloud9()"  id="text" style="color:red;font-weight:bold;">{{ $word->en9}}</button></td>
                 @else
                 <td>{{ $word->ja9}}</td>
-                <td>{{ $word->en9}}</td>
+                <td><button onclick="readAloud9()"  id="text" >{{ $word->en9}}</button></td>
                 @endif
             </tr>
             <tr class="onetest">
@@ -170,14 +170,324 @@
                 <td> {{$result10}}</td>
                 @if($result10 === 'X')
                 <td style="color:red;font-weight:bold;">{{ $word->ja10}}</td>
-                <td style="color:red;font-weight:bold;">{{ $word->en10}}</td>
+                <td ><button onclick="readAloud10()"  id="text" style="color:red;font-weight:bold;" >{{ $word->en10}}</button></td>
                 @else
                 <td>{{ $word->ja10}}</td>
-                <td>{{ $word->en10}}</td>
+                <td><button onclick="readAloud10()"  id="text" >{{ $word->en10}}</button></td>
                 @endif
             </tr>
         </tbody>
     </table>
+    <script>
+            function readAloud1() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en1}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+             <script>
+            function readAloud2     () {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en2}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+            <script>
+            function readAloud3() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en3}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+            <script>
+            function readAloud4() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en4}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+            <script>
+            function readAloud5() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en5}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+            <script>
+            function readAloud6() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en6}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+            <script>
+            function readAloud7() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en7}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+            <script>
+            function readAloud8() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en8}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+            <script>
+            function readAloud9() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en9}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
+            <script>
+            function readAloud10() {
+            // テキストを取得
+            const text = document.getElementById("text").value
+
+            // ブラウザにWeb Speech API Speech Synthesis機能があるか判定
+            if ('speechSynthesis' in window) {
+
+            // 発言を設定
+            const uttr = new SpeechSynthesisUtterance()
+
+            // テキストを設定
+            uttr.text = '{{ $word->en10}}'
+
+            // 言語を設定
+            uttr.lang = 'en-US'
+
+            // 英語に対応しているvoiceを設定
+            const voices = speechSynthesis.getVoices()
+            for (let i = 0; i < voices.length; i++) {
+            if (voices[i].lang === 'en-US') {
+                uttr.voice = voices[i]
+            }
+            }
+
+            // 発言を再生
+            window.speechSynthesis.speak(uttr)
+
+            }
+            }
+            </script>
     <div class="button"><a href="{{ route('test',['id'=>$id]) }}">再チャレンジ！</a>
     </div>
 
