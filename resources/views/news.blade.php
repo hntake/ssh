@@ -106,7 +106,7 @@
                     </div>
                     <div class="elementor-bottom">
                         <div class="elementor-heading-title">
-                            エイゴメのアップデートやメンテナンスに関する情報をお知らせします。
+                            アップデートやメンテナンスに関する情報をお知らせします。
                         </div>
                     </div>
                 </div>
