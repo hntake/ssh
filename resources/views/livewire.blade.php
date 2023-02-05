@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<div class="test">
+<div class="testtable-responsive">
         @csrf
      <!--    @if (!empty($word)) -->
         <table class="table-box" style="border:solid 1px gray; margin:0 auto;">
