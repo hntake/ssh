@@ -68,17 +68,17 @@
     </div>
 
     <div class="testtable-responsive">
-        <p>My履歴</p>
+        <h2>My履歴</h2>
         <p class="only">※※クリックすると別タブで開きます※※</p>
         <table class="table-all">
             <thead style="display:contents;">
                 <tr>
-                    <th style="width:20%">学年</th>
-                    <th style="width:20%">教科書名</th>
-                    <th style="width:20%">テスト名</th>
-                    <th style="width:20%">作成者</th>
-                    <th style="width:10%"></th>
-                    <th style="width:10%"></th>
+                    <th style="width:10%">学年</th>
+                    <th style="width:15%">教科書名</th>
+                    <th style="width:15%">テスト名</th>
+                    <th style="width:15%">作成者</th>
+                    <th style="width:15%"></th>
+                    <th style="width:15%"></th>
 
                 </tr>
             </thead>
@@ -110,7 +110,54 @@
     </div>
 
     <div class="testtable-responsive">
-        <p>MyScore(最新順)</p>
+        <h2>あとでリスト</h2>
+        <p class="only">※※クリックすると別タブで開きます※※</p>
+        <table class="table-all">
+            <thead style="display:contents;">
+                <tr>
+                <th style="width:10%">学年</th>
+                    <th style="width:15%">教科書名</th>
+                    <th style="width:15%">テスト名</th>
+                    <th style="width:15%"></th>
+                    <th style="width:15%"></th>
+                    <th style="width:15%"></th>
+
+                </tr>
+            </thead>
+            <tbody id="tbl">
+                @foreach ($later_tests as $later_test)
+                <tr>
+                    <td>{{ $later_test->Type->type }}</td>
+                    <td>{{ $later_test->Textbook->textbook }}</td>
+                    <td>{{ $later_test->test_name }}</td>
+                    <td>
+                        <div class="test_button">
+                            <a href="{{ route('test',['id'=>$later_test->id]) }}" target=”_blank”>テスト表示</a>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="test_button">
+                            <a href="{{ route('livewire',['id'=>$later_test->id]) }}" target=”_blank”>学習ページへ</a>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="test_button">
+                            <a href="{{ route('delete_later',['id'=> $later_test->id]) }}" >削除する</a>
+
+                        </div>
+                    </td>
+                    @endforeach
+                </tr>
+            </tbody>
+        </table>
+        {{ $words->links() }}
+
+    </div>
+
+    <div class="testtable-responsive">
+        <h2>MyScore(最新順)</h2>
         <table class="table-all">
             <thead style="display:contents;">
                 <tr>
@@ -137,17 +184,17 @@
 
     </div>
     <div class="testtable-responsive">
-        <p>Myフォロー</p>
+        <h2>Myフォロー</h2>
         <p class="only">※※クリックすると別タブで開きます※※</p>
         <table class="table-all">
             <thead style="display:contents;">
                 <tr>
-                    <th style="width:20%">学年</th>
-                    <th style="width:20%">教科書名</th>
-                    <th style="width:20%">テスト名</th>
-                    <th style="width:20%">作成者</th>
-                    <th style="width:10%"></th>
-                    <th style="width:10%"></th>
+                    <th style="width:10%">学年</th>
+                    <th style="width:15%">教科書名</th>
+                    <th style="width:15%">テスト名</th>
+                    <th style="width:15%">作成者</th>
+                    <th style="width:15%"></th>
+                    <th style="width:15%"></th>
 
                 </tr>
             </thead>
@@ -180,17 +227,17 @@
         </table>
     </div>
     <div class="testtable-responsive">
-        <p>おススメ</p>
+        <h2>おススメ</h2>
         <p class="only">※※クリックすると別タブで開きます※※</p>
         <table class="table-all">
             <thead style="display:contents;">
                 <tr>
-                    <th style="width:20%">学年</th>
-                    <th style="width:20%">教科書名</th>
-                    <th style="width:20%">テスト名</th>
-                    <th style="width:20%">作成者</th>
-                    <th style="width:10%"></th>
-                    <th style="width:10%"></th>
+                    <th style="width:10%">学年</th>
+                    <th style="width:15%">教科書名</th>
+                    <th style="width:15%">テスト名</th>
+                    <th style="width:15%">作成者</th>
+                    <th style="width:15%"></th>
+                    <th style="width:15%"></th>
 
                 </tr>
             </thead>

@@ -59,6 +59,11 @@ th, td {
     color:red;
     font-weight: bold;
 }
+.active {
+    background-color: red;
+    color:white;
+    font-weight: bold;
+  }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 .testtable-responsive{
     margin:0 ;

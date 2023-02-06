@@ -3,7 +3,8 @@
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 
 <title>テスト検索画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
-
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 @section('content')
 
 <div class="header-logo-menu">
@@ -111,6 +112,8 @@
     <div class="test-hover">
         <p>全{{ $words->count() }}件</p>
         <p class="only">※※クリックすると別タブで開きます※※</p>
+        @foreach($words as $word)
+
         <table class="table table-hover">
             <thead style="background-color: #ffd900">
                 <tr>
@@ -119,11 +122,13 @@
                     <th style="width:10%">教科書名</th>
                     <th style="width:20%">作成者</th>
                     <th style="width:10%"></th>
-                    <th style="width:10%"></th>
+                    <th style="width:10%">会員のみ</th>
+                    <th style="width:10%">会員のみ</th>
 
                 </tr>
             </thead>
-            @foreach($words as $word)
+
+
             <tr>
                 <td>{{ $word->test_name }}</td>
                 <td>{{ $word->Type->type }}</td>
@@ -138,14 +143,26 @@
                <td>
                     <div class="test_button" ontouchstart="">
                         <a href="{{ route('livewire',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
-
                     </div>
                 </td>
+                <td>
+                <iframe name="votar" style="display:none;"></iframe>
+                    <form method="POST" action="{{ route('later',['id'=>$word->id])}}" target="votar">
+                    @method('patch')
+                    @csrf
+                    <div x-data="{ show: false }">
+                        <button @click="show = !show" :aria-expanded="show ? 'true' : 'false'" :class="{ 'active': show }">
+                        あとでに保存する
+                        </button>
+
+                    </div>
+                    </form>
+
+                </td>
+                @endforeach
+
             </tr>
-            @endforeach
         </table>
-
-
     </div>
     <!--テーブルここまで-->
     <!--ページネーション-->
@@ -155,6 +172,7 @@
     </div>
     <!--ページネーションここまで-->
 </div>
+
 @endif
 @endsection
 <a href="#" class="gotop">トップへ</a>

@@ -7,6 +7,7 @@ use App\Models\Word;
 use App\Models\User;
 use App\Models\Nice;
 use App\Models\History;
+use App\Models\Later;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
@@ -60,10 +61,12 @@ class HomeController extends Controller
             /**My履歴 */
             $test_ids = History::where('tested_user', '=', Auth::user()->user_name)->get()->pluck('test_id')->toArray();
             $words = Word::whereIn('id', $test_ids)->OrderBy('id', 'desc')->paginate(15);
-
+            /**あとで */
+            $later= Later::where('created_user','=', Auth::user()->id)->get()->pluck('later_test')->toArray();
+            $later_tests=Word::whereIn('id', $later)->orderBy('created_at', 'desc')->paginate(10);
             /**MyScore */
             $user_name =Auth::user()->user_name;
-            $histories = History::where('tested_user', '=',$user_name)->whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(15);
+            $histories = History::where('tested_user', '=',$user_name)->whereIn('test_id', $test_ids)->OrderBy('created_at', 'desc')->paginate(10);
             /*MYフォロー*/
             $follows = Nice::where('user_id','=', Auth::user()->id)->get()->pluck('created_user')->toArray();/*自分がフォローしているユーザー名を取得*/
             $ftests = Word::whereIn('user_name', $follows)->orderBy('created_at', 'desc')->paginate(10);/*取得したユーザー名が一致するテストを取得する
@@ -100,6 +103,7 @@ class HomeController extends Controller
                 'counts' => $counts,
                 'date' => $date,
                 'histories'=>$histories,
+                'later_tests'=>$later_tests,
 
             ]);
         }

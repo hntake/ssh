@@ -155,7 +155,9 @@ Route::post('/goal/{id}', [App\Http\Controllers\ParentController::class,'goal_po
 Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');
 Route::get('/reply/unnice/{id}',[App\Http\Controllers\HomeController::class, 'unnice'])->name('unnice');
 /*あとで登録*/
-Route::post('/reply/later/{id}',[App\Http\Controllers\HomeController::class,'later'])->name('later');
+Route::patch('/search_result/{id}',[App\Http\Controllers\StudyController::class,'later'])->name('later');
+/*あとで削除*/
+Route::get('/home/{id}', [App\Http\Controllers\StudyController::class, 'delete_later'])->name('delete_later');
 Route::get('/reply/nomore/{id}',[App\Http\Controllers\HomeController::class, 'nomore'])->name('nomore');
 
 });
