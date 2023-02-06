@@ -216,12 +216,16 @@
                         <input id="tab1" type="radio" name="tab_btn" checked>
                         <input id="tab2" type="radio" name="tab_btn">
                         <input id="tab3" type="radio" name="tab_btn">
+                        <input id="tab12" type="radio" name="tab_btn">
+                        <input id="tab7" type="radio" name="tab_btn">
                         <div class="nav-wrap">
                             <div class="scroll-nav">
                                 <div class="tab_area">
                                     <label class="tab1_label" for="tab1">まずは登録</label>
                                     <label class="tab2_label" for="tab2">テストを作る</label>
                                     <label class="tab3_label" for="tab3">テストを受ける</label>
+                                    <label class="tab12_label" for="tab12">発音学習</label>
+                                    <label class="tab7_label" for="tab7">デバイスフリー</label>
                                 </div>
                             </div>
                             <div class="next-btn">＞</div>
@@ -240,6 +244,11 @@
                                         <td>〇</td>
                                     </tr>
                                     <tr>
+                                        <td>正解を見る</td>
+                                        <td>〇</td>
+                                        <td>✕</td>
+                                    </tr>
+                                    <tr>
                                         <td>テスト作成</td>
                                         <td>〇</td>
                                         <td>✕</td>
@@ -252,6 +261,16 @@
                                     </tr>
                                     <tr>
                                         <td>フォロー機能</td>
+                                        <td>〇</td>
+                                        <td>✕</td>
+                                    </tr>
+                                    <tr>
+                                        <td>単語学習</td>
+                                        <td>〇</td>
+                                        <td>✕</td>
+                                    </tr>
+                                    <tr>
+                                        <td>後でに保存</td>
                                         <td>〇</td>
                                         <td>✕</td>
                                     </tr>
@@ -304,6 +323,41 @@
                                     </div>
                                 </div>
                             </div>
+                            <div id="panel12" class="tab_panel">
+                                <div class="sleft">
+                                    <a href="img/pro.png" data-lightbox="group"> <img src="img/pro.png" alt="pronounce" style="width:80%;"></a>
+                                </div>
+                                <div class="sright">
+                                    <div class="slide-head">発音チェック</div>
+                                    <div class="slide-description">
+                                        <b>発音も学習</b>
+                                        サイト内の英語は全て<br>
+                                        クリックしたら発音が聞けます<br>
+                                        <br>
+                                        ※詳細は画像をクリックして拡大してみてください
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="panel7" class="tab_panel">
+                                <div class="sleft">
+                                    <img src="img/smafo.png" alt="create" style="width:80%;">
+                                </div>
+                                <div class="sright">
+                                    <div class="slide-head">自分にあった使い方</div>
+                                    <div class="slide-description">
+                                        <b>PC、スマホ、タブレット</b>
+                                        いずれのデバイスでも<br>
+                                        利用できます<br>
+                                        <br>
+                                        タイピング練習もかねてPC<br>
+                                        電車の中ではスマホなど
+                                        <br>
+                                        自分にあったやり方で英単語を強化できます
+                                        <br>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -318,19 +372,34 @@
                         <input id="tab4" type="radio" name="tab_btn2" checked>
                         <input id="tab5" type="radio" name="tab_btn2">
                         <input id="tab6" type="radio" name="tab_btn2">
-                        <input id="tab7" type="radio" name="tab_btn2">
+                        <input id="tab13" type="radio" name="tab_btn2">
                         <div class="nav-wrap">
                             <div class="scroll-nav">
                                 <div class="tab_area">
+                                    <label class="tab13_label" for="tab13">学習機能</label>
                                     <label class="tab4_label" for="tab4">フォロー機能</label>
                                     <label class="tab5_label" for="tab5">プロフィール機能</label>
                                     <label class="tab6_label" for="tab6">ポイント機能</label>
-                                    <label class="tab7_label" for="tab7">デバイスフリー</label>
                                 </div>
                             </div>
                             <div class="next-btn">＞</div>
                         </div>
                         <div class="panel_area">
+                            <div id="panel13" class="tab_panel">
+                                <div class="sleft">
+                                    <a href="img/read.png" data-lightbox="group"><img src="img/read.png" alt="register" style="width:80%;"></a>
+                                </div>
+                                <div class="sright">
+                                    <div class="slide-head">単語帳のように</div>
+                                    <div class="slide-description">
+                                        <b>英語から日本語も</b>
+                                        日本語→英語だけでなく<br>
+                                        英語→日本語でも学習できます<br>
+                                        <br>
+                                        ※詳細は画像をクリックして拡大してみてください
+                                    </div>
+                                </div>
+                            </div>
                             <div id="panel4" class="tab_panel">
                                 <div class="sleft">
                                     <a href="img/myfollow.png" data-lightbox="group"><img src="img/myfollow.png" alt="register" style="width:80%;"></a>
@@ -402,26 +471,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="panel7" class="tab_panel">
-                                <div class="sleft">
-                                    <img src="img/smafo.png" alt="create" style="width:80%;">
-                                </div>
-                                <div class="sright">
-                                    <div class="slide-head">自分にあった使い方</div>
-                                    <div class="slide-description">
-                                        <b>PC、スマホ、タブレット</b>
-                                        いずれのデバイスでも<br>
-                                        利用できます<br>
-                                        <br>
-                                        タイピング練習もかねてPC<br>
-                                        電車の中ではスマホなど
-                                        <br>
-                                        自分にあったやり方で英単語を強化できます
-                                        <br>
-                                    </div>
-                                </div>
 
-                            </div>
                         </div>
                     </div>
                 </div>

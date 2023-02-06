@@ -293,6 +293,20 @@ input[type="radio"]{
     display:block;
     width:50%;
 }
+#tab12:checked ~ .tab_area .tab12_label{
+    background:#fff; color:#000;
+}
+#tab12:checked ~ .panel_area #panel12{
+    display:flex;
+    width:50%;
+}
+#tab13:checked ~ .tab_area .tab13_label{
+    background:#fff; color:#000;
+}
+#tab13:checked ~ .panel_area #panel13{
+    display:flex;
+    width:50%;
+}
 /*登録のメリット表*/
 .design09 {
     width: 40%;
@@ -825,6 +839,14 @@ a.use{
     display: block;
     width: 100%;
 }
+#tab12:checked ~ .panel_area #panel12 {
+    display: block;
+    width: 100%;
+}
+#tab13:checked ~ .panel_area #panel13 {
+    display: block;
+    width: 100%;
+}
 .panel_area{
 }
 .element{
@@ -1110,6 +1132,14 @@ a.use{
     width: 100%;
 }
 #tab11:checked ~ .panel_area #panel11 {
+    display: block;
+    width: 100%;
+}
+#tab12:checked ~ .panel_area #panel12 {
+    display: block;
+    width: 100%;
+}
+#tab13:checked ~ .panel_area #panel13 {
     display: block;
     width: 100%;
 }
@@ -1401,6 +1431,14 @@ a.use{
         width: 100%;
     }
     #tab11:checked ~ .panel_area #panel11 {
+        display: block;
+        width: 100%;
+    }
+    #tab12:checked ~ .panel_area #panel12 {
+        display: block;
+        width: 100%;
+    }
+    #tab13:checked ~ .panel_area #panel13 {
         display: block;
         width: 100%;
     }
