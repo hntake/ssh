@@ -11,8 +11,8 @@
 }
 ul{
     list-style: none;
-    display: flex;
-}
+/*     display: flex;
+ */}
 li.name{
     display:flex;
 }
