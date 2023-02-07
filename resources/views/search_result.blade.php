@@ -146,7 +146,7 @@
                     </div>
                 </td>
                 <td>
-                <iframe name="votar" style="display:none;"></iframe>
+                <iframe name="votar" style="display:none;" src="{{url('search_result')}}"></iframe>
                     <form method="POST" action="{{ route('later',['id'=>$word->id])}}" target="votar">
                     @method('patch')
                     @csrf
