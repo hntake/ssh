@@ -61,8 +61,7 @@ th, td {
 }
 .active {
     background-color: red;
-    color:white;
-    font-weight: bold;
+   display:none;
   }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 .testtable-responsive{
@@ -115,6 +114,9 @@ table.admin_point{
     td{
         padding-top:20px;
     }
+    .active {
+       display:none;
+      }
 }
 /*lenovo*/
 @media only screen and (min-width:800px) and (max-width:1200px){

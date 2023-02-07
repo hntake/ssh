@@ -112,7 +112,6 @@
     <div class="test-hover">
         <p>全{{ $words->count() }}件</p>
         <p class="only">※※クリックすると別タブで開きます※※</p>
-        @foreach($words as $word)
 
         <table class="table table-hover">
             <thead style="background-color: #ffd900">
@@ -127,6 +126,7 @@
 
                 </tr>
             </thead>
+            @foreach($words as $word)
 
 
             <tr>
