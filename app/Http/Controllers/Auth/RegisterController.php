@@ -79,21 +79,39 @@ class RegisterController extends Controller
             $filePath = $uploadImg->store('public');
             $data['image'] = str_replace('public/', '', $filePath);
 
-            return User::create([
-                'name' => $data['name'],
-                'user_name' => $data['user_name'],
-                'school1' => $data['school1'],
-                'school2' => $data['school2'],
-                'year' => $data['year'],
-                'place' => $data['place'],
-                'image' => $data['image'],
-                'email' => $data['email'],
-                'game_id' => $data['game_id'],
-                'password' => Hash::make($data['password']),
-                'email_token' => base64_encode($data['email']),
-            ]);
+            if(array_key_exists('game_id',$data)){
+
+                return User::create([
+                    'name' => $data['name'],
+                    'user_name' => $data['user_name'],
+                    'school1' => $data['school1'],
+                    'school2' => $data['school2'],
+                    'year' => $data['year'],
+                    'place' => $data['place'],
+                    'image' => $data['image'],
+                    'email' => $data['email'],
+                    'game_id' => $data['game_id'],
+                    'password' => Hash::make($data['password']),
+                    'email_token' => base64_encode($data['email']),
+                ]);
+            }
+            else{
+                return User::create([
+                    'name' => $data['name'],
+                    'user_name' => $data['user_name'],
+                    'school1' => $data['school1'],
+                    'school2' => $data['school2'],
+                    'year' => $data['year'],
+                    'place' => $data['place'],
+                    'image' => $data['image'],
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),
+                    'email_token' => base64_encode($data['email']),
+                ]);
+            }
         }
         else{
+            if(array_key_exists('game_id',$data)){
             return User::create([
                 'name' => $data['name'],
                 'user_name' => $data['user_name'],
@@ -107,6 +125,20 @@ class RegisterController extends Controller
                 'password' => Hash::make($data['password']),
             ]);
         }
+            else{
+                return User::create([
+                    'name' => $data['name'],
+                    'user_name' => $data['user_name'],
+                    'school1' => $data['school1'],
+                    'school2' => $data['school2'],
+                    'year' => $data['year'],
+                    'place' => $data['place'],
+                    'image' => '',
+                    'email' => $data['email'],
+                    'password' => Hash::make($data['password']),
+                ]);
+            }
     }
 
+    }
 }

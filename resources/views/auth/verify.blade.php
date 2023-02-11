@@ -1,3 +1,6 @@
+@extends('layouts.app')
+<link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <title>メールアドレスをご確認ください</title>
 @section('content')
 <div class="container">
