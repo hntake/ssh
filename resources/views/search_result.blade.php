@@ -4,7 +4,9 @@
 
 <title>テスト検索画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+ --><script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
 @section('content')
 
 <div class="header-logo-menu">
