@@ -2,6 +2,15 @@
     font-family: 'Togali';
     src: url('fonts\Togalite-Bold.woff2') format('woff2');
 }
+a{
+    text-decoration: none;
+}
+a h3{
+    color: #111;
+}
+a h3:hover{
+	color: #FF0000;
+}
 .top img{
     width: 500px;
 }

@@ -11,32 +11,38 @@
     <label id="nav-open" for="nav-input"><span></span></label>
     <label class="nav-unshown" id="nav-close" for="nav-input"></label>
     <div id="nav-content">
-      <ul>
-        <li><a href="{{ url('home') }}">
-            <h3>ホーム画面に戻る</h3>
-          </a></li>
-        <li><a href="{{ url('history') }}">
-            <h3>全履歴</h3>
-          </a></li>
-        <li><a href="{{ url('profile') }}">
-            <h3>Myページ</h3>
-          </a></li>
-        <li><a href="{{ url('all_list') }}">
-            <h3>テスト一覧</h3>
-          </a></li>
-        <li><a href="{{ url('create') }}">
-            <h3>新規作成</h3>
-          </a></li>
-        <li><a href="{{ url('search_result') }}">
-            <h3>テスト検索</h3>
-          </a></li>
-        <li><a href="{{ url('search_user') }}">
-            <h3>ユーザー検索</h3>
-          </a></li>
-        <li><a href="{{ url('goal') }}">
-                    <h3>目標設定</h3>
-         </a></li>
-      </ul>
+    <ul>
+                <li><a href="{{ url('home') }}">
+                        <h3 ontouchstart="">ホーム画面に戻る</h3>
+                    </a></li>
+                <li><a href="{{ url('history') }}">
+                        <h3 ontouchstart="">全履歴</h3>
+                    </a></li>
+                <li><a href="{{ url('profile') }}">
+                        <h3 ontouchstart="">Myページ</h3>
+                    </a></li>
+                <li><a href="{{ url('all_list') }}">
+                        <h3 ontouchstart="">テスト一覧</h3>
+                    </a></li>
+                <li><a href="{{ url('today') }}">
+                        <h3 ontouchstart="">Today's TEST</h3>
+                    </a></li>
+                <li><a href="{{ url('today_listen') }}">
+                        <h3 ontouchstart="">Today's リッスン</h3>
+                    </a></li>
+                <li><a href="{{ url('create') }}">
+                        <h3 ontouchstart="">新規作成</h3>
+                    </a></li>
+                <li><a href="{{ url('search_result') }}">
+                        <h3 ontouchstart="">テスト検索</h3>
+                    </a></li>
+                <li><a href="{{ url('search_user') }}">
+                        <h3 ontouchstart="">ユーザー検索</h3>
+                    </a></li>
+                <li><a href="{{ url('goal') }}">
+                        <h3 ontouchstart="">目標設定</h3>
+                    </a></li>
+            </ul>
     </div>
     <script>
       $(function() {

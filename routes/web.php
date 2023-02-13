@@ -76,6 +76,8 @@ Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'adm
 
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
+/*選択したリッスンを表示*/
+Route::get('/listen/{id}', [App\Http\Controllers\TestController::class, 'listen'])->name('listen');
 
 /*全テスト画面へ*/
 Route::get('all_list',[App\Http\Controllers\TestController::class,'list'])->name('list');
@@ -142,6 +144,10 @@ Route::get('/livewire/{id}',[App\Http\Controllers\StudyController::class,'index_
 Route::get('/today', [App\Http\Controllers\TestController::class, 'today'])->name('today');
 /*今日のテスト採点*/
 Route::post('/today/{id}/test_id/{test_id}', [App\Http\Controllers\TestController::class,'result_today'])->name('result_today');
+/*今日のリッスンを表示*/
+Route::get('/today_listen', [App\Http\Controllers\TestController::class, 'today_listen'])->name('today_listen');
+/*今日のリッスン採点*/
+Route::post('/today_listen/{id}/test_id/{test_id}', [App\Http\Controllers\TestController::class,'listen_result_today'])->name('listen_result_today');
 /*今日のテストリテスト表示*/
 Route::get('/today_retest/{id}/test_id/{test_id}', [\App\Http\Controllers\TestController::class, 'today_retest'])->name('today_retest');
 
