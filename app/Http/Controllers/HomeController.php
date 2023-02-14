@@ -38,8 +38,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $count = History::where('tested_user',  '=', Auth::user()->user_name)->count();
         /*テスト未利用の場合*/
-        if (Auth::user()->point === 0) {
+        if ($count === 0) {
 
             $user = Auth::user();
             $comment = $user->comment;

@@ -307,6 +307,13 @@ input[type="radio"]{
     display:flex;
     width:50%;
 }
+#tab14:checked ~ .tab_area .tab14_label{
+    background:#fff; color:#000;
+}
+#tab14:checked ~ .panel_area #panel14{
+    display:flex;
+    width:50%;
+}
 /*登録のメリット表*/
 .design09 {
     width: 40%;
@@ -1374,7 +1381,7 @@ a.use{
         font-family:'Rubik Dirt';
     }
     .use{
-        margin: 0 auto 25px auto;
+        margin: 100px auto 25px auto;
     }
     a.use{
         font-size: 30px;
@@ -1439,6 +1446,10 @@ a.use{
         width: 100%;
     }
     #tab13:checked ~ .panel_area #panel13 {
+        display: block;
+        width: 100%;
+    }
+    #tab14:checked ~ .panel_area #panel14 {
         display: block;
         width: 100%;
     }

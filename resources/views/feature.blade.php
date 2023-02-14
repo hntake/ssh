@@ -174,36 +174,6 @@
                     </div>
                 </div>
             </header>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="feature">
-                            <img src="img/movieCapnew.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://www.youtube.com/embed/oC47QgHfCuc" class="video-open"><img src="img/play.png"></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="youtube_kv">
-                <div class="movie_cap">
-                    <div class="elementor-widget">
-                        <a name="monitor">
-                            <img src="img/movieCap2new.png">
-                        </a>
-                    </div>
-                    <div class="youtube">
-                        <div class="elementor-image">
-                            <a href="https://www.youtube.com/embed/d5Yjn2f3-9c" class="video-open"><img src="img/play.png"></a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
             <section>
                 <div class="element">
                     <div class="use">
@@ -369,14 +339,17 @@
                             <br>便利な機能</a>
                     </div>
                     <div class="tab_wrap">
-                        <input id="tab4" type="radio" name="tab_btn2" checked>
+                        <input id="tab4" type="radio" name="tab_btn2" >
                         <input id="tab5" type="radio" name="tab_btn2">
                         <input id="tab6" type="radio" name="tab_btn2">
-                        <input id="tab13" type="radio" name="tab_btn2">
+                        <input id="tab13" type="radio" name="tab_btn2"checked>
+                        <input id="tab14" type="radio" name="tab_btn2">
+
                         <div class="nav-wrap">
                             <div class="scroll-nav">
                                 <div class="tab_area">
                                     <label class="tab13_label" for="tab13">学習機能</label>
+                                    <label class="tab14_label" for="tab14">後で機能</label>
                                     <label class="tab4_label" for="tab4">フォロー機能</label>
                                     <label class="tab5_label" for="tab5">プロフィール機能</label>
                                     <label class="tab6_label" for="tab6">ポイント機能</label>
@@ -396,6 +369,21 @@
                                         日本語→英語だけでなく<br>
                                         英語→日本語でも学習できます<br>
                                         <br>
+                                        ※詳細は画像をクリックして拡大してみてください
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="panel14" class="tab_panel">
+                                <div class="sleft">
+                                    <a href="img/read.png" data-lightbox="group"><img src="img/later3.png" alt="register" style="width:80%;"></a>
+                                </div>
+                                <div class="sright">
+                                    <div class="slide-head">定期テストに最適</div>
+                                    <div class="slide-description">
+                                        <b>今、覚えたい単語を登録</b>
+                                        検索したテストを<br>
+                                        後でリストに登録すれば<br>
+                                        定期テスト対策で便利です<br>
                                         ※詳細は画像をクリックして拡大してみてください
                                     </div>
                                 </div>
@@ -591,6 +579,37 @@
                     </div>
                 </div>
             </section>
+            <div class="youtube_kv">
+                <div class="movie_cap">
+                    <div class="elementor-widget">
+                        <a name="feature">
+                            <img src="img/movieCapnew.png">
+                        </a>
+                    </div>
+                    <div class="youtube">
+                        <div class="elementor-image">
+                            <a href="https://www.youtube.com/embed/oC47QgHfCuc" class="video-open"><img src="img/play.png"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="youtube_kv">
+                <div class="movie_cap">
+                    <div class="elementor-widget">
+                        <a name="monitor">
+                            <img src="img/movieCap2new.png">
+                        </a>
+                    </div>
+                    <div class="youtube">
+                        <div class="elementor-image">
+                            <a href="https://www.youtube.com/embed/d5Yjn2f3-9c" class="video-open"><img src="img/play.png"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <div class="bottom">
                 <div class="bottom-container">
                     <div class="bottom-element">

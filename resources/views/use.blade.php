@@ -101,7 +101,7 @@
                 <div class="mobile">
                     <ul>
                         <li class="header_nav_itm">
-                            <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:30%; height:auto;"></a>
+                            <a href="{{url('/')}}" class=""><img src="img/title3.png" style="width:80%; height:auto;"></a>
                         </li>
                         <li class="header_nav_itm">
                             @if (Route::has('login'))
@@ -165,15 +165,19 @@
                             <br>英単語を強化しよう</a>
                     </div>
                     <div class="tab_wrap">
-                        <input id="tab3" type="radio" name="tab_btn" checked>
-                        <input id="tab1" type="radio" name="tab_btn" >
+                        <input id="tab1" type="radio" name="tab_btn" checked>
                         <input id="tab2" type="radio" name="tab_btn">
+                        <input id="tab3" type="radio" name="tab_btn">
+                        <input id="tab12" type="radio" name="tab_btn">
+                        <input id="tab7" type="radio" name="tab_btn">
                         <div class="nav-wrap">
                             <div class="scroll-nav">
                                 <div class="tab_area">
-                                    <label class="tab3_label" for="tab3">テストを受ける</label>
                                     <label class="tab1_label" for="tab1">まずは登録</label>
                                     <label class="tab2_label" for="tab2">テストを作る</label>
+                                    <label class="tab3_label" for="tab3">テストを受ける</label>
+                                    <label class="tab12_label" for="tab12">発音学習</label>
+                                    <label class="tab7_label" for="tab7">デバイスフリー</label>
                                 </div>
                             </div>
                             <div class="next-btn">＞</div>
@@ -192,6 +196,11 @@
                                         <td>〇</td>
                                     </tr>
                                     <tr>
+                                        <td>正解を見る</td>
+                                        <td>〇</td>
+                                        <td>✕</td>
+                                    </tr>
+                                    <tr>
                                         <td>テスト作成</td>
                                         <td>〇</td>
                                         <td>✕</td>
@@ -207,6 +216,16 @@
                                         <td>〇</td>
                                         <td>✕</td>
                                     </tr>
+                                    <tr>
+                                        <td>単語学習</td>
+                                        <td>〇</td>
+                                        <td>✕</td>
+                                    </tr>
+                                    <tr>
+                                        <td>後でに保存</td>
+                                        <td>〇</td>
+                                        <td>✕</td>
+                                    </tr>
                                     <div class="sright">
                                         <div class="slide-head">全ての機能を使うには</div>
                                         <div class="slide-description">
@@ -215,11 +234,7 @@
                                             それ以外の機能は一切利用できません<br>
                                             <br>
                                             <div class="llco" style="background-color:unset;">
-                                            <div class="register-button">
-                                                <a href="https://youtube.com/embed/0_OJutYQxLM" class="header_nav_itm_link">説明動画</a>
-                                            </div>
-                                            <div class="admin_button">
-                                                <a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
+                                                <div class="admin_button"><a href="{{ route('register') }}" style="background-color:none; color:#7791DE;">登録ページへ</a></div>
                                             </div>
                                         </div>
                                 </table>
@@ -238,9 +253,6 @@
                                         <br>
                                         ※一つでも空欄があるとエラーになります<br>
                                         ※詳細は画像をクリックして拡大してみてください
-                                        <div class="register-button">
-                                            <a href="https://youtube.com/embed/0C4VCt9kWvA" class="header_nav_itm_link">説明動画</a>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -252,20 +264,51 @@
                                 <div class="sright">
                                     <div class="slide-head">テストを受ける</div>
                                     <div class="slide-description">
-                                        <b>登録無しでも</b>
+                                        <b>簡単検索</b>
                                         学年・教科書、そして<br>
                                         単元を入力すると検索できます<br>
                                         <br>
                                         ※詳細は画像をクリックして拡大してみてください
                                         <div class="llco" style="background-color:unset;">
-                                        <div class="register-button">
-                                            <a href="https://youtube.com/embed/TqhOe38OWQE" class="header_nav_itm_link">説明動画</a>
-                                        </div>
-                                        <div class="admin_button">
-                                                <a href="{{ route('search_result') }}" style="background-color:none; color:#7791DE;">テスト検索ページへ</a></div>
+                                            <div class="admin_button"><a href="{{ route('search_result') }}" style="background-color:none; color:#7791DE;">テスト検索ページへ</a></div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div id="panel12" class="tab_panel">
+                                <div class="sleft">
+                                    <a href="img/pro.png" data-lightbox="group"> <img src="img/pro.png" alt="pronounce" style="width:80%;"></a>
+                                </div>
+                                <div class="sright">
+                                    <div class="slide-head">発音チェック</div>
+                                    <div class="slide-description">
+                                        <b>発音も学習</b>
+                                        サイト内の英語は全て<br>
+                                        クリックしたら発音が聞けます<br>
+                                        <br>
+                                        ※詳細は画像をクリックして拡大してみてください
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="panel7" class="tab_panel">
+                                <div class="sleft">
+                                    <img src="img/smafo.png" alt="create" style="width:80%;">
+                                </div>
+                                <div class="sright">
+                                    <div class="slide-head">自分にあった使い方</div>
+                                    <div class="slide-description">
+                                        <b>PC、スマホ、タブレット</b>
+                                        いずれのデバイスでも<br>
+                                        利用できます<br>
+                                        <br>
+                                        タイピング練習もかねてPC<br>
+                                        電車の中ではスマホなど
+                                        <br>
+                                        自分にあったやり方で英単語を強化できます
+                                        <br>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -278,22 +321,54 @@
                             <br>便利な機能</a>
                     </div>
                     <div class="tab_wrap">
-                        <input id="tab4" type="radio" name="tab_btn2" checked>
+                        <input id="tab4" type="radio" name="tab_btn2" >
                         <input id="tab5" type="radio" name="tab_btn2">
                         <input id="tab6" type="radio" name="tab_btn2">
-                        <input id="tab7" type="radio" name="tab_btn2">
+                        <input id="tab13" type="radio" name="tab_btn2"checked>
+                        <input id="tab14" type="radio" name="tab_btn2">
                         <div class="nav-wrap">
                             <div class="scroll-nav">
                                 <div class="tab_area">
+                                    <label class="tab13_label" for="tab13">学習機能</label>
+                                    <label class="tab14_label" for="tab14">後で機能</label>
                                     <label class="tab4_label" for="tab4">フォロー機能</label>
                                     <label class="tab5_label" for="tab5">プロフィール機能</label>
                                     <label class="tab6_label" for="tab6">ポイント機能</label>
-                                    <label class="tab7_label" for="tab7">デバイスフリー</label>
                                 </div>
                             </div>
                             <div class="next-btn">＞</div>
                         </div>
                         <div class="panel_area">
+                            <div id="panel13" class="tab_panel">
+                                <div class="sleft">
+                                    <a href="img/read.png" data-lightbox="group"><img src="img/read.png" alt="register" style="width:80%;"></a>
+                                </div>
+                                <div class="sright">
+                                    <div class="slide-head">単語帳のように</div>
+                                    <div class="slide-description">
+                                        <b>英語から日本語も</b>
+                                        日本語→英語だけでなく<br>
+                                        英語→日本語でも学習できます<br>
+                                        <br>
+                                        ※詳細は画像をクリックして拡大してみてください
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="panel14" class="tab_panel">
+                                <div class="sleft">
+                                    <a href="img/read.png" data-lightbox="group"><img src="img/later3.png" alt="register" style="width:80%;"></a>
+                                </div>
+                                <div class="sright">
+                                    <div class="slide-head">定期テストに最適</div>
+                                    <div class="slide-description">
+                                        <b>今、覚えたい単語を登録</b>
+                                        検索したテストを<br>
+                                        後でリストに登録すれば<br>
+                                        定期テスト対策で便利です<br>
+                                        ※詳細は画像をクリックして拡大してみてください
+                                    </div>
+                                </div>
+                            </div>
                             <div id="panel4" class="tab_panel">
                                 <div class="sleft">
                                     <a href="img/myfollow.png" data-lightbox="group"><img src="img/myfollow.png" alt="register" style="width:80%;"></a>
@@ -365,25 +440,121 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="panel7" class="tab_panel">
-                                <div class="sleft">
-                                    <img src="img/smafo.png" alt="create" style="width:80%;">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="element">
+                    <div class="use">
+                        <!-- リンク内移動-->
+                        <a name="monitor" class="use">
+                            <br>教育機関向け
+                            <br>有料サービス</a>
+                    </div>
+                    <div class="tab_wrap">
+                        <input id="tab8" type="radio" name="tab_btn3" checked>
+                        <input id="tab9" type="radio" name="tab_btn3">
+                        <input id="tab10" type="radio" name="tab_btn3">
+                        <input id="tab11" type="radio" name="tab_btn3">
+
+                        <div class="nav-wrap">
+                            <div class="scroll-nav">
+                                <div class="tab_area">
+                                    <label class="tab8_label" for="tab8">モニタリング</label>
+                                    <label class="tab9_label" for="tab9">メッセージ</label>
+                                    <label class="tab10_label" for="tab10">個人情報対策</label>
+                                    <label class="tab11_label" for="tab11">料金内訳</label>
                                 </div>
+                            </div>
+                            <div class="next-btn">＞</div>
+                        </div>
+                        <div class="panel_area">
+                            <div id="panel8" class="tab_panel">
+                                <a href="img/monitor_pc.png" data-lightbox="group"><img src="img/monitor_pc.png" alt="monitor" style="width:30%;"></a>
                                 <div class="sright">
-                                    <div class="slide-head">自分にあった使い方</div>
+                                    <div class="slide-head">簡単表示</div>
                                     <div class="slide-description">
-                                        <b>PC、スマホ、タブレット</b>
-                                        いずれのデバイスでも<br>
-                                        利用できます<br>
+                                        <b>学習状況を可視化</b>
+                                        自生徒の利用が<br>
+                                        簡単に確認できます<br>
                                         <br>
-                                        タイピング練習もかねてPC<br>
-                                        電車の中ではスマホなど
+                                        ※詳細は画像をクリックして拡大してみてください
+                                        <div class="llco" style="background-color:unset;">
+                                            <div class="admin_button"><a href="{{ route('admin_form') }}" style="background-color:none; color:#7791DE;">申込ページへ</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="panel9" class="tab_panel">
+                                <a href="img/commentBig.png" data-lightbox="group"> <img src="img/comment.png" alt="comment" style="width:30%;"></a>
+                                <div class="sright">
+                                    <div class="slide-head">簡単メッセージ機能</div>
+                                    <div class="slide-description">
+                                        <b>リモートで指示・指導</b>
+                                        講師や教師より<br>
+                                        アドバイスや指示を個別に送れます<br>
+                                        ※講師→生徒の一方向のメッセージです<br>
+                                        個人的なメッセージは出来ないようになっております
                                         <br>
-                                        自分にあったやり方で英単語を強化できます
+                                        <br>
+                                        ※詳細は画像をクリックして拡大してみてください
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="panel10" class="tab_panel">
+                                <img src="img/security.png" alt="create" style="width:30%;">
+                                <div class="sright">
+                                    <div class="slide-head">情報流出を危惧されるなら</div>
+                                    <div class="slide-description">
+                                        <b>アカウント設定サービス</b>
+                                        ※別料金が必要となります<br>
+                                        専用のアカウントを全生徒分作成いたします<br>
+                                        <br>
                                         <br>
                                     </div>
                                 </div>
 
+                            </div>
+                            <div id="panel11" class="tab_panel">
+                                <div class="contents">
+                                    <div class="item">
+                                        <table class="company">
+                                            <tbody>
+                                                <tr>
+                                                    <th class="arrow_box">モニタリングサービス初期設定費用</th>
+                                                    <td>2000円</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="arrow_box">年会費</th>
+                                                    <td> 1000円
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>アカウント設定</th>
+                                                    <td>
+                                                        100円/1人
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="item">
+                                        <div class="slide-head">まずはご相談から</div>
+                                        <div class="slide-description">
+                                            <b>まずは一年間、使ってみませんか</b>
+                                            アカウント設定を利用しなければ<br>
+                                            初回3000円のみで始められます<br>
+                                            <h4>保証期間：登録から一年間</h4>
+                                            ※サーバートラブルなど一時的な停止を除く長期の利用不可が生じた場合は<span style="color:red;">全額返金致します。</span>
+                                            <div class="llco" style="background-color:unset;">
+                                                <div class="admin_button"><a href="{{ route('admin_form') }}" style="background-color:none; color:#7791DE;">申込ページへ</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
