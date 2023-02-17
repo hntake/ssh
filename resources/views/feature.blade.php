@@ -390,7 +390,7 @@
                             </div>
                             <div id="panel14" class="tab_panel">
                                 <div class="sleft">
-                                    <a href="img/read.png" data-lightbox="group"><img src="img/later3.png" alt="register" style="width:80%;"></a>
+                                    <a href="img/later3.png" data-lightbox="group"><img src="img/later3.png" alt="register" style="width:80%;"></a>
                                 </div>
                                 <div class="sright">
                                     <div class="slide-head">定期テストに最適</div>

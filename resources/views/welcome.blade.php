@@ -261,7 +261,7 @@
                     <div class="bx-viewport">
                         <ul class="bxslider">
                             <li>
-                                <img class="image" src="img/engTop2.webp" alt="top" style="width:70%; height:auto;">
+                                <img class="image" src="img/engTop3.webp" alt="top" style="width:70%; height:auto;">
                                 <div class="post_title1">
                                     <h2 class="post_titile">
                                         To the World!
@@ -269,7 +269,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img class="image" src="img/engTopSky2.webp" alt="top" style="width:80%; height:auto;">
+                                <img class="image" src="img/engTopSky3.webp" alt="top" style="width:80%; height:auto;">
                                 <div class="post_title2">
                                     <h2 class="post_titile">
                                         Achieve your dream!
@@ -277,7 +277,7 @@
                                 </div>
                             </li>
                             <li>
-                                <img class="image" src="img/engTopRiv2.webp" alt="top" style="width:80%; height:auto;">
+                                <img class="image" src="img/engTopRiv3.webp" alt="top" style="width:80%; height:auto;">
                                 <div class="post_title3">
                                     <h2 class="post_titile">
                                         You can do anything!
