@@ -78,6 +78,8 @@ Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'adm
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
 /*選択したリッスンを表示*/
 Route::get('/listen/{id}', [App\Http\Controllers\TestController::class, 'listen'])->name('listen');
+/*選択したリッスンを表示*/
+Route::post('/listen/{id}', [App\Http\Controllers\TestController::class, 'listen_result'])->name('listen_result');
 
 /*全テスト画面へ*/
 Route::get('all_list',[App\Http\Controllers\TestController::class,'list'])->name('list');

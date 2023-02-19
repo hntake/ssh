@@ -58,7 +58,7 @@
 </div>
 
 <div class="test">
-    <form class="form-inline" action="{{route('result',['id'=>$id])}}" method="POST">
+    <form class="form-inline" action="{{route('listen_result',['id'=>$id])}}" method="POST">
         @csrf
         @if (!empty($word))
         <table class="table-box" style="border:solid 1px gray; margin:0 auto;">

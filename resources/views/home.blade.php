@@ -155,7 +155,7 @@
                     </td>
                     <td>
                         <div class="test_button">
-                            <a href="{{ route('listen',['id'=>$word->id]) }}" target=”_blank”>発音テスト</a>
+                            <a href="{{ route('listen',['id'=>$later_test->id]) }}" target=”_blank”>発音テスト</a>
 
                         </div>
                     </td>
@@ -233,7 +233,7 @@
                     </td>
                     <td>
                         <div class="test_button">
-                            <a href="{{ route('livewire',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+                            <a href="{{ route('livewire',['id'=>$ftest->id]) }}" target=”_blank”>学習ページへ</a>
 
                         </div>
                     </td>
@@ -271,13 +271,13 @@
                     </td>
                     <td>
                         <div class="test_button">
-                            <a href="{{ route('livewire',['id'=>$word->id]) }}" target=”_blank”>学習ページへ</a>
+                            <a href="{{ route('livewire',['id'=>$count->id]) }}" target=”_blank”>学習ページへ</a>
 
                         </div>
                     </td>
                     <td>
                         <div class="test_button">
-                            <a href="{{ route('listen',['id'=>$word->id]) }}" target=”_blank”>発音テスト</a>
+                            <a href="{{ route('listen',['id'=>$count->id]) }}" target=”_blank”>発音テスト</a>
 
                         </div>
                     </td>
