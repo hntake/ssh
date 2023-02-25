@@ -378,6 +378,7 @@ li.blink{
     font-weight: 500;
     margin-left: 5px;
     font-size:10px;
+    white-space: nowrap;
 }
 .route{
     overflow: hidden;
@@ -711,7 +712,7 @@ footer.bottom{
         color: #5560f5;
         background-color: #bfecc4;
         text-decoration: none;
-
+        white-space: nowrap;
     }
     a.button{
         display: block;
@@ -741,6 +742,7 @@ footer.bottom{
             background-color: #bfecc4;
             text-decoration: none;
             font-weight:bold;
+            white-space: nowrap;
         }
 
         .profile{
@@ -772,6 +774,7 @@ footer.bottom{
             color: #5560f5;
             background-color: #bfecc4;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         .profile{
