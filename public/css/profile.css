@@ -1,0 +1,119 @@
+
+
+@media only screen and (max-width: 767px){
+main{
+    width:100%;
+}
+.table-hover {
+    width: 100%;
+    border-collapse: collapse;
+   /*  border-top: 1px solid #333;
+    border-right: 1px solid #333; */
+    border:none;
+    margin-left:20px;
+}
+
+.table-hover th,
+.table-hover td{
+    padding: 16px;
+    font-weight: normal;
+   /*  border-left: 1px solid #333;
+    border-bottom: 1px solid #333; */
+}
+.table-hover th{
+    background-color: #CDEAFF;
+}
+.table-hover td{
+    background-color: #fbf9f9;
+}
+thead{
+        display:block;
+    }
+.table-hover th,
+.table-hover td{
+    display: block;
+    width: 120%;
+    margin:0 10px;
+}
+}
+@media only screen and (min-width:380px) and (max-width:800px){
+main{
+    width:100%;
+}
+.table-hover {
+    width: 100%;
+    border-collapse: collapse;
+   /*  border-top: 1px solid #333;
+    border-right: 1px solid #333; */
+    border:none;
+    margin-left:20px;
+}
+
+.table-hover th,
+.table-hover td{
+    padding: 16px;
+    font-weight: normal;
+   /*  border-left: 1px solid #333;
+    border-bottom: 1px solid #333; */
+}
+.table-hover th{
+    background-color: #CDEAFF;
+}
+.table-hover td{
+    background-color: #fbf9f9;
+}
+    thead{
+        display:block;
+    }
+    .table-hover th,
+.table-hover td{
+    display: block;
+    width: 120%;
+    margin:0 10px;
+}
+input{
+    font-size:20px;
+}
+}
+@media screen and (max-width: 979px){
+main{
+    width:100%;
+}
+.table-hover {
+    width: 100%;
+    border-collapse: collapse;
+   /*  border-top: 1px solid #333;
+    border-right: 1px solid #333; */
+    border:none;
+    margin-left:20px;
+}
+
+.table-hover th,
+.table-hover td{
+    padding: 16px;
+    font-weight: normal;
+   /*  border-left: 1px solid #333;
+    border-bottom: 1px solid #333; */
+}
+.table-hover th{
+    background-color: #CDEAFF;
+}
+.table-hover td{
+    background-color: #fbf9f9;
+}
+    thead{
+        display:block;
+    }
+    .table-hover th,
+.table-hover td{
+    display: block;
+    width: 120%;
+    margin:0 70px 0 20px;
+}
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2)
+{
+    thead {
+    display: block;
+}
+}

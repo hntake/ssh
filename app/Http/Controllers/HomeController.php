@@ -169,6 +169,7 @@ class HomeController extends Controller
         $users->school1 = $request->input('school1');
         $users->school2 = $request->input('school2');
         $users->email = $request->input('email');
+        $users->game_id = $request->input('game_id');
         $users->save();
 
         return redirect('profile');

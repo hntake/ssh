@@ -1,5 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<link rel="stylesheet" href="{{ asset('css/profile.css') }}"> <!-- word.cssと連携 -->
 <title>プロフィール編集画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 
 @section('content')
@@ -60,27 +61,41 @@
         <table class="table-hover">
             <thead>
                 <tr>
-                    <th style="width:20%">ユーザー名</th>
-                    <th style="width:20%">エリア</th>
-                    <th style="width:20%">学年</th>
-                    <th style="width:20%">クラス番号#1</th>
-                    <th style="width:20%">クラス番号#2</th>
-                    <th style="width:20%">メールアドレス</th>
+                    <th >ユーザー名</th>
+                    <td><input type="text" name="user_name" value="{{ $user->user_name}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th >エリア</th>
+                    <td><input type="text" name="place" value="{{ $user->place}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th >学年</th>
+                    <td><input type="text" name="year" value="{{ $user->year}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th >クラス番号#1</th>
+                    <td><input type="text" name="school1" value="{{ $user->school1}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th >クラス番号#2</th>
+                    <td><input type="text" name="school2" value="{{ $user->school2}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th >メールアドレス</th>
+                    <td><input type="text" name="email" value="{{ $user->email}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <th >親子機能</th>
+                    <td><input type="text" name="email" value="{{ $user->game_id}}" class="form-control"></td>
                 </tr>
             </thead>
-            <tbody id="tbl">
-                <td><input type="text" name="user_name" value="{{ $user->user_name}}" class="form-control"></td>
-                <td><input type="text" name="place" value="{{ $user->place}}" class="form-control"></td>
-                <td><input type="text" name="year" value="{{ $user->year}}" class="form-control"></td>
-                <td><input type="text" name="school1" value="{{ $user->school1}}" class="form-control"></td>
-                <td><input type="text" name="school2" value="{{ $user->school2}}" class="form-control"></td>
-                <td><input type="text" name="email" value="{{ $user->email}}" class="form-control"></td>
-            </tbody>
+            <p><span style="color:red;">親子機能</span>を申込み希望の方は１を入力してください</p>
+
         </table>
 
         <div class="button"><input type="submit" value="更新">
             <h4>更新ボタンを押さないと変更されません</h4>
-            <h4>!!空欄のままだとエラーになります。クラス番号を削除するときは<span style="color:red;">000</span>を入力してください!!</h4>
+           <!--  <h4>!!空欄のままだとエラーになります。クラス番号を削除するときは<span style="color:red;">000</span>を入力してください!!</h4> -->
         </div>
 
 </div>

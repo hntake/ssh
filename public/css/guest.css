@@ -654,7 +654,10 @@ input#goal.form-control{
     margin: 0 auto;
     padding:10px;
 }
-
+.mention{
+    margin:0 auto;
+    width:80%;
+}
 /*レスポンシブ対応*/
 @media (max-width: 480px){
     ul{

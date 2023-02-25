@@ -37,7 +37,12 @@
         </script>
     </div>
 </div>
+@if($game->game_id==null)
+<div class="mention">
+    <h3>目標設定は親子機能のひとつです。<br>親子機能の申込は<a href="{{route('edit_user',['id'=> $user->id])}}" >プロフィール編集ページ</a>で出来ます</h3>
 
+</div>
+@else
 <div class="searchtable-responsive" style="font-family: 'Lato', sans-serif;
   color: white;
   background-color: teal;">
@@ -71,6 +76,7 @@
 
     </div>
 </div>
+@endif
 </main>
 @endsection
 <a href="#" class="gotop">トップへ</a>
