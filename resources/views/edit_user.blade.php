@@ -86,7 +86,7 @@
                 </tr>
                 <tr>
                     <th >親子機能</th>
-                    <td><input type="text" name="email" value="{{ $user->game_id}}" class="form-control"></td>
+                    <td><input type="text" name="game_id" value="{{ $user->game_id}}" class="form-control"></td>
                 </tr>
             </thead>
             <p><span style="color:red;">親子機能</span>を申込み希望の方は１を入力してください</p>

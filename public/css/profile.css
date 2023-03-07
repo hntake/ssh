@@ -31,8 +31,7 @@ thead{
     }
 .table-hover th,
 .table-hover td{
-    display: block;
-    width: 120%;
+/*  */    width: 80%;
     margin:0 10px;
 }
 }
@@ -67,8 +66,7 @@ main{
     }
     .table-hover th,
 .table-hover td{
-    display: block;
-    width: 120%;
+   width: 80%;
     margin:0 10px;
 }
 input{
@@ -106,8 +104,7 @@ main{
     }
     .table-hover th,
 .table-hover td{
-    display: block;
-    width: 120%;
+    width: 80%;
     margin:0 70px 0 20px;
 }
 }
