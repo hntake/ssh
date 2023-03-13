@@ -593,7 +593,7 @@ public function about(Request $request,$id,$coupon_id)
                 }
                 $request->session()->regenerateToken();
                 /*期限以内なら*/
-                if($due > $now){
+                if($due > $now && $tomorrow < $now){
                 $due= $due->format('Y-m-d');
                     return view('coupon/index',[
                         'id'=>$id,
@@ -689,7 +689,7 @@ public function used(Request $request,$id,$coupon_id)
         $due = $date->addDay(180)->format('Y-m-d');
         }
         /*期限以内なら*/
-        if($due > $now){
+        if($due > $now ){
         $used =1;
         $use = Coupon::where('id','=',$coupon_id)
             ->update([

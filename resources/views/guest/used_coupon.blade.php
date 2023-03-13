@@ -28,7 +28,11 @@
             <tr>
                 <td>{{ $coupon->id }}</td>
                 <td>{{$coupon->created_at }}</td>
+                @if($coupon->used==1)
                 <td>{{$coupon->updated_at }}</td>
+                @else
+                <td>未利用</td>
+                @endif
                 @if($coupon->policy==1)
                 <td>{{$coupon->email }}</td>
                 @else
