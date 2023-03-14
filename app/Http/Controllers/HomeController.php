@@ -61,7 +61,7 @@ class HomeController extends Controller
             $user->level=intdiv($point, 100);
             /**My履歴 */
             $test_ids = History::where('tested_user', '=', Auth::user()->user_name)->get()->pluck('test_id')->toArray();
-            $words = Word::whereIn('id', $test_ids)->OrderBy('id', 'desc')->paginate(15);
+            $words = Word::whereIn('id', $test_ids)->OrderBy('id', 'desc')->paginate(10);
             /**あとで */
             $later= Later::where('created_user','=', Auth::user()->id)->get()->pluck('later_test')->toArray();
             $later_tests=Word::whereIn('id', $later)->orderBy('created_at', 'desc')->paginate(10);

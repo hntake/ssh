@@ -169,7 +169,7 @@
                 </tr>
             </tbody>
         </table>
-        {{ $words->links() }}
+        {{ $later_tests->links() }}
 
     </div>
 

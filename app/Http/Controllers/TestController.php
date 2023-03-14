@@ -834,9 +834,67 @@ class TestController extends Controller
     /*今日のテスト表示*/
     public function today(Request $request)
     {
-        $word = Word::inRandomOrder()
+        $user = Auth::user();
+        if($user->year== "小3"){
+            $word = Word::where('type','<=',1)->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year== "小4"){
+            $word = Word::where('type','<=',1)->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year== "小5"){
+            $word = Word::where('type','<=',1)->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year== "小6"){
+            $word = Word::where('type','<=',1)->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year== "中1"){
+            $word = Word::where('type','<=','1')->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year == "中2"){
+            $word = Word::where('type','<=','2')->inRandomOrder()
             ->limit(1)
             ->first();
+        }
+        elseif($user->year =="中3"){
+            $word = Word::where('type','<=','3')->inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        elseif($user->year =="高1"){
+            $word = Word::where('type','<=','4')->inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        elseif($user->year =="高2"){
+            $word = Word::where('type','<=','5')->inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        elseif($user->year =="高3"){
+            $word = Word::where('type','<=','6')->inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        elseif($user->year =="大学生"){
+            $word = Word::inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        else{
+            $word = Word::inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
         $test_id = $word->id;
         $id = Auth::user('id');
 
@@ -849,9 +907,67 @@ class TestController extends Controller
     /*今日のリッスン表示*/
     public function today_listen(Request $request)
     {
-        $word = Word::inRandomOrder()
+        $user = Auth::user();
+        if($user->year== "小3"){
+            $word = Word::where('type','<=',1)->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year== "小4"){
+            $word = Word::where('type','<=',1)->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year== "小5"){
+            $word = Word::where('type','<=',1)->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year== "小6"){
+            $word = Word::where('type','<=',1)->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year== "中1"){
+            $word = Word::where('type','<=','1')->inRandomOrder()
+                ->limit(1)
+                ->first();
+        }
+        elseif($user->year == "中2"){
+            $word = Word::where('type','<=','2')->inRandomOrder()
             ->limit(1)
             ->first();
+        }
+        elseif($user->year =="中3"){
+            $word = Word::where('type','<=','3')->inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        elseif($user->year =="高1"){
+            $word = Word::where('type','<=','4')->inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        elseif($user->year =="高2"){
+            $word = Word::where('type','<=','5')->inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        elseif($user->year =="高3"){
+            $word = Word::where('type','<=','6')->inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        elseif($user->year =="大学生"){
+            $word = Word::inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
+        else{
+            $word = Word::inRandomOrder()
+            ->limit(1)
+            ->first();
+        }
         $test_id = $word->id;
         $id = Auth::user('id');
 
