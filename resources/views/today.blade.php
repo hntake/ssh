@@ -155,7 +155,7 @@
                 </button>
             </div>
     </form>
-    <div class="button"><a href="{{ route('answer',['id'=>$id]) }}">正解はこちら</a></div>
+    <div class="button"><a href="{{ route('answer',['id'=>$test_id]) }}">正解はこちら</a></div>
     </div>
 </div>
  </body>
