@@ -172,7 +172,7 @@
                                 <li><a href="{{ url('search_result') }}">
                                         <h3>テスト検索</h3>
                                     </a></li>
-                                <li><a href="{{ url('feature') }}">
+                                <li><a href="{{ url('use') }}">
                                         <h3>使い方</h3>
                                     </a></li>
                                 <li><a href="{{ url('feature') }}">

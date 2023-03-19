@@ -146,7 +146,7 @@
                         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
                         <div id="nav-content">
                             <ul class="header_nav_list">
-                                <li><a href="#feature">
+                            <li><a href="{{ url('/') }}">
                                         <h3>エイゴメ</h3>
                                     </a></li>
                                 <li><a href="#monitor">
@@ -594,7 +594,7 @@
                     </div>
                 </div>
             </section>
-         
+
             <div class="youtube_kv">
                 <div class="movie_cap">
                     <div class="elementor-widget">
