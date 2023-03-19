@@ -62,7 +62,7 @@
 
 
 <div class="test">
-
+<p>繰り返し何回か発音を聞くと、聞こえなくなることがあります。ブラウザを更新すれば聞けるようになりますが、入力した解答は消えますのでご了承ください。</p>
     <form class="form-inline" action="{{route('result_today',['id'=>$id,'test_id'=>$test_id])}}" method="POST">
         @csrf
         @if (!empty($word))
