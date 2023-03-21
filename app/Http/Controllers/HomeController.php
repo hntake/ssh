@@ -90,7 +90,7 @@ class HomeController extends Controller
             elseif($user->year  ==  "高3"){
                 $counts= Word::where('type','=','7')->orderBy('count', 'desc')->paginate(10);
             }
-            elseif($user->year  ==  "未選択"){
+            elseif($user->year  ==  "大学生"){
                 $counts= Word::where('type','=','8')->orderBy('count', 'desc')->paginate(10);
             }
             else{

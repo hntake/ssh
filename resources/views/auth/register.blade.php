@@ -26,7 +26,7 @@
                             <input type="file" name="image" id="image" class="form-control">
                         </div>
                         <div class="r-box ">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('名前 ※必須') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('名前') }}</label> <span style="font-weight:bold;">※必須</span>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -62,7 +62,7 @@
                             </div>
                         </div>
                         <div class="r-box">
-                            <label for="user_name" class="col-md-4 col-form-label text-md-end">{{ __('ユーザーネーム ※必須') }}</label>
+                            <label for="user_name" class="col-md-4 col-form-label text-md-end">{{ __('ユーザーネーム ') }}</label><span style="font-weight:bold;">※必須</span>
                             <p>（他の人と同じにならないようなユーザー名にしましょう。最長10文字まで）</p>
                             <div class="col-md-6">
                                 <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}" required autocomplete="user_name" autofocus>
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="r-box">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ※必須') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ') }}</label><span style="font-weight:bold;">※必須</span>
                             <p style="text-align: left; width: 80%;">（登録したメールアドレスに@itcha50.comより<span style="color:red;">認証メール</span>が送信されます。間違いがないように気を付けて入力してください。）</p>
                             <p style="text-align: left; width: 80%;">(docomo、au、softbankなど各キャリアのセキュリティ設定により受信拒否と認識されているか、迷惑メール対策などでドメイン指定受信を設定している場合に、メールが正しく届かないことがございます。<span style="color:red;">gmailなどのフリーメールでの登録</span>をおすすめします。)</p>
                             <div class="col-md-6">
@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="r-box">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード ※必須 8桁以上') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード 8桁以上') }}</label><span style="font-weight:bold;">※必須</span>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -105,26 +105,26 @@
                         </div>
 
                         <div class="r-box">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('パスワードの確認入力Password ※必須') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('パスワードの確認入力Password ') }}</label><span style="font-weight:bold;">※必須</span>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
                         <div class="box" style="margin-bottom: 10px; background-color:#84b4e5; padding: 0 50px;">
-                            ※<a href="{{url('plan')}}"><span style="color:red; font-weight:bold;">モニタリングサービス</span></a>申込みの方は以下の変更をお願いします。
+                            ※<a href="{{url('plan')}}"><span style="color:red; font-weight:bold;">モニタリングサービス</span></a>申込みの方は以下の入力をお願いします。
                             <div class="r-box">
                                 <label for="school1" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号') }}</label>
-                                <p>（学校や塾で番号をもらった人は、000000を削除して、その番号を入力して下さい）</p>
+                                <p>（学校や塾で番号をもらった人は、その番号を入力して下さい）</p>
                                 <div class="col-md-6">
-                                    <input id="school1" type="text" class="form-control " name="school1" value="00000{{ old('school1') }}" autocomplete="school1" autofocus>
+                                    <input id="school1" type="text" class="form-control " name="school1" value="{{ old('school1') }}" autocomplete="school1" autofocus>
                                 </div>
                             </div>
                             <div class="r-box">
                                 <label for="school2" class="col-md-4 col-form-label text-md-end">{{ __('クラス番号その２') }}</label>
                                 <p>（二か所から番号をもらっているなら、ここにもう一つの番号を入力して下さい）</p>
                                 <div class="col-md-6">
-                                    <input id="school2" type="text" class="form-control " name="school2" value="00000{{ old('school2') }}" autocomplete="school2" autofocus>
+                                    <input id="school2" type="text" class="form-control " name="school2" value="{{ old('school2') }}" autocomplete="school2" autofocus>
                                 </div>
                             </div>
                         </div>

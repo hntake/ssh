@@ -62,6 +62,7 @@
             <li class="blink" style="color:red; font-weight:bold;">ポイント数：{{$user->point}}</li>
             <li>レベル：{{$user->level}}</li>
         </ul>
+        @if(!$user->school1==null || !$user->school2 ==null)
         <div class="comment" style="background-color:white; width:80%;margin:0 auto;">
             <h2>講師からの連絡</h2>
             <ul>
