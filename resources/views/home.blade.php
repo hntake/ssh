@@ -69,6 +69,7 @@
                 <li style="color:red; font-weight:bold;">{{$user->comment}}</li>
             </ul>
         </div>
+        @endif
     </div>
 
     <div class="testtable-responsive">
