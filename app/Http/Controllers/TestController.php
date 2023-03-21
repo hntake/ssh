@@ -1092,33 +1092,35 @@ class TestController extends Controller
             ->update([
                 'point' => $newpoint
             ]);
-        /*履歴作成*/
-        $word = Word::find($test_id);
-        $user = Auth::user();
-        $history = new History;
-        $history->test_id = $word->id;
-        $history->type = $word->type;
-        $history->textbook = $word->textbook;
-        $history->test_name = $word->test_name;
-        $history->user_name = $word->user_name;
-        $history->tested_user = $user->user_name;
-        $history->tested_name = $user->name;
-        $history->school = $user->school1;
-        $history->score = $score;
-        $history->save();
-        if (isset($user->school2)) {
-            $history = new History;
-            $history->test_id = $word->id;
-            $history->type = $word->type;
-            $history->textbook = $word->textbook;
-            $history->test_name = $word->test_name;
-            $history->user_name = $word->user_name;
-            $history->tested_user = $user->user_name;
-            $history->tested_name = $user->name;
-            $history->school = $user->school2;
-            $history->score = $score;
-            $history->save();
-        }
+         /*履歴作成*/
+         $word = Word::find($test_id);
+         $user = Auth::user();
+         $history = new History;
+         $history->test_id = $word->id;
+         $history->type = $word->type;
+         $history->textbook = $word->textbook;
+         $history->test_name = $word->test_name;
+         $history->user_name = $word->user_name;
+         $history->tested_user = $user->user_name;
+         $history->tested_name = $user->name;
+         $history->school = $user->school1;
+         $history->score = $score;
+         $history->save();
+         if (isset($user->school2)) {
+             $history = new History;
+             $history->test_id = $word->id;
+             $history->type = $word->type;
+             $history->textbook = $word->textbook;
+             $history->test_name = $word->test_name;
+             $history->user_name = $word->user_name;
+             $history->tested_user = $user->user_name;
+             $history->tested_name = $user->name;
+             $history->school = $user->school2;
+             $history->score = $score;
+             $history->save();
+         }
+
+
 
         /**親子機能有り */
         if (isset($user->game_id) && ($score > 7)) {
@@ -1134,7 +1136,7 @@ class TestController extends Controller
             }
 
         }
-        return view('result', [
+        return view('today_result', [
             'id' => $id,
             'user' => $user,
             'word' => $word,
