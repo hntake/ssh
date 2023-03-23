@@ -28,14 +28,14 @@ class ParentController extends Controller
         $user=Auth::user();
         $date = new Carbon('now');
         $word = Word::find($test_id);
-        $today= Point::where('user_id','=',$user->id)->whereDate('created_at', '>=', $date->subDay())->first();
-        if($today===null){
+       /*  $today= Point::where('user_id','=',$user->id)->whereDate('created_at', '>=', $date->subDay())->first(); */
+       /*  if($today===null){ */
             $point = new Point;
             $point->user_id = $user->id;
             $point->test_name = $word->test_name;
             $point->type = $word->type;
             $point->save();
-        }
+     /*    } */
        /**Today's test履歴 */
        $points = Point::where('user_id','=',$user->id)->OrderBy('created_at', 'desc')->paginate(15);
 
