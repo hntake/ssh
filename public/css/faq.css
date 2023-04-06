@@ -137,10 +137,12 @@ li{
 a{
     text-decoration: none;
 }
+
   /*iPad*/
   @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .category{
-        width:100%;
+        width:90%;
+        margin-left:10%;
     }
     footer{
         width:100%;
@@ -149,6 +151,9 @@ a{
     .policy a{
         font-size:20px;
     }
+    body{
+        width:60%;
+    }
   }
 /*iPhone12レスポンシブ対応*/
 @media only screen
@@ -156,7 +161,7 @@ a{
   and (max-device-width: 844px)
   and (-webkit-min-device-pixel-ratio: 3) {
     .category{
-        width:100%;
+        margin-left:10%;
     }
     footer{
         width:100%;
@@ -171,5 +176,11 @@ a{
     }
     .gotop::before{
         top:15%;
+    }
+    body{
+        width:60%;
+    }
+    .accordion-area section{
+        margin-left:-10%;
     }
   }

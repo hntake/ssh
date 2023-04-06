@@ -38,6 +38,7 @@
 }
 input{
     width: 350px;
+    font-size: 16px;
 }
 .onetest td{
     text-align: center;
@@ -89,6 +90,9 @@ table.admin_point{
     color:red;
     font-weight: bold;
 }
+select.form-control{
+    font-size:16px;
+}
 }
 @media (max-width: 480px){
 
@@ -117,6 +121,9 @@ table.admin_point{
     .active {
        display:none;
       }
+    select.form-control{
+        font-size:16px;
+    }
 }
 /*lenovo*/
 @media only screen and (min-width:800px) and (max-width:1200px){
