@@ -16,7 +16,7 @@ class CouponMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $email;
+    private $email,$store_id,$store_due,$coupon_id,$store_name,$date;
 
     /**
      * Create a new message instance.

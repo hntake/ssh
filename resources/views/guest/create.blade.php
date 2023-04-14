@@ -40,9 +40,9 @@
             <input type="text" id="code" name="code">
         </div>
         <div class="store">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('プロフィール写真') }}</label>
-                            <input type="file" name="image" id="image" class="form-control">
-                        </div>
+            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('プロフィール写真') }}</label>
+            <input type="file" name="image" id="image" class="form-control">
+        </div>
         <div>
             <button type="submit">UUID生成</button>
         </div>
@@ -58,7 +58,7 @@
     <div class="selection">
         <p>1:30日間</p>
         <p>2:60</p>
-        <p>3:180</p>
+        <p>3:90</p>
     </div>
 </body>
 
