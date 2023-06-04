@@ -16,50 +16,50 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //welcomeページ
-Route::get('/',[App\Http\Controllers\TestController::class,'welcome'])->name('welcome');
+Route::get('/', [App\Http\Controllers\TestController::class, 'welcome'])->name('welcome');
 
 Route::get('/monitor', function () {
     return view('monitor');
 });
-Route::get('/policy',function(){
+Route::get('/policy', function () {
     return view('policy');
 });
-Route::get('/rule',function(){
+Route::get('/rule', function () {
     return view('rule');
 });
-Route::get('/aboutus',function(){
+Route::get('/aboutus', function () {
     return view('aboutus');
 });
-Route::get('/faq',function(){
+Route::get('/faq', function () {
     return view('faq');
 });
-Route::get('/consumer',function(){
+Route::get('/consumer', function () {
     return view('consumer');
 });
-Route::get('/alert',function(){
+Route::get('/alert', function () {
     return view('alert');
 });
-Route::get('/feature',function(){
+Route::get('/feature', function () {
     return view('feature');
 });
-Route::get('/use',function(){
+Route::get('/use', function () {
     return view('use');
 });
-Route::get('/plan',function(){
+Route::get('/plan', function () {
     return view('plan');
 });
-Route::get('/case',function(){
+Route::get('/case', function () {
     return view('case');
 });
-Route::get('/commerce',function(){
+Route::get('/commerce', function () {
     return view('commerce');
 });
-Route::get('/parent',function(){
+Route::get('/parent', function () {
     return view('parent');
 });
 
 
-Route::get('/partner',function(){
+Route::get('/partner', function () {
     return view('partner');
 });
 Route::get('/coupon/not')->name('coupon.not');
@@ -67,12 +67,12 @@ Route::get('/coupon/overdue')->name('coupon.overdue');
 
 
 //モニタリング申込者入力ページ
-Route::get('/admin_form', [App\Http\Controllers\ContactController::class,'admin_form'])->name('admin_form');
+Route::get('/admin_form', [App\Http\Controllers\ContactController::class, 'admin_form'])->name('admin_form');
 //確認ページ
-Route::post('/admin_confirm', [App\Http\Controllers\ContactController::class,'admin_confirm'])->name('admin_confirm');
+Route::post('/admin_confirm', [App\Http\Controllers\ContactController::class, 'admin_confirm'])->name('admin_confirm');
 
 //送信完了ページ
-Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class,'admin_send'])->name('admin_send');
+Route::post('/admin_thanks', [App\Http\Controllers\ContactController::class, 'admin_send'])->name('admin_send');
 
 /*選択したテストを表示*/
 Route::get('/test/{id}', [App\Http\Controllers\TestController::class, 'test'])->name('test');
@@ -82,92 +82,91 @@ Route::get('/listen/{id}', [App\Http\Controllers\TestController::class, 'listen'
 Route::post('/listen/{id}', [App\Http\Controllers\TestController::class, 'listen_result'])->name('listen_result');
 
 /*全テスト画面へ*/
-Route::get('all_list',[App\Http\Controllers\TestController::class,'list'])->name('list');
- /*テスト検索する*/
-Route::get('search_result',[App\Http\Controllers\TestController::class,'search_result'])->name('search_result');
+Route::get('all_list', [App\Http\Controllers\TestController::class, 'list'])->name('list');
+/*テスト検索する*/
+Route::get('search_result', [App\Http\Controllers\TestController::class, 'search_result'])->name('search_result');
 /*ユーザー検索する*/
-Route::get('search_user',[App\Http\Controllers\TestController::class,'search_user'])->name('search_user');
+Route::get('search_user', [App\Http\Controllers\TestController::class, 'search_user'])->name('search_user');
 /*並び替えする*/
-Route::get('sort',[App\Http\Controllers\TestController::class,'sort'])->name('sort');
-Route::get('search_id',[App\Http\Controllers\TestController::class,'search_id'])->name('search_id');
+Route::get('sort', [App\Http\Controllers\TestController::class, 'sort'])->name('sort');
+Route::get('search_id', [App\Http\Controllers\TestController::class, 'search_id'])->name('search_id');
 
 
 //入力ページ
-Route::get('/contact', [App\Http\Controllers\ContactController::class,'contact'])->name('contact.index');
+Route::get('/contact', [App\Http\Controllers\ContactController::class, 'contact'])->name('contact.index');
 
 //確認ページ
-Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class,'confirm'])->name('contact.confirm');
+Route::post('/contact/confirm', [App\Http\Controllers\ContactController::class, 'confirm'])->name('contact.confirm');
 
 //送信完了ページ
-Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class,'send'])->name('contact.send');
+Route::post('/contact/thanks', [App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
 /*他人のプロフィール画面へ*/
-Route::get('/mypicture/{id}',[App\Http\Controllers\RankController::class,'mypicture'])->name('mypicture');
+Route::get('/mypicture/{id}', [App\Http\Controllers\RankController::class, 'mypicture'])->name('mypicture');
 /*テスト採点*/
-Route::post('/result/{id}', [App\Http\Controllers\TestController::class,'result'])->name('result');
+Route::post('/result/{id}', [App\Http\Controllers\TestController::class, 'result'])->name('result');
 
 
 //メール確認済みのユーザーのみ
-Route::middleware(['verified'])->group(function(){
-/*ホーム画面*/
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-/*選択したテストを編集する画面へ*/
-Route::get('/edit/{id}', [App\Http\Controllers\TestController::class, 'edit'])->name('edit');
-/*選択したユーザーの編集画面へ*/
-Route::get('/edit_user/{id}', [App\Http\Controllers\HomeController::class, 'edit_user'])->name('edit_user');
-/*選択したユーザーの写真編集画面へ*/
-Route::get('/edit_picture/{id}', [App\Http\Controllers\HomeController::class, 'edit_picture'])->name('edit_picture');
-/*選択したユーザーの写真変更*/
-Route::patch('/uploadpic', [App\Http\Controllers\HomeController::class, 'uploadpic'])->name('uploadpic');
-/*選択したユーザーの写真削除*/
-Route::get('/deletepic/{id}', [App\Http\Controllers\HomeController::class, 'deletepic'])->name('deletepic');
-/*選択したユーザーを編集する*/
-Route::patch('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update_user');
-/*選択したtestを編集する*/
-Route::patch('edit/{id}',[App\Http\Controllers\HomeController::class,'update_test'])->name('update_test');
-/*選択したテストを削除する*/
-Route::get('/list/{id}', [App\Http\Controllers\TestController::class,'delete_list'])->name('delete_list');
-/*選択したユーザーを削除する*/
-Route::get('/delete_user/{id}', [App\Http\Controllers\HomeController::class,'delete_user'])->name('delete_user');
-/*正答画面へ*/
-Route::get('/answer/{id}', [App\Http\Controllers\TestController::class,'answer'])->name('answer');
-Route::post('/answer/{id}', [App\Http\Controllers\TestController::class,'alert'])->name('alert');
-/*テスト作成画面へ*/
-Route::get('/create', [App\Http\Controllers\TestController::class,'create_index'])->name('create');
-/*全履歴画面へ*/
-Route::get('/history', [App\Http\Controllers\TestController::class,'history'])->name('history');
-/*テスト作成*/
-Route::post('/create', [App\Http\Controllers\TestController::class,'create'])->name('create');
-/*自分のプロフィール画面へ*/
-Route::get('profile',[App\Http\Controllers\HomeController::class,'profile'])->name('profile');
-/*学習ページへ*/
-Route::get('/livewire/{id}',[App\Http\Controllers\StudyController::class,'index_livewire'])->name('livewire');
+Route::middleware(['verified'])->group(function () {
+    /*ホーム画面*/
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    /*選択したテストを編集する画面へ*/
+    Route::get('/edit/{id}', [App\Http\Controllers\TestController::class, 'edit'])->name('edit');
+    /*選択したユーザーの編集画面へ*/
+    Route::get('/edit_user/{id}', [App\Http\Controllers\HomeController::class, 'edit_user'])->name('edit_user');
+    /*選択したユーザーの写真編集画面へ*/
+    Route::get('/edit_picture/{id}', [App\Http\Controllers\HomeController::class, 'edit_picture'])->name('edit_picture');
+    /*選択したユーザーの写真変更*/
+    Route::patch('/uploadpic', [App\Http\Controllers\HomeController::class, 'uploadpic'])->name('uploadpic');
+    /*選択したユーザーの写真削除*/
+    Route::get('/deletepic/{id}', [App\Http\Controllers\HomeController::class, 'deletepic'])->name('deletepic');
+    /*選択したユーザーを編集する*/
+    Route::patch('/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('update_user');
+    /*選択したtestを編集する*/
+    Route::patch('edit/{id}', [App\Http\Controllers\HomeController::class, 'update_test'])->name('update_test');
+    /*選択したテストを削除する*/
+    Route::get('/list/{id}', [App\Http\Controllers\TestController::class, 'delete_list'])->name('delete_list');
+    /*選択したユーザーを削除する*/
+    Route::get('/delete_user/{id}', [App\Http\Controllers\HomeController::class, 'delete_user'])->name('delete_user');
+    /*正答画面へ*/
+    Route::get('/answer/{id}', [App\Http\Controllers\TestController::class, 'answer'])->name('answer');
+    Route::post('/answer/{id}', [App\Http\Controllers\TestController::class, 'alert'])->name('alert');
+    /*テスト作成画面へ*/
+    Route::get('/create', [App\Http\Controllers\TestController::class, 'create_index'])->name('create');
+    /*全履歴画面へ*/
+    Route::get('/history', [App\Http\Controllers\TestController::class, 'history'])->name('history');
+    /*テスト作成*/
+    Route::post('/create', [App\Http\Controllers\TestController::class, 'create'])->name('create');
+    /*自分のプロフィール画面へ*/
+    Route::get('profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+    /*学習ページへ*/
+    Route::get('/livewire/{id}', [App\Http\Controllers\StudyController::class, 'index_livewire'])->name('livewire');
 
-/*今日のテストを表示*/
-Route::get('/today', [App\Http\Controllers\TestController::class, 'today'])->name('today');
-/*今日のテスト採点*/
-Route::post('/today/{id}/test_id/{test_id}', [App\Http\Controllers\TestController::class,'result_today'])->name('result_today');
-/*今日のリッスンを表示*/
-Route::get('/today_listen', [App\Http\Controllers\TestController::class, 'today_listen'])->name('today_listen');
-/*今日のリッスン採点*/
-Route::post('/today_listen/{id}/test_id/{test_id}', [App\Http\Controllers\TestController::class,'listen_result_today'])->name('listen_result_today');
-/*今日のテストリテスト表示*/
-Route::get('/today_retest/{id}/test_id/{test_id}', [\App\Http\Controllers\TestController::class, 'today_retest'])->name('today_retest');
+    /*今日のテストを表示*/
+    Route::get('/today', [App\Http\Controllers\TestController::class, 'today'])->name('today');
+    /*今日のテスト採点*/
+    Route::post('/today/{id}/test_id/{test_id}', [App\Http\Controllers\TestController::class, 'result_today'])->name('result_today');
+    /*今日のリッスンを表示*/
+    Route::get('/today_listen', [App\Http\Controllers\TestController::class, 'today_listen'])->name('today_listen');
+    /*今日のリッスン採点*/
+    Route::post('/today_listen/{id}/test_id/{test_id}', [App\Http\Controllers\TestController::class, 'listen_result_today'])->name('listen_result_today');
+    /*今日のテストリテスト表示*/
+    Route::get('/today_retest/{id}/test_id/{test_id}', [\App\Http\Controllers\TestController::class, 'today_retest'])->name('today_retest');
 
-/*合格確認へ*/
-Route::post('/confirm/{id}/test_id/{test_id}', [App\Http\Controllers\ParentController::class,'confirm'])->name('confirm');
-/**目標設定ページへ */
-Route::get('/goal', [App\Http\Controllers\ParentController::class,'goal'])->name('goal');
-Route::post('/goal/{id}', [App\Http\Controllers\ParentController::class,'goal_post'])->name('goal_post');
+    /*合格確認へ*/
+    Route::post('/confirm/{id}/test_id/{test_id}', [App\Http\Controllers\ParentController::class, 'confirm'])->name('confirm');
+    /**目標設定ページへ */
+    Route::get('/goal', [App\Http\Controllers\ParentController::class, 'goal'])->name('goal');
+    Route::post('/goal/{id}', [App\Http\Controllers\ParentController::class, 'goal_post'])->name('goal_post');
 
-/*フォロー登録*/
-Route::get('/reply/nice/{id}',[App\Http\Controllers\HomeController::class,'nice'])->name('nice');
-Route::get('/reply/unnice/{id}',[App\Http\Controllers\HomeController::class, 'unnice'])->name('unnice');
-/*あとで登録*/
-Route::patch('/search_result/{id}',[App\Http\Controllers\StudyController::class,'later'])->name('later');
-/*あとで削除*/
-Route::get('/home/{id}', [App\Http\Controllers\StudyController::class, 'delete_later'])->name('delete_later');
-Route::get('/reply/nomore/{id}',[App\Http\Controllers\HomeController::class, 'nomore'])->name('nomore');
-
+    /*フォロー登録*/
+    Route::get('/reply/nice/{id}', [App\Http\Controllers\HomeController::class, 'nice'])->name('nice');
+    Route::get('/reply/unnice/{id}', [App\Http\Controllers\HomeController::class, 'unnice'])->name('unnice');
+    /*あとで登録*/
+    Route::patch('/search_result/{id}', [App\Http\Controllers\StudyController::class, 'later'])->name('later');
+    /*あとで削除*/
+    Route::get('/home/{id}', [App\Http\Controllers\StudyController::class, 'delete_later'])->name('delete_later');
+    Route::get('/reply/nomore/{id}', [App\Http\Controllers\HomeController::class, 'nomore'])->name('nomore');
 });
 /*ポイントランキング表へ*/
 /* Route::get('point',[App\Http\Controllers\RankController::class,'point'])->name('point'); */
@@ -184,14 +183,14 @@ Route::get('/admin/login', function () {
     return view('adminLogin');
 })->middleware('guest:admin'); // ここ
 /*管理者ダッシュボード*/
-Route::get('/admin',[App\Http\Controllers\TestController::class,'by_school'])->name('admin-home')
-->middleware('auth:admin');
+Route::get('/admin', [App\Http\Controllers\TestController::class, 'by_school'])->name('admin-home')
+    ->middleware('auth:admin');
 /*個別データ検索*/
-Route::get('/individual/{id}',[App\Http\Controllers\TestController::class,'individual'])->name('individual')->middleware('auth:admin');
-Route::get('select_twoweeks{id}',[App\Http\Controllers\TestController::class,'select_twoweeks'])->name('select_twoweeks')->middleware('auth:admin');
-Route::get('select_today{id}',[App\Http\Controllers\TestController::class,'select_today'])->name('select_today')->middleware('auth:admin');
-Route::get('select_week{id}',[App\Http\Controllers\TestController::class,'select_week'])->name('select_week')->middleware('auth:admin');
-Route::get('select_month{id}',[App\Http\Controllers\TestController::class,'select_month'])->name('select_month')->middleware('auth:admin');
+Route::get('/individual/{id}', [App\Http\Controllers\TestController::class, 'individual'])->name('individual')->middleware('auth:admin');
+Route::get('select_twoweeks{id}', [App\Http\Controllers\TestController::class, 'select_twoweeks'])->name('select_twoweeks')->middleware('auth:admin');
+Route::get('select_today{id}', [App\Http\Controllers\TestController::class, 'select_today'])->name('select_today')->middleware('auth:admin');
+Route::get('select_week{id}', [App\Http\Controllers\TestController::class, 'select_week'])->name('select_week')->middleware('auth:admin');
+Route::get('select_month{id}', [App\Http\Controllers\TestController::class, 'select_month'])->name('select_month')->middleware('auth:admin');
 
 /*個別履歴表示*/
 Route::get('/id_view/{id}', [App\Http\Controllers\AdminController::class, 'id_view'])->name('id_view')->middleware('auth:admin');
@@ -234,15 +233,17 @@ Route::get('/guest/index/{id}', [\App\Http\Controllers\GuestController::class, '
 Route::post('/guest/test/{id}/test_id/{test_id}', [\App\Http\Controllers\GuestController::class, 'test'])->name('guest.test');
 
 /**お客様リテスト */
-Route::get('/guest/retest/{id}/test_id/{test_id}',
-[\App\Http\Controllers\GuestController::class, 'retest'])->name('guest.retest');
+Route::get(
+    '/guest/retest/{id}/test_id/{test_id}',
+    [\App\Http\Controllers\GuestController::class, 'retest']
+)->name('guest.retest');
 Route::post('/guest/retest/{id}/test_id/{test_id}', [\App\Http\Controllers\GuestController::class, 'retest_result'])->name('guest.retest_result');
 /*クーポン申込メール*/
 Route::post('/guest/coupon/{id}', [\App\Http\Controllers\GuestController::class, 'confirm'])->name('coupon.confirm');
 
 
 /* Route::get('/guest/mail/{id}', [\App\Http\Controllers\GuestController::class, 'mail_index'])->name('guest.mail');
- *///確認ページ
+ */ //確認ページ
 Route::post('/guest/mail/{id}', [\App\Http\Controllers\GuestController::class, 'confirm'])->name('mail.confirm');
 //送信完了ページ
 Route::post('/guest/confirm/{coupon_id}', [\App\Http\Controllers\GuestController::class, 'send'])->name('mail.send');
@@ -258,8 +259,10 @@ Route::get('/coupon/test/{coupon_id}', [\App\Http\Controllers\CouponController::
 Route::post('/coupon/test/{coupon_id}/test_id/{test_id}', [\App\Http\Controllers\CouponController::class, 'result'])->name('coupon.result');
 
 /**お客様リテスト */
-Route::get('/coupon/retest/{coupon_id}/test_id/{test_id}',
-[\App\Http\Controllers\CouponController::class, 'retest'])->name('coupon.retest');
+Route::get(
+    '/coupon/retest/{coupon_id}/test_id/{test_id}',
+    [\App\Http\Controllers\CouponController::class, 'retest']
+)->name('coupon.retest');
 Route::post('/coupon/retest/{coupon_id}/test_id/{test_id}', [\App\Http\Controllers\CouponController::class, 'retest_result'])->name('coupon.retest_result');
 /*クーポン申込メール*/
 Route::post('/coupon/coupon/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'confirm'])->name('coupon.confirm');
@@ -272,7 +275,7 @@ Route::post('/coupon/use/{id}/coupon/{coupon_id}', [\App\Http\Controllers\Coupon
 Route::get('/coupon/done/{id}', [\App\Http\Controllers\CouponController::class, 'coupon.done'])->name('coupon.done');
 
 /* Route::get('/coupon/mail/{id}', [\App\Http\Controllers\CouponController::class, 'mail_index'])->name('coupon.mail');
- *///確認ページ
+ */ //確認ページ
 Route::post('/coupon/mail/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'confirm'])->name('coupon.confirm');
 //送信完了ページ
 Route::post('/coupon/confirm/{coupon_id}', [\App\Http\Controllers\CouponController::class, 'send'])->name('coupon.send');
@@ -306,3 +309,49 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+//在庫一覧画面の表示
+Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+/* Route::post('/products_process', 'UsersController@home')->name('products_process'); // 在庫一覧画面の処理 */
+
+//新規備品登録画面へ遷移
+Route::get('/create',  [App\Http\Controllers\ProductController::class, 'create'])->name('create_products');
+
+//注文申請画面へ遷移
+Route::get('/order/{id}',  [App\Http\Controllers\ProductController::class, 'order'])->name('order');
+
+
+//持ち出し申請submit
+Route::post('/update',  [App\Http\Controllers\ProductController::class, 'update'])->name('products');
+
+//持ち出し申請画面へ遷移
+Route::get('/store',  [App\Http\Controllers\ProductController::class, 'store'])->name('store');
+
+//QR持ち出し申請submit
+Route::post('/qr/{id}',  [App\Http\Controllers\ProductController::class, 'qr'])->name('qr');
+
+//QR持ち出し申請画面へ遷移
+Route::get('/qr/{id}',  [App\Http\Controllers\ProductController::class, 'qr_index'])->name('qr_index');
+
+//備品登録submit
+Route::post('/subtract',  [App\Http\Controllers\ProductController::class, 'subtract'])->name('products');
+
+//orderテーブルへのデータ受け渡し
+Route::post('/insert',  [App\Http\Controllers\ProductController::class, 'insert'])->name('order_table');
+
+//注文一覧表示
+Route::get('/order_table',  [App\Http\Controllers\ProductController::class, 'order_table'])->name('order_table');
+//注文表一覧表示
+Route::get('/ship_table',  [App\Http\Controllers\ProductController::class, 'ship_table'])->name('ship_table');
+
+//注文番号確認画面へ遷移
+Route::get('/ship',  [App\Http\Controllers\ProductController::class, 'ship'])->name('ship');
+//注文メール送信画面へ遷移
+Route::get('/form/{id}',  [App\Http\Controllers\ProductController::class, 'form'])->name('form');
+//選択したメール画面へ遷移
+Route::get('/form_id/{id}',  [App\Http\Controllers\ProductController::class, 'form_id'])->name('form_id');
+
+//Mailableを使った
+/* Route::get('/form', [App\Http\Controllers\MailController::class,'form']); */
+Route::post('/form/{form_id}', [App\Http\Controllers\MailController::class, 'send'])->name('send');
+Route::post('/form_id/{form_id}', [App\Http\Controllers\MailController::class, 'send2'])->name('send2');
