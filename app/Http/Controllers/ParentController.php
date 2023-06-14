@@ -60,7 +60,14 @@ class ParentController extends Controller
    {
         $user=Auth::user();
         $id = Auth::user('id');
-            $game = Game::where('user_id', '=',$id->id)->first();
+            $game = Game::where('user_id', '=',$user->id)->first();
+            if($game== null)
+            {
+                $game = new Game;
+                $game->user_id=$user->id;
+                $game->save();
+
+            }
 
         return view ('goal',[
             'user'=> $user,

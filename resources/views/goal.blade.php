@@ -66,6 +66,7 @@
   background-color: teal;">
     <div class="comment">
         <br>
+        @if(!is_null($game) && !is_null($game->goal) && !is_null($game->goal_point))
         <div class="old">
             今の目標と目標点<br>
             <tr>
@@ -73,6 +74,7 @@
                 <td>{{$game->goal_point}}</td>
             </tr>
         </div>
+        @endif
         <form class="form-inline" action="{{route('goal_post',['id'=>$id])}}" method="POST">
                 @csrf
                 <div class="goal">

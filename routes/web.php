@@ -315,7 +315,7 @@ Route::get('/products', [App\Http\Controllers\ProductController::class, 'index']
 /* Route::post('/products_process', 'UsersController@home')->name('products_process'); // 在庫一覧画面の処理 */
 
 //新規備品登録画面へ遷移
-Route::get('/create',  [App\Http\Controllers\ProductController::class, 'create'])->name('create_products');
+Route::get('/create_product',  [App\Http\Controllers\ProductController::class, 'create'])->name('create_products');
 
 //注文申請画面へ遷移
 Route::get('/order/{id}',  [App\Http\Controllers\ProductController::class, 'order'])->name('order');
