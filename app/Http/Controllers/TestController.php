@@ -836,22 +836,22 @@ class TestController extends Controller
     {
         $user = Auth::user();
         if($user->year== "小3"){
-            $word = Word::where('type','<=',1)->inRandomOrder()
+            $word = Word::where('type','<=','1')->inRandomOrder()
                 ->limit(1)
                 ->first();
         }
         elseif($user->year== "小4"){
-            $word = Word::where('type','<=',1)->inRandomOrder()
+            $word = Word::where('type','<=','1')->inRandomOrder()
                 ->limit(1)
                 ->first();
         }
         elseif($user->year== "小5"){
-            $word = Word::where('type','<=',1)->inRandomOrder()
+            $word = Word::where('type','<=','1')->inRandomOrder()
                 ->limit(1)
                 ->first();
         }
         elseif($user->year== "小6"){
-            $word = Word::where('type','<=',1)->inRandomOrder()
+            $word = Word::where('type','<=','1')->inRandomOrder()
                 ->limit(1)
                 ->first();
         }
@@ -1022,7 +1022,6 @@ class TestController extends Controller
             if ($request->en4 === $words->en4) {
                 $score = $score + 1;
                 $result4 = "O";
-            } else {
                 $result4 = "X";
             }
             if ($request->en5 === $words->en5) {
