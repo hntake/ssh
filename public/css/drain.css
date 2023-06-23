@@ -1,0 +1,182 @@
+.main{
+    display:flex;
+  }
+  .title{
+    margin-top:100px;
+
+  }
+  .container{
+    margin:40px 100px;
+    width:60%;
+  }
+  .side{
+    width:20%;
+    margin-right:100px;
+  }
+
+  .right-content h2{
+    background-image: none;
+    border-bottom: none;
+    padding: 10px;
+    text-align: center;
+    background-color: #109C9D;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 16px;
+  }
+  .each{
+    position: relative;
+      border: 2px solid #109C9D;
+      border-radius: 4px 4px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;}
+    .each a {
+      display: inline-block;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .each p {
+      float: right;
+      font-size: 1.5rem;;
+    }
+    .banner{
+      background-color: aliceblue;
+      padding:20px;
+    }
+    h1{
+      color:red;
+      font-weight: bold;
+      text-align: center;
+    }
+    .entry-img{
+      display:flex;
+      background-color:rgb(239, 221, 130);
+    }
+    .entry-img p{
+      margin-right:50px;
+      padding:50px;
+    }
+    .entry-img img{
+      width:40%;
+    }
+    h3{
+      color:red;
+      font-weight: bold;
+    }
+    .banner_area_cover{
+      background-color: unset;
+      padding:0;
+      margin:0;
+    }
+    .banner_area_cover .banner_area {
+      height:auto;
+    }
+    table td, table th{
+      font-size:16px;
+      padding: 0;
+    }
+    table tr td:nth-child(2){
+      font-weight: unset;
+    }
+    .flow h3{
+      background: aquamarine;
+      width: 10%;
+      padding: 5px;
+      text-align: center;
+      margin: 0 auto;
+  }
+    .flow{
+      background-color: rgb(214, 242, 199);
+      text-align: center;
+      margin: 0 auto;
+
+    }
+    #footer{
+      width:100%;
+      margin:0 auto;
+    }
+    .mail_box {
+      width:100%;
+    }
+    .banner_area_cover .banner_area .call_box{
+      width:100%;
+    }
+    .side img{
+      margin-top:0;
+    }
+
+
+    /* ipad用 */
+  @media screen and (max-width: 1280px){
+    .main{
+      display:block;
+    }
+    .container{
+      margin:0;
+      width:100%;
+    }
+    .detail{
+      display: block;
+    }
+    .entry-img{
+      display:block;
+    }
+    .entry-img img{
+      width:100%;
+    }
+    .side{
+      width:100%;
+      margin-right:0;
+    }
+  }
+
+  /* iphone */
+  @media screen and (max-width: 640px){
+    .main{
+      display:block;
+    }
+    .body_content{
+      margin-top:0;
+    }
+    .title img{
+     width:100%;
+    }
+    .container{
+      margin:0;
+      width:100%;
+    }
+    .container h1{
+      font-size: 28px;
+    }
+    .detail{
+      display: block;
+    }
+    .entry-img{
+      display:block;
+    }
+    .entry-img p{
+      margin-right:0;
+      padding:10px;
+    }
+    .entry-img img{
+      width:100%;
+    }
+    .flow h3 {
+      display: inline;
+      margin-right: 10px;
+    }
+    .side{
+      width:100%;
+      margin-right:0;
+    }
+    #footer{
+      width:100%;
+    }
+
+    .banner_area_cover .banner_area {
+      margin-bottom: 300px;
+    }
+
+  }

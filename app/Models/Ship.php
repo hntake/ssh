@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ship extends Model
 {
-    protected $fillable = [ 'product_name','new_order','`supplier_name', 'staff', 'order_id','form_id'];
+    protected $fillable = [ 'product_name','new_order','`supplier_name', 'staff', 'order_id','form_ida'];
 
     public function product()
     {

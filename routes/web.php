@@ -355,3 +355,17 @@ Route::get('/form_id/{id}',  [App\Http\Controllers\ProductController::class, 'fo
 /* Route::get('/form', [App\Http\Controllers\MailController::class,'form']); */
 Route::post('/form/{form_id}', [App\Http\Controllers\MailController::class, 'send'])->name('send');
 Route::post('/form_id/{form_id}', [App\Http\Controllers\MailController::class, 'send2'])->name('send2');
+
+//アンケート機能
+//作成画面
+Route::get('/customer/create', [App\Http\Controllers\QuestionController::class, 'create_index']))->middleware('auth:admin');
+/*アンケート送信*/
+Route::post('/customer/create', [App\Http\Controllers\QuestionController::class, 'create'])->name('create_q');
+/*リスト画面へ*/
+Route::get('/customer/list', [App\Http\Controllers\QuestionController::class, 'list'])->name('list_q');
+/*選択したアンケートを表示*/
+Route::get('/each/{id}', [App\Http\Controllers\QuestionController::class, 'each'])->name('each_q');
+/*編集*/
+Route::patch('/customer/edit/{id}', [App\Http\Controllers\QuestionController::class, 'update'])->name('update_q')->middleware('auth:admin');
+/*削除*/
+Route::get('/customer/list/{id}', [App\Http\Controllers\QuestionController::class, 'delete'])->name('delete_q')->middleware('auth:admin');
