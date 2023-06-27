@@ -183,19 +183,19 @@
               <div class="right-content">
                 <h2>業務内容</h2>
                 <div class="each">
-                  <a href="index.html"><p>シロアリ駆除</p></a>
+                  <a href="http://sanin-aqua.com/"><p>シロアリ駆除</p></a>
                 </div >
                 <div class="each">
-                  <a href="#body_content"><p>排水管高圧洗浄</p></a>
+                  <a href="http://sanin-aqua.com/drain"><p>排水管高圧洗浄</p></a>
                 </div >
                 <div class="each">
-                  <a href="under.html"><p>防湿工事</p></a>
+                  <a href="http://sanin-aqua.com/under"><p>防湿工事</p></a>
                 </div >
                 <div class="each" >
-                  <a href="reform.html"><p>リフォーム工事</p></a>
+                  <a href="http://sanin-aqua.com/reform">リフォーム工事</p></a>
                 </div >
                 <div class="each" >
-                  <a href="voice.html"><p>お客様の声</p></a>
+                  <a href="https://eng50cha.com/customer/list/aquq"><p>お客様の声</p></a>
                 </div >
                 <div class="title_area">
                   <h3>
@@ -221,7 +221,7 @@
          <footer id="footer" class="mt40" >
 
           <aside class="company">
-            <a href="company.html"><p>会社概要</p>
+            <a href="http://sanin-aqua.com/company"><p>会社概要</p>
             会社名：株式会社 山陰アクア
             <br>
             住所:島根県出雲市天神町2番地
