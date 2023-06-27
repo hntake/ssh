@@ -66,6 +66,7 @@ Route::get('/coupon/not')->name('coupon.not');
 Route::get('/coupon/overdue')->name('coupon.overdue');
 
 
+
 //モニタリング申込者入力ページ
 Route::get('/admin_form', [App\Http\Controllers\ContactController::class, 'admin_form'])->name('admin_form');
 //確認ページ
@@ -132,7 +133,7 @@ Route::middleware(['verified'])->group(function () {
     Route::get('/answer/{id}', [App\Http\Controllers\TestController::class, 'answer'])->name('answer');
     Route::post('/answer/{id}', [App\Http\Controllers\TestController::class, 'alert'])->name('alert');
     /*テスト作成画面へ*/
-    Route::get('/create', [App\Http\Controllers\TestController::class, 'create_index'])->name('create');
+    Route::get('/create', [App\Http\Controllers\TestController::class, 'create_index'])->name('create_index');
     /*全履歴画面へ*/
     Route::get('/history', [App\Http\Controllers\TestController::class, 'history'])->name('history');
     /*テスト作成*/
@@ -299,7 +300,7 @@ Route::get('/deletepic_store/{id}', [App\Http\Controllers\GuestController::class
 
 
 
-Route::middleware([
+/* Route::middleware([
 
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -308,7 +309,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
+}); */
 
 //在庫一覧画面の表示
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
@@ -358,14 +359,22 @@ Route::post('/form_id/{form_id}', [App\Http\Controllers\MailController::class, '
 
 //アンケート機能
 //作成画面
-Route::get('/customer/create', [App\Http\Controllers\QuestionController::class, 'create_index']))->middleware('auth:admin');
-/*アンケート送信*/
-Route::post('/customer/create', [App\Http\Controllers\QuestionController::class, 'create'])->name('create_q');
+Route::get('/customer/create', [App\Http\Controllers\QuestionController::class, 'create_index'])->middleware('auth:admin');
 /*リスト画面へ*/
-Route::get('/customer/list', [App\Http\Controllers\QuestionController::class, 'list'])->name('list_q');
+Route::get('/customer/list/{store}', [App\Http\Controllers\QuestionController::class, 'list'])->name('list_q');
 /*選択したアンケートを表示*/
-Route::get('/each/{id}', [App\Http\Controllers\QuestionController::class, 'each'])->name('each_q');
+Route::get('/customer/each/{id}', [App\Http\Controllers\QuestionController::class, 'each'])->name('each_q');
 /*編集*/
-Route::patch('/customer/edit/{id}', [App\Http\Controllers\QuestionController::class, 'update'])->name('update_q')->middleware('auth:admin');
+Route::get('/customer/edit/{store}', [App\Http\Controllers\QuestionController::class, 'edit'])->name('edit_q')->middleware('auth:admin');
+Route::get('/customer/edit_each/{id}', [App\Http\Controllers\QuestionController::class, 'edit_each'])->name('edit_eq')->middleware('auth:admin');
+Route::match(['patch', 'post'], '/customer/edit_each/{id}', [App\Http\Controllers\QuestionController::class, 'update_each'])->name('update_eq')->middleware('auth:admin');
 /*削除*/
-Route::get('/customer/list/{id}', [App\Http\Controllers\QuestionController::class, 'delete'])->name('delete_q')->middleware('auth:admin');
+Route::get('/customer/delete_list/{id}', [App\Http\Controllers\QuestionController::class, 'delete'])->name('delete_q');
+/*アンケート送信*/
+Route::post('/customer/create', [App\Http\Controllers\QuestionController::class, 'question'])->name('question.create')->middleware('auth:admin');
+//お客様写真
+Route::get('/customer/edit_picture/{id}', [App\Http\Controllers\QuestionController::class, 'picture'])->name('q_edit_picture')->middleware('auth:admin');
+/*お客様写真変更*/
+Route::patch('/customer/edit_picture/{id}', [App\Http\Controllers\QuestionController::class, 'upload'])->name('q_upload_pic');
+/*お客様写真削除*/
+Route::get('/customer/delete_picture/{id}', [App\Http\Controllers\QuestionController::class, 'delete_pic'])->name('delete_pic');

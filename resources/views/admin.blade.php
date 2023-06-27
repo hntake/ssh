@@ -38,6 +38,7 @@
                             </tr>
                         </thead>
                         <tbody id="tbl">
+                            @if(isset($histories))
                             @foreach ($histories as $history)
                             <tr>
                                 <td>{{ $history->test_id }}</td>
@@ -78,6 +79,7 @@
                     </table>
                 </div>
             </div>
+            @endif
             <div class="individual">
                 <div class="button"><a href="{{ route('individual',['id'=>Auth::user()->school])}}">個別データ検索へ</a></div>
             </div>

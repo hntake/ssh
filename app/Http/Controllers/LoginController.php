@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Store;
+
 
 
 class LoginController extends Controller
@@ -22,7 +24,24 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($credentials)) { // ログイン試行
-            if ($request->user('admin')?->admin_level > 0) { // 管理権限レベルが0でないか
+            if ($request->user('admin')?->admin_level ==10) { // 私
+                $request->session()->regenerate(); // セッション更新
+
+                return redirect()->intended('admin'); // ダッシュボードへ
+            }
+            elseif ($request->user('admin')?->admin_level == 5) { // アンケート利用オーナー
+                $request->session()->regenerate(); // セッション更新
+                
+                 $store=Store::where('email',$request->user('admin')?->email)->value('name');
+                return view('/customer/create', [
+                    'store' => $store,
+                    ]);
+            }
+             elseif ($request->user('admin')?->admin_level== 2) { // 塾オーナー
+                $request->session()->regenerate(); // セッション更新
+
+                return redirect()->intended('admin'); // ダッシュボードへ
+             }elseif ($request->user('admin')?->admin_level== 1) { // 講師
                 $request->session()->regenerate(); // セッション更新
 
                 return redirect()->intended('admin'); // ダッシュボードへ

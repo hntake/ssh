@@ -13,6 +13,7 @@ use App\Models\Point;
 use App\Models\Game;
 use App\Models\History;
 use App\Models\Later;
+use App\Models\Store;
 use App\Mail\Reported;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB; // DB ファサードを use する
@@ -64,12 +65,19 @@ class TestController extends Controller
     /*学校ごと履歴*/
     public function by_school(Request $request)
     {
+        if(Auth::user()->admin_level !== 5){
         $histories = History::where('school', '=', Auth::user()->school)->orderBy('created_at', 'desc')->paginate(10);
         $users = User::where('school1', '=', Auth::user()->school)->orWhere('school2', '=', Auth::user()->school)->orderBy('point', 'desc')->paginate(20);
         return view('admin', [
             'histories' => $histories,
             'users' => $users,
         ]);
+        }else{
+            $store=Store::where('email',Auth::user()->email)->value('name');
+            return view('/customer/create', [
+                'store' => $store,
+                ]);
+        }
     }
     /*個別データ検索へ*/
     public function individual(Request $request, $id)

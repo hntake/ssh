@@ -1,21 +1,21 @@
-<html>
-  <head prefix= "og: http://ogp.me/ns#">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="出雲のシロアリ駆除会社は、信頼性と経験豊富な専門家による効果的なシロアリ駆除サービスを提供しています。お問い合わせはこちらから。">
-  <meta name="keywords" content="出雲, シロアリ駆除, 駆除会社, 専門家">
-  <meta name="author" content="出雲のシロアリ駆除会社">
-  <title>出雲のシロアリ駆除会社 山陰アクア お客様の声</title>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head prefix= "og: http://ogp.me/ns#">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="出雲のシロアリ駆除会社は、信頼性と経験豊富な専門家による効果的なシロアリ駆除サービスを提供しています。お問い合わせはこちらから。">
+        <meta name="keywords" content="出雲, シロアリ駆除, 駆除会社, 専門家">
+        <meta name="author" content="出雲のシロアリ駆除会社">
+        <title>出雲のシロアリ駆除会社 山陰アクア お客様の声</title>
 
-  <link rel="stylesheet" type="text/css" href="aqua.css" media="print, screen and (min-width:768px)">
-    <link rel="stylesheet" type="text/css" href="ad.css" >
-    <link rel="stylesheet" type="text/css" href="aqua.css">
-
-    <link rel="stylesheet" type="text/css" href="drain.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
-  <script src="https://kit.fontawesome.com/8eb7c95a34.js" crossorigin="anonymous"></script>
-  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="aqua.css" media="print, screen and (min-width:768px)">
+        <link href="{{ asset('css/ad.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/aqua.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/drain.css') }}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script src="https://kit.fontawesome.com/8eb7c95a34.js" crossorigin="anonymous"></script>
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
   </head>
     <body >
@@ -24,7 +24,7 @@
         <header class="header">
           <div class="menu-container">
             <div class="logo_sp">
-               <img src="img/aqua_logo.png" style="width:95%;">
+               <img src="../../img/aqua_logo.png" style="width:95%;">
             </div>
             <div class="menu-button" onclick="toggleMenu()">メニュー<span style="font-size:0.5rem; color:black; padding-left:15px;">←クリックするとメニューが開きます</span></div>
             <ul class="menu-list" id="menuList">
@@ -60,7 +60,7 @@
               </div>
               <div class="top_center">
                 <p class="logo">
-                  <img src="img/aqua_logo.png">
+                  <img src="../../img/aqua_logo.png">
                 </p>
                 <div class="red_f" style="padding-top:20px;">
                   <h4 style="color:red; font-weight:bold;margin:10px 0 0 0;">
@@ -87,22 +87,94 @@
         <div class="body_content" id="body_content">
           <div class="title">
             <h1>アクア山陰</h1>
-            <a href="tel:0120-233-880" style="font-weight:bold;"><img src="img/voice.webp"></a>
+            <a href="tel:0120-233-880" style="font-weight:bold;"><img src="../../img/voice.webp"></a>
           </div>
           <div class="main">
             <div class="container">
-            <div class="flow">
-                @foreach($questions as $question)
-                <div class="f-image">
-                          @if(!$question->image == null)
-                          <img src="{{ asset('storage/' .$question->image) }}" alt="image">
-                          @else
-                          <img src="img/boy.png" alt="boy">
-                        <h3>{{ $question->category}} {{$question->area}}</h3>
-                        <p>{{$question->q6}}</p>
-                      </div>
+                <div class="flow">
+                    @foreach($questions as $question)
+                    <div class="f-image">
+                            @if(!$question->image == null)
+                            <a href="{{ route('each_q',['id'=>$question->id]) }}"><img src="{{ asset('storage/' .$question->image) }}" alt="image"></a>
+                            @else
+                            <a href="{{ route('each_q',['id'=>$question->id]) }}"><img src="../../img/boy.webp" alt="boy"></a>
+                            @endif
+                            @if($question->category ==1)
+                            <h3>シロアリ工事 {{$question->area}} {{$question->name}}様 </h3>
+                            @elseif($question->category ==2)
+                            <h3>排水管高圧洗浄 {{$question->area}} {{$question->name}}様</h3>
+                            @elseif($question->category ==3)
+                            <h3>床下防湿 {{$question->area}} {{$question->name}}様</h3>
+                            @else
+                            <h3>リフォーム工事 {{$question->area}} {{$question->name}}様</h3>
+                            @endif
+                            @if($question->category ==1 && $question->q6 ==1)
+                            <p>シロアリ工事を利用して本当にやって良かった</p>
+                            @elseif($question->category ==1 && $question->q6 ==2)
+                            <p>丁寧な対応に心から感謝しています</p>
+                            @elseif($question->category ==1 && $question->q6 ==3)
+                            <p> スピーディーな対応に感謝しています</p>
+                            @elseif($question->category ==1 && $question->q6 ==4)
+                            <p>迅速な対応に助かりました</p>
+                            @elseif($question->category ==1 && $question->q6 ==5)
+                            <p>おかげさまでシロアリの心配がなくなりました</p>
+                            @elseif($question->category ==1 && $question->q6 ==6)
+                            <p>引き続きシロアリの保証をお願いします</p>
+                            @elseif($question->category ==1 && $question->q6 ==7)
+                            <p>お手入れが丁寧で信頼できる業者でした</p>
+                            @elseif($question->category ==1 && $question->q6 ==8)
+                            <p> 今後も保証についてお願いしたいです</p>
+                            @elseif($question->category ==2 && $question->q6 ==1)
+                            <p>排水管高圧洗浄を利用して本当にやって良かった</p>
+                            @elseif($question->category ==2 && $question->q6 ==2)
+                            <p>丁寧な対応に心から感謝しています</p>
+                            @elseif($question->category ==2 && $question->q6 ==3)
+                            <p>迅速な対応に助かりました</p>
+                            @elseif($question->category ==2 && $question->q6 ==4)
+                            <p>スピーディーな対応に感謝しています</p>
+                            @elseif($question->category ==2 && $question->q6 ==5)
+                            <p>おかげさまで排水管の心配がなくなりました</p>
+                            @elseif($question->category ==2 && $question->q6 ==6)
+                            <p> お手入れが丁寧で信頼できる業者でした</p>
+                            @elseif($question->category ==3 && $question->q6 ==1)
+                            <p>床下防湿を利用して本当にやって良かった</p>
+                            @elseif($question->category ==3 && $question->q6 ==1)
+                            <p>丁寧な対応に心から感謝しています</p>
+                            @elseif($question->category ==3 && $question->q6 ==3)
+                            <p>迅速な対応に助かりました</p>
+                            @elseif($question->category ==3 && $question->q6 ==4)
+                            <p>引き続き保証をお願いします</p>
+                            @elseif($question->category ==3 && $question->q6 ==5)
+                            <p>スピーディーな対応に感謝しています</p>
+                            @elseif($question->category ==3 && $question->q6 ==6)
+                            <p>おかげさまで心配がなくなりました</p>
+                            @elseif($question->category ==3 && $question->q6 ==7)
+                            <p>お手入れが丁寧で信頼できる業者でした</p>
+                            @elseif($question->category ==3 && $question->q6 ==8)
+                            <p>今後も保証についてお願いしたいです</p>
+                            @elseif($question->category ==4 && $question->q6 ==1)
+                            <p>リフォーム工事を利用して本当にやって良かった</p>
+                            @elseif($question->category ==4 && $question->q6 ==2)
+                            <p>丁寧な対応に心から感謝しています</p>
+                            @elseif($question->category ==4 && $question->q6 ==3)
+                            <p>スピーディーな対応に感謝しています</p>
+                            @elseif($question->category ==4 && $question->q6 ==4)
+                            <p>迅速な対応に助かりました</p>
+                            @elseif($question->category ==4 && $question->q6 ==5)
+                            <p>おかげさまで心配がなくなりました</p>
+                            @elseif($question->category ==4 && $question->q6 ==6)
+                            <p>引き続き保証をお願いします</p>
+                            @elseif($question->category ==4 && $question->q6 ==7)
+                            <p>お手入れが丁寧で信頼できる業者でした</p>
+                            @else($question->category ==4 && $question->q6 ==8)
+                            <p>今後も保証についてお願いしたいです</p>
+                            @endif
                     </div>
-                @endforeach
+                    @endforeach
+                </div>
+                <div class="button">
+                <a href="{{ route('edit_q',['store'=>$store]) }}">管理者画面へ</a>
+                </div>
             </div >
 
           <!--サイドメニュー-->
@@ -127,17 +199,17 @@
                 </div >
                 <div class="title_area">
                   <h3>
-                    <a href="index.html"><img src="img/ant_black.png" style="width:100%;">
+                    <a href="index.html"><img src="../../img/ant_black.png" style="width:100%;">
                   </h3>
                 </div>
                 <div class="title_area">
                   <h3>
-                    <a href="reform.html"><img src="img/reform_top.webp" style="width:100%;">
+                    <a href="reform.html"><img src="../../img/reform_top.webp" style="width:100%;">
                   </h3>
                 </div>
                 <div class="title_area">
                   <h3>
-                    <a href="under.html"><img src="img/under_top.webp" style="width:100%;">
+                    <a href="under.html"><img src="../../img/under_top.webp" style="width:100%;">
                   </h3>
                 </div>
 

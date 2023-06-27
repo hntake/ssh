@@ -82,7 +82,7 @@
     }
     .flow h3{
       background: aquamarine;
-      width: 10%;
+      width: 100%;
       padding: 5px;
       text-align: center;
       margin: 0 auto;
@@ -106,8 +106,43 @@
     .side img{
       margin-top:0;
     }
-
-
+    .col-md-6 input{
+        width:200px;
+        height:40px;
+    }
+    input{
+        height: 20px;
+        width: 50px;
+    }
+    .card{
+        width:100%;
+    }
+    .q6{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+/*         height: 100vh;
+ */    }
+    .card{
+        padding-bottom:50px;
+        padding-top:100px;
+    }
+    .header{
+        display:none;
+    }
+    .button{
+        border:1px solid gray;
+        width:10%;
+        margin-top:100px;
+    }
+    .f-image img{
+        width:250px;
+        height:200px;
+    }
+    .edit-button{
+        border:1px solid gray;
+    }
     /* ipad用 */
   @media screen and (max-width: 1280px){
     .main{
@@ -130,6 +165,11 @@
       width:100%;
       margin-right:0;
     }
+    .card-body h1{
+        text-align: start;
+        width:80%;
+        margin:0 auto;
+    }
   }
 
   /* iphone */
@@ -145,7 +185,8 @@
     }
     .container{
       margin:0;
-      width:100%;
+      width:90%;
+      padding: 0 10px;
     }
     .container h1{
       font-size: 28px;
@@ -178,5 +219,15 @@
     .banner_area_cover .banner_area {
       margin-bottom: 300px;
     }
-
+    .form p{
+        font-size:1.2rem;
+        text-align: start;
+    }
+    .q6 p{
+        font-size:1.2rem;
+        text-align: start;
+    }
+    .card{
+        padding:0 10px 50px 10px;
+    }
   }
