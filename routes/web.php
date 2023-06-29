@@ -378,3 +378,11 @@ Route::get('/customer/edit_picture/{id}', [App\Http\Controllers\QuestionControll
 Route::patch('/customer/edit_picture/{id}', [App\Http\Controllers\QuestionController::class, 'upload'])->name('q_upload_pic');
 /*お客様写真削除*/
 Route::get('/customer/delete_picture/{id}', [App\Http\Controllers\QuestionController::class, 'delete_pic'])->name('delete_pic');
+
+//PDFファイル
+Route::get('pdf', [App\Http\Controllers\PDFController::class, 'pdf'])->name('pdf');
+//請求書アクア
+Route::get('invoice/aqua', function () {
+    return view('invoice/aqua');
+});
+
