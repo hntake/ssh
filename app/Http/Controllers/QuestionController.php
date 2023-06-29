@@ -83,6 +83,7 @@ class QuestionController extends Controller
         return view('customer/list', [
             'questions' => $questions,
             'admin'=>$admin,
+            'store'=>$store,
         ]);
     }
 
