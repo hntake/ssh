@@ -76,7 +76,7 @@ class PDFController extends Controller
 
 
         $pdf = \PDF::loadView('invoice.document', $data);
-        return $pdf->stream('title.pdf');
+        return $pdf->stream('請求書.pdf');
     }
     public function index(){
 

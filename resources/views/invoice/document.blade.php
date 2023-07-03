@@ -95,10 +95,7 @@
                     <td>{{ $project_name }}</td>
                 </tr>
 
-              <!--   <tr>
-                    <th class="table-title left">振込先</th>
-                    <td><h>ゆうちょ銀行 支店名 五三八 普通 1569554</h6></td>
-                </tr> -->
+
             </table>
             <div class="blank"></div>
 
@@ -113,6 +110,7 @@
                     <tr>
                         <th class="table-title">内訳</th>
                         <th class="table-title">単価</th>
+                        <th class="table-title">数量</th>
                         <th class="table-title">金額</th>
                     </tr>
                 </thead>
@@ -120,29 +118,39 @@
                     <tr>
                         <td class="left">{{ $type1 }}</td>
                         <td class="right">{{ number_format((int)$cost1) }}円</td>
+                        <td class="right">{{ number_format((int)$count1) }}</td>
+                        <td class="right">{{ number_format((int)$cost1*(int)$count1) }}円</td>
                     </tr>
                     @if(isset($type2))
                     <tr>
                         <td class="left">{{ $type2 }}</td>
                         <td class="right">{{ number_format((int)$cost2) }}円</td>
+                        <td class="right">{{ number_format((int)$count2) }}</td>
+                        <td class="right">{{ number_format((int)$cost2*(int)$count2) }}円</td>
                     </tr>
                     @endif
                     @if(isset($type3))
                     <tr>
                         <td class="left">{{ $type3 }}</td>
                         <td class="right">{{ number_format((int)$cost3) }}円</td>
+                        <td class="right">{{ number_format((int)$count3) }}</td>
+                        <td class="right">{{ number_format((int)$cost3*(int)$count3 ) }}円</td>
                     </tr>
                     @endif
                     @if(isset($type4))
                     <tr>
                         <td class="left">{{ $type4 }}</td>
                         <td class="right">{{ number_format((int)$cost4) }}円</td>
+                        <td class="right">{{ number_format((int)$count4) }}</td>
+                        <td class="right">{{ number_format((int)$cost4*(int)$count4) }}円</td>
                     </tr>
                     @endif
                     @if(isset($type5))
                     <tr>
                         <td class="left">{{ $type5 }}</td>
                         <td class="right">{{ number_format((int)$cost5) }}円</td>
+                        <td class="right">{{ number_format((int)$count5) }}</td>
+                        <td class="right">{{ number_format((int)$cost5*(int)$count5) }}円</td>
                     </tr>
                     @endif
                     <tr>
