@@ -1,0 +1,15 @@
+/*iPhone12レスポンシブ対応*/
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 844px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+
+.bottom{
+    width:80%;
+}
+section{
+   
+    width:90%;
+
+}
+  }
