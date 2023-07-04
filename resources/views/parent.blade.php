@@ -19,6 +19,7 @@
     <!-- Styles -->
     <!--  <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/feature.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/parent.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
