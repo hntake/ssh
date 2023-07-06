@@ -124,11 +124,12 @@ li.title_image{
 }
 .elementor-widget{
     position:relative;
+    text-align: center;
 }
 .elementor-image{
     position:absolute;
     top:50%;
-    left:35%;
+    left:20%;
 }
 .elementor-widget img{
     width:50%;
@@ -1755,5 +1756,10 @@ display:none;
     .header_nav_itm {
         margin-left:0;
   }
+  .elementor-image{
+    position:absolute;
+    top:50%;
+    left:45%;
+}
   }
   }
