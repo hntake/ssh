@@ -381,8 +381,14 @@ Route::get('/customer/delete_picture/{id}', [App\Http\Controllers\QuestionContro
 
 //PDFファイル
 Route::get('pdf', [App\Http\Controllers\PDFController::class, 'pdf'])->name('pdf');
+//PDFファイル
+Route::get('receipt', [App\Http\Controllers\PDFController::class, 'receipt'])->name('receipt');
 //請求書アクア
 Route::get('invoice/aqua', function () {
     return view('invoice/aqua');
+});
+//領収書アクア
+Route::get('invoice/aqua_r', function () {
+    return view('invoice/aqua_r');
 });
 
