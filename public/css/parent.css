@@ -5,10 +5,10 @@
   and (-webkit-min-device-pixel-ratio: 3) {
 
 .bottom{
-    width:80%;
+   /*  width:80%; */
 }
 section{
-   
+
     width:90%;
 
 }
