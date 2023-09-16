@@ -1031,6 +1031,8 @@ class TestController extends Controller
                 $score = $score + 1;
                 $result4 = "O";
                 $result4 = "X";
+            } else {
+                $result4 = "X";
             }
             if ($request->en5 === $words->en5) {
                 $score = $score + 1;
@@ -1143,6 +1145,7 @@ class TestController extends Controller
             }
 
         }
+
         return view('today_result', [
             'id' => $id,
             'user' => $user,
