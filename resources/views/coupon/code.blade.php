@@ -44,37 +44,37 @@
                     @elseif($store->type == 1 && $store->due ==2)
                     <img src="/img/coupon100_60.png" alt="coupon">
                     @elseif($store->type == 1 && $store->due ==3)
-                    <img src="/img/coupon100_90.png" alt="coupon">
+                    <img src="/img/coupon100_180.png" alt="coupon">
                     @elseif($store->type == 2 && $store->due ==1)
                     <img src="/img/coupon10.png" alt="coupon">
                     @elseif($store->type == 2 && $store->due ==2)
                     <img src="/img/coupon10_60.png" alt="coupon">
                     @elseif($store->type == 2 && $store->due ==3)
-                    <img src="/img/coupon10_90.png" alt="coupon">
+                    <img src="/img/coupon10_180.png" alt="coupon">
                     @elseif($store->type == 3 && $store->due ==1)
                     <img src="/img/coupon5.png" alt="coupon">
                     @elseif($store->type == 3 && $store->due ==2)
                     <img src="/img/coupon5_60.png" alt="coupon">
                     @elseif($store->type == 3 && $store->due ==3)
-                    <img src="/img/coupon5_90.png" alt="coupon">
+                    <img src="/img/coupon5_180.png" alt="coupon">
                     @elseif($store->type == 4 && $store->due ==1)
                     <img src="/img/coupon_drink.png" alt="coupon">
                     @elseif($store->type == 4 && $store->due ==2)
                     <img src="/img/coupon_drink_60.png" alt="coupon">
                     @elseif($store->type == 4 && $store->due ==3)
-                    <img src="/img/coupon_drink_90.png" alt="coupon">
+                    <img src="/img/coupon_drink_180.png" alt="coupon">
                     @elseif($store->type == 5 && $store->due ==1)
                     <img src="/img/coupon_sweet.png" alt="coupon">
                     @elseif($store->type == 5 && $store->due ==2)
                     <img src="/img/coupon_sweet_60.png" alt="coupon">
                     @elseif($store->type == 5 && $store->due ==3)
-                    <img src="/img/coupon_sweet_90.png" alt="coupon">
+                    <img src="/img/coupon_sweet_180.png" alt="coupon">
                     @elseif($store->type == 6 && $store->due ==1)
                     <img src="/img/coupon50.png" alt="coupon">
                     @elseif($store->type == 6 && $store->due ==2)
                     <img src="/img/coupon50_60.png" alt="coupon">
                     @else
-                    <img src="/img/coupon50_90.png" alt="coupon">
+                    <img src="/img/coupon50_180.png" alt="coupon">
                     @endif
                 </span>
 
