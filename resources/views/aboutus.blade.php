@@ -24,7 +24,9 @@
             <p>お問い合わせは、下記の窓口までお願い致します。</p>
             <button class="button" style="margin-top:0px;"><a href="{{ route('contact.index') }}">Contact us</a></button><br>
             <p>llco他サービスはこちらから</p>
-            <button class="button" style="margin-top:0px;" id="card-button"><a style="font-size: 1.0rem;" href=https://itcha50.com>視覚支援ツールVS4サイト</a></button>
+            <button class="button" style="margin-top:0px;" id="card-button"><a style="font-size: 1.0rem;" href=https://itcha50.com>自閉症向け無料サービス案内</a></button>
+            <button class="button" style="margin-top:0px;" id="card-button"><a style="font-size: 1.0rem;" href=https://itcha50.com/design/list>障がい者アート共有サイト</a></button>
+            <button class="button" style="margin-top:0px;" id="card-button"><a style="font-size: 1.0rem;" href=https://itcha50.com/bbs/list>自閉症・発達障害専門掲示板</a></button>
         </div>
     </div>
     <div class="top">

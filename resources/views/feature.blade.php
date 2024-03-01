@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>エイゴメとは？ 英語学習サイト”エイゴメ” </title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ">
+    <meta name="keywords" content="英語学習  発音学習 英単語 中学英語 高校英語 英検二級 英検一級 TOEIC">
+    <meta name="author" content="llco">
+    <meta name="robots" content="index, follow">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 

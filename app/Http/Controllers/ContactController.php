@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Mail\ContactSendmail;
 use App\Mail\AdminForm;
 use App\Mail\GameMail;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -21,6 +22,7 @@ class ContactController extends Controller
             'email' => 'required|email',
             'title' => 'required',
             'body'  => 'required',
+            
         ]);
 
         //フォームから受け取ったすべてのinputの値を取得
