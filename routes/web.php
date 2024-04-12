@@ -391,4 +391,34 @@ Route::get('invoice/aqua', function () {
 Route::get('invoice/aqua_r', function () {
     return view('invoice/aqua_r');
 });
+//オープン請求書作成ページ
+Route::get('invoice/open', function () {
+    return view('invoice/open');
+});
+//オープンPDFファイル
+Route::get('pdf', [App\Http\Controllers\PDFController::class, 'pdf_open'])->name('pdf_open');
+//請求書会員登録
+Route::get('/invoice/register', [\App\Http\Controllers\InvoiceRegisterController::class, 'invoiceRegisterForm'])->name('register_index');
+Route::post('/invoice/register', [\App\Http\Controllers\InvoiceRegisterController::class, 'pre_check'])->name('register_invoice');
+Route::post('/invoice/confirm', [\App\Http\Controllers\InvoiceRegisterController::class, 'register'])->name('register_invoice_confirm');
+Route::get('invoice/email/verify/{email_verify_token}',  [\App\Http\Controllers\InvoiceRegisterController::class, 'verify'])->name('invoice.email.verify');
+//請求書会員ログイン
+Route::get('/invoice/login', function () {
+    return view('invoice/login');
+});
+Route::post('/invoice/login', [\App\Http\Controllers\LoginController::class, 'invoiceLogin'])->name('login_invoice');
+//請求書会員情報入力ページへ
+Route::get('/invoice/create/{id}', function () {
+    return view('invoice/create') ->middleware('auth:invoice');
+});
+//請求書会員情報入力する
+Route::post('/invoice/create/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'company'])->name('invoice_company_post');
+//請求書会員情報入力する
+Route::post('/invoice/company_confirm/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'company_post'])->name('invoice_company_create');//請求書会員情報入力する
+//請求者会員請求書を作成ページへ
+Route::get('/invoice/user/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'create'])->name('invoice_user');
+//請求者会員請求書を作成する
+Route::get('/invoice/pdf}', [\App\Http\Controllers\InvoiceRegisterController::class, 'post'])->name('user_pdf');
+
+
 

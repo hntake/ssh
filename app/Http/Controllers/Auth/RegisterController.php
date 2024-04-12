@@ -75,7 +75,7 @@ class RegisterController extends Controller
         if (array_key_exists('image', $data)) {
             $uploadImg = $data['image'];
         }
-          if($uploadImg !="") {
+        if($uploadImg !="") {
             $filePath = $uploadImg->store('public');
             $data['image'] = str_replace('public/', '', $filePath);
 

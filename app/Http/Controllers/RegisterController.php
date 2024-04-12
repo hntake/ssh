@@ -24,7 +24,6 @@ class RegisterController extends Controller
     {
         return view('adminRegister');
     }
-
     protected function adminValidator(array $data)
     {
         return Validator::make($data, [
@@ -34,7 +33,6 @@ class RegisterController extends Controller
             'admin_level' => ['required', 'numeric'],
         ]);
     }
-
     protected function adminRegisterDatabase(array $data)
     {
         return AdminUser::create([
@@ -55,5 +53,4 @@ class RegisterController extends Controller
             return view('admin', ['registered' => true, 'registered_email' => $user->email]);
         }
     }
-    
 }

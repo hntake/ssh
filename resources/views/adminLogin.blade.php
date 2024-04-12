@@ -21,7 +21,7 @@
     <div class="form">
         <h2>管理者専用ログイン</h2>
 
-        <form method="POST" action="{{ route("admin.login") }}"> {{-- routeはここと同じ --}}
+        <form method="POST" action="{{ route('admin.login') }}"> {{-- routeはここと同じ --}}
             @csrf
             <p>
                 <label for="email">Mail</label>

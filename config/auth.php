@@ -47,6 +47,10 @@ return [
             'driver' => 'session',
             'provider' => 'admin_users',
         ],
+        'invoice' => [
+            'driver' => 'session',
+            'provider' => 'invoices',
+        ],
     ],
 
     /*
@@ -70,15 +74,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+            'expire' => 10080, // 1週間（7日間 × 24時間 × 60分）
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
         'admin_users' => [
             'driver' => 'eloquent',
             'model' => App\Models\AdminUser::class,
+        ],
+        'invoices' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Invoice::class,
         ],
     ],
 

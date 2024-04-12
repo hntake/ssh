@@ -7,7 +7,9 @@
 
     <title>エイゴメ親子機能とは？英語学習サイト”エイゴメ” </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ">
+    <meta name="description" content="英語学習サイトエイゴメを使って、小学生の時から単語力を高めましょう!英単語学習は 漢字書き取りの様に
+                        毎日やることで効果が上がります。エイゴメの親子機能はランダムで表示される今日のテストを受けることでポイントを獲得。そして、
+                        事前に目標ポイントとご褒美を設定しておくことで、お子様のやる気に繋がります。無料で使えます">
     <meta name="keywords" content="英語学習  発音学習 英単語 小学生英語 早期英語学習 小6 小５ 小4">
     <meta name="author" content="llco">
     <meta name="robots" content="index, follow">
@@ -227,7 +229,7 @@
                             </div>
                             <div id="panel2" class="tab_panel">
                                 <div class="sleft">
-                                    <a href="img/parent8.png" data-lightbox="group"> <img src="img/parent8.png" alt="create" style="width:80%;"></a>
+                                    <a href="img/parent8.png" data-lightbox="group"> <img src="img/parent8.png" alt="親子英語" style="width:80%;"></a>
                                 </div>
                                 <div class="sright">
                                     <div class="slide-head">一日一回の約束！</div>
@@ -245,7 +247,7 @@
                             </div>
                                 <div id="panel3" class="tab_panel">
                                     <div class="sleft">
-                                        <a href="img/parent7.png" data-lightbox="group"> <img src="img/parent7.png" alt="search" style="width:80%;"></a>
+                                        <a href="img/parent7.png" data-lightbox="group"> <img src="img/parent7.png" alt="親子えいご" style="width:80%;"></a>
                                 </div>
                                 <div class="sright">
                                     <div class="slide-head">8点以上で合格したら</div>

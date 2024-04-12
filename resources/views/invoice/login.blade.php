@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>ログイン画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
+<title>ログイン画面 </title>
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 
 @section('content')
@@ -14,7 +14,7 @@
                     <div class="card-header" style="font:bold; color:darkgray;">{{ __('ログインする') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login_invoice') }}">
                             @csrf
 
                             <div class="row mb-3">
@@ -76,18 +76,6 @@
                         </form>
                     </div>
                 </div>
-                <div class="register-button" style="margin-top:10px;border-radius:unset;padding-top:0px;padding-bottom:10px;">
-                    <p>登録してエイゴメの全ての機能を使おう！(完全無料）</p>
-                    <a href="{{ route('register') }}" class="button">新規登録</a>
-                </div>
-            </div>
-            <div class="">
-                <a href="{{ url('/invoice/login') }}"><h3 style="color:coral; font:bold;">請求書作成サイトのログインはこちらから</h3> 
-                <img src="/img/open_invoice.png" alt="請求書作成" style="width:50%; height:auto;"></a>
-            </div>
-            <div class="coupon-img">
-                <h3 style="color:coral; font:bold;">クーポンテストご利用の方は、<br>お店にありますQRコードから再度お入りください。</h3>
-                <a href="{{ url('/') }}"> <img src="/img/coupon.png" alt="coupon" style="width:100%; height:auto;"></a>
             </div>
         </div>
     </div>

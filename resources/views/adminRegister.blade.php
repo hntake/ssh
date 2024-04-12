@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>管理者登録画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
+    <title>管理者登録画面 </title>
 </head>
 
 <body class="antialiased">

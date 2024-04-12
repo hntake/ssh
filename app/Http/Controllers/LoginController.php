@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Store;
+use App\Models\invoice;
 
 
 
@@ -24,7 +25,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($credentials)) { // ログイン試行
-            if ($request->user('admin')?->admin_level ==10) { // 私
+            if ($request->user('admin')?->admin_level ==10) { // 私だけ触れる
                 $request->session()->regenerate(); // セッション更新
 
                 return redirect()->intended('admin'); // ダッシュボードへ
@@ -32,7 +33,7 @@ class LoginController extends Controller
             elseif ($request->user('admin')?->admin_level == 5) { // アンケート利用オーナー
                 $request->session()->regenerate(); // セッション更新
                 
-                 $store=Store::where('email',$request->user('admin')?->email)->value('name');
+                $store=Store::where('email',$request->user('admin')?->email)->value('name');
                 return view('/customer/create', [
                     'store' => $store,
                     ]);
@@ -75,4 +76,36 @@ class LoginController extends Controller
 
         return redirect('/admin/login');
     }
-}
+
+    /**
+     * 請求者会員ログイン用
+     *
+    * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function invoiceLogin(Request $request)
+    {
+        $credentials = $request->validate([ // 入力内容のチェック
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::guard('invoice')->attempt($credentials)) { // ログイン試行
+                $request->session()->regenerate(); // セッション更新
+
+
+                $invoice=Invoice::where('email',$request->user('invoice')?->email)->first();
+                if($invoice->company_name == null){
+                    return view('invoice/create', [
+                        'invoice' => $invoice,
+                        ]);
+                }else{
+                    $id=$invoice->id;
+                    return view('invoice/user', [
+                        'id' => $id,
+                        'invoice' => $invoice,
+
+                        ]);}
+                }
+            }
+        }

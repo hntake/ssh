@@ -44,7 +44,7 @@
                             </select>
                         </div>
                         <div class="form-block">
-                             <label for="cost1">単価</label>
+                            <label for="cost1">単価</label>
                             <input type="text" id="cost1" name="cost1">
                         </div>
                         <div class="form-block">

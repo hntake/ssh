@@ -9,13 +9,14 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Mail;
-use App\Mail\EmailVerification;
+use App\Mail\VerifyEmail;
 
-class SendVerificationEmail implements ShouldQueue
+class SendVerification implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $user;
+
 
     /**
      * Create a new job instance.
@@ -34,7 +35,8 @@ class SendVerificationEmail implements ShouldQueue
      */
     public function handle()
     {
-        $email = new EmailVerification($this->user);
+         // メールを送信
+        $email = new VerifyEmail($this->user);
         Mail::to($this->user->email)->send($email);
     }
 }

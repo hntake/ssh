@@ -1,0 +1,143 @@
+body{
+    width:70%;
+    margin:24px auto;
+}
+.r-box{
+    margin:8px auto;
+    background-color: rgb(216, 225, 225);
+    text-align: center;
+    padding:16px;
+}
+.form-block{
+    padding:8px;
+}
+.top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    background-color: rgb(232, 241, 220);
+    flex-direction: column;
+    padding:16px;
+}
+h1{
+    text-align: center;
+}
+.register-button a.header_nav_itm_link{
+    box-sizing: border-box;
+    display: table-cell;
+    height: 0.46rem;
+    padding: 0.5rem;
+    border-radius: 0.05rem;
+    color: #fff;
+    background-color: #03c75a;
+    vertical-align: middle;
+    border-radius:5px;
+    
+}
+.offer{
+    display: flex;
+}
+a{
+    text-decoration: none;
+
+}
+.site-footer{
+    position: relative;
+}
+.site-footer .bc-sitemap-wrapper {
+    background: #343434;
+}
+.site-footer .sitemap {
+    /* width: 50rem; */
+    margin: 0 auto;
+    padding: 0.6rem 0;
+    /* font-size: .14rem; */
+}
+.site-footer .sitemap .widget_nav_menu {
+    width: 10rem;
+    margin-right: 0.16rem;
+    float: left;
+}
+.site-footer .sitemap h2 {
+/*     font-size: .14rem;
+ */    line-height: .2rem;
+    color: #888;
+    font-weight: 400;
+}
+.site-footer .sitemap ul {
+    margin-top: 0.1rem;
+    list-style-type: none;
+    list-style-image: none;
+}
+.site-footer .sitemap ul a {
+    line-height: 2;
+    color: #fff;
+    display: inline-block;
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.site-footer .site-info {
+    background: #343434;
+    color: #888;
+    line-height: .34rem;
+    font-size: .14rem;
+    border-top: 1px solid #434343;
+    padding-top: 0.24rem;
+    padding-bottom: 0.24rem;
+}
+.site-info{
+    margin-top:200px;
+}
+.site-footer .site-info .widget {
+    width: 12.8rem;
+    margin: 0 auto;
+    position: relative;
+}
+.site-footer .site-info .copy-right {
+    line-height: .2rem;
+    padding-top: 0.16rem;
+}
+.site-footer .site-info .copy-right-text {
+    padding-right: 0.24rem;
+    font-size: 1rem;
+}
+.copy-right{
+    width:300px;
+
+}
+button{
+    width:50%;
+    margin: 16px auto;
+    display: flex;
+    justify-content: center;
+}
+/*スマホ*/
+@media only screen and (max-width: 767px){
+    body{
+        width:90%;
+    }
+    .site-footer .site-info .widget {
+        width: 18rem;
+        margin: 0 auto;
+        position: relative;
+    }
+    .offer{
+        display:block;
+    }
+    .register-button{
+        width:50%;
+        margin: 16px auto;
+        display: flex;
+        justify-content: center;
+    }
+    .register-button a.header_nav_itm_link{
+        height:2.6rem;
+    }
+}
