@@ -420,5 +420,24 @@ Route::get('/invoice/user/{id}', [\App\Http\Controllers\InvoiceRegisterControlle
 //請求者会員請求書を作成する
 Route::get('/invoice/pdf}', [\App\Http\Controllers\InvoiceRegisterController::class, 'post'])->name('user_pdf');
 
+//国会議員一覧
+Route::get('/diet/index', [\App\Http\Controllers\DietController::class, 'index'])->name('diet_index')->middleware('auth:admin');
+//党ごと一覧
+Route::get('/diet/party/{id}', [\App\Http\Controllers\DietController::class, 'party'])->name('diet_party');
 
+//議員毎ページ表示
+Route::get('/diet/each/{id}', [\App\Http\Controllers\DietController::class, 'each'])->name('diet_each') ->middleware('auth:admin');
+//情報提供
+Route::post('/diet/each/{id}', [\App\Http\Controllers\DietController::class, 'post'])->name('diet_post');
 
+//並び替え
+Route::get('/diet/sort}', [\App\Http\Controllers\DietController::class, 'sort'])->name('diet_sort');
+//検索
+Route::get('/diet/search}', [\App\Http\Controllers\DietController::class, 'search'])->name('diet_search');
+/*選択したユーザーを編集する*/
+Route::patch('/diet/update/{id}', [App\Http\Controllers\DietController::class, 'update'])->name('update_diet');
+
+Route::get('/diet/approve', [\App\Http\Controllers\DietController::class, 'approve']);
+
+//管理者が投稿を承認する
+Route::post('/diet/approve/{id}', [\App\Http\Controllers\DietController::class, 'approvePost'])->name('diet_approve')->middleware('auth:admin');

@@ -1,0 +1,50 @@
+thead{
+    /* display:block; */
+}
+.left{
+    width:50%;
+}
+
+.profile{
+    width:80%;
+}
+.links{
+    width:80%;
+    margin:0 auto;
+}
+.add-link{
+    background-color: lightblue;
+    padding:8px;
+}
+.form-group{
+    margin:8px auto;
+}
+.image img{
+    width:30%;
+    height:auto;
+}
+@media only screen and (min-width: 800px) and (max-width: 1200px){
+    thead {
+        /* display: block; */
+    }
+}
+
+/*レスポンシブ対応*/
+@media (max-width: 480px){
+    .left{
+        width:100%;
+    }
+    .right{
+        margin: 0 auto;
+        width: 80%;
+    }
+    .profile{
+        width:90%;
+    }
+    .add-link {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+}
+
+}
