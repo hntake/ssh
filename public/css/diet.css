@@ -23,9 +23,23 @@ thead{
     width:30%;
     height:auto;
 }
+.testtable-responsive {
+    background-color: rgb(212, 231, 243);
+}
+.bottom table{
+    margin: 0 auto;
+}
+.bottom td{
+    width:100px;
+}
+.bottom p{
+    width:80%;
+    text-align: start;
+    margin:0 auto;
+}
 @media only screen and (min-width: 800px) and (max-width: 1200px){
     thead {
-        /* display: block; */
+        display: table-header-group; 
     }
 }
 
@@ -46,5 +60,7 @@ thead{
         display: block;
         margin: 0 auto;
 }
-
+thead {
+    display: table-header-group; 
+}
 }

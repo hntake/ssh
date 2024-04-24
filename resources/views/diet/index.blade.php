@@ -85,8 +85,8 @@
                         <option value="desc">名前順(降順)</option>
                         <option value="old">年齢順(高い順)</option>
                         <option value="young">名前順(若い順)</option>
-                        <option value="scandal">不祥事多い順</option>
-                        <option value="scandal">不祥事少ない順</option>
+                        <option value="scandal">不祥事度高い順</option>
+                        <option value="scandal">不祥事度低い順</option>
                     </select>
                     <div class="form-group">
                         <div class="button">
@@ -103,9 +103,8 @@
                 <th style="width:10%">選挙区</th>
                 <th style="width:20%">名前</th>
                 <th style="width:5%">年齢</th>
-                <th style="width:5%">不祥事数</th>
+                <th style="width:5%">不祥事度※</th>
                 <th  style="width:5%"></th>
-
             </tr>
         </thead>
         <tbody id="tbl">
@@ -125,8 +124,56 @@
         </tbody>
     </table>
     {{ $diets->links() }}
+    <div class="bottom">
+        <p>※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</p>
+        <table>
+            <tr>
+                <td>脱税</td>
+                <td>5点</td>
+            </tr>
+            <tr>
+                <td>脱税疑惑</td>
+                <td>4点</td>
+            </tr>   <tr>
+                <td>有罪判決</td>
+                <td>5点</td>
+            </tr>   <tr>
+                <td>軽犯罪</td>
+                <td>1点</td>
+            </tr>   <tr>
+                <td>収賄・贈賄</td>
+                <td>4点</td>
+            </tr> 
+            <tr>
+                <td>収賄・贈賄疑惑</td>
+                <td>3点</td>
+            </tr>
+            <tr>
+                <td>不正受給</td>
+                <td>3点</td>
+            </tr><tr>
+                <td>公職選挙法違反</td>
+                <td>5点</td>
+            </tr>
+            <tr>
+                <td>公職選挙法違反疑惑</td>
+                <td>4点</td>
+            </tr>
+            <tr>
+                <td>反社会団体との関係</td>
+                <td>5点</td>
+            </tr>
+            <tr>
+                <td>スキャンダル</td>
+                <td>4点</td>
+            </tr>
+            <tr>
+                <td>その他</td>
+                <td>1点</td>
+            </tr>
+        </table>
+    </div>
 </div>
-
 
 @if(Route::has('auth.admin'))
 <p>管理者の方は</p>

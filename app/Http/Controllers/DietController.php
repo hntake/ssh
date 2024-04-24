@@ -77,6 +77,7 @@ class DietController extends Controller
         $diet->age = Carbon::parse($birthday)->age;
 
         $genres = Genre::all()->pluck('genre', 'id');
+        $now = new Carbon('now');
 
         $links = Link::where('diet_id','=', $id)->get();
         return view('diet/each', [
@@ -84,6 +85,8 @@ class DietController extends Controller
                     'genres' => $genres,
                     'id'=>$id,
                     'links'=>$links,
+                    'now'=>$now,
+
                 ]);
 
     }

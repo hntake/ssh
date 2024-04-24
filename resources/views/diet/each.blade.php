@@ -48,8 +48,8 @@
                         </form>
                         @endif
                     </h3>
-            <h3>当サイト登録不祥事数：{{ $diet->scandal }}</h3>
-            {{ $diet->updated_at }}
+            <h3>当サイト登録不祥事度：{{ $diet->scandal }}</h3>
+            {{ $now }}
             <p>時点</p>
             <div class="image">
                 <tr class="cell">
