@@ -14,4 +14,8 @@ class Link extends Model
         'genre',
         'diet_id',
     ];
+
+    public function Genre() {
+        return $this->hasOne(Genre::class, 'id','genre');
+    }
 }

@@ -109,6 +109,7 @@
         </thead>
         <tbody id="tbl">
             @foreach ($diets as $diet)
+            @if($diet->type !== null)
             <tr>
                 <td>{{ $diet->type }}</td>
                 <td>{{ $diet->party }}</td>
@@ -119,6 +120,7 @@
                 <td>
                     <div class="button"><a href="{{ route('diet_each',['id'=>$diet->id]) }}">表示</a></div>
                 </td>
+                @endif
                 @endforeach
             </tr>
         </tbody>

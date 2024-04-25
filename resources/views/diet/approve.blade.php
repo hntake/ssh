@@ -19,6 +19,7 @@
             @foreach($links as $link)
             <div class="links">
                 <h3><a href="{{$link->address}}">{{$link->title}}</a></h3>
+                {{$link->Genre->genre}}
                 <form action="{{ route('diet_approve',['id'=>$link->id]) }}" method="post">
                 @csrf
                     <div class="check">

@@ -18,4 +18,6 @@ class Genre extends Model
 
         return $genres;
     }
+
+
 }
