@@ -130,27 +130,31 @@ class DietController extends Controller
     $diet = Diet::where('id','=',$link->diet_id)->first();
     //不祥事加算
     if($link->genre==1){
-        $newpoint = $diet->scandal + 5; 
+        $newpoint = $diet->scandal + 5; //脱税
     }elseif($link->genre==2){
         $newpoint = $diet->scandal + 4; 
     }elseif($link->genre==3){
-        $newpoint = $diet->scandal + 5; 
+        $newpoint = $diet->scandal + 5; //有罪
     }elseif($link->genre==4){
-        $newpoint = $diet->scandal + 2; 
+        $newpoint = $diet->scandal + 2; //軽犯罪
     }elseif($link->genre==5){
-        $newpoint = $diet->scandal + 4; 
+        $newpoint = $diet->scandal + 4; //収賄
     }elseif($link->genre==6){
         $newpoint = $diet->scandal + 3; 
     }elseif($link->genre==7){
-        $newpoint = $diet->scandal + 3; 
+        $newpoint = $diet->scandal + 3; //不正受給
     }elseif($link->genre==8){
-        $newpoint = $diet->scandal + 5; 
+        $newpoint = $diet->scandal + 5; //公職選挙法違反
     }elseif($link->genre==9){
         $newpoint = $diet->scandal + 4; 
     }elseif($link->genre==10){
-        $newpoint = $diet->scandal + 5; 
+        $newpoint = $diet->scandal + 5; //反社
+    }elseif($link->genre==11){
+        $newpoint = $diet->scandal + 4; //不記載
     }elseif($link->genre==12){
-        $newpoint = $diet->scandal + 4; 
+        $newpoint = $diet->scandal + 4; //違反
+    }elseif($link->genre==13){
+        $newpoint = $diet->scandal + 4;//スキャンダル
     }else{
         $newpoint = $diet->scandal + 1; 
     }

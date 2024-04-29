@@ -16,20 +16,30 @@
 <body>
         @if(!empty($links))
             <p>承認待ち不詳記事一覧</p>
-            @foreach($links as $link)
             <div class="links">
-                <h3><a href="{{$link->address}}">{{$link->title}}</a></h3>
-                {{$link->Genre->genre}}
-                <form action="{{ route('diet_approve',['id'=>$link->id]) }}" method="post">
-                @csrf
-                    <div class="check">
-                        <button type="submit">
-                            承認
-                        </button>
-                    </div>
+
+            @foreach($links as $link)
+                <tr>
+                    <td>
+                        <h3><a href="{{$link->address}}">{{$link->title}}</a></h3>
+                    </td>
+                    <td>
+                        {{$link->Genre->genre}}
+                    </td>
+                    <td>
+                    <form action="{{ route('diet_approve',['id'=>$link->id]) }}" method="post">
+                    @csrf
+                        <div class="check">
+                            <button type="submit">
+                                承認
+                            </button>
+                        </div>
+                    </td>
                 </form>
-            </div>
+                </tr>
             @endforeach
+            </div>
+
         @endif
 </body>
 @endsection
