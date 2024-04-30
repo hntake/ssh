@@ -14,7 +14,7 @@ class DietController extends Controller
     //トップページ表示
     public function index(){
 
-        $diets = Diet::orderBy('name_pronunciation', 'desc')->paginate(50);
+        $diets = Diet::orderBy('scandal', 'desc')->paginate(50);
 
         foreach ($diets as $diet) {
             if ($diet->birthDay !== 0) {
@@ -158,7 +158,7 @@ class DietController extends Controller
     }else{
         $newpoint = $diet->scandal + 1; 
     }
-    $diet->update([
+   $diet->update([
         'scandal' => $newpoint,
         'link' => intval($diet->link) + 1 // link カラムを1つ増やす
     ]);
@@ -199,26 +199,32 @@ class DietController extends Controller
     public function sort(Request $request)
     {
         $select = $request->diet_narabi;
+
+         // 並び替えロジック
+        $dietsQuery = Diet::query(); // クエリビルダを生成
+
         //あいうえお順
         if ($select == 'asc') {
-            $diets = Diet::orderBy('name_pronunciation', 'asc')->paginate(50);
+            $dietsQuery = Diet::orderBy('name_pronunciation', 'asc');
         } elseif ($select == 'desc') {
-            $diets = Diet::orderBy('name_pronunciation', 'desc')->paginate(50);
+            $dietsQuery = Diet::orderBy('name_pronunciation', 'desc');
         //高齢順    
         } elseif ($select == 'old') {
-            $diets = Diet::orderBy('birthDay', 'asc')->paginate(50);    
+            $dietsQuery = Diet::orderBy('birthDay', 'desc');    
         //若い順    
         } elseif ($select == 'young') {
-            $diets = Diet::orderBy('birthDay', 'desc')->paginate(50); 
+            $dietsQuery = Diet::orderBy('birthDay', 'asc'); 
         //不祥事順
         } elseif ($select == 'scandal') {
-            $diets = Diet::orderBy('scandal', 'desc')->paginate(50);     
+            $dietsQuery = Diet::orderBy('scandal', 'desc');     
          //不祥事ない順
-        } elseif ($select == 'scandal') {
-            $diets = Diet::orderBy('scandal', 'asc')->paginate(50);     
-        } else {
-            $diets = Diet::all();
-        }
+        } elseif ($select == 'noScandal') {
+            $dietsQuery = Diet::orderBy('scandal', 'asc');     
+        } 
+
+         // ページネーションを適用
+        $diets = $dietsQuery->paginate(50);
+
         foreach ($diets as $diet) {
             if ($diet->birthDay !== 0) {
                 $birthday=$diet->birthDay;
@@ -228,6 +234,7 @@ class DietController extends Controller
                 $diet->age = null;
             }
         }
+
         return view('diet/index', compact('diets'));
     }
 }

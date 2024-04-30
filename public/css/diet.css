@@ -37,6 +37,12 @@ thead{
     text-align: start;
     margin:0 auto;
 }
+.bottom table{
+    width:80%;
+}
+.bottom td{
+    padding:8px;
+}
 @media only screen and (min-width: 800px) and (max-width: 1200px){
     thead {
         display: table-header-group; 

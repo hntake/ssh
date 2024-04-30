@@ -81,12 +81,12 @@
                 <form action="{{ route('diet_sort') }}" method="GET">
                     @csrf
                     <select name="diet_narabi">
+                        <option value="scandal">不祥事度高い順</option>
+                        <option value="noScandal">不祥事度低い順</option>
+                        <option value="old">年齢順(高い順)</option>
+                        <option value="young">年齢順(若い順)</option>
                         <option value="asc">名前順(昇順)</option>
                         <option value="desc">名前順(降順)</option>
-                        <option value="old">年齢順(高い順)</option>
-                        <option value="young">名前順(若い順)</option>
-                        <option value="scandal">不祥事度高い順</option>
-                        <option value="scandal">不祥事度低い順</option>
                     </select>
                     <div class="form-group">
                         <div class="button">
@@ -130,48 +130,20 @@
         <p>※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</p>
         <table>
             <tr>
-                <td>脱税</td>
                 <td>5点</td>
+                <td>脱税・有罪判決・反社会団体との関係・公職選挙法違反</td>
             </tr>
             <tr>
-                <td>脱税疑惑</td>
                 <td>4点</td>
-            </tr>   <tr>
-                <td>有罪判決</td>
-                <td>5点</td>
-            </tr>   <tr>
-                <td>軽犯罪</td>
+                <td>脱税疑惑・収賄・贈賄・公職選挙法違反疑惑・スキャンダル</td>
+            </tr>   
+            <tr>
+                <td>3点</td>
+                <td>収賄疑惑・贈賄疑惑・不正受給</td>
+            </tr>
+            <tr>
                 <td>1点</td>
-            </tr>   <tr>
-                <td>収賄・贈賄</td>
-                <td>4点</td>
-            </tr> 
-            <tr>
-                <td>収賄・贈賄疑惑</td>
-                <td>3点</td>
-            </tr>
-            <tr>
-                <td>不正受給</td>
-                <td>3点</td>
-            </tr><tr>
-                <td>公職選挙法違反</td>
-                <td>5点</td>
-            </tr>
-            <tr>
-                <td>公職選挙法違反疑惑</td>
-                <td>4点</td>
-            </tr>
-            <tr>
-                <td>反社会団体との関係</td>
-                <td>5点</td>
-            </tr>
-            <tr>
-                <td>スキャンダル</td>
-                <td>4点</td>
-            </tr>
-            <tr>
                 <td>その他</td>
-                <td>1点</td>
             </tr>
         </table>
     </div>
