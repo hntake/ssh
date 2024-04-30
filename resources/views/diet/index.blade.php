@@ -125,7 +125,11 @@
             </tr>
         </tbody>
     </table>
+    @isset($select)
+    {{ $diets->appends(['diet_narabi' => $select])->links() }}
+    @else
     {{ $diets->links() }}
+    @endif
     <div class="bottom">
         <p>※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</p>
         <table>

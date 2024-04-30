@@ -235,6 +235,6 @@ class DietController extends Controller
             }
         }
 
-        return view('diet/index', compact('diets'));
+        return view('diet/index', compact('diets','select'));
     }
 }
