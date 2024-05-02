@@ -33,7 +33,7 @@
 
             <h3>議員名：{{ $diet->name }}</h3>
             <h3>議院：{{ $diet->type }}</h3>
-            <h3>議院：{{ $diet->party }}</h3>
+            <h3>会派：{{ $diet->party }}</h3>
             <h3>選挙区：{{ $diet->area }}</h3>
             <h3>@if($diet->age)
                         <td>{{ $diet->age}}歳</td>

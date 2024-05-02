@@ -3,7 +3,7 @@
 <title>Watch them! 国会議員監視サイト</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="このサイトでは、現役国会議員のデータをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
+<meta name="description" content="このサイトでは、現役国会議員の不祥事データをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
 全ての不祥事を数値化し、議員の不祥事をランキング表示しています。また、皆さんからの不祥事の投稿も歓迎しています。">
 <meta name="keywords" content="自民党  裏金問題 統一教会 落選運動 国会議員 年齢順 衆議院 参議院 議員一覧">
 <meta name="author" content="llco">
@@ -59,27 +59,36 @@
 </div>
 
 <div class="testtable-responsive">
-    <p>議員一覧</p>
-    <table class="table-all">
-        <ul>
-            <li>
+            <div class="search">
                 <form method="GET" action="{{ route('diet_search')}}">
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">議員名</label>
                         <!--入力-->
-                        <div class="col-sm-5">
-                        <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください">
+                        <div class="search">
+                        <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください" class="search">
                         </div>
                         <div class="col-sm-auto">
                         <button type="submit" class="btn btn-primary ">議員検索</button>
                         </div>
                     </div>
                 </form>
-            </li>
+            </div>
+    <p>議員一覧</p>
+    <table class="table-all">
+        <ul>
             <!--sort button-->
             <li>
                 <form action="{{ route('diet_sort') }}" method="GET">
                     @csrf
+                    @if(isset($select))
+                    <select name="diet_narabi">
+                        <option value="scandal" {{ $select == 'scandal' ? 'selected' : '' }}>不祥事度高い順</option>
+                        <option value="noScandal" {{ $select == 'noScandal' ? 'selected' : '' }}>不祥事度低い順</option>
+                        <option value="old" {{ $select == 'old' ? 'selected' : '' }}>年齢順(高い順)</option>
+                        <option value="young" {{ $select == 'young' ? 'selected' : '' }}>年齢順(若い順)</option>
+                        <option value="asc" {{ $select == 'asc' ? 'selected' : '' }}>名前順(昇順)</option>
+                        <option value="desc" {{ $select == 'desc' ? 'selected' : '' }}>名前順(降順)</option>
+                    </select>
+                    @else
                     <select name="diet_narabi">
                         <option value="scandal">不祥事度高い順</option>
                         <option value="noScandal">不祥事度低い順</option>
@@ -88,6 +97,7 @@
                         <option value="asc">名前順(昇順)</option>
                         <option value="desc">名前順(降順)</option>
                     </select>
+                    @endif
                     <div class="form-group">
                         <div class="button">
                             <input type="submit" value="で並び替え"></input>
@@ -98,6 +108,7 @@
         </ul>
         <thead>
             <tr>
+                <th style="width:5%">順位</th>
                 <th style="width:5%">議院</th>
                 <th style="width:5%">会派</th>
                 <th style="width:10%">選挙区</th>
@@ -111,6 +122,7 @@
             @foreach ($diets as $diet)
             @if($diet->type !== null)
             <tr>
+                <td>{{ $diet->rank }}</td>
                 <td>{{ $diet->type }}</td>
                 <td>{{ $diet->party }}</td>
                 <td>{{ $diet->area }}</td>
@@ -132,6 +144,9 @@
     @endif
     <div class="bottom">
         <p>※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</p>
+        <a href="https://clearing-house.org/?p=6069" target=”_blank><p>参照サイト:政治資金パーティー収入 裏金はおいくらでしたか？（裏金国会議員一覧）</p></a>
+        <a href="https://digital.kyodonews.jp/static/diet/questionnaire/list0.html" target=”_blank><p>参照サイト:共同通信 全国会議員７１２人アンケート 旧統一教会と政治の関係）</p></a>
+
         <table>
             <tr>
                 <td>5点</td>

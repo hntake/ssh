@@ -43,6 +43,12 @@ thead{
 .bottom td{
     padding:8px;
 }
+.search{
+    text-align: right;
+}
+input{
+    width:300px;
+} 
 @media only screen and (min-width: 800px) and (max-width: 1200px){
     thead {
         display: table-header-group; 

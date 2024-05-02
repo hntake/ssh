@@ -16,12 +16,22 @@ class DietController extends Controller
 
         $diets = Diet::orderBy('scandal', 'desc')->paginate(50);
 
+         // 順位を計算
+        $rank = 1;
+        $previousScore = null;
         foreach ($diets as $diet) {
+            if ($diet->scandal !== $previousScore) {
+                $previousScore = $diet->scandal;
+                $diet->rank = $rank++;
+            } else {
+                $diet->rank = $rank;
+            }
+    
             if ($diet->birthDay !== 0) {
                 $birthday=$diet->birthDay;
                 $diet->age = Carbon::parse($birthday)->age;
-            }else{
-                 // データがnullの場合、年齢をnullとするか、何か他の値に設定する
+            } else {
+                 // データがnullの場合、年齢をnullとするか、他の値に設定する
                 $diet->age = null;
             }
     }
@@ -158,7 +168,7 @@ class DietController extends Controller
     }else{
         $newpoint = $diet->scandal + 1; 
     }
-   $diet->update([
+    $diet->update([
         'scandal' => $newpoint,
         'link' => intval($diet->link) + 1 // link カラムを1つ増やす
     ]);
@@ -196,45 +206,63 @@ class DietController extends Controller
         ]);
     }
     //並び替え
-    public function sort(Request $request)
-    {
-        $select = $request->diet_narabi;
+   public function sort(Request $request)
+{
+    $select = $request->diet_narabi;
 
-         // 並び替えロジック
-        $dietsQuery = Diet::query(); // クエリビルダを生成
+    // 並び替えロジック
+    $dietsQuery = Diet::query(); // クエリビルダを生成
 
-        //あいうえお順
-        if ($select == 'asc') {
-            $dietsQuery = Diet::orderBy('name_pronunciation', 'asc');
-        } elseif ($select == 'desc') {
-            $dietsQuery = Diet::orderBy('name_pronunciation', 'desc');
-        //高齢順    
-        } elseif ($select == 'old') {
-            $dietsQuery = Diet::orderBy('birthDay', 'desc');    
-        //若い順    
-        } elseif ($select == 'young') {
-            $dietsQuery = Diet::orderBy('birthDay', 'asc'); 
-        //不祥事順
-        } elseif ($select == 'scandal') {
-            $dietsQuery = Diet::orderBy('scandal', 'desc');     
-         //不祥事ない順
-        } elseif ($select == 'noScandal') {
-            $dietsQuery = Diet::orderBy('scandal', 'asc');     
-        } 
+    // デフォルトの並び替え基準（スコアのみ）
+    $orderByColumns = ['scandal' => 'desc'];
 
-         // ページネーションを適用
-        $diets = $dietsQuery->paginate(50);
+    // 並び替えの基準に応じて、並び替え基準を設定
+    if ($select == 'asc') {
+        $orderByColumns = ['name_pronunciation' => 'asc', 'scandal' => 'asc'];
+    } elseif ($select == 'desc') {
+        $orderByColumns = ['name_pronunciation' => 'desc', 'scandal' => 'desc'];
+    } elseif ($select == 'old') {
+        $orderByColumns = ['birthDay' => 'asc', 'scandal' => 'desc'];
+    } elseif ($select == 'young') {
+        $orderByColumns = ['birthDay' => 'desc', 'scandal' => 'desc'];
+    } elseif ($select == 'scandal') {
+        $orderByColumns = ['scandal' => 'desc', 'scandal' => 'desc'];
+    } elseif ($select == 'noScandal') {
+        $orderByColumns = ['scandal' => 'asc', 'scandal' => 'desc'];
+    }
 
-        foreach ($diets as $diet) {
-            if ($diet->birthDay !== 0) {
-                $birthday=$diet->birthDay;
-                $diet->age = Carbon::parse($birthday)->age;
-            }else{
-                 // データがnullの場合、年齢をnullとするか、何か他の値に設定する
-                $diet->age = null;
-            }
+    // 並び替えを適用
+    foreach ($orderByColumns as $column => $direction) {
+        $dietsQuery->orderBy($column, $direction);
+    }
+
+    // ページネーションを適用
+    $diets = $dietsQuery->paginate(50);
+
+    // 同順の項目に同じ順位を割り当てる
+    $rank = 1;
+    $previousValues = null;
+    foreach ($diets as $diet) {
+        $currentValues = $diet->only(array_keys($orderByColumns));
+
+        if ($currentValues !== $previousValues) {
+            $previousValues = $currentValues;
+            $diet->rank = $rank++;
+        } else {
+            $diet->rank = $rank;
         }
 
-        return view('diet/index', compact('diets','select'));
+        // 年齢の計算
+        if ($diet->birthDay !== 0) {
+            $birthday = $diet->birthDay;
+            $diet->age = Carbon::parse($birthday)->age;
+        } else {
+            // データがnullの場合、年齢をnullとするか、他の値に設定する
+            $diet->age = null;
+        }
     }
+
+    return view('diet/index', compact('diets', 'select'));
+}
+
 }
