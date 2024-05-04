@@ -14,27 +14,22 @@ class DietController extends Controller
     //トップページ表示
     public function index(){
 
-        $diets = Diet::orderBy('scandal', 'desc')->paginate(50);
+    $diets = Diet::orderBy('scandal', 'desc')->paginate(50);
 
-         // 順位を計算
-        $rank = 0;
-        $previousValues = null;
-        $currentRank = 1;
+    // 同じスコアの人数
+    $sameScoreCount = 0;
+    // 各順位を計算
+    $rank = 1;
+    $previousScore = null;
         foreach ($diets as $diet) {
-            if ($diet->scandal !== $previousValues) {
-                $previousValues = $diet->scandal;
-                $rank += $currentRank;
-                $currentRank = 1;
+            if ($diet->scandal !== $previousScore) {
+                $previousScore = $diet->scandal;
+                $rank += $sameScoreCount;
+                $sameScoreCount = 1;
+            } else {
+                $sameScoreCount++;
             }
             $diet->rank = $rank;
-
-              // 同順の次の順位を計算
-            $nextValues = $diets->where('rank', '>', $rank)->first();
-            if ($nextValues) {
-                $nextRank = $nextValues->rank;
-            } else {
-                $nextRank = $rank + 1;
-            }
 
             if ($diet->birthDay !== 0) {
                 $birthday=$diet->birthDay;
@@ -249,34 +244,25 @@ class DietController extends Controller
     // ページネーションを適用
     $diets = $dietsQuery->paginate(50);
 
-    // 同順の項目に同じ順位を割り当てる
-    $rank = 0;
-    $previousValues = null;
-    $currentRank = 1;
+    //不祥事高い順を選んだ時だけ順位を表示するので
+    if ($select == 'scandal') {
+     // 同じスコアの人数
+    $sameScoreCount = 0;
+    // 各順位を計算
+    $rank = 1;
+    $previousScore = null;
     foreach ($diets as $diet) {
-        $currentValues = $diet->only(array_keys($orderByColumns));
-        if ($currentValues !== $previousValues) {
-            $previousValues = $currentValues;
-            $rank += $currentRank;
-            $currentRank = 1;
+        if ($diet->scandal !== $previousScore) {
+            $previousScore = $diet->scandal;
+            $rank += $sameScoreCount;
+            $sameScoreCount = 1;
+        } else {
+            $sameScoreCount++;
         }
-
         $diet->rank = $rank;
-
-        // 同順の次の順位を計算
-        $nextValues = $diets->where('rank', '>', $rank)->first();
-        if ($nextValues) {
-            $nextRank = $nextValues->rank;
-        } else {
-            $nextRank = $rank + 1;
-        }
-
-        if ($nextRank == $rank) {
-            $currentRank++;
-        } else {
-            $currentRank = 1;
-        }
-
+    }
+    }
+    foreach ($diets as $diet) {
         // 年齢の計算
         if ($diet->birthDay !== 0) {
             $birthday = $diet->birthDay;
