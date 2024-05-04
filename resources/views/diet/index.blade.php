@@ -108,7 +108,9 @@
         </ul>
         <thead>
             <tr>
+                @if ($select == 'scandal') 
                 <th style="width:5%">順位</th>
+                @endif
                 <th style="width:5%">議院</th>
                 <th style="width:5%">会派</th>
                 <th style="width:10%">選挙区</th>
@@ -122,7 +124,9 @@
             @foreach ($diets as $diet)
             @if($diet->type !== null)
             <tr>
+                @if ($select == 'scandal')
                 <td>{{ $diet->rank }}</td>
+                @endif
                 <td>{{ $diet->type }}</td>
                 <td>{{ $diet->party }}</td>
                 <td>{{ $diet->area }}</td>

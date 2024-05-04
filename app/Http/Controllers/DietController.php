@@ -17,16 +17,25 @@ class DietController extends Controller
         $diets = Diet::orderBy('scandal', 'desc')->paginate(50);
 
          // 順位を計算
-        $rank = 1;
-        $previousScore = null;
+        $rank = 0;
+        $previousValues = null;
+        $currentRank = 1;
         foreach ($diets as $diet) {
-            if ($diet->scandal !== $previousScore) {
-                $previousScore = $diet->scandal;
-                $diet->rank = $rank++;
-            } else {
-                $diet->rank = $rank;
+            if ($diet->scandal !== $previousValues) {
+                $previousValues = $diet->scandal;
+                $rank += $currentRank;
+                $currentRank = 1;
             }
-    
+            $diet->rank = $rank;
+
+              // 同順の次の順位を計算
+            $nextValues = $diets->where('rank', '>', $rank)->first();
+            if ($nextValues) {
+                $nextRank = $nextValues->rank;
+            } else {
+                $nextRank = $rank + 1;
+            }
+
             if ($diet->birthDay !== 0) {
                 $birthday=$diet->birthDay;
                 $diet->age = Carbon::parse($birthday)->age;
@@ -36,8 +45,10 @@ class DietController extends Controller
             }
     }
 
+        $select='scandal';
         return view('diet/index', [
             'diets' => $diets,
+            'select'=>$select,
         ]);
     }
 
@@ -228,9 +239,8 @@ class DietController extends Controller
     } elseif ($select == 'scandal') {
         $orderByColumns = ['scandal' => 'desc', 'scandal' => 'desc'];
     } elseif ($select == 'noScandal') {
-        $orderByColumns = ['scandal' => 'asc', 'scandal' => 'desc'];
+        $orderByColumns = ['scandal' => 'asc', 'scandal' => 'asc'];
     }
-
     // 並び替えを適用
     foreach ($orderByColumns as $column => $direction) {
         $dietsQuery->orderBy($column, $direction);
@@ -240,16 +250,31 @@ class DietController extends Controller
     $diets = $dietsQuery->paginate(50);
 
     // 同順の項目に同じ順位を割り当てる
-    $rank = 1;
+    $rank = 0;
     $previousValues = null;
+    $currentRank = 1;
     foreach ($diets as $diet) {
         $currentValues = $diet->only(array_keys($orderByColumns));
-
         if ($currentValues !== $previousValues) {
             $previousValues = $currentValues;
-            $diet->rank = $rank++;
+            $rank += $currentRank;
+            $currentRank = 1;
+        }
+
+        $diet->rank = $rank;
+
+        // 同順の次の順位を計算
+        $nextValues = $diets->where('rank', '>', $rank)->first();
+        if ($nextValues) {
+            $nextRank = $nextValues->rank;
         } else {
-            $diet->rank = $rank;
+            $nextRank = $rank + 1;
+        }
+
+        if ($nextRank == $rank) {
+            $currentRank++;
+        } else {
+            $currentRank = 1;
         }
 
         // 年齢の計算
