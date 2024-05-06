@@ -143,7 +143,7 @@ class DietController extends Controller
     $link->approved = true; // 承認されたことを示す
     $link->save();
 
-    $diet = Diet::where('id','=',$link->diet_id)->first();
+    
     //不祥事加算
     if($link->genre==1){
         $newpoint = $diet->scandal + 5; //脱税
@@ -276,4 +276,15 @@ class DietController extends Controller
     return view('diet/index', compact('diets', 'select'));
 }
 
+/**
+     * 選択したリンクを削除
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function delete_link(Request $request)
+    {
+        $link = Link::where('id', $request->id)->delete();
+        return redirect('diet/approve');
+    }
 }

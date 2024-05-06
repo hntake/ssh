@@ -70,7 +70,7 @@
             @endif
             </tr> 
             <tr>
-            @if($diet->list > 0)
+            @if(count($links) > 0)
             <img src="../../img/list.png" alt="不祥事議員">
             @endif
             </tr>
@@ -95,6 +95,8 @@
             <img id="showFormBtn" src="../../img/click.png" alt="不祥事議員" style="width:15%; height:15%; cursor:pointer;">
 
             <p>↑誰でも投稿できます！(管理サイドで承認後、反映されます)</p>
+            <p>※ 当サイトでは個人の思想や意見に基づく発言は、不祥事の定義からは除外されています。他にも、牛歩等の議会戦術も除外します。</p>
+
         </div>
         <div id="formContainer" style="display: none;">
             <form action="{{ route('diet_post',['id'=>$diet->id]) }}" method="post">
@@ -107,11 +109,11 @@
                                     <input type="text" name="title" id="title" class="form-control" placeholder="記事タイトル" value="{{ old('title') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="address">リンクアドレス:</label>
+                                    <label for="address">リンクアドレス(※ソースがないものは投稿できません):</label>
                                     <input type="text" name="address" id="address" class="form-control" placeholder="リンクアドレス" value="{{ old('address') }}">
                                 </div>
                                 <div class="form-group">
-                                    <p>不祥事のジャンルを選んでください</p>
+                                    <p>不祥事のジャンルを選んでください(※判定が難しい場合はその他を選んでください。)</p>
                                     {{ Form::select('genre', $genres, null, ['class' => 'form-control', 'id' => 'genre']) }}
                                 </div>
 

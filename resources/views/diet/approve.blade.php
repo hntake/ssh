@@ -22,6 +22,8 @@
                 <tr>
                     <td>
                         <h3><a href="{{$link->address}}">{{$link->title}}</a></h3>
+                        <h3><a href="{{$link->address}}">{{$link->diet_id}}</a></h3>
+
                     </td>
                     <td>
                         {{$link->Genre->genre}}
@@ -35,7 +37,11 @@
                             </button>
                         </div>
                     </td>
-                </form>
+                    </form>
+                    <div class="test_button">
+                            <a href="{{ route('delete_link',['id'=> $link->id]) }}" >削除する</a>
+
+                        </div>
                 </tr>
             @endforeach
             </div>

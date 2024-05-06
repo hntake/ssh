@@ -441,3 +441,5 @@ Route::get('/diet/approve', [\App\Http\Controllers\DietController::class, 'appro
 
 //管理者が投稿を承認する
 Route::post('/diet/approve/{id}', [\App\Http\Controllers\DietController::class, 'approvePost'])->name('diet_approve')->middleware('auth:admin');
+ /*選択したテストを削除する*/
+ Route::get('/diet/approve/{id}', [App\Http\Controllers\DietController::class, 'delete_link'])->name('delete_link');
