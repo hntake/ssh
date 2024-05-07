@@ -70,7 +70,7 @@
             @endif
             </tr> 
             <tr>
-            @if(count($links) > 0)
+            @if($diet->link > 0)
             <img src="../../img/list.png" alt="不祥事議員">
             @endif
             </tr>

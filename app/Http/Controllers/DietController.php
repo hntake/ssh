@@ -143,7 +143,7 @@ class DietController extends Controller
     $link->approved = true; // 承認されたことを示す
     $link->save();
 
-    
+    $diet=Diet::where('id','=',$link->diet_id)->first();
     //不祥事加算
     if($link->genre==1){
         $newpoint = $diet->scandal + 5; //脱税
@@ -158,7 +158,7 @@ class DietController extends Controller
     }elseif($link->genre==6){
         $newpoint = $diet->scandal + 3; 
     }elseif($link->genre==7){
-        $newpoint = $diet->scandal + 3; //不正受給
+        $newpoint = $diet->scandal + 3; //不正受給・資産公開法違反
     }elseif($link->genre==8){
         $newpoint = $diet->scandal + 5; //公職選挙法違反
     }elseif($link->genre==9){
