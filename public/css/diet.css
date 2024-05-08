@@ -49,6 +49,29 @@ thead{
 input{
     width:300px;
 } 
+select{
+    margin:6px;
+}
+.wrap{
+    margin-top:200px;
+}
+.search{
+    padding:8px;
+}
+.testtable-responsive{
+    width:100%;
+    margin:0;
+}
+img{
+    width:40%;
+    height:auto;
+}
+.top_area{
+    display: flex;
+}
+.header_inner{
+    padding:0;
+}
 @media only screen and (min-width: 800px) and (max-width: 1200px){
     thead {
         display: table-header-group; 
@@ -71,8 +94,22 @@ input{
         width: 90%;
         display: block;
         margin: 0 auto;
-}
-thead {
-    display: table-header-group; 
-}
+    }
+    thead {
+        display: table-header-group; 
+    }
+    select{
+        font-size: 30px;
+        padding:4px;
+        margin:6px;
+    }
+    .wrap{
+        margin-top:50px;
+    }
+    .top_area{
+        display: block;
+    }
+    img{
+        width:100%;
+    }
 }

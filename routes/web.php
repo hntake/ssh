@@ -424,16 +424,25 @@ Route::get('/invoice/pdf}', [\App\Http\Controllers\InvoiceRegisterController::cl
 Route::get('/diet/index', [\App\Http\Controllers\DietController::class, 'index'])->name('diet_index')->middleware('auth:admin');
 //党ごと一覧
 Route::get('/diet/party/{id}', [\App\Http\Controllers\DietController::class, 'party'])->name('diet_party');
-
+//ビンゴ一覧
+Route::get('/diet/bingo', [\App\Http\Controllers\DietController::class, 'bingo'])->name('diet_bingo');
+//裏金議員
+Route::get('/diet/bribe', [\App\Http\Controllers\DietController::class, 'bribe'])->name('diet_bribe');
+//統一教会
+Route::get('/diet/cult', [\App\Http\Controllers\DietController::class, 'cult'])->name('diet_cult');
 //議員毎ページ表示
 Route::get('/diet/each/{id}', [\App\Http\Controllers\DietController::class, 'each'])->name('diet_each') ->middleware('auth:admin');
 //情報提供
 Route::post('/diet/each/{id}', [\App\Http\Controllers\DietController::class, 'post'])->name('diet_post');
 
 //並び替え
-Route::get('/diet/sort}', [\App\Http\Controllers\DietController::class, 'sort'])->name('diet_sort');
+Route::get('/diet/sort}', [\App\Http\Controllers\DietController::class, 'party_sort'])->name('diet_sort');
+//並び替え
+Route::get('/diet/party_sort/{id}', [\App\Http\Controllers\DietController::class, 'party_sort'])->name('diet_party_sort');
 //検索
 Route::get('/diet/search}', [\App\Http\Controllers\DietController::class, 'search'])->name('diet_search');
+//党内検索
+Route::get('/diet/search/{id}}', [\App\Http\Controllers\DietController::class, 'search_party'])->name('diet_search_party');
 /*選択したユーザーを編集する*/
 Route::patch('/diet/update/{id}', [App\Http\Controllers\DietController::class, 'update'])->name('update_diet');
 
@@ -441,5 +450,5 @@ Route::get('/diet/approve', [\App\Http\Controllers\DietController::class, 'appro
 
 //管理者が投稿を承認する
 Route::post('/diet/approve/{id}', [\App\Http\Controllers\DietController::class, 'approvePost'])->name('diet_approve')->middleware('auth:admin');
- /*選択したテストを削除する*/
- Route::get('/diet/approve/{id}', [App\Http\Controllers\DietController::class, 'delete_link'])->name('delete_link');
+/*選択したテストを削除する*/
+Route::get('/diet/approve/{id}', [App\Http\Controllers\DietController::class, 'delete_link'])->name('delete_link');
