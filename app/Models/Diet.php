@@ -20,5 +20,6 @@ class Diet extends Model
         'link',
         'image',
         'scandal',
+        'bad',
     ];
 }

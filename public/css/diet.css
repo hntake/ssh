@@ -12,6 +12,13 @@ thead{
     width:80%;
     margin:0 auto;
 }
+.add{
+    padding:16px;
+}
+#showFormBtn{
+    width:15%;
+    width:15%;
+}
 .add-link{
     background-color: lightblue;
     padding:8px;
@@ -72,9 +79,59 @@ img{
 .header_inner{
     padding:0;
 }
+.header_nav_itm:hover .description1{
+    display: inline-block;
+    bottom: -40px;
+    left:-80px;
+}
+.bad_share:hover .description1{
+    display: inline-block;
+    bottom: 80px;
+    left:320px;
+}
+.header_nav_itm{
+    margin: left 24px;
+}
+h1::after {
+    content:unset
+}
+ul.chart{
+    width:50%;
+    height:auto;
+}
+.diet_container{
+    display: flex;
+}
+.alert{
+    color:red;
+    font-weight: bold;
+}
+.bad_share{
+    display: flex;
+    align-items: center;
+    margin-left: 20%;
+
+}
+#badButton{
+    text-align: start;
+}
 @media only screen and (min-width: 800px) and (max-width: 1200px){
     thead {
         display: table-header-group; 
+    }
+    .header_nav_itm:hover .description1{
+        display: inline-block;
+        bottom: -40px;
+        left:20px;
+    }
+    .bad_share:hover .description1{
+        display: inline-block;
+        top: 750px;
+        left: 80px;
+        bottom:450px;
+    }
+    .bad_share{
+        display:block;
     }
 }
 
@@ -111,5 +168,22 @@ img{
     }
     img{
         width:100%;
+    }
+    .header_nav_itm:hover .description1{
+        display: inline-block;
+        bottom: -40px;
+        left:100px;
+    }
+    .bad_share:hover .description1{
+        display: inline-block;
+        bottom: 70px;
+        left:200px;
+    }
+    .diet_container{
+        display: block;
+    }
+    #showFormBtn{
+        width:35%;
+        width:35%;
     }
 }

@@ -436,9 +436,9 @@ Route::get('/diet/each/{id}', [\App\Http\Controllers\DietController::class, 'eac
 Route::post('/diet/each/{id}', [\App\Http\Controllers\DietController::class, 'post'])->name('diet_post');
 
 //並び替え
-Route::get('/diet/sort}', [\App\Http\Controllers\DietController::class, 'party_sort'])->name('diet_sort');
+Route::get('/diet/sort}', [\App\Http\Controllers\DietController::class, 'sort'])->name('diet_sort');
 //並び替え
-Route::get('/diet/party_sort/{id}', [\App\Http\Controllers\DietController::class, 'party_sort'])->name('diet_party_sort');
+Route::get('/diet/party_sort/{id}/average/{average}', [\App\Http\Controllers\DietController::class, 'party_sort'])->name('diet_party_sort');
 //検索
 Route::get('/diet/search}', [\App\Http\Controllers\DietController::class, 'search'])->name('diet_search');
 //党内検索
@@ -452,3 +452,7 @@ Route::get('/diet/approve', [\App\Http\Controllers\DietController::class, 'appro
 Route::post('/diet/approve/{id}', [\App\Http\Controllers\DietController::class, 'approvePost'])->name('diet_approve')->middleware('auth:admin');
 /*選択したテストを削除する*/
 Route::get('/diet/approve/{id}', [App\Http\Controllers\DietController::class, 'delete_link'])->name('delete_link');
+//悪いねボタン
+Route::get('/diet/bad/{id}', [App\Http\Controllers\DietController::class, 'bad'])->name('bad');
+//比較ページ
+// Route::get('/diet/compare', [App\Http\Controllers\DietController::class, 'chart'])->name('chart');

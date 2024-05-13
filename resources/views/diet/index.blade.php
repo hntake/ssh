@@ -44,7 +44,7 @@ crossorigin="anonymous"></script>
                                     <div class="description1">裏金・統一教会・他不祥事全て関係する議員一覧</div>
                                 </li>
                                 <li class="header_nav_itm">
-                                    <a href="{{ route( 'diet_party',['id'=>'bribe']) }}" class="header_nav_itm_link">裏金</a>
+                                    <a href="{{ route( 'diet_party',['id'=>'bribe']) }}" class="header_nav_itm_link">裏金疑惑</a>
                                     <div class="description1">裏金疑惑の議員がその金額順で表示されます</div>
                                 </li>
                                 <li class="header_nav_itm">
@@ -190,7 +190,7 @@ crossorigin="anonymous"></script>
                             @if(isset($select))
                             <select name="diet_narabi">
                                 <option value="scandal" {{ $select == 'scandal' ? 'selected' : '' }}>不祥事度高い順</option>
-                                <option value="noScandal" {{ $select == 'noScandal' ? 'selected' : '' }}>不祥事度低い順</option>
+                                <option value="bad" {{ $select == 'bad' ? 'selected' : '' }}>悪いね！多い順</option>
                                 <option value="old" {{ $select == 'old' ? 'selected' : '' }}>年齢順(高い順)</option>
                                 <option value="young" {{ $select == 'young' ? 'selected' : '' }}>年齢順(若い順)</option>
                                 <option value="asc" {{ $select == 'asc' ? 'selected' : '' }}>名前順(昇順)</option>
@@ -199,7 +199,7 @@ crossorigin="anonymous"></script>
                             @else
                             <select name="diet_narabi">
                                 <option value="scandal">不祥事度高い順</option>
-                                <option value="noScandal">不祥事度低い順</option>
+                                <option value="bad">悪いね！多い順</option>
                                 <option value="old">年齢順(高い順)</option>
                                 <option value="young">年齢順(若い順)</option>
                                 <option value="asc">名前順(昇順)</option>
@@ -226,6 +226,7 @@ crossorigin="anonymous"></script>
                         <th style="width:5%">年齢</th>
                         <th style="width:5%">不祥事度※</th>
                         <th style="width:15%">裏金公表金額</th>
+                        <th  style="width:5%">悪いね！数</th>
                         <th  style="width:5%"></th>
                     </tr>
                 </thead>
@@ -243,6 +244,7 @@ crossorigin="anonymous"></script>
                         <td>{{ $diet->age}}</td>
                         <td>{{ $diet->scandal }}</td>
                         <td>{{ $diet->bribe}}</td>
+                        <td>{{ $diet->bad }}</td>
                         <td>
                             <div class="button"><a href="{{ route('diet_each',['id'=>$diet->id]) }}">表示</a></div>
                         </td>

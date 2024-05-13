@@ -7,7 +7,9 @@ use App\Models\Diet;
 use App\Models\Link;
 use App\Models\Genre;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\DB; // DB ファサードを use する
+use App\Helpers\TwitterHelper;
+use Illuminate\Support\Facades\Session;
 
 class DietController extends Controller
 {
@@ -251,7 +253,10 @@ class DietController extends Controller
             ->where('cult', 1)
             ->where('link', '>', 0)
             ->paginate(50);
-            $ave=null;
+            $ave = Diet::where('bribe', '>', 0)
+            ->where('cult', 1)
+            ->where('link', '>', 0)
+            ->avg('scandal');
         }elseif($id=='bribe'){
             $diets = Diet::where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->paginate(50);
             $ave = Diet::where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->avg('scandal');
@@ -392,13 +397,17 @@ class DietController extends Controller
         $link->approved = false; // 承認待ち状態を表す
         $link->save();
 
-    // 承認フロー後のリダイレクト先を設定
-    return redirect()->route('diet_each', ['id' => $id])->with('success', '投稿が承認待ち状態に送信されました');
-}
+    // 承認待ち状態にメッセージを保存する
+    Session::flash('success', '投稿が承認待ちに送信されました');
+        
+    // リダイレクト
+    return redirect()->route('diet_each', ['id' => $id]);}
     //管理者が投稿を承認ページ
     public function approve()
 {
     $links=Link::where('approved','=','0')->get();
+
+
 
     return view('diet/approve',['links' => $links]);
 }
@@ -408,6 +417,10 @@ class DietController extends Controller
     $link = Link::findOrFail($postId);
     $link->approved = true; // 承認されたことを示す
     $link->save();
+
+    // Twitterにツイートする例
+    $twitterHelper = new TwitterHelper();
+    $result = $twitterHelper->tweet_thread($list);
 
     $diet=Diet::where('id','=',$link->diet_id)->first();
     //不祥事加算
@@ -601,10 +614,171 @@ class DietController extends Controller
     //並び替え
     public function sort(Request $request)
     {
+        $select = $request->diet_narabi;
+
+        // 並び替えロジック
+        $dietsQuery = Diet::query(); // クエリビルダを生成
+
+        // デフォルトの並び替え基準（スコアのみ）
+        $orderByColumns = ['scandal' => 'desc'];
+
+        // 並び替えの基準に応じて、並び替え基準を設定
+        if ($select == 'asc') {
+            $orderByColumns = ['name_pronunciation' => 'asc', 'scandal' => 'desc'];
+        } elseif ($select == 'desc') {
+            $orderByColumns = ['name_pronunciation' => 'desc', 'scandal' => 'desc'];
+        } elseif ($select == 'old') {
+            $orderByColumns = ['birthDay' => 'asc', 'scandal' => 'desc'];
+        } elseif ($select == 'young') {
+            $orderByColumns = ['birthDay' => 'desc', 'scandal' => 'desc'];
+        } elseif ($select == 'scandal') {
+            $orderByColumns = ['scandal' => 'desc', 'scandal' => 'desc'];
+        } elseif ($select == 'noScandal') {
+            $orderByColumns = ['scandal' => 'asc', 'scandal' => 'asc'];
+        } elseif ($select == 'bad') {
+            $orderByColumns = ['bad' => 'desc', 'scandal' => 'desc'];
+        }
+        // 並び替えを適用
+        foreach ($orderByColumns as $column => $direction) {
+            $dietsQuery->orderBy($column, $direction);
+        }
+
+        // ページネーションを適用
+        $diets = $dietsQuery->paginate(50);
+
+        //不祥事高い順を選んだ時だけ順位を表示するので
+        if ($select == 'scandal') {
+        // 同じスコアの人数
+        $sameScoreCount = 0;
+        // 各順位を計算
+        $rank = 1;
+        $previousScore = null;
+        foreach ($diets as $diet) {
+            if ($diet->scandal !== $previousScore) {
+                $previousScore = $diet->scandal;
+                $rank += $sameScoreCount;
+                $sameScoreCount = 1;
+            } else {
+                $sameScoreCount++;
+            }
+            $diet->rank = $rank;
+        }
+        }
+        foreach ($diets as $diet) {
+            // 年齢の計算
+            if ($diet->birthDay !== 0) {
+                $birthday = $diet->birthDay;
+                $diet->age = Carbon::parse($birthday)->age;
+            } else {
+                // データがnullの場合、年齢をnullとするか、他の値に設定する
+                $diet->age = null;
+            }
+        }
+
+    return view('diet/index', compact('diets', 'select'));
+}
+//党内並び替え
+    public function party_sort(Request $request,$id,$average)
+    {
     $select = $request->diet_narabi;
 
     // 並び替えロジック
-    $dietsQuery = Diet::query(); // クエリビルダを生成
+    if($id=='jimin'){
+        $dietsQuery = Diet::query()->where('party','=', '自民');
+    }elseif($id=='koumei'){
+        $dietsQuery = Diet::query()->where('party','=', '公明');
+    }elseif($id=='rikken'){
+        $dietsQuery = Diet::query()->where('party','=', '立憲');
+    }elseif($id=='ishin'){
+        $dietsQuery = Diet::query()->where('party','=', '維教');
+    }elseif($id=='kyousan'){ 
+        $dietsQuery = Diet::query()->where('party','=', '共産');
+    }elseif($id=='kokumin'){ 
+        $dietsQuery = Diet::query()->where('party','=', '民主');
+    }elseif($id=='reiwa'){
+        $dietsQuery = Diet::query()->where('party','=', 'れ新');
+    }elseif($id=='shu'){
+        $dietsQuery = Diet::query()->where('type','=', '衆議院');
+    }elseif($id=='san'){
+            $dietsQuery = Diet::query()->where('type','=', '参議院');   
+    }elseif($id=='hirei'){
+            $dietsQuery = Diet::query()->where('area','=', '比例'); 
+    }elseif($id=='hokkaido'){
+        $dietsQuery = Diet::query()->where('area','LIKE', '%北海道%');
+    }elseif($id=='touhoku'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%東北%')
+        ->orWhere('area', 'LIKE', '%青森%')
+        ->orWhere('area', 'LIKE', '%岩手%')
+        ->orWhere('area', 'LIKE', '%宮城%')
+        ->orWhere('area', 'LIKE', '%秋田%')
+        ->orWhere('area', 'LIKE', '%山形%')
+        ->orWhere('area', 'LIKE', '%福島%');
+    }elseif($id=='Nkanto'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%北関東%')
+        ->orWhere('area', 'LIKE', '%茨城%')
+        ->orWhere('area', 'LIKE', '%栃木%')
+        ->orWhere('area', 'LIKE', '%群馬%')
+        ->orWhere('area', 'LIKE', '%埼玉%');
+    }elseif($id=='Skanto'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%南関東%')
+        ->orWhere('area', 'LIKE', '%千葉%')
+        ->orWhere('area', 'LIKE', '%神奈川%')
+        ->orWhere('area', 'LIKE', '%山梨%');
+    }elseif($id=='tokyo'){
+        $dietsQuery = Diet::query()->here('area', 'LIKE', '%東京%');
+    }elseif($id=='tokai'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%東海%')
+        ->orWhere('area', 'LIKE', '%岐阜%')
+        ->orWhere('area', 'LIKE', '%静岡%')
+        ->orWhere('area', 'LIKE', '%三重%')
+        ->orWhere('area', 'LIKE', '%愛知%');
+    }elseif($id=='kinki'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%近畿%')
+        ->orWhere('area', 'LIKE', '%大阪%')
+        ->orWhere('area', 'LIKE', '%奈良%')
+        ->orWhere('area', 'LIKE', '%京都%')
+        ->orWhere('area', 'LIKE', '%和歌山%')
+        ->orWhere('area', 'LIKE', '%滋賀%')
+        ->orWhere('area', 'LIKE', '%兵庫%');
+    }elseif($id=='hokuriku'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%北陸信越%')
+        ->orWhere('area', 'LIKE', '%新潟%')
+        ->orWhere('area', 'LIKE', '%富山%')
+        ->orWhere('area', 'LIKE', '%石川%')
+        ->orWhere('area', 'LIKE', '%福井%')
+        ->orWhere('area', 'LIKE', '%長野%');
+    }elseif($id=='chugoku'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%中国%')
+        ->orWhere('area', 'LIKE', '%鳥取%')
+        ->orWhere('area', 'LIKE', '%島根%')
+        ->orWhere('area', 'LIKE', '%岡山%')
+        ->orWhere('area', 'LIKE', '%広島%')
+        ->orWhere('area', 'LIKE', '%山口%');
+    }elseif($id=='shikoku'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%四国%')
+        ->orWhere('area', 'LIKE', '%高知%')
+        ->orWhere('area', 'LIKE', '%愛媛%')
+        ->orWhere('area', 'LIKE', '%香川%')
+        ->orWhere('area', 'LIKE', '%徳島%');
+    }elseif($id=='kyuushu'){
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%九州%')
+        ->orWhere('area', 'LIKE', '%福岡%')
+        ->orWhere('area', 'LIKE', '%佐賀%')
+        ->orWhere('area', 'LIKE', '%長崎%')
+        ->orWhere('area', 'LIKE', '%大分%')
+        ->orWhere('area', 'LIKE', '%宮崎%')
+        ->orWhere('area', 'LIKE', '%鹿児島%')
+        ->orWhere('area', 'LIKE', '%沖縄%')
+        ->orWhere('area', 'LIKE', '%熊本%');
+    }elseif($id=='bingo'){
+        $dietsQuery = Diet::where('bribe', '>', 0)
+        ->where('cult', 1)
+        ->where('link', '>', 0);
+    }elseif($id=='bribe'){
+        $dietsQuery = Diet::where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC');
+    }elseif($id=='cult'){
+        $dietsQuery = Diet::where('cult', 1)->orderBy('scandal', 'desc');
+    }
 
     // デフォルトの並び替え基準（スコアのみ）
     $orderByColumns = ['scandal' => 'desc'];
@@ -622,6 +796,8 @@ class DietController extends Controller
         $orderByColumns = ['scandal' => 'desc', 'scandal' => 'desc'];
     } elseif ($select == 'noScandal') {
         $orderByColumns = ['scandal' => 'asc', 'scandal' => 'asc'];
+    } elseif ($select == 'bad') {
+        $orderByColumns = ['bad' => 'desc', 'scandal' => 'desc'];
     }
     // 並び替えを適用
     foreach ($orderByColumns as $column => $direction) {
@@ -633,7 +809,7 @@ class DietController extends Controller
 
     //不祥事高い順を選んだ時だけ順位を表示するので
     if ($select == 'scandal') {
-     // 同じスコアの人数
+    // 同じスコアの人数
     $sameScoreCount = 0;
     // 各順位を計算
     $rank = 1;
@@ -660,167 +836,8 @@ class DietController extends Controller
         }
     }
 
-    return view('diet/index', compact('diets', 'select'));
-}
-//党内並び替え
-public function party_sort(Request $request,$id)
-{
-$select = $request->diet_narabi;
-
-// 並び替えロジック
-if($id=='jimin'){
-    $dietsQuery = Diet::query()->where('party','=', '自民');
-}elseif($id=='koumei'){
-    $dietsQuery = Diet::query()->where('party','=', '公明');
-}elseif($id=='rikken'){
-    $dietsQuery = Diet::query()->where('party','=', '立憲');
-}elseif($id=='ishin'){
-    $dietsQuery = Diet::query()->where('party','=', '維教');
-}elseif($id=='kyousan'){ 
-    $dietsQuery = Diet::query()->where('party','=', '共産');
-}elseif($id=='kokumin'){ 
-    $dietsQuery = Diet::query()->where('party','=', '民主');
-}elseif($id=='reiwa'){
-    $dietsQuery = Diet::query()->where('party','=', 'れ新');
-}elseif($id=='shu'){
-    $dietsQuery = Diet::query()->where('type','=', '衆議院');
-}elseif($id=='san'){
-        $dietsQuery = Diet::query()->where('type','=', '参議院');   
-}elseif($id=='hirei'){
-        $dietsQuery = Diet::query()->where('area','=', '比例'); 
-}elseif($id=='hokkaido'){
-    $dietsQuery = Diet::query()->where('area','LIKE', '%北海道%');
-}elseif($id=='touhoku'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%東北%')
-    ->orWhere('area', 'LIKE', '%青森%')
-    ->orWhere('area', 'LIKE', '%岩手%')
-    ->orWhere('area', 'LIKE', '%宮城%')
-    ->orWhere('area', 'LIKE', '%秋田%')
-    ->orWhere('area', 'LIKE', '%山形%')
-    ->orWhere('area', 'LIKE', '%福島%');
-}elseif($id=='Nkanto'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%北関東%')
-    ->orWhere('area', 'LIKE', '%茨城%')
-    ->orWhere('area', 'LIKE', '%栃木%')
-    ->orWhere('area', 'LIKE', '%群馬%')
-    ->orWhere('area', 'LIKE', '%埼玉%');
-}elseif($id=='Skanto'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%南関東%')
-    ->orWhere('area', 'LIKE', '%千葉%')
-    ->orWhere('area', 'LIKE', '%神奈川%')
-    ->orWhere('area', 'LIKE', '%山梨%');
-}elseif($id=='tokyo'){
-    $dietsQuery = Diet::query()->here('area', 'LIKE', '%東京%');
-}elseif($id=='tokai'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%東海%')
-    ->orWhere('area', 'LIKE', '%岐阜%')
-    ->orWhere('area', 'LIKE', '%静岡%')
-    ->orWhere('area', 'LIKE', '%三重%')
-    ->orWhere('area', 'LIKE', '%愛知%');
-}elseif($id=='kinki'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%近畿%')
-    ->orWhere('area', 'LIKE', '%大阪%')
-    ->orWhere('area', 'LIKE', '%奈良%')
-    ->orWhere('area', 'LIKE', '%京都%')
-    ->orWhere('area', 'LIKE', '%和歌山%')
-    ->orWhere('area', 'LIKE', '%滋賀%')
-    ->orWhere('area', 'LIKE', '%兵庫%');
-}elseif($id=='hokuriku'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%北陸信越%')
-    ->orWhere('area', 'LIKE', '%新潟%')
-    ->orWhere('area', 'LIKE', '%富山%')
-    ->orWhere('area', 'LIKE', '%石川%')
-    ->orWhere('area', 'LIKE', '%福井%')
-    ->orWhere('area', 'LIKE', '%長野%');
-}elseif($id=='chugoku'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%中国%')
-    ->orWhere('area', 'LIKE', '%鳥取%')
-    ->orWhere('area', 'LIKE', '%島根%')
-    ->orWhere('area', 'LIKE', '%岡山%')
-    ->orWhere('area', 'LIKE', '%広島%')
-    ->orWhere('area', 'LIKE', '%山口%');
-}elseif($id=='shikoku'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%四国%')
-    ->orWhere('area', 'LIKE', '%高知%')
-    ->orWhere('area', 'LIKE', '%愛媛%')
-    ->orWhere('area', 'LIKE', '%香川%')
-    ->orWhere('area', 'LIKE', '%徳島%');
-}elseif($id=='kyuushu'){
-    $dietsQuery = Diet::query()->where('area', 'LIKE', '%九州%')
-    ->orWhere('area', 'LIKE', '%福岡%')
-    ->orWhere('area', 'LIKE', '%佐賀%')
-    ->orWhere('area', 'LIKE', '%長崎%')
-    ->orWhere('area', 'LIKE', '%大分%')
-    ->orWhere('area', 'LIKE', '%宮崎%')
-    ->orWhere('area', 'LIKE', '%鹿児島%')
-    ->orWhere('area', 'LIKE', '%沖縄%')
-    ->orWhere('area', 'LIKE', '%熊本%');
-}elseif($id=='bingo'){
-    $dietsQuery = Diet::where('bribe', '>', 0)
-    ->where('cult', 1)
-    ->where('link', '>', 0);
-}elseif($id=='bribe'){
-    $dietsQuery = Diet::where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC');
-}elseif($id=='cult'){
-    $dietsQuery = Diet::where('cult', 1)->orderBy('scandal', 'desc');
-}
-
-// デフォルトの並び替え基準（スコアのみ）
-$orderByColumns = ['scandal' => 'desc'];
-
-// 並び替えの基準に応じて、並び替え基準を設定
-if ($select == 'asc') {
-    $orderByColumns = ['name_pronunciation' => 'asc', 'scandal' => 'asc'];
-} elseif ($select == 'desc') {
-    $orderByColumns = ['name_pronunciation' => 'desc', 'scandal' => 'desc'];
-} elseif ($select == 'old') {
-    $orderByColumns = ['birthDay' => 'asc', 'scandal' => 'desc'];
-} elseif ($select == 'young') {
-    $orderByColumns = ['birthDay' => 'desc', 'scandal' => 'desc'];
-} elseif ($select == 'scandal') {
-    $orderByColumns = ['scandal' => 'desc', 'scandal' => 'desc'];
-} elseif ($select == 'noScandal') {
-    $orderByColumns = ['scandal' => 'asc', 'scandal' => 'asc'];
-}
-// 並び替えを適用
-foreach ($orderByColumns as $column => $direction) {
-    $dietsQuery->orderBy($column, $direction);
-}
-
-// ページネーションを適用
-$diets = $dietsQuery->paginate(50);
-
-//不祥事高い順を選んだ時だけ順位を表示するので
-if ($select == 'scandal') {
- // 同じスコアの人数
-$sameScoreCount = 0;
-// 各順位を計算
-$rank = 1;
-$previousScore = null;
-foreach ($diets as $diet) {
-    if ($diet->scandal !== $previousScore) {
-        $previousScore = $diet->scandal;
-        $rank += $sameScoreCount;
-        $sameScoreCount = 1;
-    } else {
-        $sameScoreCount++;
+    return view('diet/party', compact('diets', 'select','id','average'));
     }
-    $diet->rank = $rank;
-}
-}
-foreach ($diets as $diet) {
-    // 年齢の計算
-    if ($diet->birthDay !== 0) {
-        $birthday = $diet->birthDay;
-        $diet->age = Carbon::parse($birthday)->age;
-    } else {
-        // データがnullの場合、年齢をnullとするか、他の値に設定する
-        $diet->age = null;
-    }
-}
-
-return view('diet/party', compact('diets', 'select','id'));
-}
 /**
      * 選択したリンクを削除
      *
@@ -832,4 +849,18 @@ return view('diet/party', compact('diets', 'select','id'));
         $link = Link::where('id', $request->id)->delete();
         return redirect('diet/approve');
     }
+
+    /*悪いね登録*/
+    public function bad(Request $request,$id){
+    $diet = Diet::find($id);
+    $diet->update([
+        'bad' => intval($diet->bad) + 1 // link カラムを1つ増やす
+    ]);
+
+    return redirect()->route('diet_each', ['id' => $id]);   
+    }
+
+    
+    
+    
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Helpers\TwitterHelper;
 
 
 class PDFController extends Controller
@@ -271,6 +272,11 @@ class PDFController extends Controller
         }
 
         $pdf = \PDF::loadView('invoice.open_document', $data);
+
+        // Twitterにツイートする例
+        $twitterHelper = new TwitterHelper();
+        $result = $twitterHelper->tweet();
+
         return $pdf->stream('オープン請求書.pdf');
     }
     

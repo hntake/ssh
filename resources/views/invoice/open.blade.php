@@ -20,7 +20,13 @@
         <link rel="stylesheet" href="{{ asset('css/pdf.css') }}">
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
         <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
-
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ITcha50">
+        <meta name="twitter:title" content="無料の請求書ジェネレーター">
+        <meta name="twitter:description" content="無料で登録もなく利用できるオンラインサービスを使って、簡単に適格請求書をPDF形式で作成しましょう。
+                使いやすいインターフェースとカスタマイズ可能なテンプレートで、ビジネスの請求処理をスムーズに行います。簡単な入力フォームから情報を入力し、
+                即座に請求書を生成します。">
+        <meta name="twitter:image" content="https://eng50cha.com/img/open_invoice.png">
 
         <style>
             body {
@@ -31,6 +37,12 @@
     crossorigin="anonymous"></script>
     </head>
 <body>
+    <!-- Twitterシェアボタン -->
+
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="無料の請求書ジェネレーター" data-url="{{url('invoice/open')}}">Tweet</a>
+    </blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="container home">
         <div class="top">
             <img src="../img/open_invoice.png" alt="適格請求書作成" style="width:30%;">

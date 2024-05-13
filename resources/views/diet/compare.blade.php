@@ -2,19 +2,20 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-<title>Watch them! 国会議員監視サイト”</title>
+
+<title>Watch them! 国会議員監視サイト</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="このサイトでは、現役国会議員のデータをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
-全ての不祥事を数値化し、議員の不祥事度をランキング表示しています。また、皆さんからの不祥事の投稿も歓迎しています。">
+<meta name="description" content="このサイトでは、現役国会議員の不祥事データをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
+全ての不祥事を数値化し、議員の不祥事をランキング表示しています。また、皆さんからの不祥事の投稿も歓迎しています。">
 <meta name="keywords" content="自民党  裏金問題 統一教会 落選運動 国会議員 年齢順 衆議院 参議院 議員一覧">
 <meta name="author" content="llco">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> <!-- word.cssと連携 -->
-
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
 crossorigin="anonymous"></script>
@@ -67,6 +68,8 @@ crossorigin="anonymous"></script>
                                         <option value="{{ route( 'diet_party',['id'=>'shiokoku']) }}">四国</option>
                                         <option value="{{ route( 'diet_party',['id'=>'kyuushu']) }}">九州</option>
                                         <option value="{{ route( 'diet_party',['id'=>'hirei']) }}">比例</option>
+
+
                                 </select>
                                 </li>
                                 <li>
@@ -160,160 +163,84 @@ crossorigin="anonymous"></script>
                     </div>
                 </div>
             </header>
-            <div class="testtable-responsive">
-                <div class="search">
-                    <form method="GET" action="{{ route('diet_search_party',['id'=>$id])}}">
-                        <div class="form-group row">
-                            <!--入力-->
-                            <div class="search">
-                            <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください" class="search">
-                            </div>
-                            <div class="col-sm-auto">
-                            <button type="submit" class="btn btn-primary ">議員検索</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                @if($id=='jimin')
-                <h3>自民党平均不祥事度{{$average}}</h3>
-                <p>自民党 議員一覧</p>
-                @elseif($id=='rikken')
-                <h3>立憲民主党平均不祥事度{{$average}}</h3>
-                <p>立憲民主党 議員一覧</p>
-                @elseif($id=='ishin')
-                <h3>日本維新の会平均不祥事度{{$average}}</h3>
-                <p>日本維新の会 議員一覧</p>
-                @elseif($id=='kyousan')
-                <h3>日本共産党平均不祥事度{{$average}}</h3>
-                <p>日本共産党 議員一覧</p>
-                @elseif($id=='koumei')
-                <h3>公明党平均不祥事度{{$average}}</h3>
-                <p>公明党 議員一覧</p>
-                <h3>自民党平均不祥事度{{$average}}</h3>
-                @elseif($id=='kokumin')
-                <h3>国民民主党平均不祥事度{{$average}}</h3>
-                <p>国民民主党 議員一覧</p>
-                @elseif($id=='reiwa')
-                <h3>れいわ新選組平均不祥事度{{$average}}</h3>
-                <p>れいわ新選組 議員一覧</p>
-                @elseif($id=='hokkaido')
-                <h3>北海道エリア平均不祥事度{{$average}}</h3>
-                <p>北海道エリア議員一覧</p>
-                @elseif($id=='touhoku')
-                <h3>東北エリア平均不祥事度{{$average}}</h3>
-                <p>東北エリア議員一覧</p>
-                @elseif($id=='Nkanto')
-                <h3>北関東エリア平均不祥事度{{$average}}</h3>
-                <p>北関東エリア議員一覧</p>   
-                @elseif($id=='Skanto')
-                <h3>南関東エリア平均不祥事度{{$average}}</h3>
-                <p>南関東エリア議員一覧</p>   
-                @elseif($id=='tokyo')
-                <h3>東京エリア平均不祥事度{{$average}}</h3>
-                <p>東京エリア議員一覧</p>   
-                @elseif($id=='tokai')
-                <h3>東海エリア平均不祥事度{{$average}}</h3>
-                <p>東海エリア議員一覧</p>   
-                @elseif($id=='hokuriku')
-                <h3>北陸信越エリア平均不祥事度{{$average}}</h3>
-                <p>北陸信越エリア議員一覧</p>   
-                @elseif($id=='kinki')
-                <h3>近畿エリア平均不祥事度{{$average}}</h3>
-                <p>近畿エリア議員一覧</p>
-                @elseif($id=='chugoku')
-                <h3>中国エリア平均不祥事度{{$average}}</h3>
-                <p>中国エリア議員一覧</p>  
-                @elseif($id=='shikoku')
-                <h3>四国エリア平均不祥事度{{$average}}</h3>
-                <p>四国エリア議員一覧</p>  
-                @elseif($id=='kyuushu')
-                <h3>九州エリア平均不祥事度{{$average}}</h3>
-                <p>九州エリア議員一覧</p>
-                @elseif($id=='bingo')
-                <h3>ビンゴ議員平均不祥事度{{$average}}</h3>
-                <p>裏金＆統一教会＆他不祥事有りのビンゴ議員一覧</p>   
-                @elseif($id=='cult')
-                <h3>統一教会関係議員平均不祥事度{{$average}}</h3>
-                <p>統一教会関係議員一覧</p>   
-                @elseif($id=='bribe')
-                <h3>裏金議員平均不祥事度{{$average}}</h3>
-                <p>裏金議員一覧</p>
-                @elseif($id=='hirei')
-                <h3>比例ブロック平均不祥事度{{$average}}</h3>
-                <p>比例ブロック議員一覧</p>
-                @else
-                @endif
-                <table class="table-all">
-                    <ul>
-                        
-                        <!--sort button-->
+            <main>
+                <h1>
+                    国会議員不祥事のついての党比較
+                </h1>
+                @foreach($rankedData->groupBy('rank') as $rank => $parties)
+                <h2>第{{ $rank }}位</h2>
+                <ul>
+                    @foreach($parties as $party)
                         <li>
-                        <form action="{{ route('diet_party_sort',['id'=>$id,'average'=>$average]) }}" method="GET">
-                            @csrf
-                            @if(isset($select))
-                            <select name="diet_narabi">
-                                <option value="scandal" {{ $select == 'scandal' ? 'selected' : '' }}>不祥事度高い順</option>
-                                <option value="bad" {{ $select == 'bad' ? 'selected' : '' }}>悪いね！多い順</option>
-                                <option value="old" {{ $select == 'old' ? 'selected' : '' }}>年齢順(高い順)</option>
-                                <option value="young" {{ $select == 'young' ? 'selected' : '' }}>年齢順(若い順)</option>
-                                <option value="asc" {{ $select == 'asc' ? 'selected' : '' }}>名前順(昇順)</option>
-                                <option value="desc" {{ $select == 'desc' ? 'selected' : '' }}>名前順(降順)</option>
-                            </select>
-                            @else
-                            <select name="diet_narabi">
-                                <option value="scandal">不祥事度高い順</option>
-                                <option value="bad">悪いね！多い順</option>
-                                <option value="old">年齢順(高い順)</option>
-                                <option value="young">年齢順(若い順)</option>
-                                <option value="asc">名前順(昇順)</option>
-                                <option value="desc">名前順(降順)</option>
-                            </select>
-                            @endif
-                            <div class="form-group">
-                                <div class="button">
-                                    <input type="submit" value="で並び替え"></input>
-                                </div>
-                            </div>
-                        </form>
+                            <strong>{{ $party['party'] }}</strong>
+                            <br>
+                            平均不祥事度: {{ $party['average'] }}
+                            <br>
+                            <ul class="chart">
+                                <canvas id="myChart{{ $rank }}" ></canvas>
+                            </ul>
                         </li>
-                    </ul>
-                    <thead>
-                        <tr>
-                            @if ($select == 'scandal'||$id == 'bribe') 
-                            <th style="width:5%">順位</th>
-                            @endif
-                            <th style="width:5%">会派</th>
-                            <th style="width:10%">選挙区</th>
-                            <th style="width:20%">名前</th>
-                            <th style="width:5%">年齢</th>
-                            <th style="width:15%">裏金公表金額</th>
-                            <th style="width:20%">不祥事度</th>
-                            <th></th>
-
-                        </tr>
-                    </thead>
-                    <tbody id="tbl">
-                        @foreach ($diets as $diet)
-                        <tr>
-                            @if ($select == 'scandal')
-                            <td>{{ $diet->rank }}</td>
-                            @endif
-                            <td>{{ $diet->type }}</td>
-                            <td>{{ $diet->area }}</td>
-                            <td>{{ $diet->name }}</td>
-                            <td>{{ $diet->age}}</td>
-                            <td>{{ $diet->bribe}}</td>
-                            <td>{{ $diet->scandal }}</td>
-                            <td>
-                                <div class="button"><a href="{{ route('diet_each',['id'=>$diet->id]) }}">表示</a></div>
-                            </td>
-                            @endforeach
-                        </tr>
-                    </tbody>
-                </table>
-                {{ $diets->links() }}
-            </div>
+                    @endforeach
+                </ul>
+            @endforeach
+            </main>
+        </div>
     </div>
+    <script>
+ // データの準備
+    @foreach($rankedData->groupBy('rank') as $rank => $items)
+    @foreach($items as $item) 
+    var genreData{{ $rank }} = {!! json_encode($parties->pluck('genreCounts')->flatten()->toArray()) !!};
+    var labels{{ $rank }} = Object.keys(genreData{{ $rank }}).map(function(key) {
+        return 'genre' + key; // ジャンルの数値をラベルに追加
+    });    var data{{ $rank }} = Object.values(genreData{{ $rank }});
+
+    // ジャンルの色の配列を準備
+    var colors{{ $rank }} = [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 99, 132, 0.4)',
+        'rgba(54, 162, 235, 0.4)',
+        'rgba(255, 206, 86, 0.4)',
+        'rgba(75, 192, 192, 0.4)',
+        'rgba(153, 102, 255, 0.4)',
+        'rgba(255, 159, 64, 0.4)',
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)'
+    ]; // 追加の色を追加する必要があります
+
+    var ctx{{ $rank }} = document.getElementById('myChart{{ $rank }}').getContext('2d');
+    var myChart{{ $rank }} = new Chart(ctx{{ $rank }}, {
+        type: 'pie',
+        data: {
+            labels: labels{{ $rank }},
+            datasets: [{
+                data: data{{ $rank }},
+                backgroundColor: colors{{ $rank }}, // 追加の色を使用
+                borderColor: colors{{ $rank }}, // 追加の色を使用
+                borderWidth: 1
+            }]
+        },
+        options: {
+            // オプション設定
+        }
+    });
+@endforeach
+@endforeach
+
+    </script>
+    <script>
+    function window.location.href=this.value {
+        var options = select.options;
+        for (var i = 0; i < options.length; i++) {
+            options[i].style.fontSize = "20px";
+        }
+    }
+</script>
 </body>
 </html>
 @if(Route::has('auth.admin'))
