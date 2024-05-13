@@ -22,6 +22,14 @@ body{
 }
 h1{
     text-align: center;
+    font-size: 24px;
+
+}
+h2{
+    font-weight: 200;
+    font-size: 18px;
+    text-align: center;
+    margin: 5px 0;
 }
 .register-button a.header_nav_itm_link{
     box-sizing: border-box;

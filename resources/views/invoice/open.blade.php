@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>無料PDF適格請求書作成サイト</title>
+        <title>無料PDF適格請求書作成サイト 請求書テンプレート</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="無料で登録もなく利用できるオンラインサービスで、簡単に適格請求書をPDF形式で作成しましょう。
@@ -34,12 +34,12 @@
     <div class="container home">
         <div class="top">
             <img src="../img/open_invoice.png" alt="適格請求書作成" style="width:30%;">
-                <p>無料で登録もなく利用できるオンラインサービスを使って、簡単に適格請求書をPDF形式で作成しましょう。
+                <h2>無料で登録もなく利用できるオンラインサービスを使って、簡単に適格請求書をPDF形式で作成しましょう。
                 使いやすいインターフェースとカスタマイズ可能なテンプレートで、ビジネスの請求処理をスムーズに行います。簡単な入力フォームから情報を入力し、
-                即座に請求書を生成します。</p>
+                即座に請求書を生成します。</h2>
         </div>
         <div class="form">
-            <h1>請求書作成</h1>
+            <h1>無料の請求書ジェネレーター</h1>
             <p style="text-align:center;">※必要な箇所だけ入力しましょう</p>
             <form action="{{ route('pdf_open') }}" method="GET">
                 @csrf
