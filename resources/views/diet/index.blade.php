@@ -224,7 +224,7 @@ crossorigin="anonymous"></script>
                         <th style="width:10%">選挙区</th>
                         <th style="width:20%">名前</th>
                         <th style="width:5%">年齢</th>
-                        <th style="width:5%">不祥事度※</th>
+                        <th style="width:5%"><a href="#scandal" style="color:white; font-weight:bold;">不祥事度※</a></th>
                         <th style="width:15%">裏金公表金額</th>
                         <th  style="width:5%">悪いね！数</th>
                         <th  style="width:5%"></th>
@@ -259,9 +259,11 @@ crossorigin="anonymous"></script>
             {{ $diets->links() }}
             @endif
             <div class="bottom">
-                <p>※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</p>
-                <a href="https://clearing-house.org/?p=6069" target=”_blank><p>参照サイト:政治資金パーティー収入 裏金はおいくらでしたか？（裏金国会議員一覧）</p></a>
-                <a href="https://digital.kyodonews.jp/static/diet/questionnaire/list0.html" target=”_blank><p>参照サイト:共同通信 全国会議員７１２人アンケート 旧統一教会と政治の関係）</p></a>
+                <a name="scandal" class="scandal" ></a>
+
+                <h3 style="color:red; font-weight:bold;">※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</h3>
+                <a href="https://clearing-house.org/?p=6069" target=”_blank><p>・参照サイト:政治資金パーティー収入 裏金はおいくらでしたか？（裏金国会議員一覧）</p></a>
+                <a href="https://digital.kyodonews.jp/static/diet/questionnaire/list0.html" target=”_blank><p>・参照サイト:共同通信 全国会議員７１２人アンケート 旧統一教会と政治の関係）</p></a>
 
                 <table>
                     <tr>
