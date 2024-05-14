@@ -88,11 +88,6 @@ crossorigin="anonymous"></script>
                                     </blockquote>
                                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-                                    <!-- まだユーザーが「フォローする」をしていなければ、「フォローする」ボタンを表示 -->
-                                    <a href="{{ route('bad', ['id'=>$diet->id]) }}" class="bad" onclick="disableLink(this)">
-                                    <img  src="../../img/bad.png" alt="悪いねボタン" style="width:40%; height:auto;" >
-                                    </a>
-                                    <div class="description1">クリックして民意を伝えよう！</div>
 
                                 </div>
                                 

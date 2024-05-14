@@ -115,11 +115,16 @@ ul.chart{
 
 }
 #badButton{
-    text-align: start;
+    background: unset;
+    border:unset;
 }
 .banner{
     width:50%;
 }
+h3{
+    /* font-size:10px; */
+}
+
 @media only screen and (min-width: 800px) and (max-width: 1200px){
     thead {
         display: table-header-group; 

@@ -891,16 +891,40 @@ class DietController extends Controller
     }
 
     /*悪いね登録*/
-    public function bad(Request $request,$id){
-    $diet = Diet::find($id);
-    $diet->update([
-        'bad' => intval($diet->bad) + 1 // link カラムを1つ増やす
-    ]);
+    // public function bad(Request $request,$id){
+    // $diet = Diet::find($id);
+    // $diet->update([
+    //     'bad' => intval($diet->bad) + 1 // link カラムを1つ増やす
+    // ]);
+    // return redirect()->route('diet_each', ['id' => $id]);   
+    // }
 
-    return redirect()->route('diet_each', ['id' => $id]);   
+    /*later登録*/
+    public function bad(Request $request,$id)
+    {
+        $diet = Diet::find($id);
+
+        $diet->update([
+            'bad' => intval($diet->bad) + 1 // link カラムを1つ増やす
+        ]);
+
+        $birthday=$diet->birthDay;
+        $diet->age = Carbon::parse($birthday)->age;
+
+        $genres = Genre::all()->pluck('genre', 'id');
+        $now = new Carbon('now');
+
+        $links = Link::where('diet_id','=', $id)->get();
+
+        return view('diet/each_done', [
+                    'diet' => $diet,
+                    'genres' => $genres,
+                    'id'=>$id,
+                    'links'=>$links,
+                    'now'=>$now,
+
+                ]);
     }
-
-    
     
     
 }

@@ -434,6 +434,8 @@ Route::get('/diet/bribe', [\App\Http\Controllers\DietController::class, 'bribe']
 Route::get('/diet/cult', [\App\Http\Controllers\DietController::class, 'cult'])->name('diet_cult');
 //議員毎ページ表示
 Route::get('/diet/each/{id}', [\App\Http\Controllers\DietController::class, 'each'])->name('diet_each') ->middleware('auth:admin');
+//議員毎ページ表示
+Route::get('/diet/each_done/{id}', [\App\Http\Controllers\DietController::class, 'each_done'])->name('diet_each_done') ->middleware('auth:admin');
 //情報提供
 Route::post('/diet/each/{id}', [\App\Http\Controllers\DietController::class, 'post'])->name('diet_post');
 
@@ -458,3 +460,6 @@ Route::get('/diet/approve/{id}', [App\Http\Controllers\DietController::class, 'd
 Route::get('/diet/bad/{id}', [App\Http\Controllers\DietController::class, 'bad'])->name('bad');
 //比較ページ
 // Route::get('/diet/compare', [App\Http\Controllers\DietController::class, 'chart'])->name('chart');
+
+//サイトマップ
+Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index' ])->name('get.sitemap');
