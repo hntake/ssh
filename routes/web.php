@@ -420,8 +420,10 @@ Route::get('/invoice/user/{id}', [\App\Http\Controllers\InvoiceRegisterControlle
 //請求者会員請求書を作成する
 Route::get('/invoice/pdf}', [\App\Http\Controllers\InvoiceRegisterController::class, 'post'])->name('user_pdf');
 
-//国会議員一覧
+//国会議員監視サイトトップページ
 Route::get('/diet/index', [\App\Http\Controllers\DietController::class, 'index'])->name('diet_index')->middleware('auth:admin');
+//国会議員一覧
+Route::get('/diet/all', [\App\Http\Controllers\DietController::class, 'all'])->name('diet_all')->middleware('auth:admin');
 //党ごと一覧
 Route::get('/diet/party/{id}', [\App\Http\Controllers\DietController::class, 'party'])->name('diet_party');
 //ビンゴ一覧

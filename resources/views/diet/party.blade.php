@@ -27,7 +27,10 @@ crossorigin="anonymous"></script>
                 <div class="header_inner">
                         <nav id="menu" class="header_nav">
                             <ul class="header_nav_list">
-
+                                <li class="header_nav_itm">
+                                    <a href="{{ url('diet/index') }}" class="header_nav_itm_link">不祥事度ランキング</a>
+                                    <div class="description1">上位100人のランキング</div>
+                                </li>
                                 <li class="header_nav_itm">
                                     <a href="{{ url('diet/index') }}" class="header_nav_itm_link">議員一覧</a>
                                     <div class="description1">不祥事度高い順で表示されます</div>
@@ -93,8 +96,11 @@ crossorigin="anonymous"></script>
                         <label class="nav-unshown" id="nav-close" for="nav-input"></label>
                         <div id="nav-content">
                             <ul>
-
-                            <li class="header_nav_itm">
+                                <li class="header_nav_itm">
+                                    <a href="{{ url('diet/index') }}" class="header_nav_itm_link">不祥事度ランキング</a>
+                                    <div class="description1">上位100人のランキング</div>
+                                </li>
+                                <li class="header_nav_itm">
                                     <a href="{{ url('diet/index') }}" class="header_nav_itm_link">議員一覧</a>
                                     <div class="description1">不祥事度高い順で表示されます</div>
                                 </li>
@@ -161,19 +167,25 @@ crossorigin="anonymous"></script>
                 </div>
             </header>
             <div class="testtable-responsive">
-                <div class="search">
-                    <form method="GET" action="{{ route('diet_search_party',['id'=>$id])}}">
-                        <div class="form-group row">
-                            <!--入力-->
-                            <div class="search">
-                            <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください" class="search">
+            <div class="top_area">
+                    <div class="banner">
+                        <img src="../../img/bad_banner.png" style="width:40%; height:auto; margin-top:8px;" alt="国会議員監視サイト 悪いねボタン">
+                        <img src="../../img/diet_banner.png" alt="国会議員監視サイト">
+                    </div>
+                    <div class="search">
+                        <form method="GET" action="{{ route('diet_search')}}">
+                            <div class="form-group row">
+                                <!--入力-->
+                                <div class="search">
+                                <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください" class="search">
+                                </div>
+                                <div class="col-sm-auto">
+                                <button type="submit" class="btn btn-primary ">議員検索</button>
+                                </div>
                             </div>
-                            <div class="col-sm-auto">
-                            <button type="submit" class="btn btn-primary ">議員検索</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
+            </div>
                 @if($id=='jimin')
                 <h3>自民党平均不祥事度{{$average}}</h3>
                 <p>自民党 議員一覧</p>

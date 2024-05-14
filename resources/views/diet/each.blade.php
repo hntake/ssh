@@ -28,7 +28,7 @@ crossorigin="anonymous"></script>
             <div id="nav-content">
             <ul>
                     <li><a href="{{ url('diet/index') }}">
-                            <h3 ontouchstart="">議員一覧画面に戻る</h3>
+                            <h3 ontouchstart="">サイトトップページに戻る</h3>
                         </a></li>
                 </ul>
             </div>

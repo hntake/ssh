@@ -7,6 +7,7 @@ thead{
 
 .profile{
     width:80%;
+    padding:16px;
 }
 .links{
     width:80%;
@@ -70,11 +71,12 @@ select{
     margin:0;
 }
 img{
-    width:40%;
+    width:50%;
     height:auto;
 }
 .top_area{
     display: flex;
+    justify-content: space-evenly;
 }
 .header_inner{
     padding:0;
@@ -115,6 +117,9 @@ ul.chart{
 #badButton{
     text-align: start;
 }
+.banner{
+    width:50%;
+}
 @media only screen and (min-width: 800px) and (max-width: 1200px){
     thead {
         display: table-header-group; 
@@ -132,6 +137,15 @@ ul.chart{
     }
     .bad_share{
         display:block;
+    }
+    .testtable-responsive {
+        margin-top:100px;
+    }
+    .header_nav_list {
+        display: block;
+    }
+    .banner{
+        width:100%;
     }
 }
 
@@ -185,5 +199,8 @@ ul.chart{
     #showFormBtn{
         width:35%;
         width:35%;
+    }
+    .banner{
+        width:100%;
     }
 }

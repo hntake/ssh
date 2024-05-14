@@ -3,7 +3,7 @@
 
 <head>
 
-<title>Watch them! 国会議員監視サイト 不祥事度ランキング</title>
+<title>Watch them! 国会議員監視サイト 議員一覧ページ</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="このサイトでは、現役国会議員の不祥事データをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
@@ -187,7 +187,7 @@ crossorigin="anonymous"></script>
                         </form>
                     </div>
             </div>
-            <h2>不祥事度ランキング上位100名</h2>
+            <h2>議員一覧</h2>
             <table class="table-all">
                 <ul>
                     <!--sort button-->
@@ -223,9 +223,6 @@ crossorigin="anonymous"></script>
                 </ul>
                 <thead>
                     <tr>
-                        @if ($select == 'scandal') 
-                        <th style="width:5%">順位</th>
-                        @endif
                         <th style="width:5%">議院</th>
                         <th style="width:5%">会派</th>
                         <th style="width:10%">選挙区</th>
@@ -239,11 +236,8 @@ crossorigin="anonymous"></script>
                 </thead>
                 <tbody id="tbl">
                     @foreach ($diets as $diet)
-                    @if($diet->type !== null  && $diet->rank !== null)
+                    @if($diet->type !== null)
                     <tr>
-                        @if ($select == 'scandal')
-                        <td>{{ $diet->rank }}</td>
-                        @endif
                         <td>{{ $diet->type }}</td>
                         <td>{{ $diet->party }}</td>
                         <td>{{ $diet->area }}</td>
@@ -260,7 +254,11 @@ crossorigin="anonymous"></script>
                     </tr>
                 </tbody>
             </table>
-        
+            @isset($select)
+            {{ $diets->appends(['diet_narabi' => $select])->links() }}
+            @else
+            {{ $diets->links() }}
+            @endif
             <div class="bottom">
                 <a name="scandal" class="scandal" ></a>
 

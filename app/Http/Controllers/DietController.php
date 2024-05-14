@@ -15,7 +15,47 @@ class DietController extends Controller
 {
     //トップページ表示
     public function index(){
+        // 上位100位までのデータを取得
+        $diets = Diet::orderByDesc('scandal')->take(100)->get();
+        
+        // 同じスコアの人数
+        $sameScoreCount = 0;
+        // 各順位を計算
+        $rank = 1;
+        $previousScore = null;
+        foreach ($diets as $diet) {
+            if ($diet->scandal !== $previousScore) {
+                $previousScore = $diet->scandal;
+                $rank += $sameScoreCount;
+                $sameScoreCount = 1;
+            } else {
+                $sameScoreCount++;
+            }
+            if ($rank <= 100) {
+                $diet->rank = $rank;
+            } else {
+                $diet->rank = null;
+            }    
+            if ($diet->birthDay !== 0) {
+                $birthday = $diet->birthDay;
+                $diet->age = Carbon::parse($birthday)->age;
+            } else {
+                 // データがnullの場合、年齢をnullとするか、他の値に設定する
+                $diet->age = null;
+            }
+            
+        }
+    
+        $select='scandal';
+        return view('diet/index', [
+            'diets' => $diets,
+            'select' => $select,
+        ]);
+    }
+    
 
+     //議員一覧表示
+    public function all(){
     $diets = Diet::orderBy('scandal', 'desc')->paginate(50);
 
     // 同じスコアの人数
@@ -43,7 +83,7 @@ class DietController extends Controller
     }
 
         $select='scandal';
-        return view('diet/index', [
+        return view('diet/all', [
             'diets' => $diets,
             'select'=>$select,
         ]);
@@ -675,7 +715,7 @@ class DietController extends Controller
             }
         }
 
-    return view('diet/index', compact('diets', 'select'));
+    return view('diet/all', compact('diets', 'select'));
 }
 //党内並び替え
     public function party_sort(Request $request,$id,$average)
