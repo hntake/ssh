@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News;
+use App\Models\Word;
+use App\Models\Diet;
+use App\Models\Form;
+
 
 class SitemapController extends Controller
 {
@@ -16,7 +21,7 @@ class SitemapController extends Controller
         return response()->view('sitemap', [
             'words' => $words,
             'diets' => $diets,
-            'threads' => $threads,
+            'forms' => $forms,
             'newses' => $news,
         ])->header('Content-Type', 'text/xml');
     }
