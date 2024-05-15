@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="{{ asset('css/pdf.css') }}">
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
         <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
-        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@ITcha50">
         <meta name="twitter:title" content="無料の請求書ジェネレーター">
         <meta name="twitter:description" content="無料で登録もなく利用できるオンラインサービスを使って、簡単に適格請求書をPDF形式で作成しましょう。

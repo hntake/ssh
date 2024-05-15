@@ -3,8 +3,8 @@
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@long_msc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ITcha50">
 <meta name="twitter:title" content="Watch them! 国会議員監視サイト">
 <meta name="twitter:description" content="We can change! It’s time to change Japan now.">
 <meta name="twitter:image" content="https://eng50cha.com/img/diet_banner.png?4362984378">
