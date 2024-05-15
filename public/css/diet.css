@@ -208,4 +208,7 @@ h3{
     .banner{
         width:100%;
     }
+    .pc{
+        display:none;
+    }
 }

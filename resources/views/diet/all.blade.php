@@ -15,11 +15,22 @@
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@long_msc">
+<meta name="twitter:title" content="Watch them! 国会議員監視サイト">
+<meta name="twitter:description" content="We can change! It’s time to change Japan now.">
+<meta name="twitter:image" content="https://eng50cha.com/img/diet_banner.png?4362984378">
+<link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
+<link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
 crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrap">
+        <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="国会議員監視サイト " data-url="{{url('diet/index')}}">Tweet</a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <div class="container">
             <header id="header" class="header is-open">        
 
@@ -223,9 +234,9 @@ crossorigin="anonymous"></script>
                 </ul>
                 <thead>
                     <tr>
-                        <th style="width:5%">議院</th>
+                        <th style="width:5%" class="pc">>議院</th>
                         <th style="width:5%">会派</th>
-                        <th style="width:10%">選挙区</th>
+                        <th style="width:10%" class="pc">選挙区</th>
                         <th style="width:20%">名前</th>
                         <th style="width:5%">年齢</th>
                         <th style="width:5%"><a href="#scandal" style="color:white; font-weight:bold;">不祥事度※</a></th>
@@ -238,14 +249,14 @@ crossorigin="anonymous"></script>
                     @foreach ($diets as $diet)
                     @if($diet->type !== null)
                     <tr>
-                        <td>{{ $diet->type }}</td>
+                        <td class="pc">{{ $diet->type }}</td>
                         <td>{{ $diet->party }}</td>
-                        <td>{{ $diet->area }}</td>
+                        <td class="pc">{{ $diet->area }}</td>
                         <td>{{ $diet->name }}</td>
                         <td>{{ $diet->age}}</td>
                         <td>{{ $diet->scandal }}</td>
                         <td>{{ $diet->bribe}}</td>
-                        <td>{{ $diet->bad }}</td>
+                        <td>{{ format_number($diet->bad) }}</td>
                         <td>
                             <div class="button"><a href="{{ route('diet_each',['id'=>$diet->id]) }}">表示</a></div>
                         </td>
