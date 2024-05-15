@@ -27,9 +27,9 @@ class TwitterHelper
     }
 
     //新しい不祥事が投稿されたら
-    public function tweet_thread($list)
+    public function tweet_thread($link)
     {
-        $text = "新しい不祥事が投稿されました！ スレッド名:{$list->title}  https://eng50cha.com/diet/each/{$list->diet_id}";
+        $text = "新しい不祥事が投稿されました！ スレッド名:{$link->title}  https://eng50cha.com/diet/each/{$link->diet_id}";
         $result = $this->twitter->post('tweets', ['text' => $text]);
         return $result;
     }

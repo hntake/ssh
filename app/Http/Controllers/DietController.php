@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB; // DB ファサードを use する
 use App\Helpers\TwitterHelper;
 use Illuminate\Support\Facades\Session;
+use App\Mail\Report;
+
 
 class DietController extends Controller
 {
@@ -437,6 +439,10 @@ class DietController extends Controller
         $link->approved = false; // 承認待ち状態を表す
         $link->save();
 
+    //投稿されたらメール送信
+    $data = ['スレッドID' => $link->id];
+    \Mail::to('info@itcha50.com')->send(new Report($data));
+
     // 承認待ち状態にメッセージを保存する
     Session::flash('success', '投稿が承認待ちに送信されました');
         
@@ -460,7 +466,7 @@ class DietController extends Controller
 
     // Twitterにツイートする例
     $twitterHelper = new TwitterHelper();
-    $result = $twitterHelper->tweet_thread($list);
+    $result = $twitterHelper->tweet_thread($link);
 
     $diet=Diet::where('id','=',$link->diet_id)->first();
     //不祥事加算
@@ -891,15 +897,6 @@ class DietController extends Controller
     }
 
     /*悪いね登録*/
-    // public function bad(Request $request,$id){
-    // $diet = Diet::find($id);
-    // $diet->update([
-    //     'bad' => intval($diet->bad) + 1 // link カラムを1つ増やす
-    // ]);
-    // return redirect()->route('diet_each', ['id' => $id]);   
-    // }
-
-    /*later登録*/
     public function bad(Request $request,$id)
     {
         $diet = Diet::find($id);

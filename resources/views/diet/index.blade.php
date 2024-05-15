@@ -19,7 +19,7 @@
 <meta name="twitter:site" content="@ITcha50">
 <meta name="twitter:title" content="Watch them! 国会議員監視サイト">
 <meta name="twitter:description" content="We can change! It’s time to change Japan now.">
-<meta name="twitter:image" content="https://eng50cha.com/img/diet_banner.png?4362984378">
+<meta name="twitter:image" content="https://eng50cha.com/img/diet_banner_new.png?4362984378">
 
 <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
@@ -183,7 +183,7 @@ crossorigin="anonymous"></script>
             <div class="top_area">
                     <div class="banner">
                         <img src="../img/bad_banner.png" style="width:40%; height:auto; margin-top:8px;" alt="国会議員監視サイト 悪いねボタン">
-                        <img src="../img/diet_banner.png" alt="国会議員監視サイト">
+                        <img src="../img/diet_banner_new.png" alt="国会議員監視サイト">
                     </div>
                     <div class="search">
                         <form method="GET" action="{{ route('diet_search')}}">
