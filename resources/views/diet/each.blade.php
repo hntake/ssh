@@ -51,8 +51,8 @@ crossorigin="anonymous"></script>
             <div class="diet_container">
                 <div class="left">
                     <div class="profile">
-                        {{ $now }}
-                        <p>時点</p>
+                        
+                        <h6>{{ $now }}時点<h6>
                         <h3>議院：{{ $diet->type }}</h3>
                         <h3>会派：{{ $diet->party }}</h3>
                         <h3>選挙区：{{ $diet->area }}</h3>
@@ -133,7 +133,7 @@ crossorigin="anonymous"></script>
                                 @endif
                             @endforeach
                         @else
-                        <p>現時点では当サイトには投稿されておりません</p>
+                        <h6>現時点では当サイトには投稿されておりません<h6>
                         @endif
                     </div>
                     <div class="add">
@@ -141,9 +141,9 @@ crossorigin="anonymous"></script>
                         <img id="showFormBtn" src="../../img/click.png" alt="不祥事議員" style="cursor:pointer;">
 
                         <p>↑誰でも投稿できます！(管理サイドで承認後、反映されます)</p>
-                        <p>※ 既にある情報はお避けください。</p>
-                        <p>※ 情報は、新聞などのメディアや関係議員のブログなどで虚偽と取られない情報のみを承認します。</p>
-                        <p>※ 当サイトでは個人の思想や意見に基づく発言は、不祥事の定義からは除外されています。他にも、牛歩等の議会戦術も過去の例を鑑みて除外します。</p>
+                        <h6>※ 既にある情報はお避けください。<h6>
+                        <h6>※ 情報は、新聞などのメディアや関係議員のブログなどで虚偽と取られない情報のみを承認します。<h6>
+                        <h6>※ 当サイトでは個人の思想や意見に基づく発言は、不祥事の定義からは除外されています。他にも、牛歩等の議会戦術も過去の例を鑑みて除外します。<h6>
 
                     </div>
                     <div id="formContainer" style="display: none;">
