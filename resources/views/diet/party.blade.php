@@ -263,6 +263,12 @@ crossorigin="anonymous"></script>
                 @elseif($id=='hirei')
                 <h3>比例ブロック平均不祥事度{{$average}}</h3>
                 <p>比例ブロック議員一覧</p>
+                @elseif($id=='san')
+                <h3>参議院平均不祥事度{{$average}}</h3>
+                <p>参議院議員一覧</p>
+                @elseif($id=='shu')
+                <h3>衆議院平均不祥事度{{$average}}</h3>
+                <p>衆議院議員一覧</p>
                 @else
                 @endif
                 <table class="table-all">
