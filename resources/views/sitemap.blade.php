@@ -14,8 +14,11 @@
     @foreach ($diets as $diet)
     <url>
         <loc>{{ url('/') }}/diet/each/{{ $diet->id }}</loc>
-        <lastmod>{{ $diet->created_at ? $diet->created_at->tz('UTC')->toAtomString() : $sitemapGenerationTime }}</lastmod>
-        <changefreq>always</changefreq>
+        @if($diet->created_at)
+        <lastmod>{{ $diet->created_at->tz('UTC')->toAtomString() }}</lastmod>
+    @else
+        <lastmod>{{ now()->tz('UTC')->toAtomString() }}</lastmod>
+    @endif        <changefreq>always</changefreq>
         <priority>0.8</priority>
     </url>
     @endforeach
