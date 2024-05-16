@@ -10,7 +10,7 @@
     <link href="{{ asset('css/faq.css') }}" rel="stylesheet">
     <script src="according.js"></script>
 </head>
-<title>FAQ 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ” FAQ</title>
+<title>FAQ 英語学習サイト”エイゴメ” FAQ</title>
 
 <body>
     <h1 style="margin: 30px 0; text-align: center;">FAQ</h1>

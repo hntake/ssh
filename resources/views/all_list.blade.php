@@ -1,4 +1,6 @@
 @extends('layouts.app')
+<meta name="description" content="自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ">
+<meta name="keywords" content="英語学習,発音学習,英単語,中学英語,高校英語,英検二級,英検一級,TOEIC">
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 

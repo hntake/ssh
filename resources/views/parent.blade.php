@@ -10,7 +10,7 @@
     <meta name="description" content="英語学習サイトエイゴメを使って、小学生の時から単語力を高めましょう!英単語学習は 漢字書き取りの様に
                         毎日やることで効果が上がります。エイゴメの親子機能はランダムで表示される今日のテストを受けることでポイントを獲得。そして、
                         事前に目標ポイントとご褒美を設定しておくことで、お子様のやる気に繋がります。無料で使えます">
-    <meta name="keywords" content="英語学習  発音学習 英単語 小学生英語 早期英語学習 小6 小５ 小4">
+    <meta name="keywords" content="英語学習,発音学習,英単語,中学英語,高校英語,英検二級,英検一級,TOEIC">
     <meta name="author" content="llco">
     <meta name="robots" content="index, follow">
     <!-- Fonts -->

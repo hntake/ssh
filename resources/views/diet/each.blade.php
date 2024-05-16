@@ -1,4 +1,9 @@
 @extends('layouts.app')
+<meta name="description" content="このサイトでは、現役国会議員の不祥事データをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
+全ての不祥事を数値化し、議員の不祥事をランキング表示しています。また、皆さんからの不祥事の投稿も歓迎しています。">
+<meta name="keywords" content="自民党,裏金問題,統一教会,国会議員,年齢順,衆議院,参議院,議員一覧,裏金">
+<meta name="author" content="llco">
+<meta name="robots" content="index, follow">
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
@@ -11,7 +16,7 @@
 <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
 
-<title>{{$diet->name}}議員個別画面 Watch them!国会議員監視サイト</title>
+<title>{{$diet->name}} 議員個別画面 Watch them!国会議員監視サイト</title>
 
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
@@ -40,14 +45,15 @@ crossorigin="anonymous"></script>
                 });
             </script>
         </div>
-        <dix class="" style="display:block;">
+        <div class="" style="display:block;">
             <div class="top">
                 @if(Session::has('success'))
                 <div class="alert alert-success blink">
                     {{ Session::get('success') }}
                 </div>
                 @endif
-                </div>       
+                </div>  
+                <h1>国会議員監視サイト</h1>
             <div class="diet_container">
                 <div class="left">
                     <div class="profile">
@@ -186,6 +192,13 @@ crossorigin="anonymous"></script>
                 </div>
             </div>
         </div>
+        <div class="site-info">
+                    <div class="widget">
+                        <div class="copy-right">
+                            <span class="copy-right-text">© All rights reserved by llco</span>
+                        </div>
+                    </div>
+    </div>
 </body>
 <script>
 <script>

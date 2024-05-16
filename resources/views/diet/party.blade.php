@@ -5,9 +5,9 @@
 <title>Watch them! 国会議員監視サイト”</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="このサイトでは、現役国会議員のデータをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
-全ての不祥事を数値化し、議員の不祥事度をランキング表示しています。また、皆さんからの不祥事の投稿も歓迎しています。">
-<meta name="keywords" content="自民党  裏金問題 統一教会 落選運動 国会議員 年齢順 衆議院 参議院 議員一覧">
+<meta name="description" content="このサイトでは、現役国会議員の不祥事データをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
+全ての不祥事を数値化し、議員の不祥事をランキング表示しています。また、皆さんからの不祥事の投稿も歓迎しています。">
+<meta name="keywords" content="自民党,裏金問題,統一教会,国会議員,年齢順,衆議院,参議院,議員一覧,裏金">
 <meta name="author" content="llco">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
@@ -196,6 +196,7 @@ crossorigin="anonymous"></script>
                         </form>
                     </div>
             </div>
+                <h1>国会議員監視サイト</h1>
                 @if($id=='jimin')
                 <h3>自民党平均不祥事度{{$average}}</h3>
                 <p>自民党 議員一覧</p>
@@ -307,10 +308,7 @@ crossorigin="anonymous"></script>
                     </ul>
                     <thead>
                         <tr>
-                            @if ($select == 'scandal'||$id == 'bribe') 
-                            <th style="width:5%">順位</th>
-                            @endif
-                            <th style="width:5%" class="pc">>議院</th>
+                            <th style="width:5%" class="pc">議院</th>
                             <th style="width:5%">会派</th>
                             <th style="width:10%" class="pc">選挙区</th>
                             <th style="width:20%">名前</th>
@@ -324,9 +322,6 @@ crossorigin="anonymous"></script>
                     <tbody id="tbl">
                         @foreach ($diets as $diet)
                         <tr>
-                            @if ($select == 'scandal')
-                            <td>{{ $diet->rank }}</td>
-                            @endif
                             <td class="pc">{{ $diet->type }}</td>
                             <td>{{ $diet->party }}</td>
                             <td class="pc">{{ $diet->area }}</td>
@@ -344,6 +339,13 @@ crossorigin="anonymous"></script>
                 </table>
                 {{ $diets->links() }}
             </div>
+    </div>
+    <div class="site-info">
+                    <div class="widget">
+                        <div class="copy-right">
+                            <span class="copy-right-text">© All rights reserved by llco</span>
+                        </div>
+                    </div>
     </div>
 </body>
 </html>
