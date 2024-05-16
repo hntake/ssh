@@ -179,140 +179,141 @@ crossorigin="anonymous"></script>
                     </div>
                 </div>
             </header>
-        <div class="testtable-responsive">
-            <div class="top_area">
-                    <div class="banner">
-                        <img src="../img/bad_banner.png" style="width:40%; height:auto; margin-top:8px;" alt="悪いねボタン">
-                        <img src="../img/diet_banner_new.png" alt="国会議員監視サイト">
-                    </div>
-                    <div class="search">
-                        <form method="GET" action="{{ route('diet_search')}}">
-                            <div class="form-group row">
-                                <!--入力-->
-                                <div class="search">
-                                <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください" class="search">
+            <div class="testtable-responsive">
+                <div class="top_area">
+                        <div class="banner">
+                            <img src="../img/bad_banner.png" style="width:40%; height:auto; margin-top:8px;" alt="悪いねボタン">
+                            <img src="../img/diet_banner_new.png" alt="国会議員監視サイト">
+                        </div>
+                        <div class="search">
+                            <form method="GET" action="{{ route('diet_search')}}">
+                                <div class="form-group row">
+                                    <!--入力-->
+                                    <div class="search">
+                                    <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください" class="search">
+                                    </div>
+                                    <div class="col-sm-auto">
+                                    <button type="submit" class="btn btn-primary ">議員検索</button>
+                                    </div>
                                 </div>
-                                <div class="col-sm-auto">
-                                <button type="submit" class="btn btn-primary ">議員検索</button>
+                            </form>
+                        </div>
+                </div>
+                <h1>国会議員監視サイトトップページ</h1>
+                <h2>不祥事度ランキング上位100名</h2>
+                <table class="table-all">
+                    <ul>
+                        <!--sort button-->
+                        <li>
+                            <form action="{{ route('diet_sort') }}" method="GET">
+                                @csrf
+                                @if(isset($select))
+                                <select name="diet_narabi">
+                                    <option value="scandal" {{ $select == 'scandal' ? 'selected' : '' }}>不祥事度高い順</option>
+                                    <option value="bad" {{ $select == 'bad' ? 'selected' : '' }}>悪いね！多い順</option>
+                                    <option value="old" {{ $select == 'old' ? 'selected' : '' }}>年齢順(高い順)</option>
+                                    <option value="young" {{ $select == 'young' ? 'selected' : '' }}>年齢順(若い順)</option>
+                                    <option value="asc" {{ $select == 'asc' ? 'selected' : '' }}>名前順(昇順)</option>
+                                    <option value="desc" {{ $select == 'desc' ? 'selected' : '' }}>名前順(降順)</option>
+                                </select>
+                                @else
+                                <select name="diet_narabi">
+                                    <option value="scandal">不祥事度高い順</option>
+                                    <option value="bad">悪いね！多い順</option>
+                                    <option value="old">年齢順(高い順)</option>
+                                    <option value="young">年齢順(若い順)</option>
+                                    <option value="asc">名前順(昇順)</option>
+                                    <option value="desc">名前順(降順)</option>
+                                </select>
+                                @endif
+                                <div class="form-group">
+                                    <div class="button">
+                                        <input type="submit" value="で並び替え"></input>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-            </div>
-            <h1>国会議員監視サイトトップページ</h1>
-            <h2>不祥事度ランキング上位100名</h2>
-            <table class="table-all">
-                <ul>
-                    <!--sort button-->
-                    <li>
-                        <form action="{{ route('diet_sort') }}" method="GET">
-                            @csrf
-                            @if(isset($select))
-                            <select name="diet_narabi">
-                                <option value="scandal" {{ $select == 'scandal' ? 'selected' : '' }}>不祥事度高い順</option>
-                                <option value="bad" {{ $select == 'bad' ? 'selected' : '' }}>悪いね！多い順</option>
-                                <option value="old" {{ $select == 'old' ? 'selected' : '' }}>年齢順(高い順)</option>
-                                <option value="young" {{ $select == 'young' ? 'selected' : '' }}>年齢順(若い順)</option>
-                                <option value="asc" {{ $select == 'asc' ? 'selected' : '' }}>名前順(昇順)</option>
-                                <option value="desc" {{ $select == 'desc' ? 'selected' : '' }}>名前順(降順)</option>
-                            </select>
-                            @else
-                            <select name="diet_narabi">
-                                <option value="scandal">不祥事度高い順</option>
-                                <option value="bad">悪いね！多い順</option>
-                                <option value="old">年齢順(高い順)</option>
-                                <option value="young">年齢順(若い順)</option>
-                                <option value="asc">名前順(昇順)</option>
-                                <option value="desc">名前順(降順)</option>
-                            </select>
+                            </form>
+                        </li>
+                    </ul>
+                    <thead>
+                        <tr>
+                            @if ($select == 'scandal') 
+                            <th style="width:5%">順位</th>
                             @endif
-                            <div class="form-group">
-                                <div class="button">
-                                    <input type="submit" value="で並び替え"></input>
-                                </div>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-                <thead>
-                    <tr>
-                        @if ($select == 'scandal') 
-                        <th style="width:5%">順位</th>
-                        @endif
-                        <th style="width:5%" class="pc">>議院</th>
-                        <th style="width:5%">会派</th>
-                        <th style="width:10%" class="pc">選挙区</th>
-                        <th style="width:20%">名前</th>
-                        <th style="width:5%">年齢</th>
-                        <th style="width:5%"><a href="#scandal" style="color:white; font-weight:bold;">不祥事度※</a></th>
-                        <th style="width:15%">裏金公表金額</th>
-                        <th  style="width:5%">悪いね！数</th>
-                        <th  style="width:5%"></th>
-                    </tr>
-                </thead>
-                <tbody id="tbl">
-                    @foreach ($diets as $diet)
-                    @if($diet->type !== null  && $diet->rank !== null)
-                    <tr>
-                        @if ($select == 'scandal')
-                        <td>{{ $diet->rank }}</td>
-                        @endif
-                        <td class="pc">{{ $diet->type }}</td>
-                        <td>{{ $diet->party }}</td>
-                        <td class="pc">{{ $diet->area }}</td>
-                        <td>{{ $diet->name }}</td>
-                        <td>{{ $diet->age}}</td>
-                        <td>{{ $diet->scandal }}</td>
-                        <td>{{ $diet->bribe}}</td>
-                        <td>{{ format_number($diet->bad) }}</td>
-                        <td>
-                            <div class="button"><a href="{{ route('diet_each',['id'=>$diet->id]) }}">表示</a></div>
-                        </td>
-                        @endif
-                        @endforeach
-                    </tr>
-                </tbody>
-            </table>
-        
-            <div class="bottom">
-                <a name="scandal" class="scandal" ></a>
-
-                <h3 style="color:red; font-weight:bold;">※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</h3>
-                <a href="https://clearing-house.org/?p=6069" target=”_blank><p>・参照サイト:政治資金パーティー収入 裏金はおいくらでしたか？（裏金国会議員一覧）</p></a>
-                <a href="https://digital.kyodonews.jp/static/diet/questionnaire/list0.html" target=”_blank><p>・参照サイト:共同通信 全国会議員７１２人アンケート 旧統一教会と政治の関係）</p></a>
-
-                <table>
-                    <tr>
-                        <td>5点</td>
-                        <td>脱税・有罪判決・逮捕事実・反社会団体との関係・公職選挙法違反</td>
-                    </tr>
-                    <tr>
-                        <td>4点</td>
-                        <td>脱税疑惑・収賄・贈賄・公職選挙法違反疑惑・性的スキャンダル・政治資金不記載・政治資金規正法違反・大臣規範違反</td>
-                    </tr>   
-                    <tr>
-                        <td>3点</td>
-                        <td>収賄疑惑・贈賄疑惑・不正受給・資産公開法違反</td>
-                    </tr>
-                    <tr>
-                        <td>2点</td>
-                        <td>軽犯罪</td>
-                    </tr>
-                    <tr>
-                        <td>1点</td>
-                        <td>その他</td>
-                    </tr>
+                            <th style="width:5%" class="pc">>議院</th>
+                            <th style="width:5%">会派</th>
+                            <th style="width:10%" class="pc">選挙区</th>
+                            <th style="width:20%">名前</th>
+                            <th style="width:5%">年齢</th>
+                            <th style="width:5%"><a href="#scandal" style="color:white; font-weight:bold;">不祥事度※</a></th>
+                            <th style="width:15%">裏金公表金額</th>
+                            <th  style="width:5%">悪いね！数</th>
+                            <th  style="width:5%"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl">
+                        @foreach ($diets as $diet)
+                        @if($diet->type !== null  && $diet->rank !== null)
+                        <tr>
+                            @if ($select == 'scandal')
+                            <td>{{ $diet->rank }}</td>
+                            @endif
+                            <td class="pc">{{ $diet->type }}</td>
+                            <td>{{ $diet->party }}</td>
+                            <td class="pc">{{ $diet->area }}</td>
+                            <td>{{ $diet->name }}</td>
+                            <td>{{ $diet->age}}</td>
+                            <td>{{ $diet->scandal }}</td>
+                            <td>{{ $diet->bribe}}</td>
+                            <td>{{ format_number($diet->bad) }}</td>
+                            <td>
+                                <div class="button"><a href="{{ route('diet_each',['id'=>$diet->id]) }}">表示</a></div>
+                            </td>
+                            @endif
+                            @endforeach
+                        </tr>
+                    </tbody>
                 </table>
+            
+                <div class="bottom">
+                    <a name="scandal" class="scandal" ></a>
+
+                    <h3 style="color:red; font-weight:bold;">※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</h3>
+                    <a href="https://clearing-house.org/?p=6069" target=”_blank><p>・参照サイト:政治資金パーティー収入 裏金はおいくらでしたか？（裏金国会議員一覧）</p></a>
+                    <a href="https://digital.kyodonews.jp/static/diet/questionnaire/list0.html" target=”_blank><p>・参照サイト:共同通信 全国会議員７１２人アンケート 旧統一教会と政治の関係）</p></a>
+
+                    <table>
+                        <tr>
+                            <td>5点</td>
+                            <td>脱税・有罪判決・逮捕事実・反社会団体との関係・公職選挙法違反</td>
+                        </tr>
+                        <tr>
+                            <td>4点</td>
+                            <td>脱税疑惑・収賄・贈賄・公職選挙法違反疑惑・性的スキャンダル・政治資金不記載・政治資金規正法違反・大臣規範違反</td>
+                        </tr>   
+                        <tr>
+                            <td>3点</td>
+                            <td>収賄疑惑・贈賄疑惑・不正受給・資産公開法違反</td>
+                        </tr>
+                        <tr>
+                            <td>2点</td>
+                            <td>軽犯罪</td>
+                        </tr>
+                        <tr>
+                            <td>1点</td>
+                            <td>その他</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-    <div class="site-info">
-                    <div class="widget">
-                        <div class="copy-right">
-                            <span class="copy-right-text">© All rights reserved by llco</span>
+        <div class="site-info">
+                        <div class="widget">
+                            <div class="copy-right">
+                                <span class="copy-right-text">© All rights reserved by llco</span>
+                            </div>
                         </div>
-                    </div>
-    </div>
+        </div>
     <script>
     function window.location.href=this.value {
         var options = select.options;

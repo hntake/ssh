@@ -211,4 +211,7 @@ h3{
     .pc{
         display:none;
     }
+    td{
+        font-size: large;
+    }
 }
