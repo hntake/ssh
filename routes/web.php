@@ -62,6 +62,9 @@ Route::get('/parent', function () {
 Route::get('/partner', function () {
     return view('partner');
 });
+Route::get('/diet/vote', function () {
+    return view('diet/vote');
+});
 Route::get('/coupon/not')->name('coupon.not');
 Route::get('/coupon/overdue')->name('coupon.overdue');
 

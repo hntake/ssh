@@ -18,7 +18,7 @@ class DietController extends Controller
     //トップページ表示
     public function index(){
         // 上位100位までのデータを取得
-        $diets = Diet::orderByDesc('scandal')->take(100)->get();
+        $diets = Diet::orderByDesc('scandal')->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->take(100)->get();
         
         // 同じスコアの人数
         $sameScoreCount = 0;
@@ -678,15 +678,20 @@ class DietController extends Controller
         } elseif ($select == 'young') {
             $orderByColumns = ['birthDay' => 'desc', 'scandal' => 'desc'];
         } elseif ($select == 'scandal') {
-            $orderByColumns = ['scandal' => 'desc', 'scandal' => 'desc'];
+            $orderByColumns = ['scandal' => 'desc', 'bribe' => 'desc'];
         } elseif ($select == 'noScandal') {
-            $orderByColumns = ['scandal' => 'asc', 'scandal' => 'asc'];
+            $orderByColumns = ['scandal' => 'asc', 'bribe' => 'asc'];
         } elseif ($select == 'bad') {
             $orderByColumns = ['bad' => 'desc', 'scandal' => 'desc'];
         }
         // 並び替えを適用
         foreach ($orderByColumns as $column => $direction) {
-            $dietsQuery->orderBy($column, $direction);
+            if ($column === 'bribe') {
+                // bribe カラムの並び替えに特別な処理を適用
+                $dietsQuery->orderByRaw("CAST(bribe AS UNSIGNED) $direction");
+            } else {
+                $dietsQuery->orderBy($column, $direction);
+            }
         }
 
         // ページネーションを適用
@@ -839,15 +844,20 @@ class DietController extends Controller
     } elseif ($select == 'young') {
         $orderByColumns = ['birthDay' => 'desc', 'scandal' => 'desc'];
     } elseif ($select == 'scandal') {
-        $orderByColumns = ['scandal' => 'desc', 'scandal' => 'desc'];
+        $orderByColumns = ['scandal' => 'desc', 'bribe' => 'desc'];
     } elseif ($select == 'noScandal') {
-        $orderByColumns = ['scandal' => 'asc', 'scandal' => 'asc'];
+        $orderByColumns = ['scandal' => 'asc', 'bribe' => 'asc'];
     } elseif ($select == 'bad') {
         $orderByColumns = ['bad' => 'desc', 'scandal' => 'desc'];
     }
     // 並び替えを適用
     foreach ($orderByColumns as $column => $direction) {
-        $dietsQuery->orderBy($column, $direction);
+        if ($column === 'bribe') {
+            // bribe カラムの並び替えに特別な処理を適用
+            $dietsQuery->orderByRaw("CAST(bribe AS UNSIGNED) $direction");
+        } else {
+            $dietsQuery->orderBy($column, $direction);
+        } 
     }
 
     // ページネーションを適用
