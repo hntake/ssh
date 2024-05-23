@@ -12,7 +12,7 @@
 <meta property="og:title" content="Watch them! 国会議員監視サイト">
 <meta property="og:description" content="We can change!  It's time to change Japan now.">
 <meta property="og:image" content="https://eng50cha.com/img/diet_banner_new.png">
-<meta property="og:url" content="https://eng50cha.com/diet/index">
+<meta property="og:url" content="https://eng50cha.com/diet/vote">
 <meta property="og:site_name" content="Watch them! 国会議員監視サイト">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ITcha50">
@@ -38,7 +38,7 @@ crossorigin="anonymous"></script>
             <label class="nav-unshown" id="nav-close" for="nav-input"></label>
             <div id="nav-content">
             <ul>
-                    <li><a href="{{ url('diet/index') }}">
+                    <li><a href="{{ url('diet/vote') }}">
                             <h3 ontouchstart="">サイトトップページに戻る</h3>
                         </a></li>
                 </ul>

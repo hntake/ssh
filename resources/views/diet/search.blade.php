@@ -37,7 +37,7 @@ crossorigin="anonymous"></script>
                 <div id="nav-content">
                     <ul>
                     <li>
-                        <li><a href="{{ url('diet/index') }}">
+                        <li><a href="{{ url('diet/vote') }}">
                             <h3>サイトトップページへ戻る</h3>
                         </a></li>
                     </ul>

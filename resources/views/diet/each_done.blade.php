@@ -32,7 +32,7 @@ crossorigin="anonymous"></script>
             <label class="nav-unshown" id="nav-close" for="nav-input"></label>
             <div id="nav-content">
             <ul>
-                    <li><a href="{{ url('diet/index') }}">
+                    <li><a href="{{ url('diet/vote') }}">
                             <h3 ontouchstart="">サイトトップページに戻る</h3>
                         </a></li>
                 </ul>
