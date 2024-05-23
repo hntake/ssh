@@ -19,7 +19,7 @@
 <meta property="og:title" content="Watch them! 国会議員監視サイト">
 <meta property="og:description" content="We can change!  It's time to change Japan now.">
 <meta property="og:image" content="https://eng50cha.com/img/diet_banner_new.png">
-<meta property="og:url" content="https://eng50cha.com/">
+<meta property="og:url" content="https://eng50cha.com/diet/index">
 <meta property="og:site_name" content="Watch them! 国会議員監視サイト">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ITcha50">
@@ -34,7 +34,7 @@ crossorigin="anonymous"></script>
 <body>
     <div class="wrap">
         <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
-            <a href="https://twitter.com/share" class="twitter-share-button" data-text="国会議員監視サイト " data-url="{{url('diet/index')}}">Tweet</a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="国会議員監視サイト " data-url="{{ url('diet/index') }}?v=1">Tweet</a>
         </blockquote>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <div class="container">
