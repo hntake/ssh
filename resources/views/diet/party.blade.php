@@ -14,6 +14,12 @@
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Watch them! 国会議員監視サイト">
+<meta property="og:description" content="We can change!  It's time to change Japan now.">
+<meta property="og:image" content="https://eng50cha.com/img/diet_banner_new.png">
+<meta property="og:url" content="https://eng50cha.com/">
+<meta property="og:site_name" content="Watch them! 国会議員監視サイト">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ITcha50">
 <meta name="twitter:title" content="Watch them! 国会議員監視サイト">
