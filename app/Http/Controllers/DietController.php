@@ -132,7 +132,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%秋田%')
                 ->orWhere('area', 'LIKE', '%山形%')
                 ->orWhere('area', 'LIKE', '%福島%');
-            })->paginate(50);
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%東北%')
                     ->orWhere('area', 'LIKE', '%青森%')
@@ -149,7 +149,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%栃木%')
                 ->orWhere('area', 'LIKE', '%群馬%')
                 ->orWhere('area', 'LIKE', '%埼玉%');
-            })->paginate(50);
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%北関東%')
                 ->orWhere('area', 'LIKE', '%茨城%')
@@ -163,7 +163,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%千葉%')
                 ->orWhere('area', 'LIKE', '%神奈川%')
                 ->orWhere('area', 'LIKE', '%山梨%');
-            })->paginate(50);
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%南関東%')
                 ->orWhere('area', 'LIKE', '%千葉%')
@@ -173,7 +173,7 @@ class DietController extends Controller
         }elseif($id=='tokyo'){
             $diets = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%東京%');
-            })->paginate(50);
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%東京%');
             })->avg('scandal');
@@ -191,7 +191,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%静岡%')
                 ->orWhere('area', 'LIKE', '%三重%')
                 ->orWhere('area', 'LIKE', '%愛知%');
-            })->paginate(50);
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%東海%')
                 ->orWhere('area', 'LIKE', '%岐阜%')
@@ -208,7 +208,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%和歌山%')
                 ->orWhere('area', 'LIKE', '%滋賀%')
                 ->orWhere('area', 'LIKE', '%兵庫%');
-            })->paginate(50);
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%近畿%')
                 ->orWhere('area', 'LIKE', '%大阪%')
@@ -226,7 +226,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%石川%')
                 ->orWhere('area', 'LIKE', '%福井%')
                 ->orWhere('area', 'LIKE', '%長野%');
-            })->paginate(50);
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%北陸信越%')
                 ->orWhere('area', 'LIKE', '%新潟%')
@@ -243,7 +243,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%岡山%')
                 ->orWhere('area', 'LIKE', '%広島%')
                 ->orWhere('area', 'LIKE', '%山口%');
-            })->paginate(50); 
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%中国%')
                 ->orWhere('area', 'LIKE', '%鳥取%')
@@ -259,7 +259,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%愛媛%')
                 ->orWhere('area', 'LIKE', '%香川%')
                 ->orWhere('area', 'LIKE', '%徳島%');
-            })->paginate(50);
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%四国%')
                 ->orWhere('area', 'LIKE', '%高知%')
@@ -278,7 +278,7 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%鹿児島%')
                 ->orWhere('area', 'LIKE', '%沖縄%')
                 ->orWhere('area', 'LIKE', '%熊本%');
-            })->paginate(50); 
+            })->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%九州%')
                 ->orWhere('area', 'LIKE', '%福岡%')
@@ -294,13 +294,13 @@ class DietController extends Controller
             $diets = Diet::where('bribe', '>', 0)
             ->where('cult', 1)
             ->where('link', '>', 0)
-            ->paginate(50);
-            $ave = Diet::where('bribe', '>', 0)
+            ->orderBy('scandal', 'desc')->paginate(50);
+        $ave = Diet::where('bribe', '>', 0)
             ->where('cult', 1)
             ->where('link', '>', 0)
             ->avg('scandal');
         }elseif($id=='bribe'){
-            $diets = Diet::where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->paginate(50);
+            $diets = Diet::where('bribe', '!=', 0)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->paginate(50);
             $ave = Diet::where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->avg('scandal');
         }elseif($id=='cult'){
             $diets = Diet::where('cult', 1)->orderBy('scandal', 'desc')->paginate(50);
@@ -418,7 +418,7 @@ class DietController extends Controller
 
 
     }
-    //誕生日入力終了に月コメントアウト
+    //誕生日入力終了に付きコメントアウト
     // public function update(Request $request, $id)
     // {
     //     $diet = Diet::find($id);
@@ -427,6 +427,7 @@ class DietController extends Controller
 
     //     return redirect()->route('diet_each', ['id' => $id]);
     // }
+
     //情報ポスト
     public function post(Request $request,$id){
 
@@ -776,7 +777,7 @@ class DietController extends Controller
         ->orWhere('area', 'LIKE', '%神奈川%')
         ->orWhere('area', 'LIKE', '%山梨%');
     }elseif($id=='tokyo'){
-        $dietsQuery = Diet::query()->here('area', 'LIKE', '%東京%');
+        $dietsQuery = Diet::query()->where('area', 'LIKE', '%東京%');
     }elseif($id=='tokai'){
         $dietsQuery = Diet::query()->where('area', 'LIKE', '%東海%')
         ->orWhere('area', 'LIKE', '%岐阜%')
