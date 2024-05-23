@@ -35,7 +35,6 @@ crossorigin="anonymous"></script>
             <header id="header" class="header is-open">        
 
                 <div class="header_inner">
-                   
                         <nav id="menu" class="header_nav">
                             <ul class="header_nav_list">
                                 <li class="header_nav_itm">

@@ -12,7 +12,6 @@
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> <!-- word.cssと連携 -->
-
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
 <meta name="twitter:card" content="summary">
@@ -21,7 +20,7 @@
 <meta name="twitter:description" content="We can change! It’s time to change Japan now.">
 <meta name="twitter:image" content="https://eng50cha.com/img/diet_banner_new.png">
 <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
-<link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
 crossorigin="anonymous"></script>
 </head>
@@ -179,8 +178,8 @@ crossorigin="anonymous"></script>
             <div class="testtable-responsive">
             <div class="top_area">
                     <div class="banner">
-                        <img src="../../img/bad_banner.png" style="width:40%; height:auto; margin-top:8px;" alt="国会議員監視サイト 悪いねボタン">
-                        <img src="../../img/diet_banner_new.png" alt="国会議員監視サイト">
+                        <img src="/img/bad_banner.png" style="width:40%; height:auto; margin-top:8px;" alt="国会議員監視サイト 悪いねボタン">
+                        <img src="/img/diet_banner_new.png" alt="国会議員監視サイト">
                     </div>
                     <div class="search">
                         <form method="GET" action="{{ route('diet_search')}}">
