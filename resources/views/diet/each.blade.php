@@ -11,10 +11,10 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ITcha50">
 <meta name="twitter:title" content="Watch them! 国会議員監視サイト">
-<meta name="twitter:description" content="We can change! It’s time to change Japan now.">
+<meta name="twitter:description" content="We can change! It's time to change Japan now.">
 <meta name="twitter:image" content="https://eng50cha.com/img/diet_banner_new.png?4362984378">
 <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
-<link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
+<link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
 
 <title>{{$diet->name}} 議員個別画面 Watch them!国会議員監視サイト</title>
 
