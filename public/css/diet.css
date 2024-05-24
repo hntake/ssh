@@ -98,8 +98,9 @@ h1::after {
     content:unset
 }
 ul.chart{
-    width:50%;
+    width:80%;
     height:auto;
+    margin:24px;
 }
 .diet_container{
     display: flex;
@@ -123,6 +124,39 @@ ul.chart{
 }
 h3{
     /* font-size:10px; */
+}
+.chart_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* 要素間の隙間を調整 */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chart {
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.rank-title {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+/* レスポンシブデザイン対応 */
+@media (max-width: 768px) {
+    .chart {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .chart {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px){

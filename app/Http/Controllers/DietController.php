@@ -934,5 +934,62 @@ class DietController extends Controller
                 ]);
     }
     
+    //円グラフ
+    public function chart(){
+        // 各政党の平均スキャンダル値を取得
+        $averages = Diet::select('party', DB::raw('AVG(scandal) as average'))
+                        ->where('party', '!=', '無')
+                        ->where('party', '!=', '無所属')
+                        ->groupBy('party')
+                        ->pluck('average', 'party');
     
+        // 各政党の人数
+        $counts = Diet::select('party', DB::raw('count(*) as count'))
+                    ->groupBy('party')
+                    ->pluck('count', 'party');
+
+        //不祥事ありの人数とない人数を取得
+        $scandals = Diet::select('party', DB::raw('SUM(CASE WHEN scandal >= 1 THEN 1 ELSE 0 END) AS scandal_count'))
+                    ->selectRaw('SUM(CASE WHEN scandal = 0 THEN 1 ELSE 0 END) AS no_scandal_count')
+                    ->groupBy('party')
+                    ->pluck('scandal_count', 'party');
+                    
+        // 平均不祥事度で降順にソート
+        $averages = $averages->sortDesc();
+        
+        // データの整形
+        $data = [];
+        $rankedData = collect(); // ランク毎のデータを格納するコレクション
+        $rank = 1;
+        $prevAverage = null;
+        foreach ($averages as $party => $average) {
+            // 同じ平均値の場合は同じ順位を付ける
+            if ($prevAverage !== null && $average == $prevAverage) {
+                $rank--;
+            }
+              // $countsから現在のパーティのcountを取得
+            $count = isset($counts[$party]) ? $counts[$party] : 0;
+            $scandal = isset($scandals[$party]) ? $scandals[$party] : 0;
+            $average = number_format($average, 1);
+
+            $data[] = [
+                'party' => $party,
+                'average' => $average,
+                'rank' => $rank,
+                'count' => $count,
+                'scandal' => $scandal,
+                'no_scandal' => $count - $scandal, // スキャンダルのない人数を計算
+
+            ];
+            $prevAverage = $average;
+            $rank++;
+        }
+        // ランク毎にデータをグループ化
+        foreach ($data as $item) {
+            $rankedData->push($item)->groupBy('rank');
+        }
+        // ビューにデータを渡す
+        return view('diet.compare', compact('rankedData'));
+    }
+
 }

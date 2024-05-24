@@ -3,7 +3,7 @@
 
 <head>
 
-<title>Watch them! 国会議員監視サイト</title>
+<title>不祥事議員度比較 Watch them! 国会議員監視サイト</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="このサイトでは、現役国会議員の不祥事データをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/test.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
 crossorigin="anonymous"></script>
@@ -167,79 +167,68 @@ crossorigin="anonymous"></script>
                 <h1>
                     国会議員不祥事のついての党比較
                 </h1>
-                @foreach($rankedData->groupBy('rank') as $rank => $parties)
-                <h2>第{{ $rank }}位</h2>
-                <ul>
-                    @foreach($parties as $party)
-                        <li>
-                            <strong>{{ $party['party'] }}</strong>
-                            <br>
-                            平均不祥事度: {{ $party['average'] }}
-                            <br>
-                            <ul class="chart">
-                                <canvas id="myChart{{ $rank }}" ></canvas>
-                            </ul>
-                        </li>
+                <div class="chart_container">
+                    @foreach($rankedData->groupBy('rank') as $rank => $parties)
+                    <ul class="chart">
+                        <li class="rank-title">
+                                <h2>第{{ $rank }}位</h2>
+                            </li>
+                            @foreach($parties as $party)
+                            <li class="party-item">
+                                <strong>{{ $party['party'] }}</strong>
+                                <br>
+                                平均不祥事度: {{ $party['average'] }}/{{ $party['count'] }}人中
+                                <br>
+                            </li>
+                            <li class="chart-item">
+                                <canvas id="myChart{{ $party['rank'] }}"></canvas>
+                            </li> 
+                        @endforeach
+                    </ul>
                     @endforeach
-                </ul>
-            @endforeach
+                </div>
             </main>
         </div>
     </div>
     <script>
- // データの準備
-    @foreach($rankedData->groupBy('rank') as $rank => $items)
-    @foreach($items as $item) 
-    var genreData{{ $rank }} = {!! json_encode($parties->pluck('genreCounts')->flatten()->toArray()) !!};
-    var labels{{ $rank }} = Object.keys(genreData{{ $rank }}).map(function(key) {
-        return 'genre' + key; // ジャンルの数値をラベルに追加
-    });    var data{{ $rank }} = Object.values(genreData{{ $rank }});
+    // ページが読み込まれた後に実行される処理
+    document.addEventListener("DOMContentLoaded", function() {
+        // データを取得
+        var rankedData = {!! json_encode($rankedData) !!};
 
-    // ジャンルの色の配列を準備
-    var colors{{ $rank }} = [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 99, 132, 0.4)',
-        'rgba(54, 162, 235, 0.4)',
-        'rgba(255, 206, 86, 0.4)',
-        'rgba(75, 192, 192, 0.4)',
-        'rgba(153, 102, 255, 0.4)',
-        'rgba(255, 159, 64, 0.4)',
-        'rgba(255, 99, 132, 0.6)',
-        'rgba(54, 162, 235, 0.6)'
-    ]; // 追加の色を追加する必要があります
+        // 各政党ごとにループして円グラフを描画
+        rankedData.forEach(function(data, rank) {
+            var ctx = document.getElementById('myChart' + data.rank).getContext('2d');
 
-    var ctx{{ $rank }} = document.getElementById('myChart{{ $rank }}').getContext('2d');
-    var myChart{{ $rank }} = new Chart(ctx{{ $rank }}, {
-        type: 'pie',
-        data: {
-            labels: labels{{ $rank }},
-            datasets: [{
-                data: data{{ $rank }},
-                backgroundColor: colors{{ $rank }}, // 追加の色を使用
-                borderColor: colors{{ $rank }}, // 追加の色を使用
-                borderWidth: 1
-            }]
-        },
-        options: {
-            // オプション設定
-        }
+            var scandalCounts = [data.scandal, data.no_scandal];
+            var labels = ['不祥事あり議員', '不祥事無し議員'];
+
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: scandalCounts,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Party: ' + data.party
+                    }
+                }
+            });
+        });
     });
-@endforeach
-@endforeach
-
-    </script>
-    <script>
-    function window.location.href=this.value {
-        var options = select.options;
-        for (var i = 0; i < options.length; i++) {
-            options[i].style.fontSize = "20px";
-        }
-    }
 </script>
 </body>
 </html>

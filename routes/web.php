@@ -462,7 +462,7 @@ Route::get('/diet/approve/{id}', [App\Http\Controllers\DietController::class, 'd
 //悪いねボタン
 Route::get('/diet/bad/{id}', [App\Http\Controllers\DietController::class, 'bad'])->name('bad');
 //比較ページ
-// Route::get('/diet/compare', [App\Http\Controllers\DietController::class, 'chart'])->name('chart');
+Route::get('/diet/compare', [App\Http\Controllers\DietController::class, 'chart'])->name('chart');
 
 //サイトマップ
 Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index' ])->name('get.sitemap');
