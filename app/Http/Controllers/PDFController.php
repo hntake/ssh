@@ -275,7 +275,7 @@ class PDFController extends Controller
 
         // Twitterにツイートする例
         $twitterHelper = new TwitterHelper();
-        $result = $twitterHelper->tweet();
+        $result = $twitterHelper->tweet($pdf);
 
         return $pdf->stream('オープン請求書.pdf');
     }
