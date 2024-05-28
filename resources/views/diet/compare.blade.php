@@ -3,7 +3,7 @@
 
 <head>
 
-<title>不祥事議員度比較 Watch them! 国会議員監視サイト</title>
+<title>不祥事議員度党比較 Watch them! 国会議員監視サイト</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="このサイトでは、現役国会議員の不祥事データをわかりやすく視覚化しています。裏金問題や統一教会の問題だけでなく、他の不祥事に関する情報も掲載しています。
@@ -165,10 +165,10 @@ crossorigin="anonymous"></script>
             </header>
             <main>
                 <h1>
-                    国会議員不祥事のついての党比較
+                    国会議員不祥事度の党比較
                 </h1>
                 <div class="chart_container">
-                    @foreach($rankedData->groupBy('rank') as $rank => $parties)
+                @foreach($rankedData as $rank => $parties)
                     <ul class="chart">
                         <li class="rank-title">
                                 <h2>第{{ $rank }}位</h2>
@@ -181,26 +181,31 @@ crossorigin="anonymous"></script>
                                 <br>
                             </li>
                             <li class="chart-item">
-                                <canvas id="myChart{{ $party['rank'] }}"></canvas>
+                            <canvas id="myChart{{ $rank }}-{{ $party['party'] }}"></canvas>
                             </li> 
                         @endforeach
                     </ul>
                     @endforeach
                 </div>
             </main>
+            <div class="site-info">
+                        <div class="widget">
+                            <div class="copy-right">
+                                <span class="copy-right-text">© All rights reserved by llco</span>
+                            </div>
+                        </div>
+    </div>
         </div>
     </div>
+   
     <script>
     // ページが読み込まれた後に実行される処理
     document.addEventListener("DOMContentLoaded", function() {
-        // データを取得
-        var rankedData = {!! json_encode($rankedData) !!};
+            @foreach($rankedData as $rank => $parties)
+            @foreach($parties as $party)
+            var ctx = document.getElementById('myChart{{ $rank }}-{{ $party["party"] }}').getContext('2d');
 
-        // 各政党ごとにループして円グラフを描画
-        rankedData.forEach(function(data, rank) {
-            var ctx = document.getElementById('myChart' + data.rank).getContext('2d');
-
-            var scandalCounts = [data.scandal, data.no_scandal];
+            var scandalCounts = [{{ $party['scandal'] }}, {{ $party['no_scandal'] }}];
             var labels = ['不祥事あり議員', '不祥事無し議員'];
 
             var myChart = new Chart(ctx, {
@@ -223,11 +228,12 @@ crossorigin="anonymous"></script>
                 options: {
                     title: {
                         display: true,
-                        text: 'Party: ' + data.party
+                        text: 'Party: {{ $party["party"] }}'
                     }
                 }
             });
-        });
+        @endforeach
+        @endforeach
     });
 </script>
 </body>

@@ -248,4 +248,10 @@ h3{
     td{
         font-size: large;
     }
+    .chart_container{
+        display:block;
+    }
+    ul.chart{
+        margin:8px;
+    }
 }

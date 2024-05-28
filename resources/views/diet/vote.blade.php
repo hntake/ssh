@@ -102,6 +102,12 @@
                     </tr>
                     <tr>
                         <td>
+                        <div class="call-to-action" ><a href="{{ route('chart') }}"><h3>不祥事議員度 党比較</h3></a></div>
+                        </td>
+                        <td>当サイトでの登録による国会議員不祥事度での党比較をグラフで表示</td>
+                    </tr>
+                    <tr>
+                        <td>
                         <div class="call-to-action" ><a href="{{ route('diet_all') }}"><h3>国会議員一覧</h3></a></div>
                         </td>
                         <td>現役国会議員の不祥事以外も年齢や選挙区などのデータ一覧。不祥事数や悪いね数の並び替えもできます。</td>
@@ -210,10 +216,18 @@
                 <h3>選挙に行って、不祥事のない議員を選びましょう！</h3>
             </div>
         </section>
+        <div class="site-info">
+                    <div class="widget">
+                        <div class="copy-right">
+                            <span class="copy-right-text">© All rights reserved by llco</span>
+                        </div>
+                    </div>
+    </div>
     </div>
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
             <a href="https://twitter.com/share" class="twitter-share-button" data-text="国会議員監視サイト " data-url="{{ url('diet/vote') }}?v=1">Tweet</a>
-        </blockquote>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+   
 </body>
 </html>

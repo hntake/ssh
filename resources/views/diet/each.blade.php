@@ -132,6 +132,9 @@ crossorigin="anonymous"></script>
                                 @endif
                                 </tr>
                             </div>
+                            <div class="copy">
+                                <h3></h3>
+                            </div>
                         </div>
                     </div>
                 </div>

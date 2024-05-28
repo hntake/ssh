@@ -959,7 +959,7 @@ class DietController extends Controller
         
         // データの整形
         $data = [];
-        $rankedData = collect(); // ランク毎のデータを格納するコレクション
+        $rankedData = [];
         $rank = 1;
         $prevAverage = null;
         foreach ($averages as $party => $average) {
@@ -986,8 +986,9 @@ class DietController extends Controller
         }
         // ランク毎にデータをグループ化
         foreach ($data as $item) {
-            $rankedData->push($item)->groupBy('rank');
+            $rankedData[$item['rank']][] = $item;
         }
+    
         // ビューにデータを渡す
         return view('diet.compare', compact('rankedData'));
     }
