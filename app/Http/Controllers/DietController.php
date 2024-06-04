@@ -465,9 +465,9 @@ class DietController extends Controller
     $link->approved = true; // 承認されたことを示す
     $link->save();
 
-    // Twitterにツイートする例
-    $twitterHelper = new TwitterHelper();
-    $result = $twitterHelper->tweet_thread($link);
+    // Twitterにツイートする例（ITアカウントは不適切なので)
+    // $twitterHelper = new TwitterHelper();
+    // $result = $twitterHelper->tweet_thread($link);
 
     $diet=Diet::where('id','=',$link->diet_id)->first();
     //不祥事加算
