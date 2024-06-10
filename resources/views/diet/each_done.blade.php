@@ -35,6 +35,12 @@ crossorigin="anonymous"></script>
                     <li><a href="{{ url('diet/vote') }}">
                             <h3 ontouchstart="">サイトトップページに戻る</h3>
                         </a></li>
+                    <li><a href="{{ url('diet/index') }}">
+                        <h3 ontouchstart="">不祥事度ランキング</h3>
+                    </a></li>
+                    <li><a href="{{ url('diet/all') }}">
+                        <h3 ontouchstart="">議員一覧</h3>
+                    </a></li>
                 </ul>
             </div>
             <script>

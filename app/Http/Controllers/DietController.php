@@ -109,8 +109,8 @@ class DietController extends Controller
             $diets = Diet::where('party','=', '共産')->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where('party', '共産')->avg('scandal');
         }elseif($id=='kokumin'){ 
-            $diets = Diet::where('party','=', '民主')->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('party', '民主')->avg('scandal');
+            $diets = Diet::where('party','=', '国民')->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::where('party', '国民')->avg('scandal');
         }elseif($id=='reiwa'){
             $diets = Diet::where('party','=', 'れ新')->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where('party', 'れ新')->avg('scandal');

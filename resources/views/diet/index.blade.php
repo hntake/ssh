@@ -48,6 +48,10 @@ crossorigin="anonymous"></script>
                                     <div class="description1">上位100人のランキング</div>
                                 </li>
                                 <li class="header_nav_itm">
+                                    <a href="{{ url('diet/compare') }}" class="header_nav_itm_link">不祥事議員度の党比較</a>
+                                    <div class="description1">グラフで比較しています</div>
+                                </li>
+                                <li class="header_nav_itm">
                                     <a href="{{ url('diet/all') }}" class="header_nav_itm_link">議員一覧</a>
                                     <div class="description1">不祥事度高い順で表示されます</div>
                                 </li>
@@ -117,6 +121,10 @@ crossorigin="anonymous"></script>
                                 <li class="header_nav_itm">
                                     <a href="{{ url('diet/index') }}" class="header_nav_itm_link">不祥事度ランキング</a>
                                     <div class="description1">上位100人のランキング</div>
+                                </li>
+                                <li class="header_nav_itm">
+                                    <a href="{{ url('diet/compare') }}" class="header_nav_itm_link">不祥事議員度の党比較</a>
+                                    <div class="description1">グラフで比較しています</div>
                                 </li>
                                 <li class="header_nav_itm">
                                     <a href="{{ url('diet/all') }}" class="header_nav_itm_link">議員一覧</a>
