@@ -993,4 +993,15 @@ class DietController extends Controller
         return view('diet.compare', compact('rankedData'));
     }
 
+    //選挙向け候補者一覧(選挙区別）
+    public function next($id){
+        $diets=Diet::where('next','=',$id)->orderBy('scandal', 'asc')->get();
+
+        foreach ($diets as $diet) {
+        $birthday=$diet->birthDay;
+        $diet->age = Carbon::parse($birthday)->age;
+        }
+        return view('diet.next',compact('diets','id'));
+
+    }
 }

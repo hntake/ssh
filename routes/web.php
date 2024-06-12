@@ -65,6 +65,9 @@ Route::get('/partner', function () {
 Route::get('/diet/vote', function () {
     return view('diet/vote');
 });
+Route::get('/diet/elect', function () {
+    return view('diet/elect');
+});
 Route::get('/coupon/not')->name('coupon.not');
 Route::get('/coupon/overdue')->name('coupon.overdue');
 
@@ -463,6 +466,7 @@ Route::get('/diet/approve/{id}', [App\Http\Controllers\DietController::class, 'd
 Route::get('/diet/bad/{id}', [App\Http\Controllers\DietController::class, 'bad'])->name('bad');
 //比較ページ
 Route::get('/diet/compare', [App\Http\Controllers\DietController::class, 'chart'])->name('chart');
-
+//選挙向けページ
+Route::get('/diet/next/{id}', [App\Http\Controllers\DietController::class, 'next'])->name('next');
 //サイトマップ
 Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index' ])->name('get.sitemap');
