@@ -937,19 +937,23 @@ class DietController extends Controller
     //円グラフ
     public function chart(){
         // 各政党の平均スキャンダル値を取得
-        $averages = Diet::select('party', DB::raw('AVG(scandal) as average'))
+        $averages = Diet::whereNotNull('type')
+                        ->select('party', DB::raw('AVG(scandal) as average'))
+                        ->whereNotNull('type')
                         ->where('party', '!=', '無')
                         ->where('party', '!=', '無所属')
                         ->groupBy('party')
                         ->pluck('average', 'party');
     
         // 各政党の人数
-        $counts = Diet::select('party', DB::raw('count(*) as count'))
+        $counts = Diet::whereNotNull('type')
+                    ->select('party', DB::raw('count(*) as count'))
                     ->groupBy('party')
                     ->pluck('count', 'party');
 
         //不祥事ありの人数とない人数を取得
-        $scandals = Diet::select('party', DB::raw('SUM(CASE WHEN scandal >= 1 THEN 1 ELSE 0 END) AS scandal_count'))
+        $scandals = Diet::whereNotNull('type')
+                    ->select('party', DB::raw('SUM(CASE WHEN scandal >= 1 THEN 1 ELSE 0 END) AS scandal_count'))
                     ->selectRaw('SUM(CASE WHEN scandal = 0 THEN 1 ELSE 0 END) AS no_scandal_count')
                     ->groupBy('party')
                     ->pluck('scandal_count', 'party');
