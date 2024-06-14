@@ -92,11 +92,13 @@ crossorigin="anonymous"></script>
                         <div class="image">
                             <div class="one">
                                 <tr class="cell">
-                                @if($diet->type=="衆議院")
+                                <!-- @if($diet->type=="衆議院")
                                 <img src="https://www.shugiin.go.jp/internet/itdb_giinprof.nsf/html/profile/{{$diet->image}}.jpg/$File/{{$diet->image}}.jpg" alt="代替テキスト">
-                                @else
+                                @elseif($diet->type=="参議院")
                                 <img src="https://www.sangiin.go.jp/japanese/joho1/kousei/giin/photo/{{$diet->image}}.jpg" alt="代替テキスト">
-                                @endif
+                                @else
+                                <img src="/img/icon_man.png" alt="man_icon">
+                                @endif -->
                                 </tr>
                                 @if($diet->bribe > 0 || $diet->cult==1 || $diet->link > 0)
                                 <tr>
