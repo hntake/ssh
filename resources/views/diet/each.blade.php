@@ -3,7 +3,10 @@
 全ての不祥事を数値化し、議員の不祥事をランキング表示しています。また、皆さんからの不祥事の投稿も歓迎しています。">
 <meta name="keywords" content="自民党,裏金問題,統一教会,国会議員,年齢順,衆議院,参議院,議員一覧,裏金">
 <meta name="author" content="llco">
+@if($diet->type == '衆議院' || $diet->type == '参議院')
 <meta name="robots" content="index, follow">
+@else<meta name="robots" content="noindex">
+@endif
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
 <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
@@ -71,9 +74,17 @@ crossorigin="anonymous"></script>
                     <div class="profile">
                         
                         <h6>{{ $now }}時点<h6>
+                        @if($diet->type == '衆議院' || $diet->type == '参議院')
                         <h3>議院：{{ $diet->type }}</h3>
+                        @else
+                        <h3>立候補予定</h3>
+                        @endif
                         <h3>会派：{{ $diet->party }}</h3>
+                        @if($diet->type == '衆議院' || $diet->type == '参議院')
                         <h3>選挙区：{{ $diet->area }}</h3>
+                        @else
+                        <h3>選挙区：{{ $diet->next }}</h3>
+                        @endif
                         <h3>議員名：{{ $diet->name }}</h3>
                         <h3>@if($diet->age)
                             <td>{{ $diet->age}}歳</td>
