@@ -401,8 +401,14 @@ Route::get('invoice/aqua_r', function () {
 Route::get('invoice/open', function () {
     return view('invoice/open');
 });
+//オープン請求書作成ページ
+Route::get('invoice/open_r', function () {
+    return view('invoice/open_r');
+});
 //オープンPDFファイル
 Route::get('pdf', [App\Http\Controllers\PDFController::class, 'pdf_open'])->name('pdf_open');
+//オープンPDFファイル
+Route::get('pdf_r', [App\Http\Controllers\PDFController::class, 'pdf_r'])->name('pdf_r');
 //請求書会員登録
 Route::get('/invoice/register', [\App\Http\Controllers\InvoiceRegisterController::class, 'invoiceRegisterForm'])->name('register_index');
 Route::post('/invoice/register', [\App\Http\Controllers\InvoiceRegisterController::class, 'pre_check'])->name('register_invoice');

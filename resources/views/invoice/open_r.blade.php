@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        <title>無料PDF適格請求書作成サイト 請求書テンプレート</title>
+        <title>無料PDF適格請求書作成サイト 領収書テンプレート</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="無料で登録もなく利用できるオンラインサービスで、簡単に適格請求書をPDF形式で作成しましょう。
+        <meta name="description" content="無料で登録もなく利用できるオンラインサービスで、簡単に領収書をPDF形式で作成しましょう。
         使いやすいインターフェースとカスタマイズ可能なテンプレートで、ビジネスの請求処理をスムーズに行います。簡単な入力フォームから情報を入力し、
-        即座に請求書を生成します。">
-        <meta name="keywords" content="インボイス,適格請求書,請求書作成,PDF請求書,オンライン請求書,無料請求書作成,ビジネス請求書,請求書テンプレート,
-        請求書サンプル,請求書ソフト,請求書ジェネレータ,請求書フォーマット,請求書PDF">
+        即座に領収書を生成します。">
+        <meta name="keywords" content="インボイス,領収書作成,PDF領収書,オンライン領収書,無料領収書作成,ビジネス領収書,領収書テンプレート,
+        ">
         <meta name="author" content="llco">
         <meta name="robots" content="index, follow">
         <!-- Fonts -->
@@ -23,9 +23,9 @@
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@ITcha50">
         <meta name="twitter:title" content="無料の請求書ジェネレーター">
-        <meta name="twitter:description" content="無料で登録もなく利用できるオンラインサービスを使って、簡単に適格請求書をPDF形式で作成しましょう。
-                使いやすいインターフェースとカスタマイズ可能なテンプレートで、ビジネスの請求処理をスムーズに行います。簡単な入力フォームから情報を入力し、
-                即座に請求書を生成します。">
+        <meta name="twitter:description" content="無料で登録もなく利用できるオンラインサービスを使って、簡単に領収書をPDF形式で作成しましょう。
+                使いやすいインターフェースとカスタマイズ可能なテンプレートで、ビジネスの領収処理をスムーズに行います。簡単な入力フォームから情報を入力し、
+                即座に領収書を生成します。">
         <meta name="twitter:image" content="https://eng50cha.com/img/open_invoice.png">
 
         <style>
@@ -40,33 +40,43 @@
     <!-- Twitterシェアボタン -->
 
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="無料の請求書ジェネレーター" data-url="{{url('invoice/open')}}">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="無料の領収書ジェネレーター" data-url="{{url('invoice/open')}}">Tweet</a>
     </blockquote>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="container home">
         <div class="top">
             <img src="../img/open_invoice.png" alt="適格請求書作成" style="width:30%;">
-                <h2>無料で登録もなく利用できるオンラインサービスを使って、簡単に適格請求書をPDF形式で作成しましょう。
-                使いやすいインターフェースとカスタマイズ可能なテンプレートで、ビジネスの請求処理をスムーズに行います。簡単な入力フォームから情報を入力し、
-                即座に請求書を生成します。</h2>
+                <h2>無料で登録もなく利用できるオンラインサービスを使って、簡単に領収書をPDF形式で作成しましょう。</h2>
         </div>
         <div class="form">
-            <h1>無料の請求書ジェネレーター</h1>
+            <h1>無料の領収書ジェネレーター</h1>
             <p style="text-align:center;">※必要な箇所だけ入力しましょう</p>
-            <a href="{{url('invoice/open_r')}}" class="button">領収書ジェネレーターはこちら</a>
-            <form action="{{ route('pdf_open') }}" method="GET">
+            <a href="{{url('invoice/open')}}" class="button">請求書ジェネレーターはこちら</a>
+            <form action="{{ route('pdf_r') }}" method="GET">
                 @csrf
                 <div class="r-box">
                     <div class="form-block">
-                        <label for="invoice_number">請求書No.</label>
+                        <label for="project-name">案件名</label>
+                        <input type="text" id="project-name" name="project-name">
+                    </div>
+                    <div class="form-block">
+                        <label for="invoice_number">領収書No.</label>
                         <input type="text" id="invoice_number" name="invoice_number">
+                    </div>
+                    <div class="form-block">
+                        <label for="type">宛先</label>
+                        <select id="type" name="type">
+                            <option value="1">御中</option>
+                            <option value="2">様</option>
+                        </select>
                     </div>
                     <div class="form-block">
                         <label for="billing-address">請求先</label>
                         <input type="text" id="billing-address" name="billing-address">
+
                     </div>
                     <div class="form-block">
-                        <label for="billing-date">請求日</label>
+                        <label for="billing-date">発行日</label>
                         <input type="date" id="billing-date" name="billing-date">
                     </div>
                 </div>
@@ -78,6 +88,7 @@
                     <div class="form-block">
                         <label for="tax1"><input type="radio" id="tax1" name="category1" value="1" checked>税率10%</label>
                         <label for="tax2"><input type="radio" id="tax2" name="category1" value="2">税率8%</label>
+                        <label for="tax3"><input type="radio" id="tax3" name="category1" value="3">税込価格</label>
                     </div>
                     <div class="form-block">
                         <label for="cost1">単価</label>
@@ -94,8 +105,9 @@
                         <input type="text" id="type2" name="type2">
                     </div>
                     <div class="form-block">
-                        <label for="tax3"><input type="radio" id="tax3" name="category2" value="1" checked>税率10%</label>
-                        <label for="tax4"><input type="radio" id="tax4" name="category2" value="2">税率8%</label>
+                        <label for="tax4"><input type="radio" id="tax4" name="category2" value="1" checked>税率10%</label>
+                        <label for="tax5"><input type="radio" id="tax5" name="category2" value="2">税率8%</label>
+                        <label for="tax6"><input type="radio" id="tax6" name="category2" value="3">税込価格</label>
                     </div>
                     <div class="form-block">
                         <label for="cost2">単価</label>
@@ -112,8 +124,9 @@
                         <input type="text" id="type3" name="type3">
                     </div>
                     <div class="form-block">
-                        <label for="tax5"><input type="radio" id="tax5" name="category3" value="1" checked>税率10%</label>
-                        <label for="tax6"><input type="radio" id="tax6" name="category3" value="2">税率8%</label>
+                        <label for="tax7"><input type="radio" id="tax7" name="category3" value="1" checked>税率10%</label>
+                        <label for="tax8"><input type="radio" id="tax8" name="category3" value="2">税率8%</label>
+                        <label for="tax9"><input type="radio" id="tax9" name="category3" value="3">税込価格</label>
                     </div>
                     <div class="form-block">
                         <label for="cost3">単価</label>
@@ -130,8 +143,9 @@
                         <input type="text" id="type4" name="type4">
                     </div>
                     <div class="form-block">
-                        <label for="tax7"><input type="radio" id="tax7" name="category4" value="1" checked>税率10%</label>
-                        <label for="tax8"><input type="radio" id="tax8" name="category4" value="2">税率8%</label>
+                        <label for="tax10"><input type="radio" id="tax10" name="category4" value="1" checked>税率10%</label>
+                        <label for="tax11"><input type="radio" id="tax11" name="category4" value="2">税率8%</label>
+                        <label for="tax12"><input type="radio" id="tax12" name="category4" value="3">税込価格</label>
                     </div>
                     <div class="form-block">
                         <label for="cost4">単価</label>
@@ -148,8 +162,9 @@
                         <input type="text" id="type5" name="type5">
                     </div>
                     <div class="form-block">
-                        <label for="tax9"><input type="radio" id="tax9" name="category5" value="1" checked>税率10%</label>
-                        <label for="tax10"><input type="radio" id="tax10" name="category5" value="2">税率8%</label>
+                        <label for="tax13"><input type="radio" id="tax13" name="category5" value="1" checked>税率10%</label>
+                        <label for="tax14"><input type="radio" id="tax14" name="category5" value="2">税率8%</label>
+                        <label for="tax15"><input type="radio" id="tax15" name="category5" value="3">税込価格</label>
                     </div>
                     <div class="form-block">
                             <label for="cost5">単価</label>
@@ -181,7 +196,7 @@
                             <input type="text" id="company_number" name="company_number">
                     </div>
                 </div>
-                <button type="submit">請求書作成</button>
+                <button type="submit">領収書作成</button>
             </form>
         </div>
         @auth
