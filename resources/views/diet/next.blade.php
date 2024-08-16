@@ -69,8 +69,11 @@ crossorigin="anonymous"></script>
             <div class="diet_container">
                 @foreach($diets as $diet)
                 <div class="profile" style="width:30%;">
+                @if($diet->type == '衆議院' || $diet->type == '参議院')
+                    <h3>現職</h3>
+                    @endif
                     <h3>会派：{{ $diet->party }}</h3>
-                    <h3>議員名：{{ $diet->name }}</h3>
+                    <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">議員名：{{ $diet->name }}</a></h3>
                     <h3>@if($diet->age)
                                 <td>{{ $diet->age}}歳</td>
                                 @else
@@ -88,12 +91,13 @@ crossorigin="anonymous"></script>
                     <div class="image">
                         <div class="one">
                             <tr class="cell">
-                            @if($diet->type=="衆議院")
-                            <img src="https://www.shugiin.go.jp/internet/itdb_giinprof.nsf/html/profile/{{$diet->image}}.jpg/$File/{{$diet->image}}.jpg" alt="代替テキスト">
+                            <!-- @if($diet->type=="衆議院")
+                            <img src="https://www.shugiin.go.jp/internet/itdb_giinprof.nsf/html/profile/{{$diet->image}}.jpg/$File/{{$diet->image}}.jpg" alt="{{$diet->name}}">
+                            @elseif($diet->type=="参議院")
+                            <img src="https://www.sangiin.go.jp/japanese/joho1/kousei/giin/photo/{{$diet->image}}.jpg" alt="{{$diet->name}}">
                             @else
-                            <img src="https://www.sangiin.go.jp/japanese/joho1/kousei/giin/photo/{{$diet->image}}.jpg" alt="代替テキスト">
-                            @endif
-                            </tr>
+                            <img src="/img/icon_man.png" alt="man_icon">
+                            @endif                            </tr> -->
                             @if($diet->bribe > 0 || $diet->cult==1 || $diet->link > 0)
                             <tr>
                             
@@ -125,6 +129,7 @@ crossorigin="anonymous"></script>
                             <h3></h3>
                         </div>
                     </div>
+                
                 </div>
                 @endforeach
         </div>

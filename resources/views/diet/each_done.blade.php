@@ -121,6 +121,10 @@ crossorigin="anonymous"></script>
                                 <tr>
                                 @if($diet->cult==1)
                                 <img src="../../img/cult.png" alt="壺議員">
+                                <video width="320" height="auto" controls title="自民党と統一教会" poster="../../img/pod_diet_poster.png">
+                                    <source src="../../img/cult.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
                                 @endif
                                 </tr> 
                                 <tr>
