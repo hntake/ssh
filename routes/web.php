@@ -405,9 +405,9 @@ Route::get('invoice/open', function () {
 Route::get('invoice/open_r', function () {
     return view('invoice/open_r');
 });
-//オープンPDFファイル
+//オープンPDFファイル作成
 Route::get('pdf', [App\Http\Controllers\PDFController::class, 'pdf_open'])->name('pdf_open');
-//オープンPDFファイル
+//オープンPDFファイル領収書作成
 Route::get('pdf_r', [App\Http\Controllers\PDFController::class, 'pdf_r'])->name('pdf_r');
 //請求書会員登録
 Route::get('/invoice/register', [\App\Http\Controllers\InvoiceRegisterController::class, 'invoiceRegisterForm'])->name('register_index');
@@ -476,3 +476,29 @@ Route::get('/diet/compare', [App\Http\Controllers\DietController::class, 'chart'
 Route::get('/diet/next/{id}', [App\Http\Controllers\DietController::class, 'next'])->name('next');
 //サイトマップ
 Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index' ])->name('get.sitemap');
+
+//ギフトカードトップページ
+Route::get('/gift/index', [App\Http\Controllers\GiftController::class, 'index'])->name('gift_index');
+//ギフトカード購入
+Route::post('/gift/index', [App\Http\Controllers\GiftController::class, 'purchase'])->name('gift_purchase');
+//ギフトカードメールで送信
+Route::post('/gift/mail', [App\Http\Controllers\GiftController::class, 'mail'])->name('gift_mail');
+//ギフトカードlineで送信
+Route::post('/gift/line', [App\Http\Controllers\GiftController::class, 'line'])->name('gift_line');
+//ギフトカード利用ページ表示（客）
+Route::get('/gift/used', [App\Http\Controllers\GiftController::class, 'used'])->name('gift_used');
+//ギフトカードスキャン画面表示（店）
+Route::get('/gift/store', [App\Http\Controllers\GiftController::class, 'store'])->name('gift_store');
+Route::post('/gift/store', [App\Http\Controllers\GiftController::class, 'store_used'])->name('gift_store_used');
+
+//法定相続一覧表トップページ
+Route::get('inheritance/top', function () {
+    return view('inheritance/top');
+});
+Route::post('inheritance/top', [App\Http\Controllers\PDFController::class, 'select'])->name('inheritance_select');
+
+//法定相続一覧入力ページ
+Route::get('inheritance/create', [App\Http\Controllers\PDFController::class, 'input'])->name('inheritance_input');
+
+//法定相続一覧作成
+Route::get('pdf_i/{id}', [App\Http\Controllers\PDFController::class, 'pdf_in'])->name('pdf_in');

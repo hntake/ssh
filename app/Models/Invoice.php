@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 
 
 
-class invoice extends Authenticatable implements MustVerifyEmail
+class Invoice extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
 
