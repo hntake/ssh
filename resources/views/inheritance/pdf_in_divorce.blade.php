@@ -134,7 +134,7 @@
             height: 0;
             border-top: 3px solid black; /* 横線のスタイル */
             position: absolute;
-            top: 75; /* 縦線の上部に位置 */
+            top: 73; /* 縦線の上部に位置 */
             left: 100%; /* 縦線の右側に配置 */
         }
         .bottom {
