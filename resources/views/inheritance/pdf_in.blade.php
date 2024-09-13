@@ -19,7 +19,7 @@
         }
         body {
             font-family: ipaexg !important;
-            font-size: 10px; /* フォントサイズを小さくしてみる */
+            font-size: 12px; /* フォントサイズを小さくしてみる */
 
         }
         h1 {
@@ -112,7 +112,7 @@
             margin: 0 20px; /* 左右の余白 */
             position: absolute; /* これを変更 */
             left: -80px; /* 子供情報の左側に配置 */
-            top: 80px; /* 必要に応じて調整 */
+            top: 60px; /* 必要に応じて調整 */
 
         }
         .vertical-line-bottom::after {
@@ -122,7 +122,7 @@
             height: 0;
             border-top: 3px solid black; /* 横線のスタイル */
             position: absolute;
-            top: 70; /* 縦線の上部に位置 */
+            top: 73; /* 縦線の上部に位置 */
             left: 100%; /* 縦線の右側に配置 */
         }
         .bottom {

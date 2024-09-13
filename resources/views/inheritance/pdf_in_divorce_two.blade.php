@@ -22,7 +22,7 @@
         }
         body {
             font-family: ipaexg !important;
-            font-size: 9px; /* フォントサイズを小さくしてみる */
+            font-size: 10px; /* フォントサイズを小さくしてみる */
 
         }
         h1 {
@@ -61,7 +61,7 @@
         /* 被相続人情報 (left) */
         .decedent {
             position: absolute;
-            top: -200px; /* 50pxだけ上に移動 */
+            top: -230px; /* 50pxだけ上に移動 */
         }
         /* 配偶者情報 (right) */
         .spouse {
@@ -136,7 +136,7 @@
             height: 0;
             border-top: 3px solid black; /* 横線のスタイル */
             position: absolute;
-            top: 60; /* 縦線の上部に位置 */
+            top: 58; /* 縦線の上部に位置 */
             left: 100%; /* 縦線の右側に配置 */
         }
         /* 縦の線を下部に追加するスタイル 離婚サイド*/
@@ -158,11 +158,11 @@
             border-top: 3px solid black; /* 横線のスタイル */
             position: absolute;
             top: 75; /* 縦線の上部に位置 */
-            right: -45px; /* 縦線の右側に配置 */
+            right: -48px; /* 縦線の右側に配置 */
         }
         .bottom {
             position: relative; /* 親要素に対する相対的な位置指定に変更 */
-            bottom: 100px; /* ページ下部に配置 */
+            bottom: 120px; /* ページ下部に配置 */
             width: 100%; /* 横幅をページ全体に広げる */
             text-align: center;
             z-index: 100; /* z-indexを高く設定して前面に表示 */
@@ -173,7 +173,7 @@
             text-align: left;
             width:60%;
             margin:0 auto;
-            padding:8px;
+            padding:4px;
         }
     </style>
 </head>
