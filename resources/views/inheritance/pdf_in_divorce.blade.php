@@ -22,7 +22,7 @@
         }
         body {
             font-family: ipaexg !important;
-            font-size: 10px; /* フォントサイズを小さくしてみる */
+            font-size: 12px; /* フォントサイズを小さくしてみる */
 
         }
         h1 {
@@ -58,7 +58,7 @@
         /* 被相続人情報 (left) */
         .decedent {
             position: absolute;
-            top: -80px; /* 50pxだけ上に移動 */
+            top: -120px; /* 50pxだけ上に移動 */
         }
 
         /* 配偶者情報 (right) */
@@ -139,7 +139,7 @@
         }
         .bottom {
             position: absolute;
-            bottom: 130; /* ページの一番下に固定 */
+            bottom: 100; /* ページの一番下に固定 */
             width: 100%; /* 横幅をページ全体に広げる */
             text-align: center;
             page-break-inside: avoid;

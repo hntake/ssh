@@ -122,8 +122,6 @@
                             <label for="divorced_child_relationship_${divorcedChildIndex}">続柄(必須)</label>
                             <input type="text" name="divorced_children[${divorcedChildIndex}][relationship]" id="divorced_child_relationship_${divorcedChildIndex}" required>
                         </div>
-                        <input type="radio" id="applicant_self_child_${divorcedChildIndex}" name="applicant" value="child${divorcedChildIndex}" required>
-                        <label for="applicant_self_child_${divorcedChildIndex}">申出人である</label><h5>（必ず一人選んでください。）</h5>
                     </div>
                 `;
                 divorcedChildContainer.insertAdjacentHTML('beforeend', newDivorcedChildForm);

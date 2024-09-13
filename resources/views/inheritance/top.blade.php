@@ -28,9 +28,11 @@
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
+            width: 100%;
+
         }
         .container {
-            width: 80%;
+            width: 100%;
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
@@ -82,13 +84,21 @@
     </blockquote>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="container">
-        <h1>法定相続一覧表</h1>
+        <h1>無料法定相続一覧表作成サイト</h1>
+        <div>
+            <a href="{{url('img/inheritance.png')}}" target="_blank" style="display:flex;">
+                <img src="../img/inheritance.png"  alt="無料法定相続一覧表作成" style="width:20%; margin:0 auto;">
+            </a>
+        </div>
         <p>このサイトでは、無料で「法定相続一覧表」を簡単に作成することができます。この一覧表は、相続手続きに必要な「法定相続情報証明制度」の一環として、相続関係を明確に整理するために使われます。</p>
 
         <p>「法定相続情報証明制度」とは、相続人が戸籍謄本などの書類を登記所に提出し、相続関係を表した一覧図（法定相続情報一覧図）の内容が、民法に基づく正しい相続関係であることを確認する制度です。
             この手続きにより、登記官が認証した一覧図の写しを無料で受け取ることができ、これをさまざまな相続手続きで活用できます。</p>
 
+        <p> 詳細は法務局の<a href="https://houmukyoku.moj.go.jp/homu/page7_000013.html" style="color:blue; font-weight:bold;">公式ページ</a>をご覧ください</p>
+
         <p> 当サイトでは、必要な情報を入力するだけで、複雑な手続きや書類作成が簡単に完了します。相続手続きの円滑な進行をお手伝いするために、ぜひご活用ください。</p>
+
 
         <form action="{{ route('inheritance_select') }}" method="POST">
             @csrf
@@ -101,7 +111,7 @@
             </select>
             <button type="submit">次へ</button>
         </form>
-        <h3>選択肢にない家族構成での作成は、有料（¥1,000～）にて承っております。ご希望の方は、<a href="{{ route('contact.index') }}">こちらまでメール</a>でお問い合わせください</h3>
+        <h3>選択肢にない家族構成での作成は、有料（¥1,000）にて承っております。ご希望の方は、<a href="{{ route('contact.index') }}">こちらまでメール</a>でお問い合わせください</h3>
     </div>
     <footer class="site-footer">
         <div class="bc-sitemap-wrapper">
