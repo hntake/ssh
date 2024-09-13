@@ -80,7 +80,7 @@
     <!-- Twitterシェアボタン -->
 
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="無料で法定相続情報一覧図を作成!" data-url="{{url('inheritance/top')}}">Tweet</a>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="無料で法定相続情報一覧図を作成できます!" data-url="{{url('inheritance/top')}}">Tweet</a>
     </blockquote>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="container">
