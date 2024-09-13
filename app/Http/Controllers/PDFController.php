@@ -557,12 +557,21 @@ class PDFController extends Controller
         // PDF生成
         if($style==1){
             $pdf = \PDF::loadView('inheritance.pdf_in', compact('data'));
+            // Twitterにツイートする例
+            $twitterHelper = new TwitterHelper();
+            $result = $twitterHelper->tweet_inheritance($pdf);
             return $pdf->stream('法定相続一覧表.pdf');
         }elseif($style==3){
             $pdf = \PDF::loadView('inheritance.pdf_in_divorce_two', compact('data'));
+            // Twitterにツイートする例
+            $twitterHelper = new TwitterHelper();
+            $result = $twitterHelper->tweet_inheritance($pdf);
             return $pdf->stream('法定相続一覧表.pdf');
         }else{
             $pdf = \PDF::loadView('inheritance.pdf_in_divorce', compact('data'));
+            // Twitterにツイートする例
+            $twitterHelper = new TwitterHelper();
+            $result = $twitterHelper->tweet_inheritance($pdf);
             return $pdf->stream('法定相続一覧表.pdf');
         }
 

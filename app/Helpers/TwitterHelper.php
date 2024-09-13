@@ -25,6 +25,13 @@ class TwitterHelper
             $result = $this->twitter->post('tweets', ['text' => $text]);
         return $result;
     }
+      //open_pdfでインボイスが作成されたら
+    public function tweet_inheritance($pdf)
+    {
+        $text = "法定相続情報一覧図が作成されました！ 無料法定相続情報一覧図作成サイト https://eng50cha.com/inheritance/top";
+            $result = $this->twitter->post('tweets', ['text' => $text]);
+        return $result;
+    }
 
     //新しい不祥事が投稿されたら
     public function tweet_thread($link)
