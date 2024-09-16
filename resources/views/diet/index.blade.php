@@ -295,7 +295,7 @@ crossorigin="anonymous"></script>
                     <a href="https://www.nikkan-gendai.com/articles/view/news/340481/2"target=”_blank><p>・自民“裏金”衆院議員44人の「新選挙区」はココだ! 政倫審拒否した全員を落選させるしかない【表付き】</p></a>
                     <a href="https://www.tokyo-np.co.jp/article/319270"target=”_blank><p>・「処分なし」の裏金議員ら46人は誰？ なぜ不問？「巻き込まれた」主張の議員も【一覧】</p></a>
                     <a href="https://digital.kyodonews.jp/static/diet/questionnaire/list0.html" target=”_blank><p>・参照サイト:共同通信 全国会議員７１２人アンケート 旧統一教会と政治の関係）</p></a>
-
+                    <a href="https://www.news-postseven.com/archives/20220907_1790895.html?DETAIL" target=”_blank><p>・参照サイト:【鈴木エイト氏が追跡3000日】旧統一教会と関係していた国会議員168人名簿</p></a>
                     <table>
                         <tr>
                             <td>5点</td>
