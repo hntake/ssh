@@ -478,18 +478,35 @@ Route::get('/diet/next/{id}', [App\Http\Controllers\DietController::class, 'next
 Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index' ])->name('get.sitemap');
 
 //ギフトカードトップページ
-Route::get('/gift/index', [App\Http\Controllers\GiftController::class, 'index'])->name('gift_index');
-//ギフトカード購入
-Route::post('/gift/index', [App\Http\Controllers\GiftController::class, 'purchase'])->name('gift_purchase');
+Route::get('/gift/index/{uuid}', [App\Http\Controllers\GiftCardController::class, 'index'])->name('gift_index');
+//ギフトカード購入(店側)
+Route::post('/gift/index/{uuid}', [App\Http\Controllers\GiftCardController::class, 'purchase'])->name('gift_purchase');
+//ギフトカード購入(客側)
+Route::get('/gift/share/{uuid}', [App\Http\Controllers\GiftCardController::class, 'share'])->name('gift_share');
 //ギフトカードメールで送信
-Route::post('/gift/mail', [App\Http\Controllers\GiftController::class, 'mail'])->name('gift_mail');
+Route::post('/gift/mail/{id}', [App\Http\Controllers\GiftCardController::class, 'mail'])->name('gift_mail');
 //ギフトカードlineで送信
-Route::post('/gift/line', [App\Http\Controllers\GiftController::class, 'line'])->name('gift_line');
+Route::post('/gift/line', [App\Http\Controllers\GiftCardController::class, 'line'])->name('gift_line');
 //ギフトカード利用ページ表示（客）
-Route::get('/gift/used', [App\Http\Controllers\GiftController::class, 'used'])->name('gift_used');
-//ギフトカードスキャン画面表示（店）
-Route::get('/gift/store', [App\Http\Controllers\GiftController::class, 'store'])->name('gift_store');
-Route::post('/gift/store', [App\Http\Controllers\GiftController::class, 'store_used'])->name('gift_store_used');
+Route::get('/gift/use/{uuid}', [App\Http\Controllers\GiftCardController::class, 'show'])->name('gift_used');
+// ギフトカード支払い処理
+Route::post('/gift/pay/{uuid}', [App\Http\Controllers\GiftCardController::class, 'pay'])->name('gift_pay');
+// 店舗コード確認ページ
+Route::get('/gift/verify/{uuid}', [App\Http\Controllers\GiftCardController::class, 'showStoreForm'])->name('store_verify_form');
+
+// 店舗コード確認処理
+Route::post('/gift/verify/{uuid}', [App\Http\Controllers\GiftCardController::class, 'verifyStoreCode'])->name('store_verify');
+
+// 店舗コード確認成功ページ
+Route::get('/gift/success/{uuid}', [App\Http\Controllers\GiftCardController::class, 'success'])->name('store_success');
+// 店舗側支払い確認後更新
+Route::post('/gift/success/{uuid}', [App\Http\Controllers\GiftCardController::class, 'updateBalance'])->name('updateBalance');
+//店舗カードリスト
+Route::get('/gift/card_list/{uuid}', [App\Http\Controllers\GiftCardController::class, 'card_list'])->name('card_list');
+//店舗カード利用履歴
+Route::get('/gift/purchase_list/{uuid}', [App\Http\Controllers\GiftCardController::class, 'purchase_list'])->name('purchase_list');
+//ギフトカード領収書
+Route::get('/gift/receipt/{id}', [App\Http\Controllers\GiftCardController::class, 'downloadReceipt'])->name('download_receipt');
 
 //法定相続一覧表トップページ
 Route::get('inheritance/top', function () {
@@ -502,3 +519,9 @@ Route::get('inheritance/create', [App\Http\Controllers\PDFController::class, 'in
 
 //法定相続一覧作成
 Route::get('pdf_i/{id}', [App\Http\Controllers\PDFController::class, 'pdf_in'])->name('pdf_in');
+
+// web.php にログアウト用のルートを追加
+Route::get('/admin/logout', function () {
+    Auth::guard('admin')->logout();
+    return redirect('/admin/login');  // ログアウト後にリダイレクトするURL
+});

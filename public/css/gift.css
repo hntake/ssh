@@ -1,0 +1,29 @@
+h3,img{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.qrcode{
+    display: flex;
+    justify-content: center;
+    padding-bottom:16px;
+
+}
+.certificate{
+    padding-bottom:16px;
+    position:relative;
+}
+h3{
+    position:absolute;
+    top:60%;
+    right:20%;
+}
+h4{
+    position:absolute;
+    top:20%;
+    right:40%;
+}
+body{
+    padding:16px;
+}

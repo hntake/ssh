@@ -21,7 +21,6 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
-     
             foreach ($guards as $guard) {
                 if (Auth::guard($guard)->check()) {
                     if ($guard === 'admin') { // 以下3行追記する

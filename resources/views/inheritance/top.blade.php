@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('css/pdf.css') }}">
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
         <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@ITcha50">
         <meta name="twitter:title" content="無料で法定相続情報一覧図を作成!">
@@ -24,7 +25,7 @@
     <title>無料法定相続一覧表作成サイト</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Noto Sans JP', sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
@@ -75,6 +76,8 @@
             background-color: #0056b3;
         }
     </style>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
+        crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Twitterシェアボタン -->

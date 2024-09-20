@@ -17,11 +17,11 @@
         </div>
         <div>
             <label for="type">クーポンタイプ</label>
-            <input type="text" id="type" name="type">
+            <input type="text" id="type" name="type" value="1">
         </div>
         <div>
             <label for="code">クーポン期限</label>
-            <input type="text" id="due" name="due">
+            <input type="text" id="due" name="due" value="1">
         </div>
         <div>
             <label for="name_kana">かな</label>

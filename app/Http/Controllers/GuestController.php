@@ -37,7 +37,6 @@ public function uuid (Request $request){
             'name' => ['required', 'string', 'max:255'],
             'name_kana' => ['required', 'string', 'max:255'],
             'code' => ['required', 'string', 'max:255'],
-            'tel' => ['required','numeric','digits_between:10,11'],
         ]);
 
         $store= new Store;
