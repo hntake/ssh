@@ -20,6 +20,8 @@
         <link rel="stylesheet" href="{{ asset('css/pdf.css') }}">
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
         <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@ITcha50">
         <meta name="twitter:title" content="無料の請求書ジェネレーター">

@@ -28,6 +28,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
     <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 
 </head>
 
