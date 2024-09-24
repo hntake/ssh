@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="このサイトでは、無料で「法定相続一覧表」を簡単に作成することができます。この一覧表は、相続手続きに必要な「法定相続情報証明制度」の一環として、相続関係を明確に整理するために使われます。
+    <meta name="description" content="このサイトでは、無料で「法定相続一覧図」を簡単に作成することができます。この一覧図は、相続手続きに必要な「法定相続情報証明制度」の一環として、相続関係を明確に整理するために使われます。
 
 「法定相続情報証明制度」とは、相続人が戸籍謄本などの書類を登記所に提出し、相続関係を表した一覧図（法定相続情報一覧図）の内容が、民法に基づく正しい相続関係であることを確認する制度です。この手続きにより、登記官が認証した一覧図の写しを無料で受け取ることができ、これをさまざまな相続手続きで活用できます。
 
 当サイトでは、必要な情報を入力するだけで、複雑な手続きや書類作成が簡単に完了します。相続手続きの円滑な進行をお手伝いするために、ぜひご活用ください。">
-        <meta name="keywords" content="インボイス,領収書作成,PDF領収書,オンライン領収書,無料領収書作成,ビジネス領収書,領収書テンプレート,
+        <meta name="keywords" content="法定相続一覧図, 法定相続一覧図作成, 法定相続一覧図無料作成, 法定相続一覧図 自分で, 法定相続一覧図 書き方
         ">
         <link rel="stylesheet" href="{{ asset('css/pdf.css') }}">
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
@@ -22,7 +22,7 @@
                 即座に法定相続情報一覧図を生成します。">
         <meta name="twitter:image" content="https://eng50cha.com/img/inheritance.png">
 
-    <title>無料法定相続一覧表作成サイト</title>
+    <title>法定相続一覧図PDF 無料作成サイト</title>
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
@@ -87,20 +87,20 @@
     </blockquote>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="container">
-        <h1>無料法定相続一覧表作成サイト</h1>
+        <h1>無料法定相続一覧図作成サイト</h1>
         <div>
             <a href="{{url('img/inheritance.png')}}" target="_blank" style="display:flex;">
-                <img src="../img/inheritance.png"  alt="無料法定相続一覧表作成" style="width:20%; margin:0 auto;">
+                <img src="../img/inheritance.png"  alt="無料 法定相続一覧図作成" style="width:20%; margin:0 auto;">
             </a>
         </div>
-        <p>このサイトでは、無料で「法定相続一覧表」を簡単に作成することができます。この一覧表は、相続手続きに必要な「法定相続情報証明制度」の一環として、相続関係を明確に整理するために使われます。</p>
+        <p>このサイトでは、「法定相続一覧図」を簡単に無料で作成することができます。この一覧図は、相続手続きに必要な「法定相続情報証明制度」の一環として、相続関係を明確に整理するために使われます。</p>
 
         <p>「法定相続情報証明制度」とは、相続人が戸籍謄本などの書類を登記所に提出し、相続関係を表した一覧図（法定相続情報一覧図）の内容が、民法に基づく正しい相続関係であることを確認する制度です。
             この手続きにより、登記官が認証した一覧図の写しを無料で受け取ることができ、これをさまざまな相続手続きで活用できます。</p>
 
         <p> 詳細は法務局の<a href="https://houmukyoku.moj.go.jp/homu/page7_000013.html" style="color:blue; font-weight:bold;">公式ページ</a>をご覧ください</p>
 
-        <p> 当サイトでは、必要な情報を入力するだけで、複雑な手続きや書類作成が簡単に完了します。相続手続きの円滑な進行をお手伝いするために、ぜひご活用ください。</p>
+        <p> 当サイトでは、必要な情報を入力するだけで、複雑な法定相続一覧図の書類がPDFで簡単に作成できます。相続手続きの円滑な進行をお手伝いするために、ぜひご活用ください。</p>
 
 
         <form action="{{ route('inheritance_select') }}" method="POST">
