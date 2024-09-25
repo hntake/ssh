@@ -521,7 +521,7 @@ Route::get('inheritance/create', [App\Http\Controllers\PDFController::class, 'in
 Route::get('pdf_i/{id}', [App\Http\Controllers\PDFController::class, 'pdf_in'])->name('pdf_in');
 
 // web.php にログアウト用のルートを追加
-Route::get('/admin/logout', function () {
-    Auth::guard('admin')->logout();
-    return redirect('/admin/login');  // ログアウト後にリダイレクトするURL
-});
+// Route::get('/admin/logout', function () {
+//     Auth::guard('admin')->logout();
+//     return redirect('/admin/login');  // ログアウト後にリダイレクトするURL
+// });
