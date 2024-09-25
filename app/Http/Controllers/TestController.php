@@ -65,7 +65,6 @@ class TestController extends Controller
     /*学校ごと履歴*/
     public function by_school(Request $request)
     {
-        dd(Auth::user());
         if(Auth::user()->admin_level !== 5){
         $histories = History::where('school', '=', Auth::user()->school)->orderBy('created_at', 'desc')->paginate(10);
         $users = User::where('school1', '=', Auth::user()->school)->orWhere('school2', '=', Auth::user()->school)->orderBy('point', 'desc')->paginate(20);
