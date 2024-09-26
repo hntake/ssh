@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ブログ｜webアプリ制作会社llco</title>
+    <title>ブログ一覧|webアプリ制作会社llco</title>
     <link rel="stylesheet" href="{{asset('../css/blog.css')}}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,6 +17,8 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -91,9 +93,6 @@
                         <div class="en">Blog</div>
                     </h1>
                 </div>
-                <!--  <div class="sidebar">
-                <a href="https://itcha50.com"><p>視覚支援ツールVS4</p></a>
-            </div> -->
                 <div class="area">
 
                     <input type="radio" name="tab_name" id="tab2" checked>

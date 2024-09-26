@@ -22,14 +22,8 @@
         <div class="content_wrapper">
             <div class="content2">
 
-                <form action="/newpostsend" method="post" name="ansform" enctype="multipart/form-data">
+                <form action="{{route('save',['id'=> $id])}}" method="post" name="ansform" enctype="multipart/form-data">
                     @csrf
-                    <p>
-
-                        <label for="inq1"><input type="radio" id="inq1" name="category" value="4">エイゴメ</label>
-                        <label for="inq2"><input type="radio" id="inq2" name="category" value="5">VS4</label>
-                        <label for="inq3"><input type="radio" id="inq3" name="category" value="6">その他</label>
-                    </p>
                     <p>タイトル</p>
                     <input type="text" name="title" class="formtitle">
                     <p>&nbsp;</p>

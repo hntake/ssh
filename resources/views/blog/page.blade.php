@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ブログ｜webアプリ制作会社llco</title>
+    @if($data->category > 9)
+    <title>ブログ {{$data->Category->category}} {{$data->title}}</title>
+    @else
+    <title>ブログ webアプリ制作会社llco {{$data->title}}</title>
+    @endif
     <link rel="stylesheet" href="{{asset('../css/page.css')}}">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,39 +21,14 @@
             font-family: 'Nunito', sans-serif;
         }
     </style>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <header id="header" class="header is-open">
 
-            <div class="header_inner">
-                <nav id="menu" class="header_nav">
-
-
-                    <ul class="header_nav_list">
-                        <li class="header_nav_itm">
-                            <a href="{{url('/aboutus')}}" class=""><img src="../img/favicon500.png" style="width:30%; height:auto;"></a>
-                        </li>
-                        <li class="header_nav_itm">
-                            <a href="{{ url('search_result') }}" class="header_nav_itm_link">テスト検索</a>
-                            <div class="description1">エイゴメでテストを受けてみる</div>
-                        </li>
-                        <li class="header_nav_itm">
-                            <a href="{{ url('feature') }}" class="header_nav_itm_link">エイゴメとは</a>
-                            <div class="description1">エイゴメの使い方</div>
-                        </li>
-                        <li class="header_nav_itm">
-                            <a href=https://itcha50.com/create_sort class="header_nav_itm_link">絵スケジュールを作成</a>
-                            <div class="description1">VS4で絵スケジュールを作る</div>
-                        </li>
-                        <li class="header_nav_itm">
-                            <a href=https://itcha50.com/feature class="header_nav_itm_link">VS4とは</a>
-                            <div class="description1">VS4の使い方</div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
 
             <!--  ハンバーガーメニュー -->
             <div class="mobile-menu">
@@ -58,6 +37,13 @@
                     <label id="nav-open" for="nav-input"><span></span></label>
                     <label class="nav-unshown" id="nav-close" for="nav-input"></label>
                     <div id="nav-content">
+                        @if($data->category > 9)
+                        <ul class="">
+                            <li><a href="{{ $category->url }}">
+                                    <h3>ホームページに戻る</h3>
+                                </a></li>
+                        </ul>
+                        @else
                         <ul class="">
                             <li><a href="{{ url('search_result') }}">
                                     <h3>テスト検索</h3>
@@ -72,6 +58,7 @@
                                     <h3>VS4とは</h3>
                                 </a></li>
                         </ul>
+                        @endif
                     </div>
                     <script>
                         $(function() {
@@ -86,9 +73,6 @@
         <main>
             <div class="pagecontainer">
 
-                <!--  <div class="sidebar">
-                <a href="https://itcha50.com"><p>視覚支援ツールVS4</p></a>
-            </div> -->
                 <div class="area">
                     <div class="content_class">
                         <div class="allBlogs">
@@ -123,6 +107,28 @@
 
                 </div>
             </div>
+            @if($data->category > 9)
+            <footer class="site-footer">
+                <div class="bc-sitemap-wrapper">
+                    <div class="sitemap clearfix">
+                        <div class="site-info">
+                            <div class="widget">
+                            <div class="call" style="border:1px bold black; background-color: lightblue; text-align: center;">
+                                <a href="mailto:{{$category->email}}?subject=%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&amp;body=%E4%BB%A5%E4%B8%8B%E3%81%AB%E3%81%94%E8%A8%98%E5%85%A5%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%0A%0A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%0A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A" style="font-weight:bold;">相談メール</a>
+                                <h5 style="margin:0;">クリック！</h5>
+                            </div>    
+                            <div class="copy-right">
+                                <span class="copu-right-text">© All rights reserved by llco</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+
+                <a href="#" class="gotop">トップへ</a>
+            </footer>
+            @else
             <footer class="site-footer">
                 <div class="bc-sitemap-wrapper">
                     <div class="sitemap clearfix">
@@ -173,7 +179,7 @@
 
                 <a href="#" class="gotop">トップへ</a>
             </footer>
-
+            @endif
         </main>
 </body>
 

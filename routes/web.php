@@ -233,7 +233,10 @@ Route::get('/blog/page{id}', [\App\Http\Controllers\FormController::class, 'page
 /*事象表示*/
 Route::get('/case/index', [\App\Http\Controllers\FormController::class, 'caseindex'])->name('case.index');
 Route::get('/case/page{id}', [\App\Http\Controllers\FormController::class, 'case_page'])->name('case.page');
-
+/*専用ブログ表示*/
+Route::get('/blog/house{id}', [\App\Http\Controllers\FormController::class, 'house'])->name('blog.house');
+/*専用ブログ書き込み*/
+Route::post('/blog{id}', [\App\Http\Controllers\FormController::class, 'save'])->middleware('auth:admin')->name('save');
 /*お店ページ*/
 Route::get('/guest/index/{id}', [\App\Http\Controllers\GuestController::class, 'index'])->name('guest.index');
 /*お客様テスト結果*/

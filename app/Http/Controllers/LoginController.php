@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Store;
 use App\Models\invoice;
+use App\Models\Category;
 
 
 
@@ -29,6 +30,14 @@ class LoginController extends Controller
                 $request->session()->regenerate(); // セッション更新
 
                 return redirect()->intended('admin'); // ダッシュボードへ
+            }
+            elseif ($request->user('admin')?->admin_level == 20) { // ブログ利用オーナー
+                $request->session()->regenerate(); // セッション更新
+                
+                $id=Category::where('email',$request->user('admin')?->email)->value('id');
+                return view ('/blog/blog',[
+                    'id'=>$id,
+                ]);  
             }
             elseif ($request->user('admin')?->admin_level == 5) { // アンケート利用オーナー
                 $request->session()->regenerate(); // セッション更新

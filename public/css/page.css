@@ -2,7 +2,6 @@
     width: 1000px;
     min-height:500px;
     text-align: center;
-
 }
 .sidebar{
     margin:20px;
@@ -42,6 +41,9 @@ h5{
 ol, ul {
     list-style: none;
 }
+ol {
+    list-style-type: decimal; /* 番号付きリストを有効にする */
+}
 .all_blogs_item{
     position: relative;
     z-index: 1;
@@ -50,10 +52,9 @@ ol, ul {
     padding:10px;
 }
 .all_blogs_item .thumbnail{
-    /*     aspect-ratio: 1.516;
-     */    overflow: hidden;
-         width:50%;
-    }
+    overflow: hidden;
+    width:50%;
+}
     .thumbnail img{
         width: 50%;
         height: auto;
@@ -68,7 +69,7 @@ ol, ul {
         flex-wrap: wrap;
         display: flex;
         margin-top:280px;
-      }
+    }
 /*welcomeから*/
 body {
     margin: 0;
@@ -213,6 +214,7 @@ a.header_nav_itm_link {
 }
 .site-footer{
     position: relative;
+    margin-top:100px;
 }
 .site-footer .bc-sitemap-wrapper {
     background: #343434;
@@ -277,6 +279,56 @@ a.header_nav_itm_link {
     padding-right: 0.24rem;
     font-size: .14rem;
 }
+/* 全体を中央に配置 */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content_class {
+    width: 60%; /* 適宜調整 */
+    max-width: 800px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top:100px;
+
+}
+
+.allBlogs_list {
+    width: 100%;
+}
+
+.all_blogs_item {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h5 {
+    margin: 5px 0;
+}
+
+.thumbnail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 20px;
+}
 /*lenovo*/
 @media screen and (max-width: 1280px) {
     .area{
@@ -286,7 +338,7 @@ a.header_nav_itm_link {
     .header_inner {
         display: none;
     }
-
+}
 /*ipad*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     .pagecontainer{
@@ -423,7 +475,7 @@ html{
 /*スマホ*/
 @media only screen and (max-width: 767px){
 
-  .main-column{
+    .main-column{
     margin-top:100px;
 }
 .header_inner{
@@ -540,7 +592,7 @@ section{
 .site-footer .site-info{
     padding-top: 45rem;
 }
-  }
+}
   @media only screen and (min-width:380px) and (max-width:800px){
     .main-column{
         margin-top:100px;
@@ -666,8 +718,8 @@ section{
     .site-footer .sitemap {
          width: auto;
   }
-  .design09 {
+    .design09 {
     width:auto;
 }
 
-  }
+}
