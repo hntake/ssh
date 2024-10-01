@@ -14,26 +14,26 @@ use Illuminate\Support\Facades\Storage;
 
 class QuestionController extends Controller
 {
-     /**全リスト */
-     public function list($store)
-     {
+    /**全リスト */
+    public function list($store)
+    {
         $questions = Question::where('store',$store)->orderBy('created_at', 'desc')->paginate(10);
 
-         return view('customer/list', [
-             'questions' => $questions,
-             'store'=>$store,
-         ]);
-     }
-     /*選択したアンケート表示*/
-     public function each(Request $request, $id)
-     {
-         $question = Question::where('id', $request->id)->first();
-         return view('customer/each', [
-             'id' => $id,
-             'question' => $question,
-         ]);
-     }
- /**
+        return view('customer/list', [
+            'questions' => $questions,
+            'store'=>$store,
+        ]);
+    }
+    /*選択したアンケート表示*/
+    public function each(Request $request, $id)
+    {
+        $question = Question::where('id', $request->id)->first();
+        return view('customer/each', [
+            'id' => $id,
+            'question' => $question,
+        ]);
+    }
+/**
      * 新規作成画面へ遷移
      *
      * @param Request $request

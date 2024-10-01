@@ -1,8 +1,8 @@
 .content_wrapper{
-    width: 1000px;
+    width: 90%;
     min-height:500px;
     text-align: center;
-
+    margin:0 auto;
 }
 
 

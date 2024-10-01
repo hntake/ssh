@@ -264,7 +264,8 @@
                                     <li><a href="{{ route('contact.index')}}">お問い合わせ</a></li>
                                     <li><a href="{{ url('faq')}}">エイゴメFAQ</a></li>
                                     <li><a href=https://itcha50.com/faq>VS4FAQ</a></li>
-                                    <li><a href="{{ url('/admin/login')}}">管理者画面</a></li>                                </ul>
+                                    <li><a href="{{ url('/admin/login')}}">管理者画面</a></li>                                
+                                </ul>
                             </div>
                         </div>
                         <div id="nav_menu2" class="widget_nav_menu">
@@ -275,7 +276,8 @@
                                     <li><a href="{{ url('rule')}}">利用規約</a></li>
                                     <li><a href="{{ url('aboutus')}}">About Us</a></li>
                                     <li><a href="{{ url('consumer')}}">エイゴメ特定商取引</a></li>
-                                    <li><a href=https://itcha50.com/consumer>VS4特定商取引</a></li>                                </ul>
+                                    <li><a href=https://itcha50.com/consumer>VS4特定商取引</a></li>                                
+                                </ul>
                             </div>
                         </div>
                         <div class="site-info">

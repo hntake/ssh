@@ -63,35 +63,50 @@
                     </h1>
                 </div>
                 <div class="area">
-
+                    <div>
+                    @if($admin==true)
+                    <a href="{{ route('blog.form') }}" class="button">
+                        <p>ブログ新規作成</p>
+                    </a>
+                    @endif
+                    </div>
                     <div class="content">
                         <div class="allBlogs">
                             <div class="allBlogs_list">
-                                @foreach($houses as $house)
-                                <div class="all_blogs_item">
-
-                                    <a href="{{ route('blog.page',['id'=>$house->id]) }}">
-                                        <h1>{{$house->title}}</h1>
-                                    </a>
-                                    <ul class="category_title">
-                                        <li>
-                                            <h5>{{\Carbon\Carbon::parse($house->updated_at)->toDateString() }}</h5>
-                                        </li>
-                                    </ul>
-                                    <div class="thumbnail">
-                                        @if(file_exists(public_path().'/storage/post_img/'. $house->id .'.jpg'))
-                                        <img src="/storage/post_img/{{ $house->id }}.jpg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $house->id .'.jpeg'))
-                                        <img src="/storage/post_img/{{ $house->id }}.jpeg">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $house->id .'.png'))
-                                        <img src="/storage/post_img/{{ $house->id }}.png">
-                                        @elseif(file_exists(public_path().'/storage/post_img/'. $house->id .'.gif'))
-                                        <img src="/storage/post_img/{{ $house->id }}.gif">
-                                        @endif
+                            @foreach($houses as $house)
+                                @if ($admin || $house->action == 0)  <!-- $adminがtrueの場合は全て表示、falseの場合はactionが0のみ -->
+                                    <div class="all_blogs_item">
+                                        <a href="{{ route('blog.page', ['id' => $house->id]) }}">
+                                            @if($house->action == 1 && $admin)  <!-- $adminがtrueの場合のみ下書きを表示 -->
+                                                <p>下書き</p>
+                                            @endif
+                                            <h1>{{ $house->title }}</h1>
+                                        </a>
+                                        <ul class="category_title">
+                                            <li>
+                                                <h5>{{ \Carbon\Carbon::parse($house->updated_at)->toDateString() }}</h5>
+                                            </li>
+                                        </ul>
+                                        <div class="thumbnail">
+                                            @if(file_exists(public_path() . '/storage/post_img/' . $house->id . '.jpg'))
+                                                <img src="/storage/post_img/{{ $house->id }}.jpg">
+                                            @elseif(file_exists(public_path() . '/storage/post_img/' . $house->id . '.jpeg'))
+                                                <img src="/storage/post_img/{{ $house->id }}.jpeg">
+                                            @elseif(file_exists(public_path() . '/storage/post_img/' . $house->id . '.png'))
+                                                <img src="/storage/post_img/{{ $house->id }}.png">
+                                            @elseif(file_exists(public_path() . '/storage/post_img/' . $house->id . '.gif'))
+                                                <img src="/storage/post_img/{{ $house->id }}.gif">
+                                            @endif
+                                        </div>
+                                        <!-- 削除ボタン -->
+                                        <form action="{{ route('blog.delete', ['id' => $house->id]) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="delete-button">削除</button>
+                                        </form>
                                     </div>
-
-                                </div>
-                                @endforeach
+                                @endif
+                            @endforeach
                             </div>
                         </div>
                     </div>

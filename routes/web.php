@@ -216,7 +216,7 @@ Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class,
 Route::get('/game/register', [\App\Http\Controllers\RegisterController::class, 'gameRegisterForm'])->middleware('auth:admin');
 Route::post('/game/register', [\App\Http\Controllers\RegisterController::class, 'gameRegister'])->middleware('auth:admin')->name('game.register');
 /*ブログ書き込み権限*/
-Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin');
+Route::get('/blog2', [\App\Http\Controllers\FormController::class, 'wys'])->middleware('auth:admin')->name('blog.form');
 Route::post('/newpostsend', [\App\Http\Controllers\FormController::class, 'savenew'])->middleware('auth:admin');
 /*NEws書き込み権限*/
 Route::get('/news', [\App\Http\Controllers\FormController::class, 'news'])->middleware('auth:admin')->name('news.form');
@@ -236,7 +236,16 @@ Route::get('/case/page{id}', [\App\Http\Controllers\FormController::class, 'case
 /*専用ブログ表示*/
 Route::get('/blog/house{id}', [\App\Http\Controllers\FormController::class, 'house'])->name('blog.house');
 /*専用ブログ書き込み*/
-Route::post('/blog{id}', [\App\Http\Controllers\FormController::class, 'save'])->middleware('auth:admin')->name('save');
+Route::post('/blog/blog{id}', [\App\Http\Controllers\FormController::class, 'save'])->middleware('auth:admin')->name('save');
+Route::post('/uploadFile', [\App\Http\Controllers\FormController::class, 'upload'])->middleware('auth:admin')->name('uploadFile');
+
+Route::get('/blog/back{id}', [\App\Http\Controllers\FormController::class, 'back'])->name('blog.back');
+//編集画面に移動
+Route::get('/blog/edit{id}', [\App\Http\Controllers\FormController::class, 'edit'])->name('blog.edit');
+Route::post('/blog/edit{id}', [\App\Http\Controllers\FormController::class, 'update'])->name('blog.update');
+
+//選択ブログ削除
+Route::delete('/blog/delete{id}', [\App\Http\Controllers\FormController::class, 'delete'])->name('blog.delete');
 /*お店ページ*/
 Route::get('/guest/index/{id}', [\App\Http\Controllers\GuestController::class, 'index'])->name('guest.index');
 /*お客様テスト結果*/

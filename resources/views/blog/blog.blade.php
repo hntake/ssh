@@ -25,18 +25,19 @@
                 <form action="{{route('save',['id'=> $id])}}" method="post" name="ansform" enctype="multipart/form-data">
                     @csrf
                     <p>タイトル</p>
-                    <input type="text" name="title" class="formtitle">
+                    <input type="text" name="title" class="formtitle" value="{{ old('title', session('title')) }}">
                     <p>&nbsp;</p>
                     <p>本文</p>
-                    <div id="editor" style="height: 200px;"></div>
-                    <input type="hidden" name="main">
+                    <div id="editor" style="height: 400px;">{!! old('main', session('main')) !!}</div>
+                    <input type="hidden" name="main" value="{{ old('main', session('main')) }}">
 
                     <p>&nbsp;</p>
                     <p>画像をアップロード</p>
                     <input type="file" name="post_img">
 
                     <p>&nbsp;</p>
-                    <input type="submit" class="submitbtn" name="subbtn">
+                    <button type="submit" name="action" value="save">登録する</button>
+                    <button type="submit" name="action" value="draft">下書きに保存する</button>
                 </form>
 
             </div>

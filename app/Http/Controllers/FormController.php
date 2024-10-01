@@ -7,6 +7,7 @@ use App\Models\Form;
 use App\Models\News;
 use App\Models\Cases;
 use App\Models\category;
+use Illuminate\Support\Facades\Auth;
 
 class FormController extends Controller
 {
@@ -85,7 +86,7 @@ class FormController extends Controller
 }
 
         return redirect ('/case/index');
-       }
+    }
 
 /*お知らせ保存*/
     public function save_news (Request $request){
@@ -98,7 +99,7 @@ class FormController extends Controller
 
 
         return redirect ('/news/index');
-       }
+    }
 /*ブログトップページ表示*/
     public function index (Request $request){
         $data = Form::where('category', '<=', '6')->orderBy('created_at', 'desc')->paginate(10);        
@@ -164,36 +165,116 @@ class FormController extends Controller
             'data' => $data,
         ]);
     }
-/*専用ブログトップぺージ:*/
+/*専用ブログトップぺージ:$id=category_id*/
 public function house (Request $request,$id){
     $houses = Form::where('category','=', $id)->orderBy('created_at', 'desc')->paginate(10);
     $category=Category::where('id','=',$id)->first();
+     // $adminを初期化
+    $admin = false;
+
+    $adminUser = Auth::guard('admin')->user(); // 管理者用ガードを指定
+    if ($adminUser && $adminUser->admin_level === 20) {
+        $admin = true;
+    } else {
+        $admin = false; // または他の適切な処理
+    }
+    
     return view('blog/house',[
         'houses' => $houses,
         'category' => $category,
+        'admin' => $admin,
+
     ]);
 }
-/*専用ブログ保存*/
-    public function save (Request $request,$id){
-        $post = new Form;
-        $post->title = $request->title;
-        $post->main = $request->main;
-        $post->category = $id;
-        $post->save();
+/**ブログ作成ページへ */
+public function create (Request $request){
 
-        // 画像の保存
-    if($request->post_img){
+}
+/*専用ブログ保存$id=category_id*/
+    public function confirm(Request $request,$id)
+    {
+        $title = $request->input('title');
+        $main = $request->input('main');
+        $post_img = $request->file('post_img');
 
-        if($request->post_img->extension() == 'gif' || $request->post_img->extension() == 'jpeg' || $request->post_img->extension() == 'jpg' || $request->post_img->extension() == 'png'){
-        $request->file('post_img')->storeAs('public/post_img', $post->id.'.'.$request->post_img->extension());
-        }
+        return view('blog.confirm', compact('title', 'main', 'post_img','id'));
     }
 
+    public function save(Request $request,$id)
+    {
+
+        $action = $request->input('action');
+        if ($action == 'save') {
+            $post = new Form;
+            $post->title = $request->title;
+            $post->main = $request->main;
+            $post->category = $id;
+            $post->save();
+        } elseif ($action == 'draft') {
+            $post = new Form;
+            $post->title = $request->title;
+            $post->main = $request->main;
+            $post->category = $id;
+            $post->action = 1;
+            $post->save();
+        }
+
+        // 画像の保存
+        if($request->post_img){
+
+            if($request->post_img->extension() == 'gif' || $request->post_img->extension() == 'jpeg' || $request->post_img->extension() == 'jpg' || $request->post_img->extension() == 'png'){
+            $request->file('post_img')->storeAs('public/post_img', $post->id.'.'.$request->post_img->extension());
+            }
+        }
+
         $houses = Form::where('category','=', $id)->orderBy('created_at', 'desc')->paginate(10);
-        $category=Category::where('id','=',$id)->value('category');
+        $category=Category::where('id','=',$id)->first();
         return view('blog/house',[
             'houses' => $houses,
             'category' => $category,
         ]);
     }
-}
+        //確認画面で目ページに戻る
+        public function back($id)
+        {
+            return redirect()->route('blog.blog', ['id' => $id]);
+        }
+
+        // 編集ページの表示
+        public function edit($id)
+        {
+            $blog = Form::findOrFail($id); // IDでブログを取得
+            return view('blog.edit', compact('blog'));
+        }
+
+        // 編集内容の保存
+        public function update(Request $request, $id)
+        {
+            $blog = Form::findOrFail($id); // IDでブログを取得
+
+            // 入力検証
+            $request->validate([
+                'title' => 'required|max:255',
+                'main' => 'required',
+            ]);
+
+            // ブログの更新
+            $blog->title = $request->input('title');
+            $blog->main = $request->input('main');
+            $blog->save();
+
+            return redirect()->route('blog.house', ['categoryId' => $blog->category])
+                            ->with('success', 'ブログを更新しました');
+        }
+
+        // ブログの削除
+        public function delete($id)
+        {
+            $blog = Form::findOrFail($id); // IDでブログを取得
+            $category=$blog->category;
+            $blog->delete(); // 削除
+
+            return redirect()->route('blog.house', ['id' => $category])
+                            ->with('success', 'ブログを削除しました');
+        }
+        }
