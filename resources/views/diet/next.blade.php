@@ -39,13 +39,16 @@ crossorigin="anonymous"></script>
             <div id="nav-content">
             <ul>
                     <li><a href="{{ url('diet/vote') }}">
-                            <h3 ontouchstart="">サイトトップページに戻る</h3>
+                            <h3 ontouchstart="">選挙に行こう！サイトトップページに戻る</h3>
                         </a></li>
                     <li><a href="{{ url('diet/index') }}">
                         <h3 ontouchstart="">不祥事度ランキング</h3>
                     </a></li>
                     <li><a href="{{ url('diet/all') }}">
                         <h3 ontouchstart="">議員一覧</h3>
+                    </a></li>
+                    <li><a href="{{ url('diet/elect') }}">
+                        <h3 ontouchstart="">2024 衆議院議員総選挙</h3>
                     </a></li>
                 </ul>
             </div>
@@ -73,7 +76,7 @@ crossorigin="anonymous"></script>
                     <h3>現職</h3>
                     @endif
                     <h3>会派：{{ $diet->party }}</h3>
-                    <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">議員名：{{ $diet->name }}</a></h3>
+                    <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">議員名<br>{{ $diet->name }}</a></h3>
                     <h3>@if($diet->age)
                                 <td>{{ $diet->age}}歳</td>
                            
@@ -97,7 +100,7 @@ crossorigin="anonymous"></script>
                             <i class="fas fa-thumbs-down"></i> {{ $diet->bad }}
                             </tr>
                             @else
-                            <h6>こちらの議員は不祥事が投稿されていない為、悪いねボタンは表示されません。</h6>
+                            <h6 style="letter-spacing: -1px; font-weight: lighter;font-size: 0.5em;">こちらの議員は不祥事が投稿されていない為、悪いねボタンは表示されません。</h6>
                             @endif
                         </div>
                         <div class="two">
