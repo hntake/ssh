@@ -40,6 +40,10 @@ thead{
     width:30%;
     height:auto;
 }
+.image_next img{
+    width:50%;
+    height:auto;
+}
 .testtable-responsive {
     background-color: rgb(212, 231, 243);
 }
