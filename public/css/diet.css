@@ -9,6 +9,15 @@ thead{
     width:80%;
     padding:16px;
 }
+.profile_next{
+    width:80%;
+    padding:16px;
+    background-color:beige;
+    height: auto;
+    margin: 0 50px;
+    border: solid 1px lightslategray;
+    padding-bottom: 30px;
+}
 .links{
     width:80%;
     margin:0 auto;
@@ -105,6 +114,9 @@ ul.chart{
 .diet_container{
     display: flex;
 }
+.diet_container_next{
+    display: flex;
+}
 .alert{
     color:red;
     font-weight: bold;
@@ -123,7 +135,8 @@ ul.chart{
     width:50%;
 }
 h3{
-    /* font-size:10px; */
+    margin:0 auto;
+    width:80%;
 }
 .chart_container {
     display: grid;
@@ -144,6 +157,37 @@ h3{
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 20px;
+}
+.scandal-background {
+    background-image: url('../img/warning_screen.png'); /* 画像のパス */
+    background-size: cover; /* 画像を要素全体に拡大縮小 */
+    background-position: center; /* 画像の中央を表示 */
+    background-repeat: no-repeat; /* 繰り返しなし */
+}
+.twitter-button {
+    display: inline-block;
+    background-color: #1DA1F2;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+.twitter-button:hover {
+    background-color: #0d8dd9;
+}
+.mail_button{
+    display: inline-block;
+    background-color: #f2b21d;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
 }
 
 /* レスポンシブデザイン対応 */
@@ -199,6 +243,11 @@ h3{
     }
     .profile{
         width:90%;
+        margin:0 auto;
+    }
+    .profile_next{
+        width:40%;
+        margin:8px auto;
     }
     .add-link {
         width: 90%;
@@ -234,6 +283,10 @@ h3{
     }
     .diet_container{
         display: block;
+    }
+    .diet_container_next{
+        display: flex;
+        flex-wrap: wrap;
     }
     #showFormBtn{
         width:35%;

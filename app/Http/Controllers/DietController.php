@@ -999,8 +999,13 @@ class DietController extends Controller
 
     //選挙向け候補者一覧(選挙区別）
     public function next($id){
-        $diets=Diet::where('next','=',$id)->orderBy('scandal', 'asc')->get();
-
+        $diets = Diet::where(function($query) use ($id) {
+            $query->where('next', '=', $id)
+                ->orWhere(function($query) use ($id) {
+                    $query->whereNull('next')
+                            ->where('area', '=', $id);
+                });
+        })->orderBy('scandal', 'asc')->get();
         foreach ($diets as $diet) {
         $birthday=$diet->birthDay;
         $diet->age = Carbon::parse($birthday)->age;

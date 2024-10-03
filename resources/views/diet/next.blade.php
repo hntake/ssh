@@ -66,9 +66,9 @@ crossorigin="anonymous"></script>
                 @endif
                 </div>  
                 <h1>2024 衆議院議員総選挙 選挙区:{{$id}}候補者一覧 </h1>
-            <div class="diet_container">
+            <div class="diet_container_next">
                 @foreach($diets as $diet)
-                <div class="profile" style="width:30%;">
+                <div class="profile_next @if($diet->scandal > 0) scandal-background @endif" >
                 @if($diet->type == '衆議院' || $diet->type == '参議院')
                     <h3>現職</h3>
                     @endif
@@ -91,13 +91,13 @@ crossorigin="anonymous"></script>
                     <div class="image">
                         <div class="one">
                             <tr class="cell">
-                            <!-- @if($diet->type=="衆議院")
+                            @if($diet->type=="衆議院")
                             <img src="https://www.shugiin.go.jp/internet/itdb_giinprof.nsf/html/profile/{{$diet->image}}.jpg/$File/{{$diet->image}}.jpg" alt="{{$diet->name}}">
                             @elseif($diet->type=="参議院")
                             <img src="https://www.sangiin.go.jp/japanese/joho1/kousei/giin/photo/{{$diet->image}}.jpg" alt="{{$diet->name}}">
                             @else
                             <img src="/img/icon_man.png" alt="man_icon">
-                            @endif                            </tr> -->
+                            @endif                            </tr> 
                             @if($diet->bribe > 0 || $diet->cult==1 || $diet->link > 0)
                             <tr>
                             

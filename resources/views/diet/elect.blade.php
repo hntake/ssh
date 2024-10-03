@@ -75,6 +75,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            margin-bottom:100px;
         }
         .block {
             margin: 10px;
@@ -102,7 +103,7 @@
 <body>
     <header>
         <h1>2024 衆議院議員総選挙(仮)</h1>
-        <p>不祥事議員には投票しない！ 選挙区別候補者一覧</p>
+        <h3>不祥事議員には投票しない！<br> 選挙区別候補者一覧</h3>
     </header>
     <div class="block-list">
         <div class="block" onclick="toggleContent('content1')">北海道エリア</div>
@@ -110,18 +111,18 @@
                 <div class="block" onclick="toggleContent('content1_prefecture')">北海道</div>
             </div>
                 <div class="content-list" id="content1_prefecture">
-                    <div class="block" ><a href="{{route('next',['id'=>'北海道1区'])}}">北海道1区</a></div>
-                    <div class="block">北海道2区</div>
-                    <div class="block" >北海道3区</div>
-                    <div class="block">北海道4区</div>
-                    <div class="block" >北海道5区</div>
-                    <div class="block">北海道6区</div>
-                    <div class="block" >北海道7区</div>
-                    <div class="block">北海道8区</div>
-                    <div class="block" >北海道9区</div>
-                    <div class="block">北海道10区</div>
-                    <div class="block" >北海道11区</div>
-                    <div class="block">北海道12区</div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道1'])}}">北海道1区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道2'])}}">北海道2区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道3'])}}">北海道3区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道4'])}}">北海道4区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道5'])}}">北海道5区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道6'])}}">北海道6区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道7'])}}">北海道7区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道8'])}}">北海道8区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道9'])}}">北海道9区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道10'])}}">北海道10区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道11'])}}">北海道11区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'北海道12'])}}">北海道12区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content2')">東北エリア</div>
             <div class="content-list" id="content2">
@@ -132,37 +133,38 @@
                 <div class="block" onclick="toggleContent('content2_prefecture5')">山形県</div>
                 <div class="block" onclick="toggleContent('content2_prefecture6')">福島県</div>
             </div>
-                <div class="content-list" id="content2_prefecture1">
-                    <div class="block">青森1区</div>
-                    <div class="block">青森2区</div>
-                </div>
-                <div class="content-list" id="content2_prefecture2">
-                    <div class="block">岩手1区</div>
-                    <div class="block">岩手2区</div>
-                    <div class="block">岩手3区</div>
-                </div>
+            <div class="content-list" id="content2_prefecture1">
+                <div class="block" ><a href="{{route('next',['id'=>'青森1'])}}">青森1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'青森2'])}}">青森2区</a></div>
+            </div>
+            <div class="content-list" id="content2_prefecture2">
+                <div class="block" ><a href="{{route('next',['id'=>'岩手1'])}}">岩手1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'岩手2'])}}">岩手2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'岩手3'])}}">岩手3区</a></div>
+            </div>
                 <div class="content-list" id="content2_prefecture3">
-                    <div class="block">宮城1区</div>
-                    <div class="block">宮城2区</div>
-                    <div class="block">宮城3区</div>
-                    <div class="block">宮城4区</div>
-                    <div class="block">宮城5区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'宮城1'])}}">宮城1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'宮城2'])}}">宮城2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'宮城3'])}}">宮城3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'宮城4'])}}">宮城4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'宮城5'])}}">宮城5区</a></div>
+
                 </div>
                 <div class="content-list" id="content2_prefecture4">
-                    <div class="block">秋田1区</div>
-                    <div class="block">秋田2区</div>
-                    <div class="block">秋田3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'秋田1'])}}">秋田1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'秋田2'])}}">秋田2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'秋田3'])}}">秋田3区</a></div>
                 </div>
                 <div class="content-list" id="content2_prefecture5">
-                    <div class="block">山形1区</div>
-                    <div class="block">山形2区</div>
-                    <div class="block">山形3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'山形1'])}}">山形1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'山形2'])}}">山形2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'山形3'])}}">山形3区</a></div>
                 </div>
                 <div class="content-list" id="content2_prefecture6">
-                    <div class="block">福島1区</div>
-                    <div class="block">福島2区</div>
-                    <div class="block">福島3区</div>
-                    <div class="block">福島4区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'福島1'])}}">福島1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'福島2'])}}">福島2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'福島3'])}}">福島3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'福島4'])}}">福島4区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content3')">北関東エリア</div>
             <div class="content-list" id="content3">
@@ -172,45 +174,45 @@
                 <div class="block" onclick="toggleContent('content3_prefecture4')">埼玉県</div>
             </div>
                 <div class="content-list" id="content3_prefecture1">
-                    <div class="block">茨城1区</div>
-                    <div class="block">茨城2区</div>
-                    <div class="block">茨城3区</div>
-                    <div class="block">茨城4区</div>
-                    <div class="block">茨城5区</div>
-                    <div class="block">茨城6区</div>
-                    <div class="block">茨城7区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'茨城1'])}}">茨城1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'茨城2'])}}">茨城2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'茨城3'])}}">茨城3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'茨城4'])}}">茨城4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'茨城5'])}}">茨城5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'茨城6'])}}">茨城6区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'茨城7'])}}">茨城7区</a></div>
                 </div>
                 <div class="content-list" id="content3_prefecture2">
-                    <div class="block">栃木1区</div>
-                    <div class="block">栃木2区</div>
-                    <div class="block">栃木3区</div>
-                    <div class="block">栃木4区</div>
-                    <div class="block">栃木5区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'栃木1'])}}">栃木1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'栃木2'])}}">栃木2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'栃木3'])}}">栃木3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'栃木4'])}}">栃木4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'栃木5'])}}">栃木5区</a></div>
                 </div>
                 <div class="content-list" id="content3_prefecture3">
-                    <div class="block">群馬1区</div>
-                    <div class="block">群馬2区</div>
-                    <div class="block">群馬3区</div>
-                    <div class="block">群馬4区</div>
-                    <div class="block">群馬5区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'群馬1'])}}">群馬1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'群馬2'])}}">群馬2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'群馬3'])}}">群馬3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'群馬4'])}}">群馬4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'群馬5'])}}">群馬5区</a></div>
                 </div>
                 <div class="content-list" id="content3_prefecture4">
-                    <div class="block">埼玉1区</div>
-                    <div class="block">埼玉2区</div>
-                    <div class="block">埼玉3区</div>
-                    <div class="block">埼玉4区</div>
-                    <div class="block">埼玉5区</div>
-                    <div class="block">埼玉6区</div>
-                    <div class="block">埼玉7区</div>
-                    <div class="block">埼玉8区</div>
-                    <div class="block">埼玉9区</div>
-                    <div class="block">埼玉10区</div>
-                    <div class="block">埼玉11区</div>
-                    <div class="block">埼玉12区</div>
-                    <div class="block">埼玉13区</div>
-                    <div class="block">埼玉14区</div>
-                    <div class="block">埼玉15区</div>
-                    <div class="block">埼玉16区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉1'])}}">埼玉1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉2'])}}">埼玉2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉3'])}}">埼玉3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉4'])}}">埼玉4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉5'])}}">埼玉5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉6'])}}">埼玉6区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉7'])}}">埼玉7区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉8'])}}">埼玉8区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉9'])}}">埼玉9区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉10'])}}">埼玉10区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉11'])}}">埼玉11区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉12'])}}">埼玉12区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉13'])}}">埼玉13区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉14'])}}">埼玉14区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉15'])}}">埼玉15区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'埼玉16'])}}">埼玉16区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content4')">南関東エリア</div>
         <div class="content-list" id="content4">
@@ -219,42 +221,42 @@
                 <div class="block" onclick="toggleContent('content4_prefecture3')">山梨県</div>
             </div>
                 <div class="content-list" id="content4_prefecture1">
-                    <div class="block">千葉1区</div>
-                    <div class="block">千葉2区</div>
-                    <div class="block">千葉3区</div>
-                    <div class="block">千葉4区</div>
-                    <div class="block">千葉5区</div>
-                    <div class="block">千葉6区</div>
-                    <div class="block">千葉7区</div>
-                    <div class="block">千葉8区</div>
-                    <div class="block">千葉9区</div>
-                    <div class="block">千葉10区</div>
-                    <div class="block">千葉11区</div>
-                    <div class="block">千葉12区</div>
-                    <div class="block">千葉13区</div>
-                    <div class="block">千葉14区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉1'])}}">千葉1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉2'])}}">千葉2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉3'])}}">千葉3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉4'])}}">千葉4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉5'])}}">千葉5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉6'])}}">千葉6区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉7'])}}">千葉7区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉8'])}}">千葉8区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉9'])}}">千葉9区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉10'])}}">千葉10区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉11'])}}">千葉11区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉12'])}}">千葉12区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉13'])}}">千葉13区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'千葉14'])}}">千葉14区</a></div>
                 </div>
                 <div class="content-list" id="content4_prefecture2">
-                    <div class="block">神奈川1区</div>
-                    <div class="block">神奈川2区</div>
-                    <div class="block">神奈川3区</div>
-                    <div class="block">神奈川4区</div>
-                    <div class="block">神奈川5区</div>
-                    <div class="block">神奈川6区</div>
-                    <div class="block">神奈川7区</div>
-                    <div class="block">神奈川8区</div>
-                    <div class="block">神奈川9区</div>
-                    <div class="block">神奈川10区</div>
-                    <div class="block">神奈川11区</div>
-                    <div class="block">神奈川12区</div>
-                    <div class="block">神奈川13区</div>
-                    <div class="block">神奈川14区</div>
-                    <div class="block">神奈川15区</div>
-                    <div class="block">神奈川16区</div>
-                    <div class="block">神奈川17区</div>
-                    <div class="block">神奈川18区</div>
-                    <div class="block">神奈川19区</div>
-                    <div class="block">神奈川20区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川1'])}}">神奈川1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川2'])}}">神奈川2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川3'])}}">神奈川3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川4'])}}">神奈川4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川5'])}}">神奈川5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川6'])}}">神奈川6区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川7'])}}">神奈川7区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川8'])}}">神奈川8区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川9'])}}">神奈川9区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川10'])}}">神奈川10区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川11'])}}">神奈川11区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川12'])}}">神奈川12区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川13'])}}">神奈川13区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川14'])}}">神奈川14区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川15'])}}">神奈川15区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川16'])}}">神奈川16区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川17'])}}">神奈川17区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川18'])}}">神奈川18区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川19'])}}">神奈川19区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'神奈川20'])}}">神奈川20区</a></div>
                 </div>
                 <div class="content-list" id="content4_prefecture3">
                     <div class="block">山梨1区</div>
@@ -265,36 +267,36 @@
                 <div class="block" onclick="toggleContent('content5_prefecture')">東京都</div>
             </div>
             <div class="content-list" id="content5_prefecture1">
-                    <div class="block">東京1区</div>
-                    <div class="block">東京2区</div>
-                    <div class="block">東京3区</div>
-                    <div class="block">東京4区</div>
-                    <div class="block">東京5区</div>
-                    <div class="block">東京6区</div>
-                    <div class="block">東京7区</div>
-                    <div class="block">東京8区</div>
-                    <div class="block">東京9区</div>
-                    <div class="block">東京10区</div>
-                    <div class="block">東京11区</div>
-                    <div class="block">東京12区</div>
-                    <div class="block">東京13区</div>
-                    <div class="block">東京14区</div>
-                    <div class="block">東京15区</div>
-                    <div class="block">東京16区</div>
-                    <div class="block">東京17区</div>
-                    <div class="block">東京18区</div>
-                    <div class="block">東京19区</div>
-                    <div class="block">東京20区</div>
-                    <div class="block">東京21区</div>
-                    <div class="block">東京22区</div>
-                    <div class="block">東京23区</div>
-                    <div class="block">東京24区</div>
-                    <div class="block">東京25区</div>
-                    <div class="block">東京26区</div>
-                    <div class="block">東京27区</div>
-                    <div class="block">東京28区</div>
-                    <div class="block">東京29区</div>
-                    <div class="block">東京30区</div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京1'])}}">東京1区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京2'])}}">東京2区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京3'])}}">東京3区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京4'])}}">東京4区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京5'])}}">東京5区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京6'])}}">東京6区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京7'])}}">東京7区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京8'])}}">東京8区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京9'])}}">東京9区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京10'])}}">東京10区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京11'])}}">東京11区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京12'])}}">東京12区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京13'])}}">東京13区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京14'])}}">東京14区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京15'])}}">東京15区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京16'])}}">東京16区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京17'])}}">東京17区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京18'])}}">東京18区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京19'])}}">東京19区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京20'])}}">東京20区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京21'])}}">東京21区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京22'])}}">東京22区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京23'])}}">東京23区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京24'])}}">東京24区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京25'])}}">東京25区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京26'])}}">東京26区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京27'])}}">東京27区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京28'])}}">東京28区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京29'])}}">東京29区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'東京30'])}}">東京30区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content6')">北陸信越エリア</div>
             <div class="content-list" id="content6">
@@ -305,32 +307,32 @@
                 <div class="block" onclick="toggleContent('content6_prefecture5')">福井県</div>
             </div>
                 <div class="content-list" id="content6_prefecture1">
-                    <div class="block">新潟1区</div>
-                    <div class="block">新潟2区</div>
-                    <div class="block">新潟3区</div>
-                    <div class="block">新潟4区</div>
-                    <div class="block">新潟5区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'新潟1'])}}">新潟1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'新潟2'])}}">新潟2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'新潟3'])}}">新潟3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'新潟4'])}}">新潟4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'新潟5'])}}">新潟5区</a></div>
                 </div>
                 <div class="content-list" id="content6_prefecture2">
-                    <div class="block">長野1区</div>
-                    <div class="block">長野2区</div>
-                    <div class="block">長野3区</div>
-                    <div class="block">長野4区</div>
-                    <div class="block">長野5区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'長野1'])}}">長野1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'長野2'])}}">長野2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'長野3'])}}">長野3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'長野4'])}}">長野4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'長野5'])}}">長野5区</a></div>
                 </div>
                 <div class="content-list" id="content6_prefecture3">
-                    <div class="block">富山1区</div>
-                    <div class="block">富山2区</div>
-                    <div class="block">富山3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'富山1'])}}">富山1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'富山2'])}}">富山2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'富山3'])}}">富山3区</a></div>
                 </div>
                 <div class="content-list" id="content6_prefecture4">
-                    <div class="block">石川1区</div>
-                    <div class="block">石川2区</div>
-                    <div class="block">石川3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'石川1'])}}">石川1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'石川2'])}}">石川2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'石川3'])}}">石川3区</a></div>
                 </div>
                 <div class="content-list" id="content6_prefecture5">
-                    <div class="block">福井1区</div>
-                    <div class="block">福井2区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'福井1'])}}">福井1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'福井2'])}}">福井2区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content7')">東海エリア</div>
             <div class="content-list" id="content7">
@@ -340,45 +342,45 @@
                 <div class="block" onclick="toggleContent('content7_prefecture4')">三重県</div>
             </div>
             <div class="content-list" id="content7_prefecture1">
-                    <div class="block">岐阜1区</div>
-                    <div class="block">岐阜2区</div>
-                    <div class="block">岐阜3区</div>
-                    <div class="block">岐阜4区</div>
-                    <div class="block">岐阜5区</div>
-                </div>
+            <div class="block" ><a href="{{route('next',['id'=>'岐阜1'])}}">岐阜1区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'岐阜2'])}}">岐阜2区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'岐阜3'])}}">岐阜3区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'岐阜4'])}}">岐阜4区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'岐阜5'])}}">岐阜5区</a></div>
+            </div>
                 <div class="content-list" id="content7_prefecture2">
-                    <div class="block">愛知1区</div>
-                    <div class="block">愛知2区</div>
-                    <div class="block">愛知3区</div>
-                    <div class="block">愛知4区</div>
-                    <div class="block">愛知5区</div>
-                    <div class="block">愛知6区</div>
-                    <div class="block">愛知7区</div>
-                    <div class="block">愛知8区</div>
-                    <div class="block">愛知9区</div>
-                    <div class="block">愛知10区</div>
-                    <div class="block">愛知11区</div>
-                    <div class="block">愛知12区</div>
-                    <div class="block">愛知13区</div>
-                    <div class="block">愛知14区</div>
-                    <div class="block">愛知15区</div>
-                    <div class="block">愛知16区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知1'])}}">愛知1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知2'])}}">愛知2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知3'])}}">愛知3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知4'])}}">愛知4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知5'])}}">愛知5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知6'])}}">愛知6区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知7'])}}">愛知7区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知8'])}}">愛知8区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知9'])}}">愛知9区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知10'])}}">愛知10区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知11'])}}">愛知11区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知12'])}}">愛知12区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知13'])}}">愛知13区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知14'])}}">愛知14区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知15'])}}">愛知15区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛知16'])}}">愛知16区</a></div>
                 </div>
                 <div class="content-list" id="content7_prefecture3">
-                    <div class="block">静岡1区</div>
-                    <div class="block">静岡2区</div>
-                    <div class="block">静岡3区</div>
-                    <div class="block">静岡4区</div>
-                    <div class="block">静岡5区</div>
-                    <div class="block">静岡6区</div>
-                    <div class="block">静岡7区</div>
-                    <div class="block">静岡8区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'静岡1'])}}">静岡1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'静岡2'])}}">静岡2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'静岡3'])}}">静岡3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'静岡4'])}}">静岡4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'静岡5'])}}">静岡5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'静岡6'])}}">静岡6区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'静岡7'])}}">静岡7区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'静岡8'])}}">静岡8区</a></div>
                 </div>
                 <div class="content-list" id="content7_prefecture4">
-                    <div class="block">三重1区</div>
-                    <div class="block">三重2区</div>
-                    <div class="block">三重3区</div>
-                    <div class="block">三重4区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'三重1'])}}">三重1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'三重2'])}}">三重2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'三重3'])}}">三重3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'三重4'])}}">三重4区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content8')">近畿エリア</div>
             <div class="content-list" id="content8">
@@ -390,61 +392,61 @@
                 <div class="block" onclick="toggleContent('content8_prefecture6')">和歌山県</div>
             </div>
             <div class="content-list" id="content8_prefecture1">
-                    <div class="block">大阪1区</div>
-                    <div class="block">大阪2区</div>
-                    <div class="block">大阪3区</div>
-                    <div class="block">大阪4区</div>
-                    <div class="block">大阪5区</div>
-                    <div class="block">大阪6区</div>
-                    <div class="block">大阪7区</div>
-                    <div class="block">大阪8区</div>
-                    <div class="block">大阪9区</div>
-                    <div class="block">大阪10区</div>
-                    <div class="block">大阪11区</div>
-                    <div class="block">大阪12区</div>
-                    <div class="block">大阪13区</div>
-                    <div class="block">大阪14区</div>
-                    <div class="block">大阪15区</div>
-                    <div class="block">大阪16区</div>
-                    <div class="block">大阪17区</div>
-                    <div class="block">大阪18区</div>
-                    <div class="block">大阪19区</div>
-                </div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪1'])}}">大阪1区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪2'])}}">大阪2区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪3'])}}">大阪3区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪4'])}}">大阪4区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪5'])}}">大阪5区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪6'])}}">大阪6区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪7'])}}">大阪7区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪8'])}}">大阪8区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪9'])}}">大阪9区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪10'])}}">大阪10区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪11'])}}">大阪11区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪12'])}}">大阪12区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪13'])}}">大阪13区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪14'])}}">大阪14区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪15'])}}">大阪15区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪16'])}}">大阪16区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪17'])}}">大阪17区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪18'])}}">大阪18区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'大阪19'])}}">大阪19区</a></div>
+            </div>
                 <div class="content-list" id="content8_prefecture2">
-                    <div class="block">兵庫1区</div>
-                    <div class="block">兵庫2区</div>
-                    <div class="block">兵庫3区</div>
-                    <div class="block">兵庫4区</div>
-                    <div class="block">兵庫5区</div>
-                    <div class="block">兵庫6区</div>
-                    <div class="block">兵庫7区</div>
-                    <div class="block">兵庫8区</div>
-                    <div class="block">兵庫9区</div>
-                    <div class="block">兵庫10区</div>
-                    <div class="block">兵庫11区</div>
-                    <div class="block">兵庫12区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫1'])}}">兵庫1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫2'])}}">兵庫2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫3'])}}">兵庫3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫4'])}}">兵庫4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫5'])}}">兵庫5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫6'])}}">兵庫6区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫7'])}}">兵庫7区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫8'])}}">兵庫8区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫9'])}}">兵庫9区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫10'])}}">兵庫10区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫11'])}}">兵庫11区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'兵庫12'])}}">兵庫12区</a></div>
                 </div>
                 <div class="content-list" id="content8_prefecture3">
-                    <div class="block">滋賀1区</div>
-                    <div class="block">滋賀2区</div>
-                    <div class="block">滋賀3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'滋賀1'])}}">滋賀1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'滋賀2'])}}">滋賀2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'滋賀3'])}}">滋賀3区</a></div>
                 </div>
                 <div class="content-list" id="content8_prefecture4">
-                    <div class="block">京都1区</div>
-                    <div class="block">京都2区</div>
-                    <div class="block">京都3区</div>
-                    <div class="block">京都4区</div>
-                    <div class="block">京都5区</div>
-                    <div class="block">京都6区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'京都1'])}}">京都1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'京都2'])}}">京都2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'京都3'])}}">京都3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'京都4'])}}">京都4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'京都5'])}}">京都5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'京都6'])}}">京都6区</a></div>
                 </div>
                 <div class="content-list" id="content8_prefecture5">
-                    <div class="block">奈良1区</div>
-                    <div class="block">奈良2区</div>
-                    <div class="block">奈良3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'奈良1'])}}">奈良1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'奈良2'])}}">奈良2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'奈良3'])}}">奈良3区</a></div>
                 </div>
                 <div class="content-list" id="content8_prefecture6">
-                    <div class="block">和歌山1区</div>
-                    <div class="block">和歌山2区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'和歌山1'])}}">和歌山1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'和歌山2'])}}">和歌山2区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content9')">中国エリア</div>
             <div class="content-list" id="content9">
@@ -455,31 +457,31 @@
                 <div class="block" onclick="toggleContent('content9_prefecture5')">山口県</div>
             </div>
             <div class="content-list" id="content9_prefecture1">
-                    <div class="block">鳥取1区</div>
-                    <div class="block">鳥取2区</div>
-                </div>
+            <div class="block" ><a href="{{route('next',['id'=>'鳥取1'])}}">鳥取1区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'鳥取2'])}}">鳥取2区</a></div>
+            </div>
                 <div class="content-list" id="content9_prefecture2">
-                    <div class="block">島根1区</div>
-                    <div class="block">島根2区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'島根1'])}}">島根1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'島根2'])}}">島根2区</a></div>
                 </div>
                 <div class="content-list" id="content9_prefecture3">
-                    <div class="block">岡山1区</div>
-                    <div class="block">岡山2区</div>
-                    <div class="block">岡山3区</div>
-                    <div class="block">岡山4区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'岡山1'])}}">岡山1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'岡山2'])}}">岡山2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'岡山3'])}}">岡山3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'岡山4'])}}">岡山4区</a></div>
                 </div>
                 <div class="content-list" id="content9_prefecture4">
-                    <div class="block">広島1区</div>
-                    <div class="block">広島2区</div>
-                    <div class="block">広島3区</div>
-                    <div class="block">広島4区</div>
-                    <div class="block">広島5区</div>
-                    <div class="block">広島6区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'広島1'])}}">広島1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'広島2'])}}">広島2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'広島3'])}}">広島3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'広島4'])}}">広島4区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'広島5'])}}">広島5区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'広島6'])}}">広島6区</a></div>
                 </div>
                 <div class="content-list" id="content9_prefecture5">
-                    <div class="block">山口1区</div>
-                    <div class="block">山口2区</div>
-                    <div class="block">山口3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'山口1'])}}">山口1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'山口2'])}}">山口2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'山口3'])}}">山口3区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content10')">四国エリア</div>
             <div class="content-list" id="content10">
@@ -489,22 +491,22 @@
                 <div class="block" onclick="toggleContent('content10_prefecture4')">高知県</div>
             </div>
             <div class="content-list" id="content10_prefecture1">
-                    <div class="block">徳島1区</div>
-                    <div class="block">徳島2区</div>
-                </div>
+            <div class="block" ><a href="{{route('next',['id'=>'徳島1'])}}">徳島1区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'徳島2'])}}">徳島2区</a></div>
+            </div>
                 <div class="content-list" id="content10_prefecture2">
-                    <div class="block">香川1区</div>
-                    <div class="block">香川2区</div>
-                    <div class="block">香川3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'香川1'])}}">香川1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'香川2'])}}">香川2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'香川3'])}}">香川3区</a></div>
                 </div>
                 <div class="content-list" id="content10_prefecture3">
-                    <div class="block">愛媛1区</div>
-                    <div class="block">愛媛2区</div>
-                    <div class="block">愛媛3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛媛1'])}}">愛媛1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛媛2'])}}">愛媛2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'愛媛3'])}}">愛媛3区</a></div>
                 </div>
                 <div class="content-list" id="content10_prefecture4">
-                    <div class="block">高知1区</div>
-                    <div class="block">高知2区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'高知1'])}}">高知1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'高知2'])}}">高知2区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content11')">九州エリア</div>
             <div class="content-list" id="content11">
@@ -518,57 +520,82 @@
                 <div class="block" onclick="toggleContent('content11_prefecture6')">沖縄県</div>
             </div>
             <div class="content-list" id="content11_prefecture1">
-                    <div class="block">福岡1区</div>
-                    <div class="block">福岡2区</div>
-                    <div class="block">福岡3区</div>
-                    <div class="block">福岡4区</div>
-                    <div class="block">福岡5区</div>
-                    <div class="block">福岡6区</div>
-                    <div class="block">福岡7区</div>
-                    <div class="block">福岡8区</div>
-                    <div class="block">福岡9区</div>
-                    <div class="block">福岡10区</div>
-                    <div class="block">福岡11区</div>
-                </div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡1'])}}">福岡1区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡2'])}}">福岡2区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡3'])}}">福岡3区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡4'])}}">福岡4区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡5'])}}">福岡5区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡6'])}}">福岡6区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡7'])}}">福岡7区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡8'])}}">福岡8区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡9'])}}">福岡9区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡10'])}}">福岡10区</a></div>
+            <div class="block" ><a href="{{route('next',['id'=>'福岡11'])}}">福岡11区</a></div>
+            </div>
                 <div class="content-list" id="content11_prefecture2">
-                    <div class="block">佐賀1区</div>
-                    <div class="block">佐賀2区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'佐賀1'])}}">佐賀1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'佐賀2'])}}">佐賀2区</a></div>
                 </div>
                 <div class="content-list" id="content11_prefecture3">
-                    <div class="block">長崎1区</div>
-                    <div class="block">長崎2区</div>
-                    <div class="block">長崎3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'長崎1'])}}">長崎1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'長崎2'])}}">長崎2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'長崎3'])}}">長崎3区</a></div>
                 </div>
                 <div class="content-list" id="content11_prefecture4">
-                    <div class="block">大分1区</div>
-                    <div class="block">大分2区</div>
-                    <div class="block">大分3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'大分1'])}}">大分1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'大分2'])}}">大分2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'大分3'])}}">大分3区</a></div>
                 </div>
                 <div class="content-list" id="content11_prefecture5">
-                    <div class="block">宮崎1区</div>
-                    <div class="block">宮崎2区</div>
-                    <div class="block">宮崎3区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'宮崎1'])}}">宮崎1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'宮崎2'])}}">宮崎2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'宮崎3'])}}">宮崎3区</a></div>
                 </div>
                 <div class="content-list" id="content11_prefecture6">
-                    <div class="block">熊本1区</div>
-                    <div class="block">熊本2区</div>
-                    <div class="block">熊本3区</div>
-                    <div class="block">熊本4区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'熊本1'])}}">熊本1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'熊本2'])}}">熊本2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'熊本3'])}}">熊本3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'熊本4'])}}">熊本4区</a></div>
                 </div>
                 <div class="content-list" id="content11_prefecture6">
-                    <div class="block">鹿児島1区</div>
-                    <div class="block">鹿児島2区</div>
-                    <div class="block">鹿児島3区</div>
-                    <div class="block">鹿児島4区</div>
+                <div class="block" ><a href="{{route('next',['id'=>'鹿児島1'])}}">鹿児島1区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'鹿児島2'])}}">鹿児島2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'鹿児島3'])}}">鹿児島3区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'鹿児島4'])}}">鹿児島4区</a></div>
                 </div>
                 <div class="content-list" id="content11_prefecture7">
-                    <div class="block">沖縄1区</div>
-                    <div class="block">沖縄2区</div>
-                    <div class="block">沖縄3区</div>
-                    <div class="block">沖縄4区</div>
+                    <div class="block" ><a href="{{route('next',['id'=>'沖縄1'])}}">沖縄1区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'沖縄2'])}}">沖縄2区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'沖縄3'])}}">沖縄3区</a></div>
+                    <div class="block" ><a href="{{route('next',['id'=>'沖縄4'])}}">沖縄4区</a></div>
                 </div>
-    </div>
+
+        </div>
     
+        <div class="bottom">
+                    <a name="scandal" class="scandal" ></a>
+
+                    <h3 style="color:red; font-weight:bold;">※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</h3>
+                    <a href="https://clearing-house.org/?p=6069" target=”_blank><p>・参照サイト:政治資金パーティー収入 裏金はおいくらでしたか？（裏金国会議員一覧）</p></a>
+                    <a href="https://www.nikkan-gendai.com/articles/view/news/340481/2"target=”_blank><p>・自民“裏金”衆院議員44人の「新選挙区」はココだ! 政倫審拒否した全員を落選させるしかない【表付き】</p></a>
+                    <a href="https://www.tokyo-np.co.jp/article/319270"target=”_blank><p>・「処分なし」の裏金議員ら46人は誰？ なぜ不問？「巻き込まれた」主張の議員も【一覧】</p></a>
+                    <a href="https://digital.kyodonews.jp/static/diet/questionnaire/list0.html" target=”_blank><p>・参照サイト:共同通信 全国会議員７１２人アンケート 旧統一教会と政治の関係）</p></a>
+                    <a href="https://www.news-postseven.com/archives/20220907_1790895.html?DETAIL" target=”_blank><p>・参照サイト:【鈴木エイト氏が追跡3000日】旧統一教会と関係していた国会議員168人名簿</p></a>
+                    <a href="https://go2senkyo.com/shugiin/22503" target=”_blank><p>・参照サイト:選挙ドットコム 第50回衆議院議員選挙</p></a>
+                    <p>・まだ衆議院選挙への立候補を正式に表明していない議員も、前回の選挙区から再び立候補する見込みで表示している場合もあります。</p>
+                    <p>・選挙区や情報に間違いがありましたら、お気軽にご連絡ください。</p>
+                        <div class="mail_button">
+                            <a href="{{ route('contact.index') }}" style="margin:0 auto; display:flex; justify-content: center;    color: white;">Contact us</a>
+                        </div>
+                    <a href="https://x.com/long_msc" class="twitter-button" target="_blank">Twitter公式アカウント</a>
+                </div>
+        <div class="site-info">
+                        <div class="widget">
+                            <div class="copy-right">
+                                <span class="copy-right-text">© All rights reserved by llco</span>
+                            </div>
+                        </div>
+        </div>
     <!-- 他の地域の内容も同様に追加 -->
 
     <script>
