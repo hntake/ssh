@@ -266,7 +266,7 @@
         <div class="content-list" id="content5">
                 <div class="block" onclick="toggleContent('content5_prefecture')">東京都</div>
             </div>
-            <div class="content-list" id="content5_prefecture1">
+            <div class="content-list" id="content5_prefecture">
             <div class="block" ><a href="{{route('next',['id'=>'東京1'])}}">東京1区</a></div>
             <div class="block" ><a href="{{route('next',['id'=>'東京2'])}}">東京2区</a></div>
             <div class="block" ><a href="{{route('next',['id'=>'東京3'])}}">東京3区</a></div>
