@@ -261,8 +261,8 @@
                 <div class="block" ><a href="{{route('next',['id'=>'神奈川20'])}}">神奈川20区</a></div>
                 </div>
                 <div class="content-list" id="content4_prefecture3">
-                    <div class="block">山梨1区</div>
-                    <div class="block">山梨2区</div>
+                    <div class="block"><a href="{{route('next',['id'=>'山梨1'])}}">山梨1区</a></div>
+                    <div class="block"><a href="{{route('next',['id'=>'山梨2'])}}">山梨2区</a></div>
                 </div>
         <div class="block" onclick="toggleContent('content5')">東京エリア</div>
         <div class="content-list" id="content5">
