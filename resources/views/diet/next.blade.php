@@ -89,7 +89,7 @@ crossorigin="anonymous"></script>
                             @elseif($diet->type=="参議院")
                             <img src="https://www.sangiin.go.jp/japanese/joho1/kousei/giin/photo/{{$diet->image}}.jpg" alt="{{$diet->name}}">
                             @else
-                            <img src="/img/icon_man.png" alt="man_icon">
+                            <img src="/img/icon_man.png" alt="man_icon" style="width:40%;">
                             @endif                            </tr> 
                             @if($diet->bribe > 0 || $diet->cult==1 || $diet->link > 0)
                             <!-- 「いいね」の数を表示 -->
