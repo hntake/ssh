@@ -15,8 +15,13 @@ thead{
     background-color:beige;
     height: auto;
     margin: 0 auto;
-    border: solid 1px lightslategray;
+    border: solid 1px rgb(164, 173, 182);
     padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
 }
 .links{
     width:80%;
@@ -40,8 +45,16 @@ thead{
     width:30%;
     height:auto;
 }
+.image_next {
+    display: flex;
+    flex-direction: row; /* 横並び */
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    width:40%;
+}
 .image_next img{
-    width:50%;
+    width:100%;
     height:auto;
 }
 .testtable-responsive {
@@ -120,6 +133,8 @@ ul.chart{
 }
 .diet_container_next{
     display: flex;
+    flex-direction: column;
+    gap: 10px; /* 各要素間のスペース */
 }
 .alert{
     color:red;
@@ -139,8 +154,11 @@ ul.chart{
     width:50%;
 }
 h3{
-    margin:0 auto;
-    width:80%;
+    /* margin:0 auto; */
+    /* width:80%; */
+    margin:0 16px;
+    align-items: center;
+    display: flex;
 }
 .chart_container {
     display: grid;
@@ -193,7 +211,29 @@ h3{
     font-family: Arial, sans-serif;
     font-size: 16px;
 }
-
+.one_next {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.two_next {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width:30%;
+    flex-wrap: nowrap;
+}
+.one_next img{
+    width:100%;
+}
+.bad-info {
+    margin-top: 5px;
+    color: red;
+}
+h5{
+    align-items: center;
+    display: flex;
+}
 /* レスポンシブデザイン対応 */
 @media (max-width: 768px) {
     .chart {
@@ -250,7 +290,7 @@ h3{
         margin:0 auto;
     }
     .profile_next{
-        width:40%;
+        width:100%;
         margin:8px auto;
     }
     .add-link {
@@ -310,5 +350,27 @@ h3{
     }
     ul.chart{
         margin:8px;
+    }
+    .one_next img {
+        width: 70%;
+    }
+    .two_next {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        flex-wrap: nowrap;
+    }
+    h3{
+        font-weight: lighter;
+        font-size: smaller;
+        margin:0 4px;
+    }
+    h5{
+        font-size: smaller;
+        font-weight: lighter;
+    }
+    .image_next {
+        width:30%;
     }
 }

@@ -75,17 +75,15 @@ crossorigin="anonymous"></script>
                 @if($diet->type == '衆議院' || $diet->type == '参議院')
                     <h3>現職</h3>
                     @endif
-                    <h3>会派：{{ $diet->party }}</h3>
-                    <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">議員名<br>{{ $diet->name }}</a></h3>
+                    <h3>{{ $diet->party }}</h3>
+                    <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">{{ $diet->name }}</a></h3>
                     <h3>@if($diet->age)
                                 <td>{{ $diet->age}}歳</td>
-                           
                                 @endif
                             </h3>
-                    <h5>当サイト登録不祥事度：{{ $diet->scandal }}</h5>
+                    <h5>当サイト登録<br>不祥事度：{{ $diet->scandal }}</h5>
                     <div class="image_next">
-                        <div class="one">
-                            <tr class="cell">
+                        <div class="one_next">
                             @if($diet->type=="衆議院")
                             <img src="https://www.shugiin.go.jp/internet/itdb_giinprof.nsf/html/profile/{{$diet->image}}.jpg/$File/{{$diet->image}}.jpg" alt="{{$diet->name}}">
                             @elseif($diet->type=="参議院")
@@ -94,16 +92,12 @@ crossorigin="anonymous"></script>
                             <img src="/img/icon_man.png" alt="man_icon">
                             @endif                            </tr> 
                             @if($diet->bribe > 0 || $diet->cult==1 || $diet->link > 0)
-                            <tr>
-                            
                             <!-- 「いいね」の数を表示 -->
                             <i class="fas fa-thumbs-down"></i> {{ $diet->bad }}
                             </tr>
-                            @else
-                            <h6 style="letter-spacing: -1px; font-weight: lighter;font-size: 0.5em;">こちらの議員は不祥事が投稿されていない為、悪いねボタンは表示されません。</h6>
                             @endif
                         </div>
-                        <div class="two">
+                        <div class="two_next">
                             <tr>
                             @if($diet->bribe > 0)
                             <img src="../../img/bribe.png" alt="裏金議員">
