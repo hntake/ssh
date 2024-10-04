@@ -136,6 +136,8 @@
             <div class="content-list" id="content2_prefecture1">
                 <div class="block" ><a href="{{route('next',['id'=>'青森1'])}}">青森1区</a></div>
                 <div class="block" ><a href="{{route('next',['id'=>'青森2'])}}">青森2区</a></div>
+                <div class="block" ><a href="{{route('next',['id'=>'青森3'])}}">青森3区</a></div>
+
             </div>
             <div class="content-list" id="content2_prefecture2">
                 <div class="block" ><a href="{{route('next',['id'=>'岩手1'])}}">岩手1区</a></div>
@@ -588,7 +590,7 @@
                             <a href="{{ route('contact.index') }}" style="margin:0 auto; display:flex; justify-content: center;    color: white;">Contact us</a>
                         </div>
                     <a href="https://x.com/long_msc" class="twitter-button" target="_blank">Twitter公式アカウント</a>
-                </div>
+        </div>
         <div class="site-info">
                         <div class="widget">
                             <div class="copy-right">
