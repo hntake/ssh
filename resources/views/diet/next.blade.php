@@ -68,7 +68,9 @@ crossorigin="anonymous"></script>
                 </div>
                 @endif
                 </div>  
-                <h1>2024 衆議院議員総選挙 選挙区:{{$id}}候補者一覧 </h1>
+
+                <h1>2024 衆議院議員総選挙 選挙区:{{$id}}区候補者一覧 </h1>
+                <h2>不祥事議員には投票しない！</h2>
             <div class="diet_container_next">
                 @foreach($diets as $diet)
                 <div class="profile_next @if($diet->scandal > 0) scandal-background @endif" >
