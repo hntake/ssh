@@ -186,6 +186,18 @@ h3{
     background-position: center; /* 画像の中央を表示 */
     background-repeat: no-repeat; /* 繰り返しなし */
 }
+.heredity-background {
+    background-image: url('../img/heredity.png'); /* 画像のパス */
+    background-size: cover; /* 画像を要素全体に拡大縮小 */
+    background-position: center; /* 画像の中央を表示 */
+    background-repeat: no-repeat; /* 繰り返しなし */
+}
+.both-background {
+    background-image: url('../img/both.png'); /* 画像のパス */
+    background-size: cover; /* 画像を要素全体に拡大縮小 */
+    background-position: center; /* 画像の中央を表示 */
+    background-repeat: no-repeat; /* 繰り返しなし */
+}
 .twitter-button {
     display: inline-block;
     background-color: #1DA1F2;

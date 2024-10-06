@@ -71,15 +71,6 @@ crossorigin="anonymous"></script>
                         <h3>議員名：{{ $diet->name }}</h3>
                         <h3>@if($diet->age)
                                     <td>{{ $diet->age}}歳</td>
-                                    @else
-                                    <td>
-                                    <form method="POST" action="{{route('update_diet',['id'=> $diet->id])}}" enctype="multipart/form-data">
-                                    @csrf
-                                    @method('patch')
-                                        <input type="text" name="birthDay" id="birthDay" class="form-control" size="15" placeholder="誕生日を入力">
-                                        <div class="button"><input type="submit" value="更新">
-                                    </td>
-                                    </form>
                                     @endif
                                 </h3>
                         <h3>当サイト登録不祥事度：{{ $diet->scandal }}</h3>

@@ -69,11 +69,16 @@ crossorigin="anonymous"></script>
                 @endif
                 </div>  
 
-                <h1>2024 衆議院議員総選挙 選挙区:{{$id}}区候補者一覧 </h1>
-                <h2>不祥事議員には投票しない！</h2>
+                <h1>2024 衆議院議員総選挙 候補者一覧 </h1>
+                <h2 style="font-weight:bold;color:red;">{{$id}}区</h2>
+                <h2>不祥事議員に要注意！</h2>
             <div class="diet_container_next">
                 @foreach($diets as $diet)
-                <div class="profile_next @if($diet->scandal > 0) scandal-background @endif" >
+                <div class="profile_next 
+                    @if($diet->scandal > 0 && $diet->heredity == 1) both-background 
+                    @elseif($diet->scandal > 0) scandal-background 
+                    @elseif($diet->heredity == 1) heredity-background 
+                    @endif">               
                 @if($diet->type == '衆議院' || $diet->type == '参議院')
                     <h3>現職</h3>
                     @endif

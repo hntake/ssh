@@ -103,9 +103,37 @@
 <body>
     <header>
         <h1>2024 衆議院議員総選挙</h1>
-        <h3>不祥事議員には投票しない！<br> 選挙区別候補者一覧</h3>
+        <h2>不祥事議員に要注意！<br> 選挙区別候補者一覧</h2>
     </header>
     <div class="block-list">
+    <div id="nav-drawer">
+            <input id="nav-input" type="checkbox" class="nav-unshown">
+            <label id="nav-open" for="nav-input"><span></span></label>
+            <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+            <div id="nav-content">
+            <ul>
+                    <li><a href="{{ url('diet/vote') }}">
+                            <h3 ontouchstart="">選挙に行こう！サイトトップページに戻る</h3>
+                        </a></li>
+                    <li><a href="{{ url('diet/index') }}">
+                        <h3 ontouchstart="">不祥事度ランキング</h3>
+                    </a></li>
+                    <li><a href="{{ url('diet/all') }}">
+                        <h3 ontouchstart="">議員一覧</h3>
+                    </a></li>
+                    <li><a href="{{ url('diet/elect') }}">
+                        <h3 ontouchstart="">2024 衆議院議員総選挙</h3>
+                    </a></li>
+                </ul>
+            </div>
+            <script>
+                $(function() {
+                    $('#nav-content li a').on('click', function(event) {
+                        $('#nav-input').prop('checked', false);
+                    });
+                });
+            </script>
+        </div>
         <div class="block" onclick="toggleContent('content1')">北海道エリア</div>
             <div class="content-list" id="content1">
                 <div class="block" onclick="toggleContent('content1_prefecture')">北海道</div>
