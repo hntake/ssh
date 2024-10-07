@@ -546,8 +546,8 @@
                 <div class="block" onclick="toggleContent('content11_prefecture4')">大分県</div>
                 <div class="block" onclick="toggleContent('content11_prefecture5')">宮崎県</div>
                 <div class="block" onclick="toggleContent('content11_prefecture6')">熊本県</div>
-                <div class="block" onclick="toggleContent('content11_prefecture6')">鹿児島県</div>
-                <div class="block" onclick="toggleContent('content11_prefecture6')">沖縄県</div>
+                <div class="block" onclick="toggleContent('content11_prefecture7')">鹿児島県</div>
+                <div class="block" onclick="toggleContent('content11_prefecture8')">沖縄県</div>
             </div>
             <div class="content-list" id="content11_prefecture1">
             <div class="block" ><a href="{{route('next',['id'=>'福岡1'])}}">福岡1区</a></div>
@@ -587,13 +587,13 @@
                 <div class="block" ><a href="{{route('next',['id'=>'熊本3'])}}">熊本3区</a></div>
                 <div class="block" ><a href="{{route('next',['id'=>'熊本4'])}}">熊本4区</a></div>
                 </div>
-                <div class="content-list" id="content11_prefecture6">
+                <div class="content-list" id="content11_prefecture7">
                 <div class="block" ><a href="{{route('next',['id'=>'鹿児島1'])}}">鹿児島1区</a></div>
                 <div class="block" ><a href="{{route('next',['id'=>'鹿児島2'])}}">鹿児島2区</a></div>
                 <div class="block" ><a href="{{route('next',['id'=>'鹿児島3'])}}">鹿児島3区</a></div>
                 <div class="block" ><a href="{{route('next',['id'=>'鹿児島4'])}}">鹿児島4区</a></div>
                 </div>
-                <div class="content-list" id="content11_prefecture7">
+                <div class="content-list" id="content11_prefecture8">
                     <div class="block" ><a href="{{route('next',['id'=>'沖縄1'])}}">沖縄1区</a></div>
                     <div class="block" ><a href="{{route('next',['id'=>'沖縄2'])}}">沖縄2区</a></div>
                     <div class="block" ><a href="{{route('next',['id'=>'沖縄3'])}}">沖縄3区</a></div>

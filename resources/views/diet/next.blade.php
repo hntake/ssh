@@ -85,10 +85,16 @@ crossorigin="anonymous"></script>
                     <h3>{{ $diet->party }}</h3>
                     <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">{{ $diet->name }}</a></h3>
                     <h3>@if($diet->age)
-                                <td>{{ $diet->age}}歳</td>
+                                <td style="font-weight:bold;">{{ $diet->age}}歳</td>
                                 @endif
                             </h3>
-                    <h5>当サイト登録<br>不祥事度：{{ $diet->scandal }}</h5>
+                    @if($diet->scandal>0)        
+                    <h5 style="font-weight:bold; color:red;">登録不祥事度</h5>
+                    <h5 style="font-weight:bold; color:red;">{{ $diet->scandal }}</h5>
+                    @else
+                    <h5>登録不祥事度</h5>
+                    <h5>{{ $diet->scandal }}</h5>
+                    @endif
                     <div class="image_next">
                         <div class="one_next">
                             @if($diet->type=="衆議院")
@@ -132,7 +138,7 @@ crossorigin="anonymous"></script>
         <div class="bottom">
                     <a name="scandal" class="scandal" ></a>
 
-                    <h3 style="color:red; font-weight:bold;">※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</h3>
+                    <h3>※不祥事度数は当サイトに投稿された不祥事を以下の通り、数値化したものの合計数です。裏金疑惑議員には4点、統一教会関係議員には5点が加算されています</h3>
                     <a href="https://clearing-house.org/?p=6069" target=”_blank><p>・参照サイト:政治資金パーティー収入 裏金はおいくらでしたか？（裏金国会議員一覧）</p></a>
                     <a href="https://www.nikkan-gendai.com/articles/view/news/340481/2"target=”_blank><p>・自民“裏金”衆院議員44人の「新選挙区」はココだ! 政倫審拒否した全員を落選させるしかない【表付き】</p></a>
                     <a href="https://www.tokyo-np.co.jp/article/319270"target=”_blank><p>・「処分なし」の裏金議員ら46人は誰？ なぜ不問？「巻き込まれた」主張の議員も【一覧】</p></a>

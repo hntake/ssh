@@ -50,6 +50,9 @@ crossorigin="anonymous"></script>
                     <li><a href="{{ url('diet/all') }}">
                         <h3 ontouchstart="">議員一覧</h3>
                     </a></li>
+                    <li><a href="{{ url('diet/elect') }}">
+                        <h3 ontouchstart="">2024 衆議院議員総選挙</h3>
+                    </a></li>
                 </ul>
             </div>
             <script>
@@ -71,7 +74,11 @@ crossorigin="anonymous"></script>
                 <h1>国会議員監視サイト</h1>
             <div class="diet_container">
                 <div class="left">
-                    <div class="profile @if($diet->scandal > 0) scandal-background @endif">
+                    <div class="profile   
+                    @if($diet->scandal > 0 && $diet->heredity == 1) both-background 
+                    @elseif($diet->scandal > 0) scandal-background 
+                    @elseif($diet->heredity == 1) heredity-background 
+                    @endif">
                         
                         <h6>{{ $now }}時点<h6>
                         @if($diet->type == '衆議院' || $diet->type == '参議院')
@@ -87,11 +94,12 @@ crossorigin="anonymous"></script>
                         @endif
                         <h3>議員名：{{ $diet->name }}</h3>
                         <h3>@if($diet->age)
-                            <td>{{ $diet->age}}歳</td>
+                            <td style="font-weight:bold;">{{ $diet->age}}歳</td>
                             @else
                             @endif
                         </h3>
-                        <h3>当サイト登録不祥事度：{{ $diet->scandal }}</h3>
+                        <h3>登録不祥事度</h3>
+                        <h3 style="font-weight:bold;">{{ $diet->scandal }}</h3>                        
                         <div class="image">
                             <div class="one">
                                 <tr class="cell">
@@ -168,6 +176,7 @@ crossorigin="anonymous"></script>
 
                         <p>↑誰でも投稿できます！(管理サイドで承認後、反映されます)</p>
                         <h6>※ 既にある情報はお避けください。<h6>
+                        <h6>※世襲議員は親議員の不祥事も受け継いでいます。<h6>
                         <h6>※ 情報は、新聞などのメディアや関係議員のブログなどで虚偽と取られない情報のみを承認します。<h6>
                         <h6>※ 当サイトでは個人の思想や意見に基づく発言は、不祥事の定義からは除外されています。他にも、牛歩等の議会戦術も過去の例を鑑みて除外します。<h6>
 

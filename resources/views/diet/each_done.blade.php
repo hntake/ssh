@@ -41,6 +41,9 @@ crossorigin="anonymous"></script>
                     <li><a href="{{ url('diet/all') }}">
                         <h3 ontouchstart="">議員一覧</h3>
                     </a></li>
+                    <li><a href="{{ url('diet/elect') }}">
+                        <h3 ontouchstart="">2024 衆議院議員総選挙</h3>
+                    </a></li>
                 </ul>
             </div>
             <script>
@@ -62,7 +65,11 @@ crossorigin="anonymous"></script>
                 <h1>国会議員監視サイト</h1>
             <div class="diet_container">
                 <div class="left">
-                    <div class="profile">
+                    <div class="profile
+                    @if($diet->scandal > 0 && $diet->heredity == 1) both-background 
+                    @elseif($diet->scandal > 0) scandal-background 
+                    @elseif($diet->heredity == 1) heredity-background 
+                    @endif">
                         {{ $now }}
                         <p>時点</p>
                         <h3>議院：{{ $diet->type }}</h3>
@@ -70,10 +77,11 @@ crossorigin="anonymous"></script>
                         <h3>選挙区：{{ $diet->area }}</h3>
                         <h3>議員名：{{ $diet->name }}</h3>
                         <h3>@if($diet->age)
-                                    <td>{{ $diet->age}}歳</td>
+                                    <td style="font-weight:bold;">{{ $diet->age}}歳</td>
                                     @endif
                                 </h3>
-                        <h3>当サイト登録不祥事度：{{ $diet->scandal }}</h3>
+                                <h3>登録不祥事度</h3>
+                                <h3 style="font-weight:bold;">{{ $diet->scandal }}</h3>                        
                         <div class="image">
                             <div class="one">
                                 <tr class="cell">

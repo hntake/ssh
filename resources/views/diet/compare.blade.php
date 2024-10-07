@@ -151,6 +151,9 @@ crossorigin="anonymous"></script>
                                         <option value="{{ route( 'diet_party',['id'=>'reiwa']) }}">れいわ新選組</option>
                                 </select>
                                 </li>
+                                <li><a href="{{ url('diet/elect') }}">
+                                    <h3 ontouchstart="">2024 衆議院議員総選挙</h3>
+                                </a></li>
                             </ul>
                         </div>
                         <script>

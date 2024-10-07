@@ -96,6 +96,12 @@
                 <tbody id="scandal-data">
                     <tr>
                         <td>
+                        <div class="call-to-action" ><a href="{{ url('diet/elect') }}"><h3>2024 衆議院議員総選挙</h3></a></div>
+                        </td>
+                        <td>不祥事議員に要注意！選挙区別候補者一覧</td>
+                    </tr>
+                    <tr>
+                        <td>
                         <div class="call-to-action" ><a href="{{ route('diet_index') }}"><h3>不祥事度ランキング上位100名</h3></a></div>
                         </td>
                         <td>当サイトで登録された不祥事を数値化した合計数=不祥事度。数値が高い上位100名をランキング表示!</td>
