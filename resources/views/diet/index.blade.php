@@ -75,6 +75,10 @@ crossorigin="anonymous"></script>
                                         <a href="{{ route( 'diet_party',['id'=>'cult']) }}" class="header_nav_itm_link">統一教会</a>
                                         <div class="description1">統一教会との関係がある議員一覧</div>
                                 </li>
+                                <li class="header_nav_itm">
+                                        <a href="{{ route( 'diet_party',['id'=>'heredity']) }}" class="header_nav_itm_link">世襲議員</a>
+                                        <div class="description1">世襲議員一覧</div>
+                                </li>
                                 <li>
                                 <select onchange="window.location.href=this.value;">
                                     <option value="">ブロック別一覧</option>

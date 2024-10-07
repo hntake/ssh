@@ -305,6 +305,15 @@ class DietController extends Controller
         }elseif($id=='cult'){
             $diets = Diet::where('cult', 1)->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where('cult', 1)->orderBy('scandal', 'desc')->avg('scandal');
+        }elseif($id=='heredity'){
+            $diets = Diet::where('heredity', 1)
+            ->where(function($query) {
+                $query->where('type', '衆議院')
+                    ->orWhere('type', '参議院');
+            })
+            ->orderBy('scandal', 'desc')
+            ->paginate(50);            
+            $ave = Diet::where('heredity', 1)->orderBy('scandal', 'desc')->avg('scandal');
         }
 
     // 同じスコアの人数

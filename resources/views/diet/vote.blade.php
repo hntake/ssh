@@ -138,6 +138,12 @@
                     </tr>
                     <tr>
                         <td>
+                        <div class="call-to-action" ><a href="{{ route( 'diet_party',['id'=>'heredity']) }}"><h3>世襲議員一覧</h3></a></div>
+                        </td>
+                        <td>地盤を受け継いだだけ？世襲議員も見てみましょう！</td>
+                    </tr>
+                    <tr>
+                        <td>
                         <div class="call-to-action" ><a href="{{ route( 'diet_party',['id'=>'shu']) }}"><h3>衆議院国会議員一覧</h3></a></div>
                         </td>
                         <td>衆議院の不祥事議員は誰でしょう？見てみましょう!</td>

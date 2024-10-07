@@ -28,7 +28,19 @@ crossorigin="anonymous"></script>
 
 <div class="wrap">
     <div class="container">
-
+        <div class="search">
+            <form method="GET" action="{{ route('diet_search')}}">
+                <div class="form-group row">
+                    <!--入力-->
+                    <div class="search">
+                    <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください" class="search">
+                    </div>
+                    <div class="col-sm-auto">
+                    <button type="submit" class="btn btn-primary ">議員検索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
         <div class="header-logo-menu">
             <div id="nav-drawer">
                 <input id="nav-input" type="checkbox" class="nav-unshown">

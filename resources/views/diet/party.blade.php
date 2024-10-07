@@ -286,6 +286,10 @@ crossorigin="anonymous"></script>
                 <h1>裏金国会議員不祥事データ</h1>
                 <h3>裏金議員平均不祥事度{{$average}}</h3>
                 <p>裏金議員一覧</p>
+                @elseif($id=='heredity')
+                <h1>世襲国会議員不祥事データ</h1>
+                <h3>世襲議員平均不祥事度{{$average}}</h3>
+                <p>裏金議員一覧</p>
                 @elseif($id=='hirei')
                 <h1>比例ブロック国会議員不祥事データ</h1>
                 <h3>比例ブロック平均不祥事度{{$average}}</h3>
