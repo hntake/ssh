@@ -13,19 +13,19 @@
     <link rel="stylesheet" href="{{ asset('css/diet.css') }}"> <!-- word.cssと連携 -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Watch them! 国会議員監視サイト">
+    <meta property="og:title" content=" 2024 衆議院議員総選挙者情報">
     <meta property="og:description" content="We can change!  It's time to change Japan now.">
     <meta property="og:image" content="https://eng50cha.com/img/diet_banner_new.png">
     <meta property="og:url" content="https://eng50cha.com/diet/vote">
-    <meta property="og:site_name" content="Watch them! 国会議員監視サイト">
+    <meta property="og:site_name" content=" 2024 衆議院議員総選挙者情報">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@ITcha50">
-    <meta name="twitter:title" content=" 2024 衆議院議員総選挙情報 by 国会議員監視サイト">
+    <meta name="twitter:title" content=" 2024 衆議院議員総選挙者情報 by 国会議員監視サイト">
     <meta name="twitter:description" content="We can change! It's time to change Japan now.">
-    <meta name="twitter:image" content="https://eng50cha.com/img/2024elect_banner.png?4362984378">
+    <meta name="twitter:image" content="https://eng50cha.com/img/caution.png">
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
-    <title>2024 衆議院議員総選挙</title>
+    <title>2024 衆議院議員総選挙 候補者一覧</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -105,6 +105,9 @@
         <h1>2024 衆議院議員総選挙</h1>
         <h2>不祥事議員に要注意！<br> 選挙区別候補者一覧</h2>
     </header>
+    <div class="banner" style="margin:0 auto;">
+            <img src="../img/caution.png" alt="2024 衆議院議員総選挙 候補者一覧 不祥事議員に要注意">
+        </div>
     <div class="block-list">
     <div id="nav-drawer">
             <input id="nav-input" type="checkbox" class="nav-unshown">
@@ -134,6 +137,7 @@
                 });
             </script>
         </div>
+      
         <div class="block" onclick="toggleContent('content1')">北海道エリア</div>
             <div class="content-list" id="content1">
                 <div class="block" onclick="toggleContent('content1_prefecture')">北海道</div>
