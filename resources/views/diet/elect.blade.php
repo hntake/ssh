@@ -101,6 +101,10 @@
     </style>
 </head>
 <body>
+        <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="2024 衆議院議員総選挙 候補者一覧 不祥事議員に要注意 " data-url="{{ url('diet/elect') }}?v=1">Tweet</a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
         <h1>2024 衆議院議員総選挙</h1>
         <h2>不祥事議員に要注意！<br> 選挙区別候補者一覧</h2>
