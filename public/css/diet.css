@@ -24,8 +24,9 @@ thead{
     margin-bottom: 15px;
 }
 .links{
-    width:80%;
-    margin:0 auto;
+    margin:16px auto;
+    background-color: lightgoldenrodyellow;
+    padding: 8px;
 }
 .add{
     padding:16px;
@@ -245,6 +246,9 @@ h3{
 h5{
     align-items: center;
     display: flex;
+}
+.right{
+    margin:0 24px;
 }
 /* レスポンシブデザイン対応 */
 @media (max-width: 768px) {

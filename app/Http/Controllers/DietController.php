@@ -373,13 +373,17 @@ class DietController extends Controller
         $now = new Carbon('now');
 
         $links = Link::where('diet_id','=', $id)->get();
+        $parent=Diet::where('id',  $diet->heredity)->value('name');
+        $parent_links = Link::where('diet_id','=',  $diet->heredity)->get();
+
         return view('diet/each', [
                     'diet' => $diet,
                     'genres' => $genres,
                     'id'=>$id,
                     'links'=>$links,
                     'now'=>$now,
-
+                    'parent'=>$parent,
+                    'parent_links'=>$parent_links,
                 ]);
     }
     //ビンゴ議員表示

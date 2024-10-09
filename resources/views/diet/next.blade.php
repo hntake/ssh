@@ -75,9 +75,9 @@ crossorigin="anonymous"></script>
             <div class="diet_container_next">
                 @foreach($diets as $diet)
                 <div class="profile_next 
-                    @if($diet->scandal > 0 && $diet->heredity == 1) both-background 
+                    @if($diet->scandal > 0 && $diet->heredity > 0) both-background 
                     @elseif($diet->scandal > 0) scandal-background 
-                    @elseif($diet->heredity == 1) heredity-background 
+                    @elseif($diet->heredity > 0) heredity-background 
                     @endif">               
                 @if($diet->type == '衆議院' || $diet->type == '参議院')
                     <h3>現職</h3>

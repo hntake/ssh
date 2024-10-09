@@ -63,7 +63,7 @@ crossorigin="anonymous"></script>
                 });
             </script>
         </div>
-        <div class="" style="display:block;">
+        <div class="" style="display:block;width:80%;">
             <div class="top">
                 @if(Session::has('success'))
                 <div class="alert alert-success blink">
@@ -75,9 +75,9 @@ crossorigin="anonymous"></script>
             <div class="diet_container">
                 <div class="left">
                     <div class="profile   
-                    @if($diet->scandal > 0 && $diet->heredity == 1) both-background 
+                    @if($diet->scandal > 0 && $diet->heredity > 0) both-background 
                     @elseif($diet->scandal > 0) scandal-background 
-                    @elseif($diet->heredity == 1) heredity-background 
+                    @elseif($diet->heredity > 0) heredity-background 
                     @endif">
                         
                         <h6>{{ $now }}時点<h6>
@@ -170,6 +170,21 @@ crossorigin="anonymous"></script>
                         <h6>現時点では当サイトには投稿されておりません<h6>
                         @endif
                     </div>
+                    @if($diet->heredity>1)
+                    <div class="links">
+                        <h3>当サイトに投稿され承認された親 </h3>
+                        <h3><span style="font-weight:bold; color:red;">{{$parent}}</span> の不祥事記事一覧</h3>                       
+                        @if(count($parent_links) > 0)
+                                @foreach($parent_links as $parent_link)
+                                    @if($parent_link->approved==1)
+                                    <h3><a href="{{$parent_link->address}}">{{$parent_link->title}}</a></h3>
+                                    @endif
+                                @endforeach
+                            @else
+                            <h6>現時点では当サイトには投稿されておりません<h6>
+                            @endif
+                    </div>
+                    @endif
                     <div class="add">
                         <img id="showFormBtn" src="../../img/add.png" alt="add" style="cursor:pointer;">
                         <img id="showFormBtn" src="../../img/click.png" alt="不祥事議員" style="cursor:pointer;">

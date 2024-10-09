@@ -66,9 +66,9 @@ crossorigin="anonymous"></script>
             <div class="diet_container">
                 <div class="left">
                     <div class="profile
-                    @if($diet->scandal > 0 && $diet->heredity == 1) both-background 
+                    @if($diet->scandal > 0 && $diet->heredity > 0) both-background 
                     @elseif($diet->scandal > 0) scandal-background 
-                    @elseif($diet->heredity == 1) heredity-background 
+                    @elseif($diet->heredity > 0) heredity-background 
                     @endif">
                         {{ $now }}
                         <p>時点</p>
