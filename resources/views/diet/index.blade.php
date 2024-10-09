@@ -79,6 +79,10 @@ crossorigin="anonymous"></script>
                                         <a href="{{ route( 'diet_party',['id'=>'heredity']) }}" class="header_nav_itm_link">世襲議員</a>
                                         <div class="description1">世襲議員一覧</div>
                                 </li>
+                                <li class="header_nav_itm">
+                                        <a href="{{ url('diet/elect') }}" class="header_nav_itm_link">2024 総選挙情報</a>
+                                        <div class="description1">2024 衆議院議員総選挙 候補者一覧</div>
+                                </li>
                                 <li>
                                 <select onchange="window.location.href=this.value;">
                                     <option value="">ブロック別一覧</option>
@@ -199,6 +203,7 @@ crossorigin="anonymous"></script>
                     </div>
                 </div>
             </header>
+            
             <div class="testtable-responsive">
                 <div class="top_area">
                         <div class="banner">

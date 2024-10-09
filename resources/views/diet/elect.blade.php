@@ -118,7 +118,7 @@
             <label id="nav-open" for="nav-input"><span></span></label>
             <label class="nav-unshown" id="nav-close" for="nav-input"></label>
             <div id="nav-content">
-            <ul>
+                <ul>
                     <li><a href="{{ url('diet/vote') }}">
                             <h3 ontouchstart="">選挙に行こう！サイトトップページに戻る</h3>
                         </a></li>
@@ -140,8 +140,7 @@
                     });
                 });
             </script>
-        </div>
-      
+    </div>
         <div class="block" onclick="toggleContent('content1')">北海道エリア</div>
             <div class="content-list" id="content1">
                 <div class="block" onclick="toggleContent('content1_prefecture')">北海道</div>
