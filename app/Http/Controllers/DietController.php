@@ -18,7 +18,7 @@ class DietController extends Controller
     //トップページ表示
     public function index(){
         // 上位100位までのデータを取得
-        $diets = Diet::orderByDesc('scandal')->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->take(100)->get();
+        $diets = Diet::Diet::whereIn('type', ['衆議院', '参議院'])->orderByDesc('scandal')->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->take(100)->get();
         
         // 同じスコアの人数
         $sameScoreCount = 0;
@@ -58,7 +58,7 @@ class DietController extends Controller
 
      //議員一覧表示
     public function all(){
-    $diets = Diet::orderBy('scandal', 'desc')->paginate(50);
+    $diets = Diet::Diet::whereIn('type', ['衆議院', '参議院'])->orderBy('scandal', 'desc')->paginate(50);
 
     // 同じスコアの人数
     $sameScoreCount = 0;
@@ -94,26 +94,26 @@ class DietController extends Controller
     //党ごと,院ごと、ブロックごとのページ表示
     public function party($id){
         if($id=='jimin'){
-            $diets = Diet::where('party','=', '自民')->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('party', '自民')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '自民')->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('party', '自民')->avg('scandal');
         }elseif($id=='koumei'){
-            $diets = Diet::where('party','=', '公明')->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('party', '公明')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '公明')->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('party', '公明')->avg('scandal');
         }elseif($id=='rikken'){
-            $diets = Diet::where('party','=', '立憲')->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('party', '立憲')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '立憲')->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('party', '立憲')->avg('scandal');
         }elseif($id=='ishin'){
-            $diets = Diet::where('party','=', '維教')->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('party', '維教')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '維教')->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('party', '維教')->avg('scandal');
         }elseif($id=='kyousan'){ 
-            $diets = Diet::where('party','=', '共産')->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('party', '共産')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '共産')->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('party', '共産')->avg('scandal');
         }elseif($id=='kokumin'){ 
-            $diets = Diet::where('party','=', '国民')->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('party', '国民')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '国民')->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('party', '国民')->avg('scandal');
         }elseif($id=='reiwa'){
-            $diets = Diet::where('party','=', 'れ新')->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('party', 'れ新')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', 'れ新')->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('party', 'れ新')->avg('scandal');
         }elseif($id=='shu'){
             $diets = Diet::where('type','=', '衆議院')->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where('type','=', '衆議院')->orderBy('scandal', 'desc')->avg('scandal');
@@ -121,8 +121,8 @@ class DietController extends Controller
             $diets = Diet::where('type','=', '参議院')->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where('type','=', '衆議院')->orderBy('scandal', 'desc')->avg('scandal');
         }elseif($id=='hokkaido'){
-                    $diets = Diet::where('area','LIKE', '%北海道%')->orderBy('scandal', 'desc')->paginate(50);
-                    $ave = Diet::where('area','LIKE', '%北海道%')->orderBy('scandal', 'desc')->avg('scandal');
+                    $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('area','LIKE', '%北海道%')->orderBy('scandal', 'desc')->paginate(50);
+                    $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('area','LIKE', '%北海道%')->orderBy('scandal', 'desc')->avg('scandal');
         }elseif($id=='touhoku'){
             $diets = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%東北%')
@@ -132,7 +132,9 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%秋田%')
                 ->orWhere('area', 'LIKE', '%山形%')
                 ->orWhere('area', 'LIKE', '%福島%');
-            })->orderBy('scandal', 'desc')->paginate(50);
+            })
+            ->whereIn('type', ['衆議院', '参議院']) // ここに追加
+            ->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%東北%')
                     ->orWhere('area', 'LIKE', '%青森%')
@@ -141,7 +143,9 @@ class DietController extends Controller
                     ->orWhere('area', 'LIKE', '%秋田%')
                     ->orWhere('area', 'LIKE', '%山形%')
                     ->orWhere('area', 'LIKE', '%福島%');
-            })->avg('scandal');
+            })            
+            ->whereIn('type', ['衆議院', '参議院']) // ここに追加
+            ->avg('scandal');
         }elseif($id=='Nkanto'){
             $diets = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%北関東%')
@@ -149,27 +153,35 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%栃木%')
                 ->orWhere('area', 'LIKE', '%群馬%')
                 ->orWhere('area', 'LIKE', '%埼玉%');
-            })->orderBy('scandal', 'desc')->paginate(50);
+            })            
+            ->whereIn('type', ['衆議院', '参議院']) // ここに追加
+            ->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%北関東%')
                 ->orWhere('area', 'LIKE', '%茨城%')
                 ->orWhere('area', 'LIKE', '%栃木%')
                 ->orWhere('area', 'LIKE', '%群馬%')
                 ->orWhere('area', 'LIKE', '%埼玉%');
-            })->avg('scandal');
+            })            
+            ->whereIn('type', ['衆議院', '参議院']) // ここに追加
+            ->avg('scandal');
         }elseif($id=='Skanto'){
             $diets = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%南関東%')
                 ->orWhere('area', 'LIKE', '%千葉%')
                 ->orWhere('area', 'LIKE', '%神奈川%')
                 ->orWhere('area', 'LIKE', '%山梨%');
-            })->orderBy('scandal', 'desc')->paginate(50);
+            })            
+            ->whereIn('type', ['衆議院', '参議院']) // ここに追加
+            ->orderBy('scandal', 'desc')->paginate(50);
             $ave = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%南関東%')
                 ->orWhere('area', 'LIKE', '%千葉%')
                 ->orWhere('area', 'LIKE', '%神奈川%')
                 ->orWhere('area', 'LIKE', '%山梨%');
-            })->avg('scandal');
+            })            
+            ->whereIn('type', ['衆議院', '参議院']) // ここに追加
+            ->avg('scandal');
         }elseif($id=='tokyo'){
             $diets = Diet::where(function($query) {
                 $query->where('area', 'LIKE', '%東京%');
@@ -291,20 +303,20 @@ class DietController extends Controller
                 ->orWhere('area', 'LIKE', '%熊本%');
             })->avg('scandal');
         }elseif($id=='bingo'){
-            $diets = Diet::where('bribe', '>', 0)
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('bribe', '>', 0)
             ->where('cult', 1)
             ->where('link', '>', 0)
             ->orderBy('scandal', 'desc')->paginate(50);
-        $ave = Diet::where('bribe', '>', 0)
+        $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('bribe', '>', 0)
             ->where('cult', 1)
             ->where('link', '>', 0)
             ->avg('scandal');
         }elseif($id=='bribe'){
-            $diets = Diet::where('bribe', '!=', 0)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->paginate(50);
-            $ave = Diet::where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('bribe', '!=', 0)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->avg('scandal');
         }elseif($id=='cult'){
-            $diets = Diet::where('cult', 1)->orderBy('scandal', 'desc')->paginate(50);
-            $ave = Diet::where('cult', 1)->orderBy('scandal', 'desc')->avg('scandal');
+            $diets = Diet::whereIn('type', ['衆議院', '参議院'])->where('cult', 1)->orderBy('scandal', 'desc')->paginate(50);
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('cult', 1)->orderBy('scandal', 'desc')->avg('scandal');
         }elseif($id=='heredity'){
             $diets = Diet::where('heredity', 1)
             ->where(function($query) {
@@ -313,7 +325,7 @@ class DietController extends Controller
             })
             ->orderBy('scandal', 'desc')
             ->paginate(50);            
-            $ave = Diet::where('heredity', 1)->orderBy('scandal', 'desc')->avg('scandal');
+            $ave = Diet::whereIn('type', ['衆議院', '参議院'])->where('heredity', 1)->orderBy('scandal', 'desc')->avg('scandal');
         }
 
     // 同じスコアの人数
@@ -677,7 +689,7 @@ class DietController extends Controller
         $select = $request->diet_narabi;
 
         // 並び替えロジック
-        $dietsQuery = Diet::query(); // クエリビルダを生成
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院']); // クエリビルダを生成
 
         // デフォルトの並び替え基準（スコアのみ）
         $orderByColumns = ['scandal' => 'desc'];
@@ -749,21 +761,21 @@ class DietController extends Controller
 
     // 並び替えロジック
     if($id=='jimin'){
-        $dietsQuery = Diet::query()->where('party','=', '自民');
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '自民');
     }elseif($id=='koumei'){
-        $dietsQuery = Diet::query()->where('party','=', '公明');
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '公明');
     }elseif($id=='rikken'){
-        $dietsQuery = Diet::query()->where('party','=', '立憲');
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '立憲');
     }elseif($id=='ishin'){
-        $dietsQuery = Diet::query()->where('party','=', '維教');
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '維教');
     }elseif($id=='kyousan'){ 
-        $dietsQuery = Diet::query()->where('party','=', '共産');
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '共産');
     }elseif($id=='kokumin'){ 
-        $dietsQuery = Diet::query()->where('party','=', '民主');
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', '民主');
     }elseif($id=='reiwa'){
-        $dietsQuery = Diet::query()->where('party','=', 'れ新');
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院'])->where('party','=', 'れ新');
     }elseif($id=='shu'){
-        $dietsQuery = Diet::query()->where('type','=', '衆議院');
+        $dietsQuery = Diet::whereIn('type', ['衆議院', '参議院'])->where('type','=', '衆議院');
     }elseif($id=='san'){
             $dietsQuery = Diet::query()->where('type','=', '参議院');   
     }elseif($id=='hirei'){
