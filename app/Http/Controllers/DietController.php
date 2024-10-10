@@ -18,7 +18,7 @@ class DietController extends Controller
     //トップページ表示
     public function index(){
         // 上位100位までのデータを取得
-        $diets = Diet::Diet::whereIn('type', ['衆議院', '参議院'])->orderByDesc('scandal')->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->take(100)->get();
+        $diets = Diet::whereIn('type', ['衆議院', '参議院'])->orderByDesc('scandal')->orderByRaw('CAST(bribe AS UNSIGNED) DESC')->take(100)->get();
         
         // 同じスコアの人数
         $sameScoreCount = 0;
@@ -58,7 +58,7 @@ class DietController extends Controller
 
      //議員一覧表示
     public function all(){
-    $diets = Diet::Diet::whereIn('type', ['衆議院', '参議院'])->orderBy('scandal', 'desc')->paginate(50);
+    $diets = Diet::whereIn('type', ['衆議院', '参議院'])->orderBy('scandal', 'desc')->paginate(50);
 
     // 同じスコアの人数
     $sameScoreCount = 0;
