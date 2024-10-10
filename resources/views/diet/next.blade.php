@@ -97,13 +97,13 @@ crossorigin="anonymous"></script>
                     @endif
                     <div class="image_next">
                         <div class="one_next">
-                            @if($diet->type=="衆議院")
+                            <!-- @if($diet->type=="衆議院")
                             <img src="https://www.shugiin.go.jp/internet/itdb_giinprof.nsf/html/profile/{{$diet->image}}.jpg/$File/{{$diet->image}}.jpg" alt="{{$diet->name}}">
                             @elseif($diet->type=="参議院")
                             <img src="https://www.sangiin.go.jp/japanese/joho1/kousei/giin/photo/{{$diet->image}}.jpg" alt="{{$diet->name}}">
                             @else
                             <img src="/img/icon_man.png" alt="man_icon" style="width:40%;">
-                            @endif                            </tr> 
+                            @endif                            </tr>  -->
                             @if($diet->bribe > 0 || $diet->cult==1 || $diet->link > 0)
                             <!-- 「いいね」の数を表示 -->
                             <i class="fas fa-thumbs-down"></i> {{ $diet->bad }}

@@ -102,7 +102,7 @@ crossorigin="anonymous"></script>
                         <h3 style="font-weight:bold;">{{ $diet->scandal }}</h3>                        
                         <div class="image">
                             <div class="one">
-                                <tr class="cell">
+                                <!-- <tr class="cell">
                                 @if($diet->type=="衆議院")
                                 <img src="https://www.shugiin.go.jp/internet/itdb_giinprof.nsf/html/profile/{{$diet->image}}.jpg/$File/{{$diet->image}}.jpg" alt="代替テキスト">
                                 @elseif($diet->type=="参議院")
@@ -110,7 +110,7 @@ crossorigin="anonymous"></script>
                                 @else
                                 <img src="/img/icon_man.png" alt="man_icon">
                                 @endif 
-                                </tr>
+                                </tr> -->
                                 @if($diet->bribe > 0 || $diet->cult==1 || $diet->link > 0)
                                 <tr>
                                 <div class="bad_share">
