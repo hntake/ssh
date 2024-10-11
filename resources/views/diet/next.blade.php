@@ -78,23 +78,31 @@ crossorigin="anonymous"></script>
                     @if($diet->scandal > 0 && $diet->heredity > 0) both-background 
                     @elseif($diet->scandal > 0) scandal-background 
                     @elseif($diet->heredity > 0) heredity-background 
-                    @endif">               
-                @if($diet->type == '衆議院' || $diet->type == '参議院')
-                    <h3>現職</h3>
-                    @endif
-                    <h3>{{ $diet->party }}</h3>
-                    <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">{{ $diet->name }}</a></h3>
-                    <h3>@if($diet->age)
-                                <td style="font-weight:bold;">{{ $diet->age}}歳</td>
-                                @endif
-                            </h3>
-                    @if($diet->scandal>0)        
-                    <h5 style="font-weight:bold; color:red;">登録不祥事度</h5>
-                    <h5 style="font-weight:bold; color:red;">{{ $diet->scandal }}</h5>
-                    @else
-                    <h5>登録不祥事度</h5>
-                    <h5>{{ $diet->scandal }}</h5>
-                    @endif
+                    @endif"> 
+                    <div class="profile_main">              
+                        @if($diet->type == '衆議院' || $diet->type == '参議院')
+                        <h3>現職</h3>
+                        @endif
+                        @if($diet->scandal>0)
+                        <h3 style="font-weight:bold; color:red;">{{ $diet->party }}</h3>
+                        <button class="custom-button"><a href="{{ route('diet_each',['id'=>$diet->id]) }}">{{ $diet->name }}</a></button>
+                        <h3>@if($diet->age)
+                                    <td style="font-weight:bold;">{{ $diet->age}}歳</td>
+                                    @endif
+                                </h3>        
+                        <h5 style="font-weight:bold; color:red;">登録不祥事度</h5>
+                        <h4 style="font-weight:bold; color:red;">{{ $diet->scandal }}</h4>
+                        @else
+                        <h3>{{ $diet->party }}</h3>
+                        <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">{{ $diet->name }}</a></h3>
+                        <h3>@if($diet->age)
+                                    <td style="font-weight:bold;">{{ $diet->age}}歳</td>
+                                    @endif
+                                </h3>
+                        <h5>登録不祥事度</h5>
+                        <h4>{{ $diet->scandal }}</h4>
+                        @endif
+                    </div>
                     <div class="image_next">
                         <div class="one_next">
                             <!-- @if($diet->type=="衆議院")

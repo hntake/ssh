@@ -12,16 +12,43 @@ thead{
 .profile_next{
     width:80%;
     padding:16px;
-    background-color:beige;
+    background-color:rgb(253 253 253);
     height: auto;
     margin: 0 auto;
     border: solid 1px rgb(164, 173, 182);
     padding-bottom: 30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 15px;
+}
+.profile_main{
+    display:flex;
+}
+.custom-button {
+    background-color: #121212;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: auto 0; /* ボタンが垂直方向で中央にくるよう調整 */
+}
+
+.custom-button:hover {
+    background-color: #2980b9;
+}
+.custom-button a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    line-height: 40px;
 }
 .links{
     margin:16px auto;
@@ -372,7 +399,7 @@ h5{
     }
     .two_next {
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         align-items: center;
         width: 60%;
         flex-wrap: nowrap;
