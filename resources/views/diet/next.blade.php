@@ -81,7 +81,7 @@ crossorigin="anonymous"></script>
                     @endif"> 
                     <div class="profile_main">              
                         @if($diet->type == '衆議院' || $diet->type == '参議院')
-                        <h3>現職</h3>
+                        <h3>前職</h3>
                         @endif
                         @if($diet->scandal>0)
                         <h3 style="font-weight:bold; color:red;">{{ $diet->party }}</h3>
