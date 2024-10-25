@@ -140,6 +140,19 @@
                     });
                 });
             </script>
+                <div class="search">
+                    <form method="GET" action="{{ route('diet_search')}}">
+                        <div class="form-group row">
+                            <!--入力-->
+                            <div class="search">
+                            <input type="text" class="form-control" name="search" placeholder="検索したい議員名を入力してください" class="search">
+                            </div>
+                            <div class="col-sm-auto">
+                            <button type="submit" class="btn btn-primary ">議員検索</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
     </div>
         <div class="block" onclick="toggleContent('content1')">北海道エリア</div>
             <div class="content-list" id="content1">
