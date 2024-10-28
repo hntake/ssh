@@ -80,9 +80,12 @@ crossorigin="anonymous"></script>
                     @elseif($diet->heredity > 0) heredity-background 
                     @endif"> 
                     <div class="profile_main">              
-                        @if($diet->type == '衆議院' || $diet->type == '参議院')
+                        <!-- @if($diet->type == '衆議院' || $diet->type == '参議院')
                         <h3>前職</h3>
-                        @endif
+                        @endif -->
+                        @if($diet->type == '衆議院')
+                        <h3>当選</h3>
+                        @endif 
                         @if($diet->scandal>0)
                         <h3 style="font-weight:bold; color:red;">{{ $diet->party }}</h3>
                         <button class="custom-button"><a href="{{ route('diet_each',['id'=>$diet->id]) }}">{{ $diet->name }}</a></button>
