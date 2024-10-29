@@ -110,7 +110,12 @@ crossorigin="anonymous"></script>
                                     @endif
                                 </h3>        
                         <h5 style="font-weight:bold; color:red;">登録不祥事度</h5>
-                        <h4 style="font-weight:bold; color:red;">{{ $diet->scandal }}</h4>
+                        <h4 style="font-weight:bold; color:red; display: flex;
+                            justify-content: space-around;
+                            flex-direction: column;
+                            align-content: center;
+                            flex-wrap: nowrap;">
+                            {{ $diet->scandal }}</h4>
                         @else
                         <h3>{{ $diet->party }}</h3>
                         <h3><a href="{{ route('diet_each',['id'=>$diet->id]) }}">{{ $diet->name }}</a></h3>
@@ -119,7 +124,12 @@ crossorigin="anonymous"></script>
                                     @endif
                                 </h3>
                         <h5>登録不祥事度</h5>
-                        <h4>{{ $diet->scandal }}</h4>
+                        <h4 style="font-weight:bold; color:red; display: flex;
+                            justify-content: space-around;
+                            flex-direction: column;
+                            align-content: center;
+                            flex-wrap: nowrap;">
+                            {{ $diet->scandal }}</h4>                        
                         @endif
                     </div>
                     <div class="image_next">
