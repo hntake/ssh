@@ -83,8 +83,15 @@ crossorigin="anonymous"></script>
                         <!-- @if($diet->type == '衆議院' || $diet->type == '参議院')
                         <h3>前職</h3>
                         @endif -->
-                        @if($diet->type == '衆議院')
+                        @if($diet->type == '衆議院' && $diet->scandal>=3)
                         <h3>当選</h3>
+                        <a style="width:20%;"href="{{ route('bad', ['id'=>$diet->id]) }}" class="bad" onclick="disableLink(this)">
+                                    <img  src="../../img/bad.png" alt="悪いねボタン"  >
+                                    </a>
+                                    <div class="description1">クリックして民意を伝えよう！</div>
+                        @elseif($diet->type == '衆議院' )
+                        <h3>当選</h3>
+                        <img  src="../../img/congrat.png"  style="width:10%; height:auto; margin:0;" >
                         @endif 
                         @if($diet->scandal>0)
                         <h3 style="font-weight:bold; color:red;">{{ $diet->party }}</h3>
