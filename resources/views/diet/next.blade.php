@@ -69,7 +69,7 @@ crossorigin="anonymous"></script>
                 @endif
                 </div>  
 
-                <h1>2024 衆議院議員総選挙 候補者一覧 </h1>
+                <h1>2024 衆議院議員総選挙 結果 </h1>
                 <h2 style="font-weight:bold;color:red;">{{$id}}区</h2>
                 <h2>不祥事議員に要注意！</h2>
             <div class="diet_container_next">
@@ -83,14 +83,23 @@ crossorigin="anonymous"></script>
                         <!-- @if($diet->type == '衆議院' || $diet->type == '参議院')
                         <h3>前職</h3>
                         @endif -->
-                        @if($diet->type == '衆議院' && $diet->scandal>=3)
+                        @if($diet->type == '衆議院' && $diet->scandal>=3 && $diet->area == $diet->next)
                         <h3>当選</h3>
                         <a style="width:20%;"href="{{ route('bad', ['id'=>$diet->id]) }}" class="bad" onclick="disableLink(this)">
                                     <img  src="../../img/bad.png" alt="悪いねボタン"  >
                                     </a>
                                     <div class="description1">クリックして民意を伝えよう！</div>
-                        @elseif($diet->type == '衆議院' )
+                        @elseif($diet->type == '衆議院' && $diet->scandal>=3 )
+                        <h3>比例</h3>
+                        <a style="width:20%;"href="{{ route('bad', ['id'=>$diet->id]) }}" class="bad" onclick="disableLink(this)">
+                                    <img  src="../../img/bad.png" alt="悪いねボタン"  >
+                                    </a>
+                                    <div class="description1">クリックして民意を伝えよう！</div>
+                        @elseif($diet->type == '衆議院' && $diet->area == $diet->next )
                         <h3>当選</h3>
+                        <img  src="../../img/congrat.png"  style="width:10%; height:auto; margin:0;" >
+                        @elseif($diet->type == '衆議院' )
+                        <h3>比例</h3>
                         <img  src="../../img/congrat.png"  style="width:10%; height:auto; margin:0;" >
                         @endif 
                         @if($diet->scandal>0)
