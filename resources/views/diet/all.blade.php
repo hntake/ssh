@@ -148,7 +148,7 @@ crossorigin="anonymous"></script>
                                 </li>
                                 <li class="header_nav_itm">
                                         <a href="{{ url('diet/elect') }}" class="header_nav_itm_link">2024 総選挙情報</a>
-                                        <div class="description1">2024 衆議院議員総選挙 候補者一覧</div>
+                                        <div class="description1">2024 衆議院議員総選挙 選挙結果</div>
                                 </li>
                                 <li>
                                 <select onchange="window.location.href=this.value;">

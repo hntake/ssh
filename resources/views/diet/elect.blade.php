@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://eng50cha.com/img/caution.png">
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
-    <title>2024 衆議院議員総選挙 候補者一覧</title>
+    <title>2024 衆議院議員総選挙 選挙結果</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -102,15 +102,15 @@
 </head>
 <body>
         <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
-            <a href="https://twitter.com/share" class="twitter-share-button" data-text="2024 衆議院議員総選挙 候補者一覧 不祥事議員に要注意 " data-url="{{ url('diet/elect') }}?v=1">Tweet</a>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-text="2024 衆議院議員総選挙 選挙結果 不祥事議員に要注意 " data-url="{{ url('diet/elect') }}?v=1">Tweet</a>
         </blockquote>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
         <h1>2024 衆議院議員総選挙</h1>
-        <h2>不祥事議員に要注意！<br> 選挙区別候補者一覧</h2>
+        <h2>不祥事議員に要注意！<br> 選挙区別選挙結果</h2>
     </header>
     <div class="banner" style="margin:0 auto;">
-            <img src="../img/caution.png" alt="2024 衆議院議員総選挙 候補者一覧 不祥事議員に要注意">
+            <img src="../img/caution.png" alt="2024 衆議院議員総選挙 選挙結果 不祥事議員に要注意">
         </div>
     <div class="block-list">
     <div id="nav-drawer">

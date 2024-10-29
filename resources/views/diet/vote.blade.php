@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://eng50cha.com/img/diet_banner_new.png?4362984378">
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
-    <title>選挙に行こう！ - 不祥事議員を避けるための情報サイト</title>
+    <title>選挙に行こう！ - 不祥事議員を避けるための情報サイト 選挙結果</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -98,7 +98,7 @@
                         <td>
                         <div class="call-to-action" ><a href="{{ url('diet/elect') }}"><h3>2024 衆議院議員総選挙</h3></a></div>
                         </td>
-                        <td>不祥事議員に要注意！選挙区別候補者一覧</td>
+                        <td>不祥事議員に要注意！選挙区別結果情報</td>
                     </tr>
                     <tr>
                         <td>

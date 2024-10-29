@@ -22,7 +22,7 @@
 <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
 
-<title>2024 衆議院議員総選挙 選挙区:{{$id}}候補者一覧 </title>
+<title>2024 衆議院議員総選挙 選挙区:{{$id}}選挙結果 </title>
 
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
