@@ -855,8 +855,9 @@ class DietController extends Controller
         $dietsQuery = Diet::where('bribe', '!=', null)->orderByRaw('CAST(bribe AS UNSIGNED) DESC');
     }elseif($id=='cult'){
         $dietsQuery = Diet::where('cult', 1)->orderBy('scandal', 'desc');
+    }elseif($id=='heredity'){
+        $dietsQuery = Diet::where('heredity', 1)->orderBy('scandal', 'desc');
     }
-
     // デフォルトの並び替え基準（スコアのみ）
     $orderByColumns = ['scandal' => 'desc'];
 
@@ -1022,7 +1023,7 @@ class DietController extends Controller
         return view('diet.compare', compact('rankedData'));
     }
 
-    //選挙向け候補者一覧(選挙区別）
+    //選挙向け選挙結果(選挙区別）
     public function next($id){
         $diets = Diet::where(function($query) use ($id) {
             $query->where('next', '=', $id)
