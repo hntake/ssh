@@ -178,9 +178,17 @@ class LoginController extends Controller
                 $products = Product::where('name_id','=',$stock->name_id)->orderBy('created_at', 'asc')->get();
 
                 if($stock->name == null){
+                    //会社情報にゅうりょく
+                    return view('stock/create', [
+                        'stock' => $stock,
+                        ]);
+
+                }elseif($products==null){
+                    //備品情報にゅうりょく
                     return view('create_products', [
                         'stock' => $stock,
                         ]);
+                    
                 }else{
                         // products/{id} にリダイレクト
                         return redirect()->route('products', ['id' => $stock->id]);                        

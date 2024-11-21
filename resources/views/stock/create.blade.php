@@ -29,7 +29,7 @@
     <div class="container home">
         <div class="form">
             <h1>会社情報登録</h1>
-            <form action="{{ route('stock_company_post') }}" method="POST">
+            <form action="{{ route('stock_company_post',['id'=>$stock->id]) }}" method="POST">
                 @csrf
                 <div class="r-box">
                     <div class="form-block">

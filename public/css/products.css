@@ -14,7 +14,10 @@ a#navbarDropdown{
     padding: 5px 10px;
 
 }
-
+.card{
+    text-align: center;
+    margin-top:30%;
+}
 /*サイドメニュー*/
 .side{
     background-color: lemonchiffon;

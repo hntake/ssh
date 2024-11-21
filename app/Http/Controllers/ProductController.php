@@ -92,7 +92,7 @@ class ProductController extends Controller
         $stock=Stock::where('id','=',$id)->first();
 
         $this->validate($request, [
-            'product_name' => 'required|max:25|unique:products',
+            'product_name' => 'required',
             'stock' => 'required|max:25',
             'order' => 'required|max:25',
         ]);

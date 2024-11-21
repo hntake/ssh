@@ -15,6 +15,7 @@ use App\Models\Stock; //
 use App\Models\Product; // 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\StockVerifyEmail;
+use App\Mail\StockRegister;
 use Illuminate\Support\Str;
 class StockRegisterController extends Controller
 {
