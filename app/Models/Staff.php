@@ -8,5 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Staff extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','name'];
+    protected $table = 'staffs'; // テーブル名をstaffsに指定
+
+    protected $fillable = ['id','name','name_id'];
 }

@@ -26,8 +26,21 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo($request)
+    {
+        if (! $request->expectsJson()) {
+            if ($request->is('stock') || $request->is('stock/*')) {
+                return route('stock.login'); // 必ず stock ログイン用のルート名に変更
+            } elseif ($request->is('admin') || $request->is('admin/*')) {
+                return route('admin.login'); // 必ず admin ログイン用のルート名に変更
+            }elseif ($request->is('invoice') || $request->is('invoice/*')) {
+                return route('invoice.login'); // 必ず admin ログイン用のルート名に変更
+            }
+            return route('login'); // 通常ログイン
+        }
 
+        return null; // JSONリクエストの場合はnullを返す
+    }
     /**
      * Create a new controller instance.
      *

@@ -3,7 +3,13 @@ body{
     margin:24px auto;
     font-family: 'Noto Sans JP', sans-serif;
 }
-.r-box{
+.r-box {
+    margin:8px auto;
+    background-color: rgb(216, 225, 225);
+    text-align: center;
+    padding:16px;
+}
+.company-box{
     margin:8px auto;
     background-color: rgb(216, 225, 225);
     text-align: center;
@@ -127,6 +133,9 @@ button{
     display: flex;
     justify-content: center;
 }
+.company-box input{
+    width:50%;
+}
 /*スマホ*/
 @media only screen and (max-width: 767px){
     body{
@@ -148,5 +157,8 @@ button{
     }
     .register-button a.header_nav_itm_link{
         height:2.6rem;
+    }
+    .company-box input{
+        width:80%;
     }
 }

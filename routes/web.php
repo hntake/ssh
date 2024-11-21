@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //welcomeページ
-Route::get('/', [App\Http\Controllers\TestController::class, 'welcome'])->name('welcome');
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('english', [App\Http\Controllers\TestController::class, 'english'])->name('english');
 
 Route::get('/monitor', function () {
     return view('monitor');
@@ -188,7 +191,7 @@ Auth::routes(['verify' => true]);
 // ここから追加(管理者機能)
 Route::get('/admin/login', function () {
     return view('adminLogin');
-})->middleware('guest:admin'); // ここ
+}); // ここ
 /*管理者ダッシュボード*/
 Route::get('/admin', [App\Http\Controllers\TestController::class, 'by_school'])->name('admin-home')
     ->middleware('auth:admin');
@@ -206,6 +209,9 @@ Route::post('/comment/{id}', [App\Http\Controllers\AdminController::class, 'comm
 /*コメント一覧*/
 Route::get('/comment', [App\Http\Controllers\TestController::class, 'comment_index'])->name('comment_index')->middleware('auth:admin');
 
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'showAdminLogin'])->name('admin.login');
+});
 Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'adminLogin'])->name('admin.login');
 
 Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'adminLogout'])->name('admin.logout');
@@ -328,54 +334,94 @@ Route::get('/deletepic_store/{id}', [App\Http\Controllers\GuestController::class
         return view('dashboard');
     })->name('dashboard');
 }); */
+//在庫作成ページ
+Route::get('stock/index', function () {
+    return view('stock/index');
+});
+//在庫アプリログイン
+Route::prefix('stock')->group(function () {
+    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'showStockLogin'])->name('stock.login');
+});
+//在庫アプリ登録
+Route::get('/stock/register', [\App\Http\Controllers\StockRegisterController::class, 'stockRegisterForm'])->name('register_stock_index');
+Route::post('/stock/register', [\App\Http\Controllers\StockRegisterController::class, 'pre_check'])->name('register_stock');
+Route::post('/stock/confirm', [\App\Http\Controllers\StockRegisterController::class, 'register'])->name('register_stock_confirm');
+Route::get('stock/email/verify/{email_verify_token}',  [\App\Http\Controllers\StockRegisterController::class, 'verify'])->name('stock.email.verify');
+Route::get('/stock/create/{id}', [\App\Http\Controllers\StockRegisterController::class, 'create'])->name('register_stock_create');
+Route::post('/stock/create/{id}', [\App\Http\Controllers\StockRegisterController::class, 'company'])->name('stock_company_post');
+Route::post('/stock/company_confirm/{id}', [\App\Http\Controllers\StockRegisterController::class, 'company_post'])->name('stock_company_confirm');
 
+Route::post('/stock/login', [\App\Http\Controllers\LoginController::class, 'stockLogin'])->name('login_stock');
 //在庫一覧画面の表示
-Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
-/* Route::post('/products_process', 'UsersController@home')->name('products_process'); // 在庫一覧画面の処理 */
+Route::get('/products/{id}', [App\Http\Controllers\ProductController::class, 'index'])->name('products')->middleware('auth:stock');
+//在庫数を更新する
+Route::post('/update-product/{id}', [App\Http\Controllers\ProductController::class, 'updateProduct']);
+//取引先登録
+Route::get('/stock/supplier_register/{id}',  [App\Http\Controllers\ProductController::class, 'supplier'])->name('supplier')->middleware('auth:stock');
+Route::post('/stock/supplier_register/{id}',  [App\Http\Controllers\ProductController::class, 'supplier_post'])->name('supplier_register')->middleware('auth:stock');
 
 //新規備品登録画面へ遷移
-Route::get('/create_product',  [App\Http\Controllers\ProductController::class, 'create'])->name('create_products');
+Route::get('/create_product/{id}',  [App\Http\Controllers\ProductController::class, 'create'])->name('create_products')->middleware('auth:stock');
+//QRコード一覧
+Route::get('/products/{id}/qrcode-pdf', [App\Http\Controllers\ProductController::class, 'generateQrCodePdf'])->name('qr_list')->middleware('auth:stock');
 
 //注文申請画面へ遷移
-Route::get('/order/{id}',  [App\Http\Controllers\ProductController::class, 'order'])->name('order');
+Route::get('/order/{id}',  [App\Http\Controllers\ProductController::class, 'order'])->name('order')->middleware('auth:stock');
 
 
-//持ち出し申請submit
-Route::post('/update',  [App\Http\Controllers\ProductController::class, 'update'])->name('products');
+//備品登録submit
+Route::post('/create_product/{id}',  [App\Http\Controllers\ProductController::class, 'update'])->name('update')->middleware('auth:stock');
 
 //持ち出し申請画面へ遷移
-Route::get('/store',  [App\Http\Controllers\ProductController::class, 'store'])->name('store');
+Route::get('/store/{id}',  [App\Http\Controllers\ProductController::class, 'store'])->name('store');
 
 //QR持ち出し申請submit
 Route::post('/qr/{id}',  [App\Http\Controllers\ProductController::class, 'qr'])->name('qr');
 
-//QR持ち出し申請画面へ遷移
+//QR持ち出し申請画面へ遷移id=Product->id
 Route::get('/qr/{id}',  [App\Http\Controllers\ProductController::class, 'qr_index'])->name('qr_index');
 
-//備品登録submit
-Route::post('/subtract',  [App\Http\Controllers\ProductController::class, 'subtract'])->name('products');
+//持ち出し登録submit
+Route::post('/subtract/{id}',  [App\Http\Controllers\ProductController::class, 'subtract'])->name('subtract');
 
 //orderテーブルへのデータ受け渡し
 Route::post('/insert',  [App\Http\Controllers\ProductController::class, 'insert'])->name('order_table');
 
 //注文一覧表示
-Route::get('/order_table',  [App\Http\Controllers\ProductController::class, 'order_table'])->name('order_table');
-//注文表一覧表示
-Route::get('/ship_table',  [App\Http\Controllers\ProductController::class, 'ship_table'])->name('ship_table');
+Route::get('/order_table/{id}',  [App\Http\Controllers\ProductController::class, 'order_table'])->name('order_table')->middleware('auth:stock');
+//発送表一覧表示
+Route::get('/ship_table/{id}',  [App\Http\Controllers\ProductController::class, 'ship_table'])->name('ship_table')->middleware('auth:stock');
 
 //注文番号確認画面へ遷移
-Route::get('/ship',  [App\Http\Controllers\ProductController::class, 'ship'])->name('ship');
+Route::post('/ship/{id}',  [App\Http\Controllers\ProductController::class, 'ship'])->name('ship')->middleware('auth:stock');
 //注文メール送信画面へ遷移
-Route::get('/form/{id}',  [App\Http\Controllers\ProductController::class, 'form'])->name('form');
-//選択したメール画面へ遷移
-Route::get('/form_id/{id}',  [App\Http\Controllers\ProductController::class, 'form_id'])->name('form_id');
+Route::post('/form}',  [App\Http\Controllers\ProductController::class, 'form'])->name('form')->middleware('auth:stock');
+//選択したメール画面へ遷移(注文票から選択)
+Route::get('/form_id/{id}',  [App\Http\Controllers\ProductController::class, 'form_id'])->name('form_id')->middleware('auth:stock');
+//注文をやめる
+Route::get('/delete/{id}', [App\Http\Controllers\ProductController::class, 'delete'])->name('delete_ship')->middleware('auth:stock');
+//従業員登録画面
+Route::get('/staff/{id}/product/{qr}', [App\Http\Controllers\ProductController::class, 'staff'])->name('staff')->middleware('auth:stock');
+Route::post('/staff/{id}/product/{qr}', [App\Http\Controllers\ProductController::class, 'staff_register'])->name('staff_register')->middleware('auth:stock');
+
+Route::post('/stock_logout', [App\Http\Controllers\LoginController::class, 'stock_logout'])->name('stock_logout');
+//出庫表
+Route::get('/stock/out_table/{id}',  [App\Http\Controllers\ProductController::class, 'out'])->name('out_table');
+//入庫表
+Route::get('/stock/in_table/{id}',  [App\Http\Controllers\ProductController::class, 'in'])->name('in_table');
 
 //Mailableを使った
 /* Route::get('/form', [App\Http\Controllers\MailController::class,'form']); */
 Route::post('/form/{form_id}', [App\Http\Controllers\MailController::class, 'send'])->name('send');
+Route::post('/store/{form_id}', [App\Http\Controllers\MailController::class, 'store'])->name('mail_store');
+
 Route::post('/form_id/{form_id}', [App\Http\Controllers\MailController::class, 'send2'])->name('send2');
 
 //アンケート機能
+
+Route::get('customer/index', function () {
+    return view('customer/index');
+});
 //作成画面
 Route::get('/customer/create', [App\Http\Controllers\QuestionController::class, 'create_index'])->middleware('auth:admin');
 /*リスト画面へ*/
@@ -427,22 +473,25 @@ Route::post('/invoice/register', [\App\Http\Controllers\InvoiceRegisterControlle
 Route::post('/invoice/confirm', [\App\Http\Controllers\InvoiceRegisterController::class, 'register'])->name('register_invoice_confirm');
 Route::get('invoice/email/verify/{email_verify_token}',  [\App\Http\Controllers\InvoiceRegisterController::class, 'verify'])->name('invoice.email.verify');
 //請求書会員ログイン
-Route::get('/invoice/login', function () {
-    return view('invoice/login');
+Route::prefix('invoice')->group(function () {
+    Route::get('/login', [\App\Http\Controllers\LoginController::class, 'showInvoiceLogin'])->name('invoice.login');
 });
 Route::post('/invoice/login', [\App\Http\Controllers\LoginController::class, 'invoiceLogin'])->name('login_invoice');
 //請求書会員情報入力ページへ
-Route::get('/invoice/create/{id}', function () {
-    return view('invoice/create') ->middleware('auth:invoice');
-});
+Route::get('/invoice/create', [\App\Http\Controllers\InvoiceRegisterController::class, 'company'])->name('invoice.company')->middleware('auth:invoice');
 //請求書会員情報入力する
-Route::post('/invoice/create/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'company'])->name('invoice_company_post');
+Route::post('/invoice/create/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'company_post'])->name('invoice_company_post');
 //請求書会員情報入力する
-Route::post('/invoice/company_confirm/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'company_post'])->name('invoice_company_create');//請求書会員情報入力する
+Route::post('/invoice/company_confirm/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'company_confirm'])->name('invoice_company_create');//請求書会員情報入力する
 //請求者会員請求書を作成ページへ
-Route::get('/invoice/user/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'create'])->name('invoice_user');
+Route::get('/invoice/user/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'create'])->name('invoice_user')->middleware('auth:invoice');
 //請求者会員請求書を作成する
-Route::get('/invoice/pdf}', [\App\Http\Controllers\InvoiceRegisterController::class, 'post'])->name('user_pdf');
+Route::get('/invoice/pdf', [\App\Http\Controllers\InvoiceRegisterController::class, 'post'])->name('user_pdf')->middleware('auth:invoice');
+//請求者会員情報修正ページへ
+Route::get('/invoice/update/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'update'])->name('update_registration');
+Route::post('/invoice/update/{id}', [\App\Http\Controllers\InvoiceRegisterController::class, 'update_post'])->name('update_registration_post');
+Route::post('/invoice_logout', [App\Http\Controllers\LoginController::class, 'invoice_logout'])->name('invoice_logout');
+
 
 //国会議員監視サイトトップページ
 Route::get('/diet/index', [\App\Http\Controllers\DietController::class, 'index'])->name('diet_index');
@@ -490,6 +539,10 @@ Route::get('/diet/next/{id}', [App\Http\Controllers\DietController::class, 'next
 Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index' ])->name('get.sitemap');
 
 //ギフトカードトップページ
+Route::get('gift/top', function () {
+    return view('gift/top');
+});
+//ギフトカード作成ページ
 Route::get('/gift/index/{uuid}', [App\Http\Controllers\GiftCardController::class, 'index'])->name('gift_index');
 //ギフトカード購入(店側)
 Route::post('/gift/index/{uuid}', [App\Http\Controllers\GiftCardController::class, 'purchase'])->name('gift_purchase');

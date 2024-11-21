@@ -82,22 +82,31 @@ class InvoiceRegisterController extends Controller
     // 指定されたトークンに対応するユーザーを取得
     $user = Invoice::where('email_verify_token', $email_verify_token)->first();
 
-    // ユーザーが存在するかどうかを確認し、メールアドレスを検証
-    if ($user) {
-        // メールアドレスを検証済みに更新するなどの処理を行う
-        $user->email_verified_at = now();
-        $user->save();
+        // ユーザーが存在するかどうかを確認し、メールアドレスを検証
+        if ($user) {
+            // メールアドレスを検証済みに更新するなどの処理を行う
+            $user->email_verified_at = now();
+            $user->save();
 
-        // 検証が成功した場合のリダイレクト先などを返す
-        return redirect('invoice/login');
-    } else {
-        // ユーザーが存在しない場合はエラーメッセージを表示するなどの処理を行う
-        return redirect('/invalid-token')->with('error', '無効なトークンです');
+            // 検証が成功した場合のリダイレクト先などを返す
+            return redirect('invoice/login');
+        } else {
+            // ユーザーが存在しない場合はエラーメッセージを表示するなどの処理を行う
+            return redirect('/invalid-token')->with('error', '無効なトークンです');
+        }
     }
+
+    public function company(Request $request){
+
+        $invoice = Invoice::where('email', Auth::guard('invoice')->user()->email)->first();
+
+        return view('invoice/create',[
+            'invoice'=>$invoice,
+        ]);
     }
+
     //会社情報登録ポスト
-    public function company(Request $request,$id){
-
+    public function company_post(Request $request,$id){
          // バリデーションルールを定義
     $rules = [
         'company_name' => 'required',
@@ -194,9 +203,8 @@ class InvoiceRegisterController extends Controller
             'id'=>$id,
         ]);     
     }
-
-    //会社情報登録登録
-    public function company_post(Request $request,$id){
+    //会社情報登録
+    public function company_confirm(Request $request,$id){
 
     
     //invoicesテーブルへの受け渡し
@@ -295,6 +303,94 @@ class InvoiceRegisterController extends Controller
 
 
     
-}
+    }
+    //会社情報修正ページ
+    public function update(Request $request, $id){
+        
+    $invoice = Invoice::findOrFail($id);
+        return view('invoice.update',[
+            'invoice'=>$invoice,
+        ]);
+    }
 
-}
+        //会社情報修正
+        public function update_post(Request $request, $id)
+        {
+            // IDに基づいて既存の請求書データを取得
+            $invoice = Invoice::findOrFail($id);
+    
+            // 入力データをバリデーション
+            $validatedData = $request->validate([
+                'type1' => 'nullable|string|max:255',
+                'category1' => '|in:1,2',
+                'type2' => 'nullable|string|max:255',
+                'category2' => '|in:1,2',
+                'type3' => 'nullable|string|max:255',
+                'category3' => '|in:1,2',
+                'type4' => 'nullable|string|max:255',
+                'category4' => '|in:1,2',     
+                'type5' => 'nullable|string|max:255',
+                'category5' => '|in:1,2',
+                'type6' => 'nullable|string|max:255',
+                'category6' => '|in:1,2',
+                'type7' => 'nullable|string|max:255',
+                'category7' => '|in:1,2',
+                'type8' => 'nullable|string|max:255',
+                'category8' => '|in:1,2',
+                'type9' => 'nullable|string|max:255',
+                'category9' => '|in:1,2',
+                'type10' => 'nullable|string|max:255',
+                'category10' => '|in:1,2',
+                'company_name' => 'nullable|string|max:255',
+                'postal_number' => 'nullable|string|max:255',
+                'address' => 'nullable|string|max:255',
+                'phone_number' => 'nullable|string|max:255',
+                'company_number' => 'nullable|string|max:255',
+            ]);
+    
+            // データの保存
+            $invoice->type1 = $validatedData['type1'] ?? null;
+            $invoice->tax1 = $validatedData['category1'] ?? null;
+    
+            $invoice->type2 = $validatedData['type2'] ?? null;
+            $invoice->tax2 = $validatedData['category2'] ?? null;
+
+            $invoice->type3 = $validatedData['type3'] ?? null;
+            $invoice->tax3 = $validatedData['category3'] ?? null;
+
+            $invoice->type4 = $validatedData['type4'] ?? null;
+            $invoice->tax4 = $validatedData['category4'] ?? null;
+
+            $invoice->type5 = $validatedData['type5'] ?? null;
+            $invoice->tax5 = $validatedData['category5'] ?? null;
+
+            $invoice->type6 = $validatedData['type6'] ?? null;
+            $invoice->tax6 = $validatedData['category6'] ?? null;
+
+            $invoice->type7 = $validatedData['type7'] ?? null;
+            $invoice->tax7 = $validatedData['category7'] ?? null;
+
+            $invoice->type8 = $validatedData['type8'] ?? null;
+            $invoice->tax8 = $validatedData['category8'] ?? null;
+
+            $invoice->type9 = $validatedData['type9'] ?? null;
+            $invoice->tax9 = $validatedData['category9'] ?? null;
+
+            $invoice->type10 = $validatedData['type10'] ?? null;
+            $invoice->tax10 = $validatedData['category10'] ?? null;
+
+            $invoice->company_name = $validatedData['company_name'] ?? null;
+            $invoice->postal_number = $validatedData['postal_number'] ?? null;
+            $invoice->address = $validatedData['address'] ?? null;
+            $invoice->phone_number = $validatedData['phone_number'] ?? null;
+            $invoice->company_number = $validatedData['company_number'] ?? null;
+
+    
+            // 必要に応じて他のフィールドも保存
+            $invoice->save();
+    
+            // 更新後のリダイレクト
+            return redirect()->route('invoice_user', ['id' => $id])
+                ->with('success', '登録情報が更新されました');
+        }
+    }

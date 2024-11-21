@@ -37,14 +37,14 @@ a#navbarDropdown{
    /*  margin-right: 700px; */
 }
 .table-responsive{
-    background-color: #CCFF99;
+    /* background-color: #CCFF99; */
     padding-left: 63;
     padding-right: 100;
     padding-top: 30;
     width: 800px;
 }
 .table-responsive p{
-    background-color:#CCFF99;
+    /* background-color:#CCFF99; */
     color:darkgreen;
     height: 30px;
     margin-top:0px;
@@ -132,5 +132,4 @@ table {
     font-size: larger;
     font-weight: 800;
 }
-/*注文メールフォーム*/
 

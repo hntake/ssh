@@ -4,7 +4,7 @@ return [
 
     'verification' => [
         'expire' => 86400, // 有効期間を1日に設定
-      ],
+    ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -51,6 +51,10 @@ return [
             'driver' => 'session',
             'provider' => 'invoices',
         ],
+        'stock' => [
+            'driver' => 'session',
+            'provider' => 'stocks',
+        ],
     ],
 
     /*
@@ -84,6 +88,10 @@ return [
         'invoices' => [
             'driver' => 'eloquent',
             'model' => App\Models\Invoice::class,
+        ],
+        'stocks' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Stock::class,
         ],
     ],
 

@@ -4,24 +4,21 @@
 
 <div class="side"> <!-- サイドバー -->
     <p>
-    <h1>cafe57</h1>
+    <h1>{{$company->name}}</h1>
     </p>
     <nav class="sidebar">
-        <p><a href="{{ url('products') }}">
+        <p><a href="{{ route('products',['id'=>$company->id]) }}">
                 <h3>在庫一覧画面</h3>
             </a></p>
-        <p><a href="{{ url('order_table') }}">
+        <p><a href="{{ route('order_table',['id'=>$company->id]) }}">
                 <h3>注文一覧</h3>
             </a></p>
-        <p><a href="{{ url('ship_table') }}">
-            <h3>注文表一覧</h3>
-        </a></p>
-        <!-- <p><a href="{{ url('') }}"><h3>シフト申請画面</h3></a></p>
-                <p><a href="{{ url('') }}">・シフト管理画面</a></p>
-                <p><a href="{{ url('') }}">・勤怠一覧画面</a></p> -->
+        <p><a href="{{ route('ship_table',['id'=>$company->id]) }}">
+                <h3>発送表一覧</h3>
+            </a></p>
     </nav>
-    <div class="logout_buttom">
-        <form action="{{ route('logout') }}" method="post">
+    <div class="buttom">
+        <form action="{{ route('stock_logout') }}" method="post">
             @csrf <!-- CSRF保護 -->
             <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
         </form>
@@ -44,7 +41,7 @@
         <form action="{{ route('send',['form_id'=>$form_id]) }}" method="POST">
             @csrf
 
-            <p>送信先:{{$id}}</p>
+            <p>送信先:{{$orderForm->supplier_name}}</p>
 
 
             <p>発注依頼<br>
@@ -55,22 +52,20 @@
                         <th>品名</th>
                         <th>個数</th>
                     </tr>
-                    <tr>
                     @foreach ($ships as $ship )
-                    @if($ship->supplier_name==$id)
+                    <tr>
                     <th>{{$ship->product_name}}</th>
                     <th>{{$ship->new_order}}</th>
-                    @endif
-                </tr>
+                    </tr>
+                    @endforeach
             </table>
-            @endforeach
-            <p>希望納期:<input type="date" name="due_date" value="{{old('due_date')}}" value="2022-02-01"></p>
+            <p>希望納期:<input type="date" name="due_date" value="{{old('due_date')}}" ></p>
             @if ($errors->has('due_date'))
             <p>{{$errors->first('due_date')}}</p>
             @endif
 
 
-            <p>担当名:<input type="text" name="attend" value="{{old('attend')}}" placeholder="担当者の名前を入力してください"></p>
+            <p>担当名:<input type="text" name="attend" value="{{$orderForm->staff}}" ></p>
             @if ($errors->has('attend'))
             <p>{{$errors->first('attend')}}</p>
             @endif
@@ -84,8 +79,11 @@
             <p>
                 <input type="submit" name="send" value="送信">
             </p>
+            </form>
+            <form action="{{ route('mail_store',['form_id'=>$form_id]) }}" method="POST">
+            @csrf
             <p>
-                <input type="submit" name="store" value="保存">
+                <input type="submit" name="mail_store" value="保存">
             </p>
         </form>
     </div>

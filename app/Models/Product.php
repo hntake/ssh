@@ -12,7 +12,7 @@ class Product extends Model
 {
     // use HasFactory;
 
-    protected $fillable = ['id', 'product_name','stock','order','supplier_name'];
+    protected $fillable = ['id', 'product_name','stock','order','supplier_name','qr_code_path'];
 
     public function order()
     {

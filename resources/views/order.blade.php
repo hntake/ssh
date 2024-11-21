@@ -5,24 +5,33 @@
 
 <div class="side"> <!-- サイドバー -->
     <p>
-    <h1>cafe57</h1>
+    <h1>{{$stock->name}}</h1>
     </p>
-    <nav class="sidebar">
-        <p><a href="{{ url('products') }}">
+     <nav class="sidebar">
+        <p><a href="{{ route('products',['id'=>$stock->id]) }}">
                 <h3>在庫一覧画面</h3>
             </a></p>
-        <p><a href="{{ url('order_table') }}">
+        <p><a href="{{ route('order_table',['id'=>$stock->id]) }}">
                 <h3>注文一覧</h3>
             </a></p>
-        <p><a href="{{ url('ship_table') }}">
-            <h3>注文表一覧</h3>
+        <p><a href="{{ route('ship_table',['id'=>$stock->id]) }}">
+                <h3>発送表一覧</h3>
+            </a></p>
+        <p><a href="{{ route('out_table',['id'=>$stock->id]) }}">
+            <h3>出庫表</h3>
         </a></p>
-        <!-- <p><a href="{{ url('') }}"><h3>シフト申請画面</h3></a></p>
-                <p><a href="{{ url('') }}">・シフト管理画面</a></p>
-                <p><a href="{{ url('') }}">・勤怠一覧画面</a></p> -->
+        <p><a href="{{ route('in_table',['id'=>$stock->id]) }}">
+                <h3>入庫表</h3>
+            </a></p>
+        <p><a href="{{ route('qr_list',['id'=>$stock->id]) }}">
+            <h3>QRコード一覧</h3>
+        </a></p>
+        <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
+            <h3>取引先登録</h3>
+        </a></p>
     </nav>
-    <div class="logout_buttom">
-        <form action="{{ route('logout') }}" method="post">
+    <div class="buttom">
+        <form action="{{ route('stock_logout') }}" method="post">
             @csrf <!-- CSRF保護 -->
             <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
         </form>
@@ -38,7 +47,6 @@
 
         <!-- 備品データ名 -->
         <div class="form-group">
-            @foreach ($products as $product)
             <label for="product-name" class="col-sm-3 control-label">注文申請</label>
             <form action="insert" id="new_order" method="POST">
                 {{ csrf_field()}}
@@ -61,7 +69,6 @@
                     <label>従業員名</label>
                     <input type="text" name="staff" id="staff" class="form-control">
                 </div>
-                @endforeach
         </div>
 
         <!-- 注文登録ボタン -->

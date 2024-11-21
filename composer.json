@@ -7,7 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "abraham/twitteroauth": "^7.0",
-        "barryvdh/laravel-dompdf": "^2.0",
+        "barryvdh/laravel-dompdf": "^2.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/cashier": "^13.11",
@@ -17,7 +17,8 @@
         "laravel/ui": "^3.4",
         "laravelcollective/html": "^6.3",
         "linecorp/line-bot-sdk": "^9.10",
-        "simplesoftwareio/simple-qrcode": "^4.2"
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "tecnickcom/tcpdf": "^6.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -811,10 +811,10 @@ class TestController extends Controller
     }
 
     //top_page
-    public function welcome()
+    public function english()
     {
         $new = News::orderBy('created_at', 'desc')->first();
-        return view('welcome', [
+        return view('english', [
             'new' => $new
         ]);
     }

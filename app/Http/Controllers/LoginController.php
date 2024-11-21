@@ -7,11 +7,23 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Store;
 use App\Models\invoice;
 use App\Models\Category;
+use App\Models\Stock;
+use App\Models\Product;
 
 
 
 class LoginController extends Controller
 {
+                /**
+     * 管理者アプリログイン表示
+     *
+    * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showAdminLogin(Request $request)
+    {
+        return view('adminLogin');
+    }
     /**
      * 管理者ログイン用
      *
@@ -85,7 +97,16 @@ class LoginController extends Controller
 
         return redirect('/admin/login');
     }
-
+                /**
+         * 請求書アプリログイン表示
+         *
+        * @param  \Illuminate\Http\Request  $request
+        * @return \Illuminate\Http\Response
+        */
+        public function showInvoiceLogin(Request $request)
+        {
+            return view('invoice.login');
+        }
     /**
      * 請求者会員ログイン用
      *
@@ -94,27 +115,92 @@ class LoginController extends Controller
      */
     public function invoiceLogin(Request $request)
     {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::guard('invoice')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            $invoice = Invoice::where('email', Auth::guard('invoice')->user()->email)->first();
+
+            if ($invoice->company_name == null) {
+                return redirect()->route('invoice.company', ['invoice' => $invoice]);
+            } else {
+                return redirect()->route('invoice_user', [
+                    'id' => $invoice->id,
+                    'invoice' => $invoice,
+                ]);
+            }
+        } else {
+            return back()->withErrors(['login_error' => 'ログインに失敗しました']);
+        }
+    }
+
+        public function invoice_logout(Request $request)
+        {
+            Auth::logout(); // ログアウト処理
+            $request->session()->invalidate(); // セッションを無効化
+            $request->session()->regenerateToken(); // セッションのトークンを再生成
+    
+            return redirect('invoice/login'); // カスタムリダイレクト先
+        }
+                /**
+     * 在庫アプリログイン表示
+     *
+    * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function showStockLogin(Request $request)
+    {
+        return view('stock.login');
+    }
+            /**
+     * 在庫アプリログイン用
+     *
+    * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function stockLogin(Request $request)
+    {
         $credentials = $request->validate([ // 入力内容のチェック
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (Auth::guard('invoice')->attempt($credentials)) { // ログイン試行
+        if (Auth::guard('stock')->attempt($credentials)) { // ログイン試行
                 $request->session()->regenerate(); // セッション更新
 
 
-                $invoice=Invoice::where('email',$request->user('invoice')?->email)->first();
-                if($invoice->company_name == null){
-                    return view('invoice/create', [
-                        'invoice' => $invoice,
+                $stock=Stock::where('email',$request->user('stock')?->email)->first();
+                
+                $products = Product::where('name_id','=',$stock->name_id)->orderBy('created_at', 'asc')->get();
+
+                if($stock->name == null){
+                    return view('create_product', [
+                        'stock' => $stock,
                         ]);
                 }else{
-                    $id=$invoice->id;
-                    return view('invoice/user', [
-                        'id' => $id,
-                        'invoice' => $invoice,
-
-                        ]);}
+                        // products/{id} にリダイレクト
+                        return redirect()->route('products', ['id' => $stock->id]);                        
+                    }
                 }
-            }
-        }
+                    else {
+                        // ログイン失敗時のデバッグ
+                        \Log::error('Login attempt failed', [
+                            'email' => $request->input('email'),
+                            'timestamp' => now(),
+                        ]);
+                    }
+    }
+
+    public function stock_logout(Request $request)
+    {
+        Auth::logout(); // ログアウト処理
+        $request->session()->invalidate(); // セッションを無効化
+        $request->session()->regenerateToken(); // セッションのトークンを再生成
+
+        return redirect('stock/login'); // カスタムリダイレクト先
+    }
+}

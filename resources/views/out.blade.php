@@ -4,24 +4,33 @@
 
 <div class="side"> <!-- サイドバー -->
     <p>
-    <h1>cafe57</h1>
+    <h1>{{$stock->name}}</h1>
     </p>
-    <nav class="sidebar">
-        <p><a href="{{ url('products') }}">
+     <nav class="sidebar">
+        <p><a href="{{ route('products',['id'=>$stock->id]) }}">
                 <h3>在庫一覧画面</h3>
             </a></p>
-        <p><a href="{{ url('order_table') }}">
+        <p><a href="{{ route('order_table',['id'=>$stock->id]) }}">
                 <h3>注文一覧</h3>
             </a></p>
-        <p><a href="{{ url('ship_table') }}">
-            <h3>注文表一覧</h3>
+        <p><a href="{{ route('ship_table',['id'=>$stock->id]) }}">
+                <h3>発送表一覧</h3>
+            </a></p>
+        <p><a href="{{ route('out_table',['id'=>$stock->id]) }}">
+            <h3>出庫表</h3>
         </a></p>
-        <!-- <p><a href="{{ url('') }}"><h3>シフト申請画面</h3></a></p>
-                <p><a href="{{ url('') }}">・シフト管理画面</a></p>
-                <p><a href="{{ url('') }}">・勤怠一覧画面</a></p> -->
+        <p><a href="{{ route('in_table',['id'=>$stock->id]) }}">
+                <h3>入庫表</h3>
+            </a></p>
+        <p><a href="{{ route('qr_list',['id'=>$stock->id]) }}">
+            <h3>QRコード一覧</h3>
+        </a></p>
+        <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
+            <h3>取引先登録</h3>
+        </a></p>
     </nav>
-    <div class="logout_buttom">
-        <form action="{{ route('logout') }}" method="post">
+    <div class="buttom">
+        <form action="{{ route('stock_logout') }}" method="post">
             @csrf <!-- CSRF保護 -->
             <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
         </form>
@@ -29,45 +38,91 @@
 </div>
 <!-- 持ち出し申請用パネル… -->
 <div class="panel-body">
-    <!-- バリデーションエラーの表示 -->
-
-
     <!-- 持ち出し申請フォーム -->
-    <form action="{{ url('subtract') }}" method="POST" class="form-horizontal">
+    <form action="{{ route('subtract', ['id' => $stock->id]) }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- 備品データ名 -->
         <div class="form-group">
-            <label for="product-name" class="control-label">持ち出し申請</label>
+            <label for="product-name" class="control-label">
+                {{ $action === 'stock_out' ? '出庫申請' : '入庫申請' }}
+            </label>
 
-            <div class="col-sm-6">
-                <label>型番</label>
-                <input type="text" name="product_id" id="product_id" class="form-control">
-            </div>
-            <!--エラー防止の為一時削除
-             <div class="col-sm-6">
-              <label>品目</label>
-                <input type="text" name="product_name" id="product_name" class="form-control">
-            </div> -->
-            <div class="col-sm-6">
-                <label>数量</label>
-                <input type="text" name="out_amount" id="out_amount" class="form-control">
-            </div>
+            @foreach($products as $product)
+                <div class="col-sm-6">
+                    <label>{{ $product->product_name }}</label>
+                    <input type="checkbox" name="product_ids[]" value="{{ $product->id }}" onclick="toggleQuantityField({{ $product->id }})">
+                    
+                    <!-- 数量入力欄（デフォルトで非表示） -->
+                    <div id="quantity-field-{{ $product->id }}" style="display: none; margin-top: 5px;">
+                        <label>数量</label>
+                        <input type="number" name="quantities[{{ $product->id }}]" class="form-control" min="1" placeholder="数量を入力してください">
+                    </div>
+                </div>
+            @endforeach
+
             <div class="col-sm-6">
                 <label>従業員名</label>
                 <input type="text" name="staff" id="staff" class="form-control">
             </div>
-
         </div>
 
-        <!-- 備品登録ボタン -->
+        <!-- 申請ボタン -->
         <div class="form-group">
             <div class="button">
-                <button type="submit">
-                    <i class="fa fa-plus"></i> 申請する
+                <button type="submit" name="action" value="{{ $action }}">
+                    <i class="fa {{ $action === 'stock_out' ? 'fa-minus' : 'fa-plus' }}"></i>
+                    {{ $action === 'stock_out' ? '出庫申請する' : '入庫申請する' }}
                 </button>
             </div>
         </div>
     </form>
 </div>
+<script>
+    function toggleQuantityField(productId) {
+        const quantityField = document.getElementById(`quantity-field-${productId}`);
+        
+        // チェックされているかどうかで表示・非表示を切り替える
+        if (quantityField.style.display === "none") {
+            quantityField.style.display = "block";
+        } else {
+            quantityField.style.display = "none";
+        }
+    }
+</script>
+<script>
+    const quantityFieldsContainer = document.getElementById('quantity-fields');
+
+    document.getElementById('product_ids').addEventListener('change', function () {
+        const selectedProducts = Array.from(this.selectedOptions);
+
+        // Clear existing quantity fields not in the selected options
+        Array.from(quantityFieldsContainer.children).forEach(child => {
+            const fieldId = child.getAttribute('data-product-id');
+            if (!selectedProducts.some(option => option.value === fieldId)) {
+                child.remove();
+            }
+        });
+
+        // Add quantity fields for newly selected products
+        selectedProducts.forEach(option => {
+            const productId = option.value;
+            const productName = option.text;
+
+            // Check if the field already exists
+            if (!document.querySelector(`[data-product-id="${productId}"]`)) {
+                // Create a container for each selected product
+                const fieldContainer = document.createElement('div');
+                fieldContainer.className = 'form-group';
+                fieldContainer.setAttribute('data-product-id', productId);
+                fieldContainer.innerHTML = `
+                    <label>${productName} 数量</label>
+                    <input type="number" name="out_amount[${productId}]" class="form-control" min="1" placeholder="数量を入力してください">
+                `;
+
+                quantityFieldsContainer.appendChild(fieldContainer);
+            }
+        });
+    });
+</script>
 @endsection

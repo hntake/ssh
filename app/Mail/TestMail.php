@@ -8,6 +8,8 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Http\Request;
 use App\Models\Ship;
+use App\Models\Stock;
+use Illuminate\Database\Eloquent\Collection; // コレクションを使うためのインポートが必要です
 
 class TestMail extends Mailable
 {
@@ -20,6 +22,14 @@ class TestMail extends Mailable
      */
     protected $ship;
 
+    /**
+     * 注文インスタンス
+     *
+     * @var \App\Models\Stock
+     */
+    protected $stock;
+    protected $ships; // 配列やコレクションを扱う変数名
+
     public $data;      //追加
     /**
      * Create a new message instance.
@@ -28,10 +38,12 @@ class TestMail extends Mailable
      * @param Ship $ship
      * @return void
      */
-    public function __construct($data,  Ship $ship)
+    public function __construct(array $data, Collection $ships, Stock $stock) // コレクションに型を変更
     {
         $this->data = $data;      //追加
-        $this->ship = $ship;      //追加
+        $this->ships = $ships;      //追加
+        $this->stock = $stock;      //追加
+
     }
     /**
      * Build the message.
@@ -45,7 +57,8 @@ class TestMail extends Mailable
         ->subject('注文書')
         ->with([
             'data'=>$this->data,
-            'ship'=>$this->ship,
+            'ships'=>$this->ships,
+            'stock'=>$this->stock,
     ]);
     }
 }

@@ -3,34 +3,12 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Session\TokenMismatchException;					// 追加
+use Illuminate\Session\TokenMismatchException;
 use Illuminate\Auth\AuthenticationException;
-
-
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
-    /**
-     * A list of the exception types that are not reported.
-     *
-     * @var array<int, class-string<Throwable>>
-     */
-    protected $dontReport = [
-        //
-    ];
-
-    /**
-     * A list of the inputs that are never flashed for validation exceptions.
-     *
-     * @var array<int, string>
-     */
-    protected $dontFlash = [
-        'current_password',
-        'password',
-        'password_confirmation',
-    ];
-
     /**
      * Register the exception handling callbacks for the application.
      *
@@ -42,25 +20,43 @@ class Handler extends ExceptionHandler
             //
         });
     }
-    public function render($request, Throwable $exception)
-    {
 
-        if ($exception instanceof TokenMismatchException) {		// 追加
-            return redirect('/login');							// 追加
-        }														// 追加
-
-        return parent::render($request, $exception);
-    }
-    //管理者機能
+    /**
+     * Handle unauthenticated users.
+     */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
             return response()->json(['message' => $exception->getMessage()], 401);
         }
-        if ($request->is('admin') || $request->is('admin/*')) {
-            return redirect()->guest('/admin/login');
+
+        // 現在使用中のガードに応じたリダイレクト先を設定
+        $guard = $exception->guards()[0] ?? null;
+
+        if ($guard === 'stock') {
+            return redirect()->guest(route('stock.login'));
         }
 
-        return redirect()->guest($exception->redirectTo() ?? route('login'));
+        if ($guard === 'admin') {
+            return redirect()->guest(route('admin.login'));
+        }
+
+        if ($guard === 'invoice') {
+            return redirect()->guest(route('invoice.login'));
+        }
+
+        return redirect()->guest(route('login'));
+    }
+
+    /**
+     * Handle TokenMismatchException.
+     */
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof TokenMismatchException) {
+            return redirect()->guest(route('login'))->with('error', 'セッションが切れました。もう一度ログインしてください。');
+        }
+
+        return parent::render($request, $exception);
     }
 }

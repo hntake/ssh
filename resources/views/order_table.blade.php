@@ -9,36 +9,46 @@
 
 <div class="side"> <!-- サイドバー -->
     <p>
-    <h1>cafe57</h1>
+    <h1>{{$stock->name}}</h1>
     </p>
-    <nav class="sidebar">
-        <p><a href="{{ url('products') }}">
+     <nav class="sidebar">
+        <p><a href="{{ route('products',['id'=>$stock->id]) }}">
                 <h3>在庫一覧画面</h3>
             </a></p>
-        <p><a href="{{ url('order_table') }}">
+        <p><a href="{{ route('order_table',['id'=>$stock->id]) }}">
                 <h3>注文一覧</h3>
             </a></p>
-        <p><a href="{{ url('ship_table') }}">
-            <h3>注文表一覧</h3>
+        <p><a href="{{ route('ship_table',['id'=>$stock->id]) }}">
+                <h3>発送表一覧</h3>
+            </a></p>
+        <p><a href="{{ route('out_table',['id'=>$stock->id]) }}">
+            <h3>出庫表</h3>
         </a></p>
-        <!-- <p><a href="{{ url('') }}"><h3>シフト申請画面</h3></a></p>
-                <p><a href="{{ url('') }}">・シフト管理画面</a></p>
-                <p><a href="{{ url('') }}">・勤怠一覧画面</a></p> -->
+        <p><a href="{{ route('in_table',['id'=>$stock->id]) }}">
+                <h3>入庫表</h3>
+            </a></p>
+        <p><a href="{{ route('qr_list',['id'=>$stock->id]) }}">
+            <h3>QRコード一覧</h3>
+        </a></p>
+        <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
+            <h3>取引先登録</h3>
+        </a></p>
     </nav>
-    <div class="logout_buttom">
-        <form action="{{ route('logout') }}" method="post">
+    <div class="buttom">
+        <form action="{{ route('stock_logout') }}" method="post">
             @csrf <!-- CSRF保護 -->
             <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
         </form>
     </div>
 </div>
 
-<!--注文表一覧画面-->
+<!--発送表一覧画面-->
 <div class="table-responsive">
     <p>注文一覧表</p>
-    <!--  //formからmailにそして、shipに名前変更// -->
-    <form action="{{ route('ship') }}" method="GET">
-        <table class="table-hover">
+    <!-- フォーム送信先を ship_table に変更 -->
+    <form action="{{ route('ship',['id'=>$stock->id]) }}" method="POST">
+            @csrf
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>型番</th>
@@ -47,38 +57,49 @@
                     <th>従業員名</th>
                     <th>取引先名</th>
                     <th>注文選択</th>
-
-
                 </tr>
             </thead>
             <tbody id="tbl">
                 @foreach ($orders as $order)
                 <tr>
-
-                    <td style="width:20% ">{{ $order->product_id }}</td>
+                    <td style="width:20%">{{ $order->product_id }}</td>
                     <td style="width:20%">{{ $order->product_name }}</td>
                     <td style="width:20%">{{ $order->new_order }}</td>
                     <td style="width:20%">{{ $order->staff }}</td>
-                    <td style="width:20%">{{ $order->supplier_name}}</td>
+                    <td style="width:20%">{{ $order->supplier_name }}</td>
                     <td>
                         <div class="radio" style="width: 20%">
-
-                            <p><input type="checkbox" name="order[{{ $order->product_id }}][status]" value="1">注文する</p>
-                            <input type="hidden" name="order[{{ $order->product_id }}][product_id]" value="{{ $order->product_id }}">
+                        @if($order->status == 0)
+                        <p><input type="checkbox" name="selected_orders[]" value="{{ $order->id }}">
+                                注文する
+                            </p>
+                        @elseif($order->status == 1)
+                            <p>メール作成中</p>
+                        @else
+                            <p>注文済み</p>
+                        @endif
                         </div>
-                    </td>
-
                     </td>
                 </tr>
                 @endforeach
-                <!-- //formからmailにそしてshipに名前変更// -->
-                <div class="button">
-                    <input type="submit" href="{{ route('ship') }}" value="注文表に送信">
-                </div>
             </tbody>
-            @yield('script')
         </table>
+        <!-- 送信ボタンの表示を制御 -->
+        @if($orders->contains('status', 0))
+        <div class="button">
+            <input type="submit" value="注文表に送信">
+        </div>
+        @endif
     </form>
-
 </div>
+<script>
+    function handleCheckboxChange(checkbox, id) {
+    const hiddenField = document.getElementById(`hidden-status-${id}`);
+    if (checkbox.checked) {
+        hiddenField.value = "1"; // チェックされた場合、値を 1 に変更
+    } else {
+        hiddenField.value = "0"; // チェックが外された場合、値を 0 に変更
+    }
+}
+</script>
 @endsection

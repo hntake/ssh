@@ -31,5 +31,6 @@ class Report extends Mailable
         return  $this
         ->subject('不祥事投稿がありました')
         ->view('emails.post')
-        ->with('data', $this->data);    }
+        ->with('data', $this->data);    
+    }
 }
