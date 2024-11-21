@@ -178,7 +178,7 @@ class LoginController extends Controller
                 $products = Product::where('name_id','=',$stock->name_id)->orderBy('created_at', 'asc')->get();
 
                 if($stock->name == null){
-                    return view('create_product', [
+                    return view('create_products', [
                         'stock' => $stock,
                         ]);
                 }else{

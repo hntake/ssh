@@ -361,7 +361,7 @@ Route::get('/stock/supplier_register/{id}',  [App\Http\Controllers\ProductContro
 Route::post('/stock/supplier_register/{id}',  [App\Http\Controllers\ProductController::class, 'supplier_post'])->name('supplier_register')->middleware('auth:stock');
 
 //新規備品登録画面へ遷移
-Route::get('/create_product/{id}',  [App\Http\Controllers\ProductController::class, 'create'])->name('create_products')->middleware('auth:stock');
+Route::get('/create_products/{id}',  [App\Http\Controllers\ProductController::class, 'create'])->name('create_products')->middleware('auth:stock');
 //QRコード一覧
 Route::get('/products/{id}/qrcode-pdf', [App\Http\Controllers\ProductController::class, 'generateQrCodePdf'])->name('qr_list')->middleware('auth:stock');
 
@@ -370,7 +370,7 @@ Route::get('/order/{id}',  [App\Http\Controllers\ProductController::class, 'orde
 
 
 //備品登録submit
-Route::post('/create_product/{id}',  [App\Http\Controllers\ProductController::class, 'update'])->name('update')->middleware('auth:stock');
+Route::post('/create_products/{id}',  [App\Http\Controllers\ProductController::class, 'update'])->name('update')->middleware('auth:stock');
 
 //持ち出し申請画面へ遷移
 Route::get('/store/{id}',  [App\Http\Controllers\ProductController::class, 'store'])->name('store');
