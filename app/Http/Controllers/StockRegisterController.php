@@ -100,6 +100,10 @@ class StockRegisterController extends Controller
     public function create(Request $request,$id){
         $stock=Stock::find($id);
 
+        return view('stock/create',[
+            'id'=> $id,
+        ]);
+
     }
   //会社情報登録ポスト
     public function company(Request $request,$id){

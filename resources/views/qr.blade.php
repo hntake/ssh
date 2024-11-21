@@ -40,17 +40,26 @@
 <div class="panel-body">
     <!-- バリデーションエラーの表示 -->
 
-    <!-- 持ち出し申請フォーム -->
-    <form action="{{route('qr',['id'=> $product->id])}}" method="post" class="float-right">
-        {{ csrf_field() }}
+    <!-- 出庫と入庫の選択ボタン -->
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" onclick="toggleForm('stock_out')">
+            出庫申請
+        </button>
+        <button type="button" class="btn btn-success" onclick="toggleForm('stock_in')">
+            入庫申請
+        </button>
+    </div>
 
-        <!-- 備品データ名 -->
+    <!-- 出庫申請フォーム -->
+    <form id="stock_out_form" action="{{ route('qr', ['id' => $product->id]) }}" method="post" style="display: none;">
+        {{ csrf_field() }}
+        
         <div class="form-group">
             <label for="product-name" class="control-label">出庫申請</label>
 
             <div class="col-sm-6">
                 <label>品目名</label>
-                {{$product->product_name}}
+                {{ $product->product_name }}
             </div>
             <div class="col-sm-6">
                 <label>数量</label>
@@ -60,29 +69,25 @@
                 <label>従業員ID</label>
                 <input type="text" name="staff" id="staff" class="form-control">
             </div>
-
         </div>
 
-        <!-- 備品登録ボタン -->
         <div class="form-group">
-            <div class="button">
             <button type="submit" name="action" value="stock_out">
-                    <i class="fa fa-minus"></i> 出庫申請する
-                </button>
-            </div>
+                <i class="fa fa-minus"></i> 出庫申請する
+            </button>
         </div>
     </form>
-    <!-- 入庫申請用フォーム -->
-    <form action="{{ route('qr', ['id'=> $product->id]) }}" method="post" class="float-right">
-        {{ csrf_field() }}
 
-        <!-- 入庫申請 -->
+    <!-- 入庫申請フォーム -->
+    <form id="stock_in_form" action="{{ route('qr', ['id' => $product->id]) }}" method="post" style="display: none;">
+        {{ csrf_field() }}
+        
         <div class="form-group">
-            <label for="product-name" class="control-label">出庫・入庫申請</label>
+            <label for="product-name" class="control-label">入庫申請</label>
 
             <div class="col-sm-6">
                 <label>品目名</label>
-                {{$product->product_name}}
+                {{ $product->product_name }}
             </div>
             <div class="col-sm-6">
                 <label>数量</label>
@@ -94,17 +99,26 @@
             </div>
         </div>
 
-        <!-- 入庫申請ボタン -->
         <div class="form-group">
-            <div class="button">
-                <button type="submit" name="action" value="stock_in">
-                    <i class="fa fa-plus"></i> 入庫申請する
-                </button>
-            </div>
+            <button type="submit" name="action" value="stock_in">
+                <i class="fa fa-plus"></i> 入庫申請する
+            </button>
         </div>
     </form>
-    <a href="{{ route('staff',['id'=>$stock->id,'qr' =>$product->id]) }}">
-                <h3>従業員登録画面</h3>
-            </a>
-</div>
+
+    <script>
+    // フォームを切り替える関数
+    function toggleForm(action) {
+        // すべてのフォームを非表示にする
+        document.getElementById('stock_out_form').style.display = 'none';
+        document.getElementById('stock_in_form').style.display = 'none';
+
+        // クリックされたボタンに応じてフォームを表示
+        if (action === 'stock_out') {
+            document.getElementById('stock_out_form').style.display = 'block';
+        } else if (action === 'stock_in') {
+            document.getElementById('stock_in_form').style.display = 'block';
+        }
+    }
+    </script>
 @endsection

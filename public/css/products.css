@@ -110,7 +110,7 @@ table {
 }
 /* 申請フォーム */
 .panel-body{
-    background-color:lightgreen;
+    /* background-color:lightgreen; */
     padding: 0 110;
 }
 .form-group{

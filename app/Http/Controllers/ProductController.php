@@ -435,14 +435,14 @@ class ProductController extends Controller
         ]);
     }
     /**
-     * QRコードによる持ち出し申請画面へ遷移
+     * QRコードによる入庫出庫画面へ遷移
      *
      * @param Request $request
      * @return Response
      */
     public function qr_index(Request $request,$id)
     {
-        $product=Product::where('name_id','=',$id)->first();
+        $product=Product::where('id','=',$id)->first();
         $stock=Stock::where('id','=',$product->name_id)->first();
         return view('qr', [
             'product' => $product,
