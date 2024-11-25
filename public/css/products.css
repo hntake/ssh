@@ -136,3 +136,33 @@ table {
     font-weight: 800;
 }
 
+@media only screen and (max-width: 767px){
+    body {
+        background-color:#f6f5f4;
+        margin-left: 0px;
+        margin-top: 25px;
+    }
+    .side{
+        width:30%;
+        padding:5%;
+    }
+    .table-responsive{
+        /* background-color: #CCFF99; */
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 30;
+        width: 70%;
+    }
+    h1{
+        font-size: smaller;
+    }
+    .panel-body{
+        /* background-color:lightgreen; */
+        padding: 0;
+    }
+    .button{
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+    }
+}

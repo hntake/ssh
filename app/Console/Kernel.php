@@ -15,12 +15,18 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+            $users = \App\Models\Stock::whereDate('reminder_email_date', now()->toDateString())->get();
+    
+            foreach ($users as $user) {
+                Mail::to($user->email)->send(new \App\Mail\ReminderMail($user));
+            }
+        })->daily();    
     }
 
     /**
      * Register the commands for the application.
-     *
+     *  
      * @return void
      */
     protected function commands()

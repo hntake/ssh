@@ -39,6 +39,7 @@ class StockRegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'email_verify_token' => $email_verify_token, // 40文字のランダムな文字列を生成
+            'reminder_email_date' => now()->addDays(23),
         ]);
         \Log::info("Generated token: {$email_verify_token}");
 

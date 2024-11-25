@@ -2,6 +2,7 @@
 <title>新規登録画面 </title>
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 <link rel="stylesheet" href="{{ asset('css/word.css') }}">
+<link rel="stylesheet" href="{{ asset('css/products.css') }}">
 
 @section('content')
 <div class="top">
