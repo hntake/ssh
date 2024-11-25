@@ -5,7 +5,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-
+    @if ($errors->has('error'))
+    <div class="alert alert-danger">
+        {{ $errors->first('error') }}
+    </div>
+@endif
         <br>
         <div class="for_user">
             <p>会員の方は以下からログイン願います</p>

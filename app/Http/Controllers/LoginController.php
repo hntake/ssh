@@ -9,6 +9,7 @@ use App\Models\invoice;
 use App\Models\Category;
 use App\Models\Stock;
 use App\Models\Product;
+use App\Models\Supplier;
 
 
 
@@ -170,37 +171,46 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('stock')->attempt($credentials)) { // ログイン試行
-                $request->session()->regenerate(); // セッション更新
-
-
-                $stock=Stock::where('email',$request->user('stock')?->email)->first();
-                
-                $products = Product::where('name_id','=',$stock->name_id)->orderBy('created_at', 'asc')->get();
-
-                if($stock->name == null){
-                    //会社情報にゅうりょく
-                    return view('stock/create', [
-                        'stock' => $stock,
-                        ]);
-
-                }elseif($products==null){
-                    //備品情報にゅうりょく
-                    return view('create_products', [
-                        'stock' => $stock,
-                        ]);
-                    
-                }else{
-                        // products/{id} にリダイレクト
-                        return redirect()->route('products', ['id' => $stock->id]);                        
-                    }
-                }
-                    else {
-                        // ログイン失敗時のデバッグ
-                        \Log::error('Login attempt failed', [
-                            'email' => $request->input('email'),
-                            'timestamp' => now(),
-                        ]);
-                    }
+            $request->session()->regenerate(); // セッション更新
+        
+            $stock = Stock::where('email', $request->user('stock')?->email)->first();
+        
+            // ログイン条件をチェック
+            $createdAt = $stock->created_at;
+            $daysSinceCreated = now()->diffInDays($createdAt);
+        
+            if ($daysSinceCreated > 30 && $stock->paid != 1) {
+                // 条件に合わない場合はログアウトしてエラーメッセージを返す
+                Auth::guard('stock')->logout();
+                return redirect()->route('stock.login')->withErrors(['error' => 'アカウントの有効期限が切れています。']);
+            }
+        
+            $products = Product::where('name_id', '=', $stock->id)->orderBy('created_at', 'asc')->get();
+            $suppliers=Supplier::where('stock_id','=',$stock->id)->get();
+            
+            if ($stock->name == null) {
+                // 会社情報入力
+                return view('stock/create', [
+                    'stock' => $stock,
+                ]);
+            } elseif ($products->isEmpty()) {
+                // 備品情報入力
+                return view('create_products', [
+                    'stock' => $stock,
+                    'suppliers' => $suppliers,
+                ]);
+            } else {
+                // products/{id} にリダイレクト
+                return redirect()->route('products', ['id' => $stock->id]);
+            }
+        } else {
+            // ログイン失敗時のデバッグ
+            \Log::error('Login attempt failed', [
+                'email' => $request->input('email'),
+                'timestamp' => now(),
+            ]);
+            return redirect()->route('stock.login')->withErrors(['error' => 'ログインに失敗しました。']);
+        }
     }
 
     public function stock_logout(Request $request)
