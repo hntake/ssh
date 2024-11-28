@@ -62,13 +62,12 @@
                             @endif -->
                         @else
                         <li class="name">
-                       
-
+                        <div class="button">
                             <a class="button" href="{{ route('stock_logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    document.getElementById('logout-form').submit();">
                                 {{ __('ログアウトする') }}
                             </a>
-
+                        </div>
                             <form id="logout-form" action="{{ route('stock_logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>

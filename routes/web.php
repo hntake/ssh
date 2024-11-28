@@ -416,6 +416,19 @@ Route::post('/form/{form_id}', [App\Http\Controllers\MailController::class, 'sen
 Route::post('/store/{form_id}', [App\Http\Controllers\MailController::class, 'store'])->name('mail_store');
 
 Route::post('/form_id/{form_id}', [App\Http\Controllers\MailController::class, 'send2'])->name('send2');
+//アカウント情報表示ページ
+Route::get('/stock/account/{id}', [App\Http\Controllers\ProductController::class, 'show'])->name('account')->middleware('auth:stock');
+//アカウント修正ページへ
+Route::get('/stock/my_update/{id}', [App\Http\Controllers\ProductController::class, 'edit'])->name('account.edit')->middleware('auth:stock');
+Route::post('/stock/my_update/{id}', [App\Http\Controllers\ProductController::class, 'account_update'])->name('account.update');
+
+//サブスク申込ページへ
+Route::get('/stock/apply/{id}', [App\Http\Controllers\ProductController::class, 'apply'])->name('apply')->middleware('auth:stock');
+Route::post('/stock/apply/{id}', [App\Http\Controllers\ProductController::class, 'subscribe'])->name('subscribe')->middleware('auth:stock');
+
+//サブスク停止ページへ
+Route::get('/stock/cancel/{id}', [App\Http\Controllers\ProductController::class, 'confirm_cancel'])->name('confirm-cancel')->middleware('auth:stock');
+Route::post('/stock/cancel/{id}', [App\Http\Controllers\ProductController::class, 'cancel'])->name('cancel')->middleware('auth:stock');
 
 //アンケート機能
 

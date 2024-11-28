@@ -1,7 +1,6 @@
 @extends('layouts.app')
 <title>新規登録画面 </title>
 <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-<link rel="stylesheet" href="{{ asset('css/word.css') }}">
 
 @section('content')
 <div class="top">
@@ -16,8 +15,8 @@
             
             <div class="card">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register_invoice') }}" enctype="multipart/form-data">
+            <div class="register-box">
+                <form method="POST" action="{{ route('register_invoice') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="r-box">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address ') }}</label><span style="font-weight:bold;">※必須</span>

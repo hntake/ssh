@@ -41,11 +41,11 @@
                             <input type="text" id="company_name" name="company_name" value="{{ $data['company_name'] }}">
                     </div>
                     <div class="form-block">
-                            <label for="postal_number">郵便番号</label>
-                            @if(isset( $data['postal_number']))
-                            <input type="text" id="postal_number" name="postal_number" value="{{ $data['postal_number'] }}">
+                            <label for="postal">郵便番号</label>
+                            @if(isset( $data['postal']))
+                            <input type="text" id="postal" name="postal" value="{{ $data['postal'] }}">
                             @else
-                            <input type="text" id="postal_number" name="postal_number">
+                            <input type="text" id="postal" name="postal">
                             @endif
                     </div> <div class="form-block">
                             <label for="address">住所</label>
@@ -57,8 +57,8 @@
                     </div>
                     <div class="form-block">
                             <label for="phone_number">電話番号</label>
-                            @if(isset($data['postal_number']))
-                            <input type="text" id="phone_number" name="phone_number" value="{{$data['postal_number']}}">
+                            @if(isset($data['postal']))
+                            <input type="text" id="phone_number" name="phone_number" value="{{$data['postal']}}">
                             @else
                             <input type="text" id="phone_number" name="phone_number">
                             @endif

@@ -84,11 +84,14 @@ table {
 }
 .button a{
     color: #1422d1;
-    background-color: #2feb00;
+    background-color: #97eada;
     text-decoration: none;
     margin-top:10px;
     padding: 5px 10px;
     font-weight:800;
+    width:20%;
+    text-align: center;
+
 }
 .button input{
     color: #1422d1;
@@ -135,7 +138,31 @@ table {
     font-size: larger;
     font-weight: 800;
 }
+ul{
+    list-style:none;
+}
+.register-box{
+    background-color: rgb(221, 213, 213);
+    padding:8px;
+}
+#card-element {
+    border: 2px solid #4CAF50;  /* 緑色の枠線 */
+    padding: 10px;
+    border-radius: 5px;  /* 角を丸める */
+    background-color: #fff;
+    height: 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;  /* フォーカス時に枠線の色が変わるように */
+}
 
+#card-element:focus {
+    border-color: #3e8e41;  /* フォーカス時に枠線の色を濃くする */
+}
+.container{
+    padding:8px;
+    border:solid 1px rgb(229, 206, 165);
+    margin:8px;
+}
 @media only screen and (max-width: 767px){
     body {
         background-color:#f6f5f4;
@@ -164,5 +191,9 @@ table {
         display: flex;
         align-content: center;
         flex-direction: column;
+        align-items: center;
+    }
+    .button a{
+        width:40%;
     }
 }

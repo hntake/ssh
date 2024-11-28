@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.app2')
+
 
 <link rel="icon" href="{{ asset('favicon2.ico') }}" id="favicon">
 

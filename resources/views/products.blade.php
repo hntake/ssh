@@ -29,8 +29,11 @@
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
             <h3>取引先登録</h3>
         </a></p>
+        <p><a href="{{ route('account',['id'=>$stock->id]) }}">
+            <h3>登録情報・支払い情報</h3>
+        </a></p>
     </nav>
-    <div class="buttom">
+    <div class="button">
         <form action="{{ route('stock_logout') }}" method="post">
             @csrf <!-- CSRF保護 -->
             <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->

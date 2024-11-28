@@ -11,11 +11,10 @@
     </a>
 </div>
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="register-box">
         <div class="col-md-8">
-            <div class="card-header">{{ __('仮登録画面') }}</div>
+            <div class="card-header">{{ __('在庫アプリ仮登録画面') }}</div>
             
-            <div class="card">
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register_stock') }}" enctype="multipart/form-data">
@@ -65,7 +64,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
         </div>
     </div>
 </div>

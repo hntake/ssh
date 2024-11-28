@@ -4,6 +4,10 @@ p{
 .card{
     width:60%;
 }
+.register-box{
+    background-color: rgb(221, 213, 213);
+    padding:8px;
+}
 @media (max-width: 480px){
     .card{
         width:fit-content;

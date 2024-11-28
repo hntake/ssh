@@ -1,7 +1,14 @@
 @extends('layouts.app')
 <title>ログイン画面 自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ”</title>
 <link rel="stylesheet" href="{{ asset('css/word.css') }}"> <!-- word.cssと連携 -->
+<style>
+    .login_banner{
+        display:flex;
+    }.login{
+        width:40%;
+    }
 
+</style>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -77,13 +84,19 @@
                     </div>
                 </div>
                 <div class="register-button" style="margin-top:10px;border-radius:unset;padding-top:0px;padding-bottom:10px;">
-                    <p>登録してエイゴメの全ての機能を使おう！(完全無料）</p>
+                    <p>登録してエイゴメの全ての機能を使おう！(完全無料)</p>
                     <a href="{{ route('register') }}" class="button">新規登録</a>
                 </div>
             </div>
-            <div class="">
-                <a href="{{ url('/invoice/login') }}"><h3 style="color:coral; font:bold;">請求書作成サイトのログインはこちらから</h3> 
-                <img src="/img/open_invoice.png" alt="請求書作成" style="width:50%; height:auto;"></a>
+            <div class="login_banner">
+                <div class="login">
+                    <a href="{{ url('/invoice/login') }}"><h3 style="color:coral; font:bold;">請求書作成サイトのログインはこちらから</h3> 
+                    <img src="/img/open_invoice.png" alt="請求書作成" style="width:60%; height:auto;"></a>
+                </div>
+                <div class="login">
+                    <a href="{{ url('/stock/login') }}"><h3 style="color:coral; font:bold;">在庫アプリのログインはこちらから</h3> 
+                    <img src="/img/stock.png" alt="在庫アプリ" style="width:30%; height:auto;"></a>
+                </div>
             </div>
             <div class="coupon-img">
                 <h3 style="color:coral; font:bold;">クーポンテストご利用の方は、<br>お店にありますQRコードから再度お入りください。</h3>

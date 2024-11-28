@@ -20,7 +20,12 @@ use Barryvdh\DomPDF\Facade\Pdf; // dompdfのファサード
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Dompdf\Options;
 use TCPDF;
-
+use Stripe\SetupIntent;
+use Stripe\PaymentIntent;
+use Laravel\Cashier\Cashier;
+use Stripe\Customer;
+use Stripe\PaymentMethod;
+use Stripe\StripeClient;
 
 
 use Psy\Command\WhereamiCommand;
@@ -696,5 +701,135 @@ class ProductController extends Controller
                 'stock' => $stock,
             ]);
         }
+        //アカウントページ表示
+        public function show($id)
+        {
+            $stock=Stock::where('id','=',$id)->first();
+            $subscription_status = $stock->paid; // 申込状況を取得するプロパティ（例）
+    
+            return view('stock/account', compact('stock', 'subscription_status'));
+        }
 
-}
+        public function edit($id)
+        {
+            $stock=Stock::where('id','=',$id)->first();
+
+            return view('stock/my_update', compact('stock'));
+        }
+
+        public function account_update(Request $request,$id)
+        {
+            // バリデーションルール
+            $validated = $request->validate([
+                'email' => 'required|email|max:255',
+                'name' => 'nullable|string|max:255',
+                'postal' => 'nullable|string|max:255',
+                'address' => 'nullable|string|max:255',
+                'tel' => 'nullable|string|max:15',
+            ]);
+
+            // ユーザー情報を更新
+            $stock=Stock::where('id','=',$id)->first();
+            $stock->update($validated);
+
+            // 成功時のリダイレクト
+            return redirect()->route('account', ['id' => $stock->id])->with('success', 'アカウント情報が更新されました。');        
+        }
+
+        public function apply($id)
+        {
+            // サブスクリプションページ表示
+            $stock = Stock::findOrFail($id);
+
+            return view('stock.apply', compact('stock'));
+        }
+
+        public function subscribe(Request $request, $id)
+        {
+            \Stripe\Stripe::setApiKey(config('services.stripe.secret'));  // APIキーを設定
+
+            $stock = Stock::findOrFail($id);
+
+            // Stripeトークンを受け取り、PaymentMethodを作成
+            $paymentMethod = $request->payment_method;
+            // 支払い方法を保存し、サブスクリプションを作成
+            $stock->createOrGetStripeCustomer();
+            $stock->updateDefaultPaymentMethod($paymentMethod);  // payment_method IDを指定
+            // 支払い方法の情報を保存
+            $stripePaymentMethod = \Stripe\PaymentMethod::retrieve($paymentMethod);
+
+            $stock->pm_type = $stripePaymentMethod->card->brand;  // カードの種類（例：visa, mastercard）
+            $stock->pm_last_four = $stripePaymentMethod->card->last4;  // カード番号の末尾4桁
+
+            $stock->save();  // 更新を保存
+            
+            try {
+                $subscription = \Stripe\Subscription::create([
+                    'customer' => $stock->stripe_id,
+                    'items' => [['price' => 'price_1QPzkJBPIZtafrxmwhVbTr1b']],
+                ]);
+        
+
+            $stock->update([
+                'paid' => 1
+            ]);
+
+            return redirect()->route('account', ['id' => $stock->id])->with('success', 'サブスクリプションが開始されました。');
+            } catch (\Stripe\Exception\ApiErrorException $e) {
+                return back()->withErrors(['error' => 'サブスクリプションの作成に失敗しました: ' . $e->getMessage()]);
+            }
+        }
+          // 停止確認画面
+        public function confirm_cancel($id)
+        {
+            $stock = Stock::findOrFail($id);
+        
+            // paid が 1 でなければエラーを返す
+            if ($stock->paid !== 1) {
+                return redirect()->route('account', ['id' => $stock->id])->with('error', 'アクティブなサブスクリプションが見つかりません。');
+            }
+        
+            return view('stock.confirm_cancel', compact('stock'));
+        }
+
+        public function cancel($id)
+        {
+            // 指定された顧客を取得
+            $stock = Stock::findOrFail($id);
+    
+            // Stripe API を初期化
+            $stripe = new StripeClient(env('STRIPE_SECRET'));
+
+
+            // 顧客IDを取得 (Stockテーブルに保存されていると仮定)
+            $customerId = $stock->stripe_id;
+
+            if (!$customerId) {
+                return redirect()->route('account', ['id' => $stock->id])->with('error', 'Stripeの顧客IDが見つかりませんでした。');
+            }
+        
+            try {
+                // 顧客のサブスクリプション一覧を取得
+                $subscriptions = $stripe->subscriptions->all([
+                    'customer' => $customerId,
+                    'status' => 'active',
+                ]);
+        
+                // サブスクリプションが見つからない場合
+                if (empty($subscriptions->data)) {
+                    return redirect()->route('account', ['id' => $stock->id])->with('error', 'アクティブなサブスクリプションが見つかりませんでした。');
+                }
+        
+                // 最初のサブスクリプションをキャンセル (複数の場合は要調整)
+                $subscriptionId = $subscriptions->data[0]->id;
+                $stripe->subscriptions->cancel($subscriptionId);
+        
+                // データベースの更新
+                $stock->update(['paid' => 0]);
+        
+                return redirect()->route('account', ['id' => $stock->id])->with('success', 'サブスクリプションを停止しました。');
+            } catch (\Exception $e) {
+                return redirect()->route('account', ['id' => $stock->id])->with('error', 'サブスクリプションのキャンセルに失敗しました: ' . $e->getMessage());
+            }
+        }
+    }

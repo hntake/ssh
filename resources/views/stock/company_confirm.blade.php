@@ -36,8 +36,8 @@
                         <input type="text" id="company_name" name="company_name" value="{{ $data['company_name'] }}">
                     </div>
                     <div class="form-block">
-                        <label for="postal_number">郵便番号</label>
-                        <input type="text" id="postal_number" name="postal_number" value="{{ $data['postal_number'] }}">
+                        <label for="postal">郵便番号</label>
+                        <input type="text" id="postal" name="postal" value="{{ $data['postal'] }}">
                         <button type="button" class="api-address">住所を取得</button>
                     </div> 
                     <div class="form-block">
@@ -60,7 +60,7 @@
     
     <script>
         document.querySelector('.api-address').addEventListener('click', () => {
-            const elem = document.querySelector('#postal_number'); // 修正: postal_numberを使用
+            const elem = document.querySelector('#postal'); // 修正: postalを使用
             const zip = elem.value.trim();
             
             // 郵便番号が7桁の数字かチェック
