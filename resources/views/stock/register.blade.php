@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="top">
-    <a href="{{ url('/stock/index') }}">
+    <a href="{{ url('/stock/top') }}">
         <h3 style="text-decoration: none; color: #090;">トップページに戻る</h3>
     </a>
 </div>

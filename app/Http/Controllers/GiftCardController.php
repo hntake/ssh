@@ -11,12 +11,13 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Mail\GiftForm;
 
 
 
 class GiftCardController extends Controller
 {
-
+//ギフトカード購入画面
     public function index($uuid)
     {
         $store=Store::where('uuid','=',$uuid)->first();  // 店舗情報取得
@@ -45,7 +46,7 @@ class GiftCardController extends Controller
         ]);
     }
 
-//ギフトカード購入後客に渡す($uuid=お店のuuid)
+//ギフトカード購入後客に渡す($uuid=ギフトカードのuuid)
 public function share($uuid)
 {
     // ギフトカードの情報を取得
@@ -143,7 +144,7 @@ public function share($uuid)
         ]);
         // ギフトカードを取得
         $gift = Gift::where('uuid', $uuid)->firstOrFail();
-        // 店舗コードのチェック（例としてハードコーディングしていますが、データベースで管理するのが理想）
+        // 店舗コードのチェック（）
         $validStoreCode = Store::where('uuid','=',$gift->store_uuid)->value('code');  // 店舗コード取得
         $storeCode = $request->input('store_code');
 
@@ -163,7 +164,7 @@ public function share($uuid)
         return view('gift.success', compact('gift'));
     }
 
-        public function updateBalance(Request $request, $uuid)
+    public function updateBalance(Request $request, $uuid)
     {
 
         $purchase=Purchase::where('uuid','=',$uuid)->first();
@@ -194,5 +195,63 @@ public function share($uuid)
             'purchases'=>$purchases,
             'store'=>$store,
         ]);
+    }
+    public function gift_form()
+    {
+        //フォーム入力画ページのviewを表示
+        return view('gift/register');
+    }
+    public function gift_confirm(Request $request)
+    {
+        //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
+        $request->validate([
+            'email' => 'required|email',
+            'name' => 'required',
+            'group' => 'required',
+            'phone'  => 'required',
+        ]);
+
+        //フォームから受け取ったすべてのinputの値を取得
+        $inputs = $request->all();
+
+        //入力内容確認ページのviewに変数を渡して表示
+        return view('gift/confirm', [
+            'inputs' => $inputs,
+        ]);
+    }
+
+    public function gift_send(Request $request)
+    {
+        //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
+        $request->validate([
+            'email' => 'required|email',
+            'name' => 'required',
+            'group' => 'required',
+            'phone'  => 'required',
+        ]);
+
+        //フォームから受け取ったactionの値を取得
+        $action = $request->input('action');
+
+        //フォームから受け取ったactionを除いたinputの値を取得
+        $inputs = $request->except('action');
+
+        //actionの値で分岐
+        if($action !== 'submit'){
+            return redirect()
+                ->route('gift_form')
+                ->withInput($inputs);
+
+        } else {
+            //入力されたメールアドレスにメールを送信
+            \Mail::to($inputs['email'])->send(new GiftForm($inputs));
+            \Mail::to(config('mail.username'))->send(new GiftForm($inputs));
+            //再送信を防ぐためにトークンを再発行
+            $request->session()->regenerateToken();
+
+            //送信完了ページのviewを表示
+            return view('gift/registered');
+
+        }
     }
 }

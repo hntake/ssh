@@ -71,6 +71,9 @@ Route::get('/diet/vote', function () {
 Route::get('/diet/elect', function () {
     return view('diet/elect');
 });
+Route::get('/stock/top', function () {
+    return view('stock/top');
+});
 Route::get('/coupon/not')->name('coupon.not');
 Route::get('/coupon/overdue')->name('coupon.overdue');
 
@@ -585,6 +588,12 @@ Route::get('/gift/card_list/{uuid}', [App\Http\Controllers\GiftCardController::c
 Route::get('/gift/purchase_list/{uuid}', [App\Http\Controllers\GiftCardController::class, 'purchase_list'])->name('purchase_list');
 //ギフトカード領収書
 Route::get('/gift/receipt/{id}', [App\Http\Controllers\GiftCardController::class, 'downloadReceipt'])->name('download_receipt');
+//ギフトカード申し込みページ
+Route::get('/gift/register', [App\Http\Controllers\GiftCardController::class, 'gift_form'])->name('gift_form');
+Route::post('/gift/register', [App\Http\Controllers\GiftCardController::class, 'gift_confirm'])->name('gift_confirm');
+
+//送信完了ページ
+Route::post('/gift/confirm', [App\Http\Controllers\GiftCardController::class, 'gift_send'])->name('gift_send');
 
 //法定相続一覧表トップページ
 Route::get('inheritance/top', function () {

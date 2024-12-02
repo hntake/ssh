@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ” トップページ</title>
+    <title>llco Web制作会社</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ">
@@ -31,7 +31,48 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .service {
+            background-color: #fff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        .service h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .service p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .service button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .service button:hover {
+            background-color: #0056b3;
+        }    
     </style>
     <div class="line-it-button" data-lang="ja" data-type="share-a" data-env="REAL" data-url="https://eng50cha.com" data-color="default" data-size="small" data-count="false" data-ver="3" style="display: none;"></div>
 
@@ -50,277 +91,42 @@
         });
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="container">
-            <header id="header" class="header is-open">
-
-                <div class="header_inner">
-                    <nav id="menu" class="header_nav">
-
-
-                        @if (Route::has('login'))
-                        <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
-                        <ul class="header_nav_list">
-
-                            <li class="header_nav_itm">
-                                <a href="{{ url('search_result') }}" class="header_nav_itm_link">テスト検索</a>
-                                <div class="description1">テストを受けてみる</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('use') }}" class="header_nav_itm_link">使い方</a>
-                                <div class="description1">エイゴメの使い方</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('feature') }}" class="header_nav_itm_link">便利な機能</a>
-                                <div class="description1">フォロー機能やポイントシステム</div>
-                            </li>
-                           <li class="header_nav_itm">
-                                <a href="{{ url('parent') }}" class="header_nav_itm_link">親子機能</a>
-                                <div class="description1">ペアレントチェックで英単語強化</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <a href="{{ url('plan') }}" class="header_nav_itm_link">教育関係者向け</a>
-                                <div class="description1">モニタリングサービスのご案内</div>
-                            </li>
-                          <li class="header_nav_itm">
-                                <a href="{{ url('commerce') }}" class="header_nav_itm_link">社会貢献</a>
-                                <div class="description1">協賛クーポンのご案内</div>
-                            </li>
-                            <li class="header_nav_itm">
-                                @auth
-                                <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
-                                <div class="description1">Myホーム画面へ移動する </div>
-                            </li>
-                            <li class="header_nav_itm">
-                                @else
-                                <div class="login-button">
-                                    <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
-                                    <div class="description1">ログイン画面へ移動する </div>
-                                </div>
-                            </li>
-                            <li class="header_nav_itm">
-                                <div class="register-button">
-                                    @if (Route::has('register'))
-                                    <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                    <div class="description1">登録して完全無料の全機能を使う </div>
-
-                                </div>
-                            </li>
-                            @endif
-                            @endauth
-                            @endif
-                            <li class="header_nav_itm">
-                                <div class="register-button">
-                                    <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
-                                    <div class="description1">マニュアル動画ページへ</div>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="news">
-                            <ul>
-                                <p style="font-weight:bold;">お知らせ</p>
-                                <li>
-                                    <a href="{{ url('news/index')}}">
-                                        {{$new->created_at}}
-                                    </a>
-                                </li>
-                                <li>
-                                    {!!$new->main!!}
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <div class="mobile-login">
-                    <ul>
-                        <li class="header_nav_itm">
-                            @if (Route::has('login'))
-                            @auth
-                            <div class="home-button">
-                                <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
-                                <div class="description1">Myホーム画面へ移動する </div>
-                            </div>
-                        </li>
-                        <li class="header_nav_itm">
-                            @else
-                            <div class="login-button">
-                                <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
-                                <div class="description1">ログイン画面へ移動する </div>
-                            </div>
-                        </li>
-                        <li class="header_nav_itm">
-                            <div class="register-button">
-                                @if (Route::has('register'))
-                                <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                <div class="description1">登録して完全無料の全機能を使う </div>
-
-                            </div>
-                        </li>
-
-                        @endif
-                        @endauth
-                        @endif
-                    </ul>
-
-                </div>
-                <!--  ハンバーガーメニュー -->
-                <div class="mobile-menu">
-                    <div id="nav-drawer">
-                        <input id="nav-input" type="checkbox" class="nav-unshown">
-                        <label id="nav-open" for="nav-input"><span></span></label>
-                        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-                        <div id="nav-content">
-                            <ul class="header_nav_list">
-                                <li><a href="{{ url('search_result') }}">
-                                        <h3>テスト検索</h3>
-                                    </a></li>
-                                <li><a href="{{ url('use') }}">
-                                        <h3>使い方</h3>
-                                    </a></li>
-                                <li><a href="{{ url('feature') }}">
-                                        <h3>便利な機能</h3>
-                                    </a></li>
-                               <li><a href="{{ url('parent') }}">
-                                        <h3>親子機能</h3>
-                                    </a></li>
-                                <li><a href="{{ url('plan') }}">
-                                        <h3>教育関係者向け</h3>
-                                    </a></li>
-                               <li><a href="{{ url('commerce') }}">
-                                        <h3>社会貢献</h3>
-                                    </a></li>
-                                <li class="header_nav_itm">
-                                    <div class="register-button">
-                                        <a href="{{url('feature')}}" class="header_nav_itm_link">説明動画</a>
-                                        <div class="description1">マニュアル動画ページへ</div>
-                                    </div>
-                                </li>
-                                <li class="header_nav_itm">
-                                    @if (Route::has('login'))
-                                    @auth
-                                    <div class="home-button">
-                                        <a href="{{ url('/home') }}" class=" header_nav_itm_link">Home</a>
-                                        <div class="description1">Myホーム画面へ移動する </div>
-                                    </div>
-                                </li>
-                                <li class="header_nav_itm">
-                                    @else
-                                    <div class="login-button">
-                                        <a href="{{ route('login') }}" class="header_nav_itm_link">ログイン</a>
-                                        <div class="description1">ログイン画面へ移動する </div>
-                                    </div>
-                                </li>
-                                <li class="header_nav_itm">
-                                    <div class="register-button">
-                                        @if (Route::has('register'))
-                                        <a target="_blank" href="{{ route('register') }}" class="header_nav_itm_link">新規登録</a>
-                                        <div class="description1">登録して完全無料の全機能を使う </div>
-
-                                    </div>
-                                </li>
-
-                                @endif
-                                @endauth
-                                @endif
-                            </ul>
-
-                        </div>
-                        <script>
-                            $(function() {
-                                $('#nav-content li a').on('click', function(event) {
-                                    $('#nav-input').prop('checked', false);
-                                });
-                            });
-                        </script>
-                    </div>
-                </div>
-            </header>
-            <div class="main-column">
-                <div class="mobile-login-news">
-                    <div class="news">
-                        <ul>
-                            <p style="font-weight:bold;">お知らせ</p>
-                            <li>
-                                <a href="{{ url('news/index')}}">
-                                    {{$new->created_at}}
-                                </a>
-                            </li>
-                            <li>
-                                {!!$new->title!!}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="home_copy">
-                    <span class="tategaki" style="opacity:1;">
-                        英単語テストを作ったり
-                        <br class="sp_only">
-                        受けたりできるサイト
-                    </span>
-
-                </div>
-                <div class="home_kv">
-                    <div class="bx-viewport">
-                        <ul class="bxslider">
-                            <li>
-                                <img class="image" src="img/engTop3.webp" alt="top" style="width:70%; height:auto;">
-                                <div class="post_title1">
-                                    <h2 class="post_titile">
-                                        To the World!
-                                    </h2>
-                                </div>
-                            </li>
-                            <li>
-                                <img class="image" src="img/engTopSky3.webp" alt="top" style="width:80%; height:auto;">
-                                <div class="post_title2">
-                                    <h2 class="post_titile">
-                                        Achieve your dream!
-                                    </h2>
-                                </div>
-                            </li>
-                            <li>
-                                <img class="image" src="img/engTopRiv3.webp" alt="top" style="width:80%; height:auto;">
-                                <div class="post_title3">
-                                    <h2 class="post_titile">
-                                        You can do anything!
-                                    </h2>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bottom">
-                <div class="bottom-container">
-                    <div class="bottom-element">
-                        <div class="bottom-element-top">
-                            <h2 class="bottom-element-top">
-                                今すぐはじめてみよう！
-                            </h2>
-                        </div>
-                        <div class="bottom-inner">
-                            <div class="bottom-left">
-                                <a href="{{route('search_result')}}" target="_blanlk" class="bottom_button">
-                                    <span class="elementor-button">テストを受ける</span>
-                                </a>
-                            </div>
-                            <div class="bottom-right">
-                                <a href="{{route('register')}}" target="_blank" class="bottom-right-button">
-                                    <span class="elementor-button">新規登録する</span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <h1>ようこそllco Web制作会社へ</h1>
+        
+        <div class="service">
+            <h2>提供サービス 1: 英単語学習アプリ</h2>
+            <button onclick="location.href='{{ route('english') }}'">サービスに移動</button>
         </div>
+        
+        <div class="service">
+            <h2>提供サービス 2: インボイス対応請求書作成アプリ</h2>
+            <button onclick="location.href='{{ url('invoice/open') }}'">サービスに移動</button>
+        </div>
+        
+        <div class="service">
+            <h2>提供サービス 3: 法定相続一覧図作成アプリ</h2>
+            <button onclick="location.href='{{ url('inheritance/top') }}'">サービスに移動</button>
+        </div>
+        
+        <div class="service">
+            <h2>提供サービス 4: 在庫管理アプリ</h2>
+            <button onclick="location.href='{{ url('stock/top') }}'">サービスに移動</button>
+        </div>
+        
+        <div class="service">
+            <h2>提供サービス 5: eギフトカードアプリ</h2>
+            <button onclick="location.href='{{ url('gift/top') }}'">サービスに移動</button>
+        </div>
+        
+        <!-- <div class="service">
+            <h2>提供サービス 6: カスタムアンケート作成アプリ</h2>
+            <button onclick="location.href='{{ url('customer/index') }}'">サービスに移動</button>
+        </div> -->
     </div>
     <footer class="site-footer">
         <div class="bc-sitemap-wrapper">

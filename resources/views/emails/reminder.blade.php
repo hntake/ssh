@@ -41,9 +41,9 @@
         <p>{{ $userName }} 様、</p>
         <p>在庫アプリのご利用ありがとうございます。</p>
         <p>ご利用の無料期間が一週間後に終了いたします。</p>
-        <p>引き続きご利用をご希望される場合は、以下よりサブスクリプションのお手続きをお願いいたします。</p>
+        <p>引き続きご利用をご希望される場合は、アカウントよりサブスクリプションのお手続きをお願いいたします。</p>
         <p>月額料金は <strong>500円</strong> となります。</p>
-        <a href="https://buy.stripe.com/9AQbJXcQB4Yg4fK14e" class="cta-button">お支払いページへ</a>
+        <a href="{{ route('stock.login') }}" class="btn btn-secondary">ログインページ</a>
         <p>今後ともよろしくお願いいたします。</p>
     </div>
 </body>
