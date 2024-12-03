@@ -67,7 +67,7 @@
             </div>
             <div class="col-sm-6">
                 <label>数量</label>
-                1
+                <input type="number" name="out_amount" id="out_amount" class="form-control" value="1" min="1">
             </div>
             <div class="col-sm-6">
                 <label>従業員ID</label>
@@ -95,7 +95,11 @@
             </div>
             <div class="col-sm-6">
                 <label>数量</label>
-                1
+                <input type="number" name="in_amount" id="in_amount" class="form-control" value="1" min="1">
+            </div>
+            <div class="col-sm-6">
+                <label>伝票番号</label>
+                <input type="number" name="voucher" id="voucher" class="form-control" >
             </div>
             <div class="col-sm-6">
                 <label>従業員ID</label>

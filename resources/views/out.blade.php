@@ -62,6 +62,7 @@
                         <label>数量</label>
                         <input type="number" name="quantities[{{ $product->id }}]" class="form-control" min="1" placeholder="数量を入力してください">
                     </div>
+
                 </div>
             @endforeach
 
@@ -69,6 +70,14 @@
                 <label>従業員名</label>
                 <input type="text" name="staff" id="staff" class="form-control">
             </div>
+
+                <!-- 入庫申請の場合に伝票番号入力欄を表示 -->
+                @if($action === 'stock_in')
+            <div class="col-sm-6">
+                <label>伝票番号</label>
+                <input type="text" name="invoice_number" class="form-control" placeholder="伝票番号を入力してください">
+            </div>
+            @endif
         </div>
 
         <!-- 申請ボタン -->

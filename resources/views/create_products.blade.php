@@ -112,7 +112,8 @@
     function addNewSupplier() {
         const id = getIdFromPath(); // パスからidを取得
         if (id) {
-            window.location.href = '/stock/supplier_register/' + id; // idを組み込んでURLに遷移
+            // 絶対パスを指定して遷移
+            window.location.href = `/stock/supplier_register/${id}`;
         } else {
             alert("IDが見つかりませんでした。");
         }

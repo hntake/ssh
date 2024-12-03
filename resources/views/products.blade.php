@@ -62,13 +62,13 @@
                 <td>{{ $product->stock }}</td>
                 <td class="editable" data-id="{{ $product->id }}" data-column="order">{{ $product->order }}</td>
                 <!-- <アラートボタン表示> -->
-                <td class="alert"> @if( $product->stock < $product->order )
-                        <a href="{{ route('order', $product->id) }}">{{$product->id}}</a>
-                        {{csrf_field()}}
-                        <!-- <input type="hidden" name="id" value="{{ $product->id }}" />
-                <input type="hidden" name="product_name" value="{{ $product->product_name }}" /> -->
-                        <!-- <input type="submit"> -->
-                        @endif</td>
+                <td class="alert"> 
+                @if( $product->stock < $product->order  && $product->status == 1)
+                    <p>済</p>
+                @elseif($product->stock < $product->order )
+                    <a href="{{ route('order', $product->id) }}">{{$product->id}}</a>
+                @endif
+            </td>
             </tr>
             @endforeach
         </tbody>

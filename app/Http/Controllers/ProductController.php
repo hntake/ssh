@@ -103,8 +103,17 @@ class ProductController extends Controller
         ]);
         $email = Supplier::where('name', $request->supplier_name)->value('email'); 
 
+        $product = new Product;
+        $product->product_name = $request->product_name;
+        $product->stock = $request->stock;
+        $product->order = $request->order;
+        $product->name_id = $stock->id;
+        $product->supplier_name= $request->supplier_name;
+        $product->email = $email;
+        $product->save();
+
             // Productモデルに保存する前にQRコードを生成
-        $qrCodeData = $request->id . '-' . $request->stock . '-' . $request->order; // QRコードに含めたいデータを指定
+        $qrCodeData = url('/qr/' . $product->id); // 商品ページへのURLをQRコードに        
         $qrCodeData = mb_convert_encoding($qrCodeData, 'UTF-8', 'auto'); // 自動でUTF-8に変換
         $qrCodeData = trim($qrCodeData); // 不要な空白を取り除く
         $qrCodeData = preg_replace('/[\x00-\x1F\x7F-\x9F]/', '', $qrCodeData); // 制御文字を削除
@@ -118,13 +127,6 @@ class ProductController extends Controller
         // QRコードを生成して保存
         QrCode::format('png')->size(400)->encoding('UTF-8')->generate($qrCodeData, public_path($qrCodePath));
         
-        $product = new Product;
-        $product->product_name = $request->product_name;
-        $product->stock = $request->stock;
-        $product->order = $request->order;
-        $product->name_id = $stock->id;
-        $product->supplier_name= $request->supplier_name;
-        $product->email = $email;
         $product->qr_code_path = $qrCodePath; // 生成したQRコードのパスを保存
         $product->save();
 
@@ -162,17 +164,22 @@ class ProductController extends Controller
         // CSRFトークンを再生成して、二重送信対策
         $request->session()->regenerateToken(); // <- この一行を追加
 
-        //在庫数に反映
-        $data = Product::where('id', $request->product_id)
-            ->value('stock');
+        //在庫数に反映->入庫されるまで反映させない為無しとする
+        // $data = Product::where('id', $request->product_id)
+        //     ->value('stock');
 
 
-        $renew = $data + $request->new_order;
+        // $renew = $data + $request->new_order;
 
+        // DB::table('products')
+        //     ->where('id', $request->product_id)
+        //     ->update([
+        //         'stock' => $renew
+        //     ]);
         DB::table('products')
             ->where('id', $request->product_id)
             ->update([
-                'stock' => $renew
+                'status' => 1
             ]);
 
         $orders = Order::where('name_id',$product->name_id)->orderBy('created_at', 'asc')->get();
@@ -360,7 +367,7 @@ class ProductController extends Controller
         $stock=Stock::where('id','=',$id)->first();
         $products=Product::where('name_id','=',$stock->id)->get();
 
-        $action = $request->query('action');
+        $action = $request->query('action', 'stock_out'); // デフォルト値を 'stock_out' に設定
 
         return view('out', [
             'stock' => $stock,
@@ -415,15 +422,20 @@ class ProductController extends Controller
                     $in->product_id = $productId;
                     $in->in_amount = $quantities[$productId];
                     $in->staff = $request->staff;
+                    $in->voucher = $request->voucher;
                     $in->name_id = $stock->id;
                     $in->save();
         
                     // 在庫表への反映
                     $subtract = $product_record->stock + $quantities[$productId];
+
             }
             DB::table('products')
             ->where('id', $productId)
-            ->update(['stock' => $subtract]);
+            ->update([
+                'stock' => $subtract,
+                'status' => 0 // statusを0に設定
+            ]);
         }
     
         // エラーメッセージの処理
@@ -457,6 +469,8 @@ class ProductController extends Controller
     //QRによる持ち出し申請（従業員IDだけ入力する）→outテーブルへの登録
     public function qr(Request $request,$id)
     {
+        $action = $request->input('action'); // 'stock_out' or 'stock_in' を取得
+
         //productsテーブルに型番があるか確認
         $product_record = Product::where('id', '=', $id)->first();
 
@@ -475,7 +489,7 @@ class ProductController extends Controller
                 //新しい持ち出しを登録
                 $out = new Out;
                 $out->product_id = $id;
-                $out->out_amount =1;//QR持出は一箱とする
+                $out->out_amount =$request->out_amount;//QR持出は一箱とする
                 $out->staff = $staff_name;
                 $out->name_id = $product_record->name_id;
                 $out->save();
@@ -484,7 +498,7 @@ class ProductController extends Controller
                 $data = Product::where('id', $id)
                     ->value('stock');
 
-                $subtract = $data - 1;
+                $subtract = $data - $out->out_amount;
 
                 DB::table('products')
                     ->where('id', $id)
@@ -495,8 +509,9 @@ class ProductController extends Controller
                 //新しい入庫を登録
                 $in = new In;
                 $in->product_id = $id;
-                $in->in_amount =1;//QR持出は一箱とする
+                $in->in_amount =$request->in_amount;//QR持出は一箱とする
                 $in->staff = $staff_name;
+                $in->voucher =$request->voucher;
                 $in->name_id = $product_record->name_id;
                 $in->save();
 
@@ -504,12 +519,13 @@ class ProductController extends Controller
                 $data = Product::where('id', $id)
                     ->value('stock');
 
-                $subtract = $data + 1;
+                $subtract = $data + $in->in_amount;
 
                 DB::table('products')
                     ->where('id', $id)
                     ->update([
-                        'stock' => $subtract
+                        'stock' => $subtract,
+                        'status' => 0 // statusを0に設定                    
                     ]);
                 }
 
