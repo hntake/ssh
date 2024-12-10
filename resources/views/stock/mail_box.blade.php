@@ -12,7 +12,7 @@
     <p>
     <h1>{{$stock->name}}</h1>
     </p>
-     <nav class="sidebar">
+    <nav class="sidebar">
         <p><a href="{{ route('products',['id'=>$stock->id]) }}">
                 <h3>在庫一覧画面</h3>
             </a></p>
@@ -51,62 +51,42 @@
 
 <!--発送表一覧画面-->
 <div class="table-responsive">
-    <p>注文一覧表</p>
-    <!-- フォーム送信先を ship_table に変更 -->
-    <form action="{{ route('ship',['id'=>$stock->id]) }}" method="POST">
-            @csrf
-        <table class="table table-hover">
+    <p>メールボックス</p>
+    <table class="table-hover">
             <thead>
                 <tr>
-                    <th>型番</th>
-                    <th>品目</th>
-                    <th>数量</th>
-                    <th>従業員名</th>
+                    <th>メール番号</th>
                     <th>取引先名</th>
-                    <th>注文選択</th>
+                    <th>送信日付</th>
+                    <th>納期期限</th>
+                    <th>従業員名</th>
+                    <th>状況</th>
+                    <th>削除</th>
                 </tr>
             </thead>
             <tbody id="tbl">
-                @foreach ($orders as $order)
-                <tr>
-                    <td style="width:20%">{{ $order->product_id }}</td>
-                    <td style="width:20%">{{ $order->product_name }}</td>
-                    <td style="width:20%">{{ $order->new_order }}</td>
-                    <td style="width:20%">{{ $order->staff }}</td>
-                    <td style="width:20%">{{ $order->supplier_name }}</td>
+                @foreach ($orderForms as $orderForm)
+                <td style="width:10% "><a href="{{ route('form_id', ['id' => $orderForm->id]) }}">{{ $orderForm->id }}</a></td>
+                <td style="width:20%">{{ $orderForm->supplier_name }}</td>
+                <td style="width:20%">{{ $orderForm->created_at }}</td>
+                    <td style="width:20%">{{ $orderForm->due_date }}</td>
+                    <td style="width:20%">{{ $orderForm->staff }}</td>
+                    @if($orderForm->status==1)
+                    <td style="width:20%">送信済み</td>
+                    @elseif($orderForm->status==2)
+                    <td style="width:20%">保存</td>
+                    @else
+                    <td style="width:20%">未送信</td>
+                    @endif
                     <td>
-                        <div class="radio" style="width: 20%">
-                        @if($order->status == 0)
-                        <p><input type="checkbox" name="selected_orders[]" value="{{ $order->id }}">
-                                注文する
-                            </p>
-                        @elseif($order->status == 1)
-                            <p>メール作成中</p>
-                        @else
-                            <p>注文済み</p>
-                        @endif
-                        </div>
+                    <a href="{{ route('delete_orderForm',['id'=> $orderForm->id]) }}" >削除する</a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
+            @yield('script')
         </table>
-        <!-- 送信ボタンの表示を制御 -->
-        @if($orders->contains('status', 0))
-        <div class="button">
-            <input type="submit" value="注文表に送信">
-        </div>
-        @endif
-    </form>
+    
 </div>
-<script>
-    function handleCheckboxChange(checkbox, id) {
-    const hiddenField = document.getElementById(`hidden-status-${id}`);
-    if (checkbox.checked) {
-        hiddenField.value = "1"; // チェックされた場合、値を 1 に変更
-    } else {
-        hiddenField.value = "0"; // チェックが外された場合、値を 0 に変更
-    }
-}
-</script>
+
 @endsection

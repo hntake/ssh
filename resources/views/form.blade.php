@@ -39,7 +39,7 @@
     <div class="form-group">
         <label for="product-name" class="col-sm-3 control-label">注文メール送信フォーム</label>
 
-        <form action="{{ route('send',['form_id'=>$form_id]) }}" method="POST">
+        <form action="{{ route('send',['id'=>$form_id]) }}" method="POST">
             @csrf
 
             <p>送信先:{{$orderForm->supplier_name}}</p>
@@ -66,9 +66,9 @@
             @endif
 
 
-            <p>担当名:<input type="text" name="attend" value="{{$orderForm->staff}}" ></p>
-            @if ($errors->has('attend'))
-            <p>{{$errors->first('attend')}}</p>
+            <p>担当名:<input type="text" name="staff" value="{{$orderForm->staff}}" ></p>
+            @if ($errors->has('staff'))
+            <p>{{$errors->first('staff')}}</p>
             @endif
 
             <p>注文致します。ご手配のほど、宜しくお願い致します。</p>
@@ -81,7 +81,7 @@
                 <input type="submit" name="send" value="送信">
             </p>
             </form>
-            <form action="{{ route('mail_store',['form_id'=>$form_id]) }}" method="POST">
+            <form action="{{ route('mail_store',['id'=>$orderForm->id]) }}" method="POST">
             @csrf
             <p>
                 <input type="submit" name="mail_store" value="保存">

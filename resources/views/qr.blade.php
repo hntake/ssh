@@ -7,7 +7,7 @@
     <p>
     <h1>{{$stock->name}}</h1>
     </p>
-     <nav class="sidebar">
+        <nav class="sidebar">
         <p><a href="{{ route('products',['id'=>$stock->id]) }}">
                 <h3>在庫一覧画面</h3>
             </a></p>
@@ -28,6 +28,9 @@
         </a></p>
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
             <h3>取引先登録</h3>
+        </a></p>
+        <p><a href="{{ route('staff',['id'=>$stock->id]) }}">
+            <h3>従業員登録</h3>
         </a></p>
         <p><a href="{{ route('account',['id'=>$stock->id]) }}">
             <h3>登録情報・支払い情報</h3>

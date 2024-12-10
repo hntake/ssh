@@ -394,31 +394,38 @@ Route::post('/insert',  [App\Http\Controllers\ProductController::class, 'insert'
 Route::get('/order_table/{id}',  [App\Http\Controllers\ProductController::class, 'order_table'])->name('order_table')->middleware('auth:stock');
 //発送表一覧表示
 Route::get('/ship_table/{id}',  [App\Http\Controllers\ProductController::class, 'ship_table'])->name('ship_table')->middleware('auth:stock');
-
+//メールボックス表示
+Route::get('/stock/mail_box/{id}',  [App\Http\Controllers\ProductController::class, 'mail_box'])->name('mail_box')->middleware('auth:stock');
 //注文番号確認画面へ遷移
 Route::post('/ship/{id}',  [App\Http\Controllers\ProductController::class, 'ship'])->name('ship')->middleware('auth:stock');
 //注文メール送信画面へ遷移
 Route::post('/form}',  [App\Http\Controllers\ProductController::class, 'form'])->name('form')->middleware('auth:stock');
 //選択したメール画面へ遷移(注文票から選択)
 Route::get('/form_id/{id}',  [App\Http\Controllers\ProductController::class, 'form_id'])->name('form_id')->middleware('auth:stock');
-//注文をやめる
+//注文票から削除
 Route::get('/delete/{id}', [App\Http\Controllers\ProductController::class, 'delete'])->name('delete_ship')->middleware('auth:stock');
+//メールボックスから削除
+Route::get('/delete_orderForm/{id}', [App\Http\Controllers\ProductController::class, 'delete_orderForm'])->name('delete_orderForm')->middleware('auth:stock');
 //従業員登録画面
-Route::get('/staff/{id}/product/{qr}', [App\Http\Controllers\ProductController::class, 'staff'])->name('staff')->middleware('auth:stock');
-Route::post('/staff/{id}/product/{qr}', [App\Http\Controllers\ProductController::class, 'staff_register'])->name('staff_register')->middleware('auth:stock');
+Route::get('/staff/{id}', [App\Http\Controllers\ProductController::class, 'staff'])->name('staff')->middleware('auth:stock');
+Route::post('/staff/{id}', [App\Http\Controllers\ProductController::class, 'staff_register'])->name('staff_register')->middleware('auth:stock');
+Route::get('/staff_list/{id}', [App\Http\Controllers\ProductController::class, 'staff_list'])->name('staff_list')->middleware('auth:stock');
 
 Route::post('/stock_logout', [App\Http\Controllers\LoginController::class, 'stock_logout'])->name('stock_logout');
 //出庫表
 Route::get('/stock/out_table/{id}',  [App\Http\Controllers\ProductController::class, 'out'])->name('out_table');
 //入庫表
 Route::get('/stock/in_table/{id}',  [App\Http\Controllers\ProductController::class, 'in'])->name('in_table');
-
+//従業員編集削除
+Route::get('/staff/edit/{id}', [App\Http\Controllers\ProductController::class, 'staff_edit'])->name('staff.edit')->middleware('auth:stock');
+Route::post('/staff/update/{id}', [App\Http\Controllers\ProductController::class, 'staff_update'])->name('staff.update');
+Route::delete('/staff/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('staff.delete');
 //Mailableを使った
 /* Route::get('/form', [App\Http\Controllers\MailController::class,'form']); */
-Route::post('/form/{form_id}', [App\Http\Controllers\MailController::class, 'send'])->name('send');
-Route::post('/store/{form_id}', [App\Http\Controllers\MailController::class, 'store'])->name('mail_store');
+Route::post('/send_form/{form_id}', [App\Http\Controllers\MailController::class, 'send'])->name('send');
+Route::post('/store/{id}', [App\Http\Controllers\MailController::class, 'store'])->name('mail_store');
 
-Route::post('/form_id/{form_id}', [App\Http\Controllers\MailController::class, 'send2'])->name('send2');
+Route::post('/form_id/{id}', [App\Http\Controllers\MailController::class, 'send2'])->name('send2');
 //アカウント情報表示ページ
 Route::get('/stock/account/{id}', [App\Http\Controllers\ProductController::class, 'show'])->name('account')->middleware('auth:stock');
 //アカウント修正ページへ

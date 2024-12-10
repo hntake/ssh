@@ -30,6 +30,9 @@
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
             <h3>取引先登録</h3>
         </a></p>
+        <p><a href="{{ route('staff',['id'=>$stock->id]) }}">
+            <h3>従業員登録</h3>
+        </a></p>
         <p><a href="{{ route('account',['id'=>$stock->id]) }}">
             <h3>登録情報・支払い情報</h3>
         </a></p>
@@ -46,7 +49,7 @@
     <!-- バリデーションエラーの表示 -->
 
     <!-- 新備品フォーム -->
-    <form action="{{ route('staff_register',['id'=>$stock->id,'qr' =>$qr]) }}" method="POST" class="form-horizontal">
+    <form action="{{ route('staff_register',['id'=>$stock->id]) }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <!-- 備品データ名 -->
@@ -60,7 +63,7 @@
             </div>
         </div>
 
-        <!-- 備品登録ボタン -->
+        <!-- 登録ボタン -->
         <div class="form-group">
             <div class="button">
                 <button type="submit">
@@ -69,5 +72,14 @@
             </div>
         </div>
     </form>
+
+    <!-- 従業員一覧ページを開くボタン -->
+<div class="form-group">
+    <div class="button">
+        <a href="{{ route('staff_list', ['id' => $stock->id]) }}" class="btn btn-primary">
+            従業員一覧を表示
+        </a>
+    </div>
+</div>
 </div>
 @endsection

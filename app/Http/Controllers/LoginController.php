@@ -190,15 +190,14 @@ class LoginController extends Controller
             
             if ($stock->name == null) {
                 // 会社情報入力
-                return view('stock/create', [
-                    'stock' => $stock,
-                ]);
+                return redirect()->route('register_stock_create', ['id' => $stock->id]);
+            // } elseif ($suppliers->isEmpty()) {
+            //     // 取引業者情報入力
+            //     return redirect()->route('supplier', ['id' => $stock->id]);
             } elseif ($products->isEmpty()) {
                 // 備品情報入力
-                return view('create_products', [
-                    'stock' => $stock,
-                    'suppliers' => $suppliers,
-                ]);
+                session(['suppliers' => $suppliers]);
+                return redirect()->route('create_product', ['id' => $stock->id]);
             } else {
                 // products/{id} にリダイレクト
                 return redirect()->route('products', ['id' => $stock->id]);

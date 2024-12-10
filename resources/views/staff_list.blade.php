@@ -2,9 +2,7 @@
 
 <link rel="stylesheet" href="{{ asset('css/products.css') }}"> <!-- products.cssと連携 -->
 
-@section('script')
 
-@endsection
 
 @section('content')
 
@@ -12,7 +10,7 @@
     <p>
     <h1>{{$stock->name}}</h1>
     </p>
-     <nav class="sidebar">
+    <nav class="sidebar">
         <p><a href="{{ route('products',['id'=>$stock->id]) }}">
                 <h3>在庫一覧画面</h3>
             </a></p>
@@ -51,28 +49,35 @@
 
 <!--発送表一覧画面-->
 <div class="table-responsive">
-    <p>出庫表</p>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>型番</th>
-                    <th>品目</th>
-                    <th>数量</th>
-                    <th>従業員名</th>
-                </tr>
-            </thead>
-            <tbody id="tbl">
-                @foreach ($outs as $out)
-                <tr>
-                    <td style="width:20%">{{ $out->product_id }}</td>
-                    <td style="width:20%">{{ $out->product->product_name }}</td>
-                    <td style="width:20%">{{ $out->out_amount }}</td>
-                    <td style="width:20%">{{ $out->staff }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    
+    <p>従業員表</p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>従業員名</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tbl">
+            @foreach ($staffs as $staff)
+            <tr>
+                <td style="width:20%">{{ $staff->name }}</td>
+                <td>
+                    <a href="{{ route('staff.edit', $staff->id) }}" class="btn btn-sm btn-primary">編集</a>
+                    <form action="{{ route('staff.delete', $staff->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('削除してもよろしいですか？')">削除</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 </div>
 
 @endsection

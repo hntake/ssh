@@ -34,6 +34,9 @@
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
             <h3>取引先登録</h3>
         </a></p>
+        <p><a href="{{ route('staff',['id'=>$stock->id]) }}">
+            <h3>従業員登録</h3>
+        </a></p>
         <p><a href="{{ route('account',['id'=>$stock->id]) }}">
             <h3>登録情報・支払い情報</h3>
         </a></p>
@@ -49,7 +52,7 @@
 <!--発送表一覧画面-->
 <div class="table-responsive">
     <p>発送表一覧</p>
-    <form action="{{ route('form') }}" method="POST">
+    <form action="{{ route('send_form',['id'=>$stock->id]) }}" method="POST">
     @csrf
         <table class="table-hover">
             <thead>
@@ -68,7 +71,7 @@
             <tbody id="tbl">
                 @foreach ($ships as $ship)
                 <tr data-supplier="{{ $ship->supplier_name }}">
-                <td style="width:20% "><a href="{{ route('form_id', ['id' => $ship->id]) }}">{{ $ship->id }}</a></td>
+                <td style="width:20% ">{{ $ship->id }}</a></td>
                 <td style="width:20%">{{ $ship->product_name }}</td>
                     <td style="width:20%">{{ $ship->supplier_name }}</td>
                     <td style="width:20%">{{ $ship->new_order }}</td>
@@ -77,6 +80,9 @@
                     @if($ship->status==1)
                     <td style="width:20%">送信済み</td>
                     <td></td>
+                    @elseif($ship->status==2)
+                    <td style="width:20%">保存</td>
+                    <td><a href="{{ route('form_id', ['id' => $ship->id]) }}">{{ $ship->id }}</a></td>
                     @else
                     <td style="width:20%">未送信</td>
                     </td>

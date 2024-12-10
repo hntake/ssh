@@ -12,6 +12,8 @@ use App\Models\Order;
 use App\Models\OrderForm;
 use App\Models\Product;
 use App\Models\Stock;
+use Illuminate\Support\Facades\DB; // DB ファサードを use する
+
 
 
 
@@ -19,11 +21,12 @@ use App\Models\Stock;
 
 class MailController extends Controller
 {
+    //複数もしくは単数を選択してメール送信する場合
     public function send(Request $request,$form_id)
     {
         $rules = [
             'due_date' => 'required|date',
-            'attend' => 'required|',
+            'staff' => 'required|',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -59,39 +62,45 @@ class MailController extends Controller
                 'status' => 1
             ]);
             }
-            return view('order_table', [
-                'orders' => $orders,
+            return view('stock/mail_box', [
+                'orderForms' => $orderForm,
                 'stock' => $stock,
-            ]);  
+            ]);   
             }
         else{
             session()->flash('success', '保存しました！');
             $orders = Order::orderBy('created_at', 'asc')->get();
-            return view('order_table', [
-                'orders' => $orders,
-            ]);
+            return view('stock/mail_box', [
+                'orderForms' => $orderForm,
+                'stock' => $stock,
+            ]);  
         }
     }
-    public function store(Request $request,$form_id)
+    public function store(Request $request,$id)
     {
         session()->flash('success', '保存しました！');
+        //OrderFormのstatusを保存に変更＆納期を保存
         $orderForm=OrderForm::where('id','=',$form_id)->first();
+        $orderForm->update([
+            'status' => 2,
+            'due_date'=>$request->due_date,
+            'staff'=>$request->staff,
+        ]);
         $stock=Stock::where('id','=',$orderForm->name_id)->first();
         $orders = Order::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'asc')->get();
-        return view('order_table', [
-            'orders' => $orders,
+        $orderForms=OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->get();
+        return view('stock/mail_box', [
+            'orderForms' => $orderForms,
             'stock' => $stock,
-        ]);
+        ]);  
     }
-    public function send2(Request $request,$form_id)
+    //注文番号からメール作成してからのメール送信
+    public function send2(Request $request,$id)
     {
         $rules = [
             'due_date' => 'required|date',
-            'attend' => 'required|',
+            'staff' => 'required|',
         ];
-
-
-
 
         $validator = Validator::make($request->all(), $rules);
 
@@ -102,27 +111,41 @@ class MailController extends Controller
         }
 
         $data = $validator->validate();
-        $orderForm=OrderForm::where('id','=',$form_id)->first();
+        $orderForm=OrderForm::where('id','=',$id)->first();
 
         $product=Product::where('supplier_name','=',$orderForm->supplier_name)->first();
         $stock=Stock::where('id','=',$orderForm->name_id)->first();
-        $ship=Ship::where('form_id','=',$form_id)->first();
+        $ship=Ship::where('form_id','=',$id)->first();
             $ship
             ->update([
                 'order_id'=>1
             ]);
-        if ($request->has('send')) {
-            $orderForm
+        if ($request->input('send')) {
+                $orderForm
             ->update([
                 'status'=>1
             ]);
             Mail::to($product->email)->send(new TestMail2($data,$ship,$stock));
             session()->flash('success', '送信しました！');
-            return back();
-        }
-        else{
+            $orderForms = OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->get();
+            return view('stock/mail_box', [
+                'orderForms' => $orderForms,
+                'stock' => $stock,
+            ]);         
+        } elseif ($request->input('store')) {
+        // データベースに保存する処理を追加
+            $orderForm->update([
+                'due_date' => $data['due_date'],
+                'staff' => $data['staff'],
+                'status' => 2, // 送信ではなく保存状態を示す
+            ]);
+        
             session()->flash('success', '保存しました！');
-            return back();
+            $orderForms = OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->get();
+            return view('stock/mail_box', [
+                'orderForms' => $orderForms,
+                'stock' => $stock,
+            ]);         
         }
     }
 }

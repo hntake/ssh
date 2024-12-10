@@ -43,7 +43,7 @@ color: #7f8c8d;
 </table>
 
 <p>希望納期：<span class="highlight">{!! nl2br( $data['due_date'] ) !!}</span></p>
-<p>担当名：<span class="highlight">{!! nl2br( $data['attend'] ) !!}</span></p>
+<p>担当名：<span class="highlight">{!! nl2br( $data['staff'] ) !!}</span></p>
 
 <div class="contact-info">
     <p>{!! nl2br( $stock['name'] ) !!}</p>

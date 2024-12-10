@@ -158,7 +158,7 @@ class ProductController extends Controller
         $order->new_order = $request->new_order;
         $order->staff = $request->staff;
         $order->supplier_name = $product->supplier_name;
-        $order->name_id = $product->name_id;
+        $order->name_id = $stock->id;
         $order->save();
 
         // CSRFトークンを再生成して、二重送信対策
@@ -182,7 +182,7 @@ class ProductController extends Controller
                 'status' => 1
             ]);
 
-        $orders = Order::where('name_id',$product->name_id)->orderBy('created_at', 'asc')->get();
+        $orders = Order::where('name_id',$product->name_id)->orderBy('created_at', 'desc')->get();
         return view('order_table', [
             'orders' => $orders,
             'stock' => $stock,
@@ -196,7 +196,7 @@ class ProductController extends Controller
      */
     public function order_table(Request $request,$id)
     {
-        $orders = Order::where('name_id',$id)->orderBy('created_at', 'asc')->get();
+        $orders = Order::where('name_id',$id)->orderBy('created_at', 'desc')->get();
         $stock=Stock::where('id','=',$id)->first();
 
         return view('order_table', [
@@ -212,7 +212,7 @@ class ProductController extends Controller
      */
     public function ship_table($id)
     {
-        $ships = Ship::where('name_id',$id)->orderBy('created_at', 'asc')->get();
+        $ships = Ship::where('name_id',$id)->orderBy('created_at', 'desc')->get();
         $stock=Stock::where('id','=',$id)->first();
         
         return view('ship_table', [
@@ -220,26 +220,65 @@ class ProductController extends Controller
             'stock' => $stock,
         ]);
     }
+        /**
+     * メールボックス表示
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function mail_box($id)
+    {
+        $orderForms = OrderForm::where('name_id',$id)->orderBy('created_at', 'desc')->get();
+        $stock=Stock::where('id','=',$id)->first();
+        
+        return view('stock/mail_box', [
+            'orderForms' => $orderForms,
+            'stock' => $stock,
+        ]);
+    }
     /**
      *
-     *選択した注文（複数）をメール作成フォームに遷移
+     *選択した注文（複数）をメール作成フォームに遷移$id=store->id
 
      * @param Request $request
      * @return Response
      * */
-    public function form(Request $request)
+    public function form(Request $request,$id)
     {
 
         // リクエストで送信されたチェックされた注文IDを取得
         $selected_orders = $request->input('selected_orders');
-        $ship = Ship::where('id',$selected_orders[0])->first();
+        // $selected_ordersが空でないか確認
+        if (empty($selected_orders) || count($selected_orders) < 1) {
+            return response()->json(['error' => '注文IDが選択されていません'], 400);
+        }
+        // 選択された注文IDに基づいてShipデータを一括取得
+        $ships = Ship::whereIn('id', $selected_orders)->get()->keyBy('id'); 
+        // 最初の注文データを使用してOrderFormを作成
+        $first_ship = $ships->get($selected_orders[0]); 
+        //一つ目の注文のスタッフ名を採択
+        $staff=$first_ship->staff; 
+        $supplier_name=$first_ship->supplier_name; 
         // OrderFormモデルに今回の注文メール作成を記録
         $orderForm = new OrderForm();
-                        
         // 各フィールドに値をセット
-        $orderForm->name_id = $ship->name_id;
-        $orderForm->staff = $ship->staff;
-        $orderForm->supplier_name = $ship->supplier_name;
+        $orderForm->name_id = $id;
+        $orderForm->staff = $staff;
+        $orderForm->supplier_name = $supplier_name;
+        $orderForm->due_date = $request->due_date;
+        // ループでitemフィールドとnew_orderフィールドをセット
+        foreach ($selected_orders as $index => $order_id) {
+            if ($index >= 10) break; // 最大10件まで
+
+            $ship = $ships->get($order_id);
+            if (!$ship) continue; // 該当データがない場合スキップ
+
+            $itemField = "item" . ($index + 1); // item1, item2, ...
+            $new_orderField = "new_order" . ($index + 1); 
+
+            $orderForm->$itemField = $ship->product_name;
+            $orderForm->$new_orderField = $ship->new_order;
+        }
         // データベースに保存
         $orderForm->save();
           // 各データをループで処理
@@ -265,7 +304,7 @@ class ProductController extends Controller
 }
     /**
      *
-     *選択したメール画面に遷移（ひとつだけ）
+     *選択した送信メール画面を表示
 
      * @param Request $request
      * @return Response
@@ -274,24 +313,10 @@ class ProductController extends Controller
 
     {
         //伝票番号が一致するものを取得
-        $ship=Ship::where('id','=',$id)->first();
-        $orderForm = new OrderForm();
-                        
-        // 各フィールドに値をセット
-        $orderForm->name_id = $ship->name_id;
-        $orderForm->staff = $ship->staff;
-        $orderForm->supplier_name = $ship->supplier_name;
-        // データベースに保存
-        $orderForm->save();
-
-        $form_id=$orderForm->id;
-            $ship->update([
-                'form_id' => $orderForm->id
-            ]);
+        $orderForm=OrderForm::where('id','=',$id)->first();
+    
         $company=Stock::where('id',$orderForm->name_id)->first();
             return view('form_id', [
-                'ship'=>$ship,
-                'form_id'=>$form_id,
                 'company'=>$company,
                 'orderForm'=>$orderForm,
     ]);
@@ -543,14 +568,13 @@ class ProductController extends Controller
         }
     }
 
-     //従業員登録画面表示(会社IDと商品IDを渡す)
-    public function staff(Request $request,$id,$qr)
+     //登録画面表示(会社IDと商品IDを渡す)
+    public function staff(Request $request,$id)
     {
         $stock = Stock::where('id', '=', $id)->first();
 
         return view('staff',[
             'id'=>$id,
-            'qr'=> $qr,
             'stock'=>$stock,
             ]
     );
@@ -558,24 +582,32 @@ class ProductController extends Controller
     }
 
        //従業員登録
-    public function staff_register(Request $request,$id,$qr)
+    public function staff_register(Request $request,$id)
     {
             $staff = new Staff;
             $staff->name = $request->name;
             $staff->name_id = $id;
             $staff->save();
 
-            $product=Product::where('id','=',$qr)->first();
             $stock = Stock::where('id', '=', $id)->first();
+            $staffs = Staff::where('name_id', '=', $id)->orderBy('created_at', 'asc')->get();
 
-            return view('qr',[
-                'product'=>$product,
-                'stock'=>$stock,
-            ]);
-
-
-
+            return redirect()->route('staff_list', ['id' => $id])
+            ->with('success', '従業員が登録されました');
     }
+
+    // 一覧を表示するメソッド
+    public function staff_list($id)
+    {
+        $stock = Stock::where('id', '=', $id)->first();
+        $staffs = Staff::where('name_id', '=', $id)->orderBy('created_at', 'asc')->get();
+
+        return view('staff_list', [
+            'staffs' => $staffs,
+            'stock' => $stock,
+        ]);
+    }
+
     //取引先登録画面
     public function supplier(Request $request,$id)
     {
@@ -621,7 +653,7 @@ class ProductController extends Controller
         }
     }
 
-        //削除
+        //注文票からの削除
         public function delete(Request $request, $id)
         {
             $name_id=Ship::where('id','=',$id)->value('name_id');
@@ -631,7 +663,7 @@ class ProductController extends Controller
             DB::table('orders')
             ->where('id', $order_id)
             ->delete();
-            $ships = Ship::where('name_id',$name_id)->orderBy('created_at', 'asc')->get();
+            $ships = Ship::where('name_id',$name_id)->orderBy('created_at', 'desc')->get();
 
             return view('ship_table', [
                 'ships' => $ships,
@@ -639,7 +671,20 @@ class ProductController extends Controller
             ]);        
         }
 
+        //メールボックスからの削除
+        public function delete_orderForm(Request $request, $id)
+        {
+            $name_id=Ship::where('id','=',$id)->value('name_id');
+            $stock=Stock::where('id','=',$name_id)->first();
 
+            $orderForm = OrderForm::where('id', $id)->delete();
+            $orderForms = OrderForm::where('name_id',$id)->orderBy('created_at', 'desc')->get();
+
+            return view('stock/mail_box', [
+                'orderForms' => $orderForms,
+                'stock' => $stock,
+            ]);      
+        }
         public function generateQrCodePdf($id)
         {
             // `name_id`に紐づくすべての`Product`データを取得
@@ -698,7 +743,7 @@ class ProductController extends Controller
         //入庫表
         public function in(Request $request, $id){
 
-            $ins=In::where('name_id','=',$id)->orderBy('created_at', 'asc')->get();
+            $ins=In::where('name_id','=',$id)->orderBy('created_at', 'desc')->get();
             $stock=Stock::where('id','=',$id)->first();
 
             return view('stock/in_table',[
@@ -709,7 +754,7 @@ class ProductController extends Controller
         //出庫表
         public function out(Request $request, $id){
 
-            $outs=Out::where('name_id','=',$id)->orderBy('created_at', 'asc')->get();
+            $outs=Out::where('name_id','=',$id)->orderBy('created_at', 'desc')->get();
             $stock=Stock::where('id','=',$id)->first();
 
             return view('stock/out_table',[
@@ -847,5 +892,31 @@ class ProductController extends Controller
             } catch (\Exception $e) {
                 return redirect()->route('account', ['id' => $stock->id])->with('error', 'サブスクリプションのキャンセルに失敗しました: ' . $e->getMessage());
             }
+        }
+
+                public function staff_edit($id)
+        {
+            $staff = Staff::findOrFail($id);
+            return view('staff_edit', ['staff' => $staff]);
+        }
+
+        public function staff_update(Request $request, $id)
+        {
+            $staff = Staff::findOrFail($id);
+            $staff->name = $request->input('name');
+            $staff->save();
+
+            return redirect()->route('staff_list', ['id' => $staff->name_id])
+                            ->with('success', '従業員情報を更新しました');
+        }
+
+        public function destroy($id)
+        {
+            $staff = Staff::findOrFail($id);
+            $nameId = $staff->name_id; // リダイレクト用
+            $staff->delete();
+
+            return redirect()->route('staff_list', ['id' => $nameId])
+                            ->with('success', '従業員を削除しました');
         }
     }

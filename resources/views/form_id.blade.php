@@ -5,7 +5,7 @@
 
 <div class="side"> <!-- サイドバー -->
     <p>
-    <h1>cafe57</h1>
+    <h1>{{$company->name}}</h1>
     </p>
     <nav class="sidebar">
         <p><a href="{{ route('products',['id'=>$company->id]) }}">
@@ -37,52 +37,58 @@
     @endif
 
     <div class="form-group">
-        <label for="product-name" class="col-sm-3 control-label">注文メール送信フォーム</label>
+    <label for="product-name" class="col-sm-3 control-label">注文メール送信フォーム</label>
 
-        <form action="{{ route('send2',['form_id'=>$form_id]) }}" method="POST">
-            @csrf
+    <form action="{{ route('send2', ['id' => $orderForm->id]) }}" method="POST">
+        @csrf
 
-            <p>送信先:{{$ship->supplier_name}}</p>
+        <p>送信先: {{$orderForm->supplier_name}}</p>
 
+        <p>発注依頼<br>
+            平素は大変お世話になっております。<br>
+            注文表
+        </p>
 
-            <p>発注依頼<br>
-                平素は大変お世話になっております。<br>
-                注文表
-            <table>
-                <tr>
-                    <th>品名</th>
-                    <th>個数</th>
-                </tr>
-                <tr>
-                    <th>{{$ship->product_name}}</th>
-                    <th>{{$ship->new_order}}</th>
-                </tr>
-            </table>
-            <p>希望納期:<input type="date" name="due_date" value="{{old('due_date')}}" value="2022-02-01"></p>
-            @if ($errors->has('due_date'))
-            <p>{{$errors->first('due_date')}}</p>
+        <table>
+            <tr>
+                <th>品名</th>
+                <th>個数</th>
+            </tr>
+            @for ($i = 1; $i <= 10; $i++)
+            @php
+                $itemField = "item$i"; // item1, item2, ..., item10
+                $newOrderField = "new_order$i"; // new_order1, new_order2, ..., new_order10
+            @endphp
+
+            @if (!empty($orderForm->$itemField)) {{-- itemフィールドが空でない場合のみ表示 --}}
+            <tr>
+                <td>{{ $orderForm->$itemField }}</td>
+                <td>{{ $orderForm->$newOrderField }}</td>
+            </tr>
             @endif
+        @endfor
+        </table>
 
+        <p>希望納期: <input type="date" name="due_date" value="{{ $orderForm->due_date }}"></p>
+        @if ($errors->has('due_date'))
+            <p class="error">{{$errors->first('due_date')}}</p>
+        @endif
 
-            <p>担当名:<input type="text" name="attend" value="{{$orderForm->staff}}"></p>
-            @if ($errors->has('attend'))
-            <p>{{$errors->first('attend')}}</p>
-            @endif
+        <p>担当名: <input type="text" name="staff" value="{{$orderForm->staff}}"></p>
+        @if ($errors->has('staff'))
+            <p class="error">{{$errors->first('staff')}}</p>
+        @endif
 
-            <p>注文致します。ご手配のほど、宜しくお願い致します。</p>
+        <p>注文致します。ご手配のほど、宜しくお願い致します。</p>
 
-
-
-
-
-            <p>
-                <input type="submit" name="send" value="送信">
-            </p>
+        @if($orderForm->status == 0 || $orderForm->status == 2)
             <p>
                 <input type="submit" name="store" value="保存">
+                <input type="submit" name="send" value="送信">
             </p>
-        </form>
-    </div>
+        @endif
+    </form>
+</div>
 </div>
 </div>
 @endsection

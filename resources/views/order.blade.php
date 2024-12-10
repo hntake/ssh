@@ -30,6 +30,10 @@
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
             <h3>取引先登録</h3>
         </a></p>
+        <p><a href="{{ route('staff',['id'=>$stock->id]) }}">
+        <h3>従業員登録</h3>
+        </a></p>
+
         <p><a href="{{ route('account',['id'=>$stock->id]) }}">
             <h3>登録情報・支払い情報</h3>
         </a></p>
