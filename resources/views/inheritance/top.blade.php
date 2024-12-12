@@ -28,8 +28,8 @@
             font-family: 'Noto Sans JP', sans-serif;
             background-color: #f5f5f5;
             margin: 0;
-            padding: 0;
-            width: 100%;
+            padding: 8px;
+            width: 90%;
 
         }
         .container {
@@ -75,6 +75,28 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+            img {
+                width: 100%;
+            }
+        }
     </style>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
         crossorigin="anonymous"></script>
@@ -116,50 +138,5 @@
         </form>
         <h3>選択肢にない家族構成での作成は、有料（¥1,000）にて承っております。ご希望の方は、<a href="{{ route('contact.index') }}">こちらまでメール</a>でお問い合わせください</h3>
     </div>
-    <footer class="site-footer">
-        <div class="bc-sitemap-wrapper">
-            <div class="sitemap clearfix">
-                <div id="nav_menu2" class="widget_nav_menu">
-                    <h2 class="widget-title">関連情報</h2>
-                    <div class="menu-site-map-1-container">
-                        <ul id="menu-site-map-1" class="menu">
-                            <li><a href="{{ url('blog/index')}}">ブログ</a></li>
-                            <l><a href="{{ url('news/index')}}">お知らせ</a></li>
-                                <li><a href="{{ url('partner')}}">パートナー</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="nav_menu2" class="widget_nav_menu">
-                    <h2 class="widget-title">サポート</h2>
-                    <div class="menu-site-map-1-container">
-                        <ul id="menu-site-map-1" class="menu">
-                            <li><a href="{{ route('contact.index')}}">お問い合わせ</a></li>
-                            <li><a href="{{ url('faq')}}">FAQ</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="nav_menu2" class="widget_nav_menu">
-                    <h2 class="widget-title">会社情報</h2>
-                    <div class="menu-site-map-1-container">
-                        <ul id="menu-site-map-1" class="menu">
-                            <li><a href="{{ url('policy')}}">プライバシー</a></li>
-                            <li><a href="{{ url('rule')}}">利用規約</a></li>
-                            <li><a href="{{ url('aboutus')}}">About Us</a></li>
-                            <li><a href="{{ url('consumer')}}">特定商取引</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="site-info">
-                    <div class="widget">
-                        <div class="copy-right">
-                            <span class="copy-right-text">© All rights reserved by llco</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <p></p>
-
-    </footer>
 </body>
 </html>

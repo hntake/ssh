@@ -11,10 +11,6 @@
         <meta name="description" content="無料で登録もなく利用できるオンラインサービスで、簡単に適格請求書をPDF形式で作成しましょう。
         使いやすいインターフェースとカスタマイズ可能なテンプレートで、ビジネスの請求処理をスムーズに行います。簡単な入力フォームから情報を入力し、
         即座に請求書を生成します。">
-        <meta name="keywords" content="インボイス,適格請求書,請求書作成,PDF請求書,オンライン請求書,無料請求書作成,ビジネス請求書,請求書テンプレート,
-        請求書サンプル,請求書ソフト,請求書ジェネレータ,請求書フォーマット,請求書PDF">
-        <meta name="author" content="llco">
-        <meta name="robots" content="index, follow">
         <!-- Fonts -->
         <link href="<https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap>" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/pdf.css') }}">
@@ -47,7 +43,7 @@
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <div class="container home">
         <div class="top">
-            <img src="../img/open_invoice.png" alt="適格請求書作成" style="width:30%;">
+            <img src="../img/open_invoice.png" alt="無料で適格請求書を作成するツールのロゴ" style="width:30%;">
                 <h2>無料で登録もなく利用できるオンラインサービスを使って、簡単に適格請求書をPDF形式で作成しましょう。
                 使いやすいインターフェースとカスタマイズ可能なテンプレートで、ビジネスの請求処理をスムーズに行います。簡単な入力フォームから情報を入力し、
                 即座に請求書を生成します。</h2>

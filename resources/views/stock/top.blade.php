@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>在庫管理アプリ | 最初の30日間無料</title>
+    <meta name="description" content="QRコードや手動入力で簡単に在庫管理。リアルタイム確認、在庫アラート、自動注文機能搭載。初月無料、月額500円で利用可能！">    
+    <title>llco 在庫管理アプリ | QRコード対応 | 最初の30日間無料</title>    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -78,6 +79,31 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "在庫管理アプリ",
+    "operatingSystem": "Windows, MacOS, Android, iOS",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+        "@type": "Offer",
+        "price": "500",
+        "priceCurrency": "JPY",
+        "description": "最初の30日間無料、その後月額500円"
+    },
+    "featureList": [
+        "在庫ラインのアラート機能",
+        "業者への自動注文機能",
+        "QRコードによる入出庫管理",
+        "リアルタイム在庫確認",
+        "手動入力対応",
+        "スマホ・PC対応"
+    ]
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
+    crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -89,7 +115,7 @@
             <p>最初の30日間は完全無料でお試しいただけます。その後は月額500円でご利用可能です！</p>
         </section>
         <section class="illustration">
-            <img src="/img/stock.png" alt="アプリの利用イメージ" style="width:30%;">
+            <img src="/img/stock.png" alt="QRコード対応 在庫管理アプリ llcoの利用イメージ" style="width:30%;">        
         </section>
         <section class="features">
             <h2>アプリの特徴</h2>
@@ -110,7 +136,7 @@
         <section class="cta">
             <h2>まずは無料でお試しください！</h2>
             <p>在庫管理がもっと簡単に。今すぐ登録して、無料期間をお楽しみください。</p>
-            <button onclick="location.href='/stock/register'">無料で始める</button>        
+            <button onclick="location.href='/stock/register'" aria-label="無料で在庫管理アプリを始める">無料で始める</button>       
         </section>
     </div>
     <footer>

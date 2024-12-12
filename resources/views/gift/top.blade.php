@@ -5,8 +5,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eギフトカード販売サービス</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="手数料なしで電子マネーシステムを導入可能！QRコードで簡単アクセスし、スマホでギフトカードを作成。店舗運営をサポートするeギフトカード販売サービスをお試しください。">
+    <meta name="keywords" content="eギフトカード, 電子マネー, 手数料なし, QRコード, ギフトカード作成, 店舗運営サポート">
+    <title>llco eギフトカード販売サービス | 手数料なしで電子マネー導入</title>    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "eギフトカード販売サービス",
+        "description": "手数料なしで電子マネーシステムを導入可能。QRコードで簡単アクセスし、スマホでギフトカードを作成できます。",
+        "url": "{{ url()->current() }}",
+        "priceRange": "8000JPY",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "日本",
+            "addressCountry": "JP"
+        },
+        "sameAs": [
+            "https://www.facebook.com/yourbusiness",
+            "https://www.twitter.com/yourbusiness"
+        ]
+    }
+    </script>
 </head>
 <body>
     <header class="header">
