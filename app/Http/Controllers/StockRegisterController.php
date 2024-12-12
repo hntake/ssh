@@ -104,6 +104,7 @@ class StockRegisterController extends Controller
 
         return view('stock/create',[
             'id'=> $id,
+            'stock'=>$stock,
         ]);
 
     }
