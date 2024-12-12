@@ -184,13 +184,13 @@
                                 <li><a href="{{ url('feature') }}">
                                         <h3>便利な機能</h3>
                                     </a></li>
-                               <li><a href="{{ url('parent') }}">
+                                <li><a href="{{ url('parent') }}">
                                         <h3>親子機能</h3>
                                     </a></li>
                                 <li><a href="{{ url('plan') }}">
                                         <h3>教育関係者向け</h3>
                                     </a></li>
-                               <li><a href="{{ url('commerce') }}">
+                                <li><a href="{{ url('commerce') }}">
                                         <h3>社会貢献</h3>
                                     </a></li>
                                 <li class="header_nav_itm">

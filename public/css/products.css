@@ -31,13 +31,14 @@ a#navbarDropdown{
     color:saddlebrown;
 }
 .py-4 { /* 在庫一覧表のエリア */
-    height:700px;
+    /* height:700px; */
     text-align:center;
     /* border: 2px solid; */
     margin-left:5px;
     position: relative;
     display: flex;
    /*  margin-right: 700px; */
+    margin-bottom: 100px;
 }
 .table-responsive{
     /* background-color: #CCFF99; */
@@ -163,6 +164,34 @@ ul{
     border:solid 1px rgb(229, 206, 165);
     margin:8px;
 }
+.pagination {
+    display: flex; /* 横並び */
+    justify-content: center; /* 中央揃え */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+div.pagination .page-link {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+div.pagination .page-link svg {
+    width: 12px;
+    height: 12px;
+    padding: 6px 12px; /* ボタン内の余白 */
+    text-decoration: none; /* 下線を削除 */
+    border: 1px solid #ddd; /* ボーダー */
+    border-radius: 4px; 
+}
+/* PC専用スタイル */
+.side {
+    display: block; /* PCでは表示 */
+}
+
+.mobile-menu {
+    display: none; /* PCでは非表示 */
+}
+
 @media only screen and (max-width: 767px){
     body {
         background-color:#f6f5f4;
@@ -195,5 +224,27 @@ ul{
     }
     .button a{
         width:40%;
+    }
+    .side {
+        display: none; /* スマホでは非表示 */
+    }
+
+    .mobile-menu {
+        display: block; /* スマホでハンバーガーアイコンを表示 */
+    }
+
+    .sidebar {
+        display: none; /* 初期状態でメニュー非表示 */
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .sidebar.show {
+        display: block; /* ハンバーガークリック時に表示 */
     }
 }

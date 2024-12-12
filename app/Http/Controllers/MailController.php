@@ -50,7 +50,7 @@ class MailController extends Controller
             ]);
             Mail::to($product->email)->send(new TestMail($data,$ships,$stock));
             session()->flash('success', '送信しました！');
-            $orders = Order::orderBy('created_at', 'asc')->get();
+            $orderForms=OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->paginate(50);
             foreach($orders as $order){
                 $order->update([
                     'status' => 2
@@ -63,15 +63,15 @@ class MailController extends Controller
             ]);
             }
             return view('stock/mail_box', [
-                'orderForms' => $orderForm,
+                'orderForms' => $orderForms,
                 'stock' => $stock,
             ]);   
             }
         else{
             session()->flash('success', '保存しました！');
-            $orders = Order::orderBy('created_at', 'asc')->get();
+            $orderForms=OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->paginate(50);
             return view('stock/mail_box', [
-                'orderForms' => $orderForm,
+                'orderForms' => $orderForms,
                 'stock' => $stock,
             ]);  
         }
@@ -88,7 +88,7 @@ class MailController extends Controller
         ]);
         $stock=Stock::where('id','=',$orderForm->name_id)->first();
         $orders = Order::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'asc')->get();
-        $orderForms=OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->get();
+        $orderForms=OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->paginate(50);
         return view('stock/mail_box', [
             'orderForms' => $orderForms,
             'stock' => $stock,
@@ -127,7 +127,7 @@ class MailController extends Controller
             ]);
             Mail::to($product->email)->send(new TestMail2($data,$ship,$stock));
             session()->flash('success', '送信しました！');
-            $orderForms = OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->get();
+            $orderForms = OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->paginate(50);
             return view('stock/mail_box', [
                 'orderForms' => $orderForms,
                 'stock' => $stock,
@@ -141,7 +141,7 @@ class MailController extends Controller
             ]);
         
             session()->flash('success', '保存しました！');
-            $orderForms = OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->get();
+            $orderForms = OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->paginate(50);
             return view('stock/mail_box', [
                 'orderForms' => $orderForms,
                 'stock' => $stock,

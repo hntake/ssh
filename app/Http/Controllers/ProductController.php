@@ -41,7 +41,7 @@ class ProductController extends Controller
     public function index(Request $request,$id)
     {
         $stock=Stock::where('id','=',$id)->first();
-        $products = Product::where('name_id','=',$id)->orderBy('created_at', 'asc')->get();
+        $products = Product::where('name_id','=',$id)->orderBy('created_at', 'asc')->paginate(50);
         return view('products', [
             'products' => $products,
             'stock'=>$stock,
@@ -130,7 +130,7 @@ class ProductController extends Controller
         $product->qr_code_path = $qrCodePath; // 生成したQRコードのパスを保存
         $product->save();
 
-        $products = Product::where('name_id','=',$id)->orderBy('created_at', 'asc')->get();
+        $products = Product::where('name_id','=',$id)->orderBy('created_at', 'asc')->paginate(50);
 
         return view('products', [
             'products' => $products,
@@ -182,7 +182,7 @@ class ProductController extends Controller
                 'status' => 1
             ]);
 
-        $orders = Order::where('name_id',$product->name_id)->orderBy('created_at', 'desc')->get();
+        $orders = Order::where('name_id',$product->name_id)->orderBy('created_at', 'desc')->paginate(50);
         return view('order_table', [
             'orders' => $orders,
             'stock' => $stock,
@@ -196,7 +196,7 @@ class ProductController extends Controller
      */
     public function order_table(Request $request,$id)
     {
-        $orders = Order::where('name_id',$id)->orderBy('created_at', 'desc')->get();
+        $orders = Order::where('name_id',$id)->orderBy('created_at', 'desc')->paginate(50);
         $stock=Stock::where('id','=',$id)->first();
 
         return view('order_table', [
@@ -212,7 +212,7 @@ class ProductController extends Controller
      */
     public function ship_table($id)
     {
-        $ships = Ship::where('name_id',$id)->orderBy('created_at', 'desc')->get();
+        $ships = Ship::where('name_id',$id)->orderBy('created_at', 'desc')->paginate(50);
         $stock=Stock::where('id','=',$id)->first();
         
         return view('ship_table', [
@@ -228,7 +228,7 @@ class ProductController extends Controller
      */
     public function mail_box($id)
     {
-        $orderForms = OrderForm::where('name_id',$id)->orderBy('created_at', 'desc')->get();
+        $orderForms = OrderForm::where('name_id',$id)->orderBy('created_at', 'desc')->paginate(50);
         $stock=Stock::where('id','=',$id)->first();
         
         return view('stock/mail_box', [
@@ -287,7 +287,8 @@ class ProductController extends Controller
             $ship = Ship::where('id', $order_id)->first();
             // Shipモデルを更新
             $ship->update([
-                'form_id' => $orderForm->id
+                'form_id' => $orderForm->id,
+                'status' => 1,//メール作成済みとする
             ]);
         }
             $ships = Ship::whereIn('id', $selected_orders)->get();
@@ -375,7 +376,7 @@ class ProductController extends Controller
             // shipsテーブルからorder_idが一致し、statusが0のものを取得
             $ships = Ship::whereIn('order_id', $orderIds)
                         ->where('status', '0')
-                        ->orderBy('created_at', 'desc')->get();            
+                        ->orderBy('created_at', 'desc')->paginate(50);            
             return view('ship_table', [
                 'ships' => $ships,
                 'stock' => $stock,
@@ -469,7 +470,7 @@ class ProductController extends Controller
         }
     
         // 会社の全在庫を取得する
-        $products = Product::where('name_id', '=', $id)->get();
+        $products = Product::where('name_id', '=', $id)->paginate(50);
     
         return view('products', [
             'products' => $products,
@@ -554,7 +555,7 @@ class ProductController extends Controller
                     ]);
                 }
 
-                $products = Product::where('name_id','=',$product_record->name_id)->orderBy('created_at', 'asc')->get();
+                $products = Product::where('name_id','=',$product_record->name_id)->orderBy('created_at', 'asc')->paginate(50);
                 $stock=Stock::where('id','=',$product_record->name_id)->first();
 
                 return view('products', [
@@ -628,7 +629,7 @@ class ProductController extends Controller
         $supplier->email=$request->email;
         $supplier->save();
 
-        $products=Product::where('name_id','=',$id)->get();
+        $products=Product::where('name_id','=',$id)->paginate(50);
         $stock=Stock::where('id','=',$id)->first();
         return view('products', [
             'products' => $products,
@@ -663,7 +664,7 @@ class ProductController extends Controller
             DB::table('orders')
             ->where('id', $order_id)
             ->delete();
-            $ships = Ship::where('name_id',$name_id)->orderBy('created_at', 'desc')->get();
+            $ships = Ship::where('name_id',$name_id)->orderBy('created_at', 'desc')->paginate(50);
 
             return view('ship_table', [
                 'ships' => $ships,
@@ -678,7 +679,7 @@ class ProductController extends Controller
             $stock=Stock::where('id','=',$name_id)->first();
 
             $orderForm = OrderForm::where('id', $id)->delete();
-            $orderForms = OrderForm::where('name_id',$id)->orderBy('created_at', 'desc')->get();
+            $orderForms = OrderForm::where('name_id',$id)->orderBy('created_at', 'desc')->paginate(50);
 
             return view('stock/mail_box', [
                 'orderForms' => $orderForms,
@@ -743,7 +744,7 @@ class ProductController extends Controller
         //入庫表
         public function in(Request $request, $id){
 
-            $ins=In::where('name_id','=',$id)->orderBy('created_at', 'desc')->get();
+            $ins=In::where('name_id','=',$id)->orderBy('created_at', 'desc')->paginate(50);
             $stock=Stock::where('id','=',$id)->first();
 
             return view('stock/in_table',[
@@ -754,7 +755,7 @@ class ProductController extends Controller
         //出庫表
         public function out(Request $request, $id){
 
-            $outs=Out::where('name_id','=',$id)->orderBy('created_at', 'desc')->get();
+            $outs=Out::where('name_id','=',$id)->orderBy('created_at', 'desc')->paginate(50);
             $stock=Stock::where('id','=',$id)->first();
 
             return view('stock/out_table',[

@@ -358,7 +358,7 @@ Route::post('/stock/login', [\App\Http\Controllers\LoginController::class, 'stoc
 //在庫一覧画面の表示
 Route::get('/products/{id}', [App\Http\Controllers\ProductController::class, 'index'])->name('products')->middleware('auth:stock');
 //在庫数を更新する
-Route::post('/update-product/{id}', [App\Http\Controllers\ProductController::class, 'updateProduct']);
+Route::post('/update-product/{id}', [App\Http\Controllers\ProductController::class, 'updateProduct'])->middleware('auth:stock');
 //取引先登録
 Route::get('/stock/supplier_register/{id}',  [App\Http\Controllers\ProductController::class, 'supplier'])->name('supplier')->middleware('auth:stock');
 Route::post('/stock/supplier_register/{id}',  [App\Http\Controllers\ProductController::class, 'supplier_post'])->name('supplier_register')->middleware('auth:stock');
@@ -413,28 +413,28 @@ Route::get('/staff_list/{id}', [App\Http\Controllers\ProductController::class, '
 
 Route::post('/stock_logout', [App\Http\Controllers\LoginController::class, 'stock_logout'])->name('stock_logout');
 //出庫表
-Route::get('/stock/out_table/{id}',  [App\Http\Controllers\ProductController::class, 'out'])->name('out_table');
+Route::get('/stock/out_table/{id}',  [App\Http\Controllers\ProductController::class, 'out'])->name('out_table')->middleware('auth:stock');
 //入庫表
-Route::get('/stock/in_table/{id}',  [App\Http\Controllers\ProductController::class, 'in'])->name('in_table');
+Route::get('/stock/in_table/{id}',  [App\Http\Controllers\ProductController::class, 'in'])->name('in_table')->middleware('auth:stock');
 //従業員編集削除
 Route::get('/staff/edit/{id}', [App\Http\Controllers\ProductController::class, 'staff_edit'])->name('staff.edit')->middleware('auth:stock');
-Route::post('/staff/update/{id}', [App\Http\Controllers\ProductController::class, 'staff_update'])->name('staff.update');
-Route::delete('/staff/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('staff.delete');
+Route::post('/staff/update/{id}', [App\Http\Controllers\ProductController::class, 'staff_update'])->name('staff.update')->middleware('auth:stock');
+Route::delete('/staff/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('staff.delete')->middleware('auth:stock');
 //Mailableを使った
 /* Route::get('/form', [App\Http\Controllers\MailController::class,'form']); */
-Route::post('/send_form/{form_id}', [App\Http\Controllers\MailController::class, 'send'])->name('send');
-Route::post('/store/{id}', [App\Http\Controllers\MailController::class, 'store'])->name('mail_store');
+Route::post('/send_form/{form_id}', [App\Http\Controllers\MailController::class, 'send'])->name('send_form')->middleware('auth:stock');
+Route::post('/store/{id}', [App\Http\Controllers\MailController::class, 'store'])->name('mail_store')->middleware('auth:stock');
 
-Route::post('/form_id/{id}', [App\Http\Controllers\MailController::class, 'send2'])->name('send2');
+Route::post('/form_id/{id}', [App\Http\Controllers\MailController::class, 'send2'])->name('send2')->middleware('auth:stock');
 //アカウント情報表示ページ
 Route::get('/stock/account/{id}', [App\Http\Controllers\ProductController::class, 'show'])->name('account')->middleware('auth:stock');
 //アカウント修正ページへ
 Route::get('/stock/my_update/{id}', [App\Http\Controllers\ProductController::class, 'edit'])->name('account.edit')->middleware('auth:stock');
-Route::post('/stock/my_update/{id}', [App\Http\Controllers\ProductController::class, 'account_update'])->name('account.update');
+Route::post('/stock/my_update/{id}', [App\Http\Controllers\ProductController::class, 'account_update'])->name('account.update')->middleware('auth:stock');
 
 //サブスク申込ページへ
-Route::get('/stock/apply/{id}', [App\Http\Controllers\ProductController::class, 'apply'])->name('apply')->middleware('auth:stock');
-Route::post('/stock/apply/{id}', [App\Http\Controllers\ProductController::class, 'subscribe'])->name('subscribe')->middleware('auth:stock');
+Route::get('/stock/apply/{id}', [App\Http\Controllers\ProductController::class, 'apply'])->name('apply')->middleware('auth:stock')->middleware('auth:stock');
+Route::post('/stock/apply/{id}', [App\Http\Controllers\ProductController::class, 'subscribe'])->name('subscribe')->middleware('auth:stock')->middleware('auth:stock');
 
 //サブスク停止ページへ
 Route::get('/stock/cancel/{id}', [App\Http\Controllers\ProductController::class, 'confirm_cancel'])->name('confirm-cancel')->middleware('auth:stock');

@@ -17,6 +17,9 @@
         <p><a href="{{ route('ship_table',['id'=>$stock->id]) }}">
                 <h3>発送表一覧</h3>
             </a></p>
+        <p><a href="{{ route('mail_box',['id'=>$stock->id]) }}">
+            <h3>メールボックス</h3>
+        </a></p>
         <p><a href="{{ route('out_table',['id'=>$stock->id]) }}">
             <h3>出庫表</h3>
         </a></p>

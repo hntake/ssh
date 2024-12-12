@@ -17,6 +17,9 @@
         <p><a href="{{ route('ship_table',['id'=>$stock->id]) }}">
                 <h3>発送表一覧</h3>
             </a></p>
+        <p><a href="{{ route('mail_box',['id'=>$stock->id]) }}">
+            <h3>メールボックス</h3>
+        </a></p>
         <p><a href="{{ route('out_table',['id'=>$stock->id]) }}">
             <h3>出庫表</h3>
         </a></p>
@@ -42,6 +45,32 @@
             <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
         </form>
     </div>
+</div>
+<!-- モバイル専用ハンバーガーメニュー -->
+<div class="mobile-menu">
+    <div class="hamburger" id="hamburger">
+        ☰ <!-- ハンバーガーアイコン -->
+    </div>
+
+    <!-- モバイル用メニュー -->
+    <nav class="sidebar" id="mobileMenu">
+        <p><a href="{{ route('products',['id'=>$stock->id]) }}"><h3>在庫一覧画面</h3></a></p>
+        <p><a href="{{ route('order_table',['id'=>$stock->id]) }}"><h3>注文一覧</h3></a></p>
+        <p><a href="{{ route('ship_table',['id'=>$stock->id]) }}"><h3>発送表一覧</h3></a></p>
+        <p><a href="{{ route('mail_box',['id'=>$stock->id]) }}"><h3>メールボックス</h3></a></p>
+        <p><a href="{{ route('out_table',['id'=>$stock->id]) }}"><h3>出庫表</h3></a></p>
+        <p><a href="{{ route('in_table',['id'=>$stock->id]) }}"><h3>入庫表</h3></a></p>
+        <p><a href="{{ route('qr_list',['id'=>$stock->id]) }}"><h3>QRコード一覧</h3></a></p>
+        <p><a href="{{ route('supplier',['id'=>$stock->id]) }}"><h3>取引先登録</h3></a></p>
+        <p><a href="{{ route('staff',['id'=>$stock->id]) }}"><h3>従業員登録</h3></a></p>
+        <p><a href="{{ route('account',['id'=>$stock->id]) }}"><h3>登録情報・支払い情報</h3></a></p>
+        <div class="button">
+            <form action="{{ route('stock_logout') }}" method="post">
+                @csrf <!-- CSRF保護 -->
+                <input type="submit" value="ログアウト"> <!-- ログアウトしてログイン画面に戻る -->
+            </form>
+        </div>
+    </nav>
 </div>
 <div class="table-responsive">
     <p>在庫一覧表</p>
@@ -76,6 +105,9 @@
             @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+        {{ $products->links() }}
+    </div>
     <div class="button">
         <a href="{{ route('create_products',['id'=>$stock->id])}}">備品登録</a>
     <!-- 入庫申請リンク -->
@@ -130,3 +162,13 @@
     });
 </script>
 @endsection
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function () {
+        mobileMenu.classList.toggle('show'); // トグルで表示/非表示を切り替える
+    });
+});
+</script>
