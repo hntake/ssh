@@ -134,7 +134,7 @@ class StockRegisterController extends Controller
         $stock->postal=$request->postal;
         $stock->address=$request->address;
         $stock->save();
-        $products=Product::where('name_id','=',$stock->id)->get();
+        $products=Product::where('name_id','=',$stock->id)->paginate(50);
           //投稿されたらメール送信
         $data = ['新規登録会社ID' => $stock->id];
         \Mail::to('info@itcha50.com')->send(new StockRegister($data));
