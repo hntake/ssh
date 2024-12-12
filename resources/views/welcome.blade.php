@@ -8,14 +8,20 @@
     <title>llco Web制作会社</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="自分の英単語テストを作って公開しよう！英語学習サイト”エイゴメ">
-    <meta name="keywords" content="英語学習,発音学習,英単語,中学英語,高校英語,英検二級,英検一級,TOEIC">
+    <meta name="keywords" content="Web制作, 英単語アプリ, 請求書作成, 法定相続一覧, 在庫管理, eギフトカード">    
     <meta name="author" content="llco">
     <meta name="robots" content="index, follow">
-
+    <meta property="og:title" content="llco Web制作会社 - 多様なサービスを提供">
+    <meta property="og:description" content="英単語学習アプリ、請求書作成、法定相続一覧図作成アプリなどの多様なサービスを提供しています。">
+    <meta property="og:image" content="https://eng50cha.com/img/favicon500.png">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="llco Web制作会社">
+    <meta name="twitter:description" content="多様なサービスを提供しています。">
+    <meta name="twitter:image" content="https://eng50cha.com/img/favicon500.png">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Rubik+Dirt&family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
@@ -23,10 +29,8 @@
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
-    <link rel=”apple-touch-icon” href=”./apple-touch-icon.png” sizes=”180×180″>
     <script src="https://kit.fontawesome.com/8eb7c95a34.js" crossorigin="anonymous"></script>
     <style>
         body {
@@ -90,6 +94,20 @@
             });
         });
     </script>
+    <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "llco Web制作会社",
+    "url": "{{ url('/') }}",
+    "description": "英単語学習アプリ、請求書作成アプリなど多様なサービスを提供。",
+    "logo": "{{ asset('/favicon.ico') }}",
+    "sameAs": [
+        "https://www.facebook.com/llco",
+        "https://twitter.com/llco"
+    ]
+    }
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8877496646325962"
     crossorigin="anonymous"></script>
 </head>
@@ -100,27 +118,26 @@
         
         <div class="service">
             <h2>提供サービス 1: 英単語学習アプリ</h2>
-            <button onclick="location.href='{{ route('english') }}'">サービスに移動</button>
-        </div>
+            <button onclick="location.href='{{ route('english') }}'">英単語学習アプリの詳細を見る</button>        </div>
         
         <div class="service">
             <h2>提供サービス 2: インボイス対応請求書作成アプリ</h2>
-            <button onclick="location.href='{{ url('invoice/open') }}'">サービスに移動</button>
+            <button onclick="location.href='{{ url('invoice/open') }}'">インボイス対応請求書作成アプリの詳細を見る</button>
         </div>
         
         <div class="service">
             <h2>提供サービス 3: 法定相続一覧図作成アプリ</h2>
-            <button onclick="location.href='{{ url('inheritance/top') }}'">サービスに移動</button>
+            <button onclick="location.href='{{ url('inheritance/top') }}'">法定相続一覧図作成アプリの詳細を見る</button>
         </div>
         
         <div class="service">
             <h2>提供サービス 4: 在庫管理アプリ</h2>
-            <button onclick="location.href='{{ url('stock/top') }}'">サービスに移動</button>
+            <button onclick="location.href='{{ url('stock/top') }}'">在庫管理アプリの詳細を見る</button>
         </div>
         
         <div class="service">
             <h2>提供サービス 5: eギフトカードアプリ</h2>
-            <button onclick="location.href='{{ url('gift/top') }}'">サービスに移動</button>
+            <button onclick="location.href='{{ url('gift/top') }}'">eギフトカードアプリの詳細を見る</button>
         </div>
         
         <!-- <div class="service">
