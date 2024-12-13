@@ -197,7 +197,7 @@ class LoginController extends Controller
             } elseif ($products->isEmpty()) {
                 // 備品情報入力
                 session(['suppliers' => $suppliers]);
-                return redirect()->route('create_product', ['id' => $stock->id]);
+                return redirect()->route('create_products', ['id' => $stock->id]);
             } else {
                 // products/{id} にリダイレクト
                 return redirect()->route('products', ['id' => $stock->id]);
