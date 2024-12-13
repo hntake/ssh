@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\DB; // DB ファサードを use する
 
 class MailController extends Controller
 {
-    //複数もしくは単数を選択してメール送信する場合
+    //複数もしくは単数を選択してメール送信する場合$form_id=stock->id会社ID
     public function send(Request $request,$form_id)
     {
         $rules = [
@@ -76,11 +76,12 @@ class MailController extends Controller
             ]);  
         }
     }
+    //$id=orderForm->id
     public function store(Request $request,$id)
     {
         session()->flash('success', '保存しました！');
         //OrderFormのstatusを保存に変更＆納期を保存
-        $orderForm=OrderForm::where('id','=',$form_id)->first();
+        $orderForm=OrderForm::where('id','=',$id)->first();
         $orderForm->update([
             'status' => 2,
             'due_date'=>$request->due_date,

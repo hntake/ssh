@@ -39,7 +39,7 @@
     <div class="form-group">
         <label for="product-name" class="col-sm-3 control-label">注文メール送信フォーム</label>
 
-        <form action="{{ route('send',['id'=>$form_id]) }}" method="POST">
+        <form action="{{ route('send_form',['form_id'=>$form_id]) }}" method="POST">
             @csrf
 
             <p>送信先:{{$orderForm->supplier_name}}</p>

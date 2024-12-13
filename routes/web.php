@@ -399,7 +399,7 @@ Route::get('/stock/mail_box/{id}',  [App\Http\Controllers\ProductController::cla
 //注文番号確認画面へ遷移
 Route::post('/ship/{id}',  [App\Http\Controllers\ProductController::class, 'ship'])->name('ship')->middleware('auth:stock');
 //注文メール送信画面へ遷移
-Route::post('/form}',  [App\Http\Controllers\ProductController::class, 'form'])->name('form')->middleware('auth:stock');
+Route::post('/form/{id}}',  [App\Http\Controllers\ProductController::class, 'form'])->name('form')->middleware('auth:stock');
 //選択したメール画面へ遷移(注文票から選択)
 Route::get('/form_id/{id}',  [App\Http\Controllers\ProductController::class, 'form_id'])->name('form_id')->middleware('auth:stock');
 //注文票から削除

@@ -82,7 +82,7 @@
                 <th style="width:20%">取引先</th>
                 <th style="width:10%">在庫数</th>
                 <th style="width:10%">発注ライン</th>
-                <th style="width:10%">アラート</th>
+                <th id="text" style="width:10%; writing-mode: vertical-rl; text-orientation: upright;">アラート</th>
             </tr>
         </thead>
         <tbody id="tbl">
@@ -171,4 +171,8 @@ document.addEventListener('DOMContentLoaded', function () {
         mobileMenu.classList.toggle('show'); // トグルで表示/非表示を切り替える
     });
 });
+</script>
+<script>
+  const textElement = document.getElementById('text');
+  textElement.innerHTML = textElement.innerHTML.replace(/ー/g, '｜');
 </script>

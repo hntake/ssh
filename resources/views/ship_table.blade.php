@@ -81,7 +81,7 @@
 <!--発送表一覧画面-->
 <div class="table-responsive">
     <p>発送表一覧</p>
-    <form action="{{ route('send_form',['form_id'=>$stock->id]) }}" method="POST">
+    <form action="{{ route('form',['id'=>$stock->id]) }}" method="POST">
     @csrf
         <table class="table-hover">
             <thead>

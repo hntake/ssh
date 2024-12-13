@@ -675,16 +675,29 @@ class ProductController extends Controller
         //メールボックスからの削除
         public function delete_orderForm(Request $request, $id)
         {
-            $name_id=Ship::where('id','=',$id)->value('name_id');
-            $stock=Stock::where('id','=',$name_id)->first();
-
-            $orderForm = OrderForm::where('id', $id)->delete();
-            $orderForms = OrderForm::where('name_id',$id)->orderBy('created_at', 'desc')->paginate(50);
-
+            // 削除対象のOrderFormデータからname_idを取得
+            $orderForm = OrderForm::find($id);
+            if (!$orderForm) {
+                return redirect()->back()->with('error', 'データが見つかりませんでした。');
+            }
+            $name_id = $orderForm->name_id;
+        
+            // 対応するStockを取得
+            $stock = Stock::where('id', '=', $name_id)->first();
+        
+            // データ削除
+            $orderForm->delete();
+        
+            // name_idに関連するOrderFormデータを取得
+            $orderForms = OrderForm::where('name_id', $name_id)
+                ->orderBy('created_at', 'desc')
+                ->paginate(50);
+        
+            // ビューにデータを渡して表示
             return view('stock/mail_box', [
                 'orderForms' => $orderForms,
                 'stock' => $stock,
-            ]);      
+            ]);
         }
         public function generateQrCodePdf($id)
         {

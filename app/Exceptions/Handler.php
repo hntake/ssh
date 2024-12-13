@@ -54,9 +54,36 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         if ($exception instanceof TokenMismatchException) {
+            // ガードを取得
+            $guard = null;
+            if ($request->route() && $request->route()->middleware()) {
+                $middleware = $request->route()->middleware();
+                if (in_array('auth:stock', $middleware)) {
+                    $guard = 'stock';
+                } elseif (in_array('auth:admin', $middleware)) {
+                    $guard = 'admin';
+                } elseif (in_array('auth:invoice', $middleware)) {
+                    $guard = 'invoice';
+                }
+            }
+    
+            // ガードに応じたリダイレクト
+            if ($guard === 'stock') {
+                return redirect()->guest(route('stock.login'))->with('error', 'セッションが切れました。もう一度ログインしてください。');
+            }
+    
+            if ($guard === 'admin') {
+                return redirect()->guest(route('admin.login'))->with('error', 'セッションが切れました。もう一度ログインしてください。');
+            }
+    
+            if ($guard === 'invoice') {
+                return redirect()->guest(route('invoice.login'))->with('error', 'セッションが切れました。もう一度ログインしてください。');
+            }
+    
+            // デフォルトのリダイレクト
             return redirect()->guest(route('login'))->with('error', 'セッションが切れました。もう一度ログインしてください。');
         }
-
+    
         return parent::render($request, $exception);
     }
 }
