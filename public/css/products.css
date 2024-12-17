@@ -3,6 +3,7 @@ body {
     background-color:#f6f5f4;
     margin-left: 125px;
     margin-top: 25px;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
 a#navbarDropdown{
     text-decoration: none;
@@ -12,7 +13,6 @@ a#navbarDropdown{
     width: 100%;
     max-width: 340px;
     padding: 5px 10px;
-
 }
 .card{
     text-align: center;
@@ -191,7 +191,10 @@ div.pagination .page-link svg {
 .mobile-menu {
     display: none; /* PCでは非表示 */
 }
-
+a{
+    text-decoration: none;
+    color:lightslategray;
+}
 @media only screen and (max-width: 767px){
     body {
         background-color:#f6f5f4;
