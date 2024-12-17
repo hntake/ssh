@@ -138,6 +138,10 @@
             <p>在庫管理がもっと簡単に。今すぐ登録して、無料期間をお楽しみください。</p>
             <button onclick="location.href='/stock/register'" aria-label="無料で在庫管理アプリを始める">無料で始める</button>       
         </section>
+        <section class="cta">
+            <h2>すでに会員の方はこちらからログインしてください</h2>
+            <button onclick="location.href='/stock/login'" aria-label="在庫管理アプリにログインする">ログイン</button>       
+        </section>
     </div>
     <footer>
         <p>© 2024 llco 在庫管理アプリ All Rights Reserved.</p>
