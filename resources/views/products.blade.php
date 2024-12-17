@@ -82,7 +82,7 @@
                 <th style="width:20%">取引先</th>
                 <th style="width:10%">在庫数</th>
                 <th style="width:10%">発注ライン</th>
-                <th style="width:10%">アラート</th>
+                <th style="width:10%">状況</th>
             </tr>
         </thead>
         <tbody id="tbl">

@@ -250,4 +250,5 @@ a{
     .sidebar.show {
         display: block; /* ハンバーガークリック時に表示 */
     }
+    
 }
