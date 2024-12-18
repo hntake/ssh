@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QRコードや手動入力で簡単利用の在庫管理アプリ。リアルタイム確認、在庫アラート、自動注文機能搭載。初月無料、月額500円で利用可能！">    
+    <meta name="description" content="QRコードや手動入力で簡単利用の在庫管理アプリ。リアルタイム確認、在庫アラート、自動注文機能搭載。初月無料、月額500円で利用可能！"> 
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ITcha50">
+    <meta name="twitter:title" content="llco 格安在庫管理アプリ">
+    <meta name="twitter:description" content="在庫管理アプリで効率アップ！<br>
+            ・QRコードで簡単入出庫管理<br>
+            ・在庫切れを防ぐアラート機能<br>
+            ・業者へのメール注文もワンタップ！<br>
+            <br>
+            最初の30日間は無料でお試しいただけます。
+            その後は月額500円でご利用可能です！">
+    <meta name="twitter:image" content="https://eng50cha.com/img/stock.png">
     <title>llco 在庫管理アプリ | QRコード対応 | 最初の30日間無料</title>    
     <style>
         body {
@@ -106,6 +118,12 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Twitterシェアボタン -->
+
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr"> 
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="llco 格安在庫管理アプリ" data-url="{{url('stock/top')}}">Tweet</a>
+    </blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <header>
         <h1>llco 在庫管理アプリ - 簡単・便利・最初の30日間無料！</h1>
     </header>
