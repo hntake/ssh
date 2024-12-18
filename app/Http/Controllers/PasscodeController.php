@@ -24,9 +24,9 @@ class PasscodeController extends Controller
             'passcode' => 'required|digits:4',
         ]);
 
-        $stock=Stock::find($id);
+        $stock = Stock::findOrFail($id); // 存在しないIDは404エラーを返す
         // ここでパスコードを確認 (例: 1234)
-        if ($request->passcode = $stock->passcode) {
+        if ($request->passcode == $stock->passcode) {
             $request->session()->put('passcode_verified', true);
             return redirect()->route('staff', ['id' => $id]);
         }

@@ -133,6 +133,7 @@ class StockRegisterController extends Controller
         $stock->tel=$request->phone_number;
         $stock->postal=$request->postal;
         $stock->address=$request->address;
+        $stock->passcode=$request->passcode;
         $stock->save();
         $products=Product::where('name_id','=',$stock->id)->paginate(50);
           //投稿されたらメール送信

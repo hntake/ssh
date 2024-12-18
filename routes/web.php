@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PasscodeController;
+use App\Http\Controllers\PasscodeResetController;
 
 
 /*
@@ -440,7 +441,11 @@ Route::post('/stock/apply/{id}', [App\Http\Controllers\ProductController::class,
 //サブスク停止ページへ
 Route::get('/stock/cancel/{id}', [App\Http\Controllers\ProductController::class, 'confirm_cancel'])->name('confirm-cancel')->middleware('auth:stock');
 Route::post('/stock/cancel/{id}', [App\Http\Controllers\ProductController::class, 'cancel'])->name('cancel')->middleware('auth:stock');
-
+//パスコードリセット
+Route::get('/passcode/forgot', [PasscodeResetController::class, 'showForgotForm'])->name('passcode.forgot');
+Route::post('/passcode/forgot', [PasscodeResetController::class, 'sendResetLink'])->name('passcode.sendResetLink');
+Route::get('/passcode/reset/{token}', [PasscodeResetController::class, 'showResetForm'])->name('passcode.resetForm');
+Route::post('/passcode/reset', [PasscodeResetController::class, 'resetPasscode'])->name('passcode.reset');
 //パスコードアクセス
 Route::get('/passcode/{id}', [PasscodeController::class, 'showPasscodeForm'])->name('passcode.form');
 Route::post('/passcode/{id}', [PasscodeController::class, 'verifyPasscode'])->name('passcode.verify');

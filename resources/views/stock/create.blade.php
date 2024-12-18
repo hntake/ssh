@@ -49,6 +49,10 @@
                         <label for="phone_number">電話番号</label>
                         <input type="text" id="phone_number" name="phone_number" required>
                     </div>
+                    <div class="form-block">
+                        <label for="passcode">管理者用４桁パスコード</label>
+                        <input type="text" id="passcode" name="passcode" required>
+                    </div>
                 </div>
                 <button type="submit">会社情報を登録する</button>
             </form>
