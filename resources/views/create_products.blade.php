@@ -31,9 +31,9 @@
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
             <h3>取引先登録</h3>
         </a></p>
-        <p><a href="{{ route('staff',['id'=>$stock->id]) }}">
-            <h3>従業員登録</h3>
-        </a></p>
+        <p><a href="{{ route('passcode.form',['id'=>$stock->id]) }}">
+            <h3>従業員登録（管理者専用）</h3></a></p>
+
         <p><a href="{{ route('account',['id'=>$stock->id]) }}">
             <h3>登録情報・支払い情報</h3>
         </a></p>
@@ -61,7 +61,7 @@
         <p><a href="{{ route('in_table',['id'=>$stock->id]) }}"><h3>入庫表</h3></a></p>
         <p><a href="{{ route('qr_list',['id'=>$stock->id]) }}"><h3>QRコード一覧</h3></a></p>
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}"><h3>取引先登録</h3></a></p>
-        <p><a href="{{ route('staff',['id'=>$stock->id]) }}"><h3>従業員登録</h3></a></p>
+        <p><a href="{{ route('passcode.form',['id'=>$stock->id]) }}"><h3>従業員登録（管理者専用）</h3></a></p>
         <p><a href="{{ route('account',['id'=>$stock->id]) }}"><h3>登録情報・支払い情報</h3></a></p>
         <div class="button">
             <form action="{{ route('stock_logout') }}" method="post">

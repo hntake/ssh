@@ -73,19 +73,12 @@
 
             <p>注文致します。ご手配のほど、宜しくお願い致します。</p>
 
-
-
-
-
+            @if($orderForm->status == 0 || $orderForm->status == 2)
             <p>
+                <input type="submit" name="store" value="保存">
                 <input type="submit" name="send" value="送信">
             </p>
-            </form>
-            <form action="{{ route('mail_store',['id'=>$orderForm->id]) }}" method="POST">
-            @csrf
-            <p>
-                <input type="submit" name="mail_store" value="保存">
-            </p>
+        @endif
         </form>
     </div>
 </div>

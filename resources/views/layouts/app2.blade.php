@@ -46,6 +46,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="create">
+                        <h2 style="text-align:center;">在庫管理アプリ</h2>
                         <!-- Authentication Links -->
                         @guest
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PasscodeController;
 
 
 /*
@@ -406,8 +407,8 @@ Route::get('/form_id/{id}',  [App\Http\Controllers\ProductController::class, 'fo
 Route::get('/delete/{id}', [App\Http\Controllers\ProductController::class, 'delete'])->name('delete_ship')->middleware('auth:stock');
 //メールボックスから削除
 Route::get('/delete_orderForm/{id}', [App\Http\Controllers\ProductController::class, 'delete_orderForm'])->name('delete_orderForm')->middleware('auth:stock');
-//従業員登録画面
-Route::get('/staff/{id}', [App\Http\Controllers\ProductController::class, 'staff'])->name('staff')->middleware('auth:stock');
+//従業員登録（管理者専用）画面
+Route::get('/staff/{id}', [App\Http\Controllers\ProductController::class, 'staff'])->name('staff')->middleware('passcode');
 Route::post('/staff/{id}', [App\Http\Controllers\ProductController::class, 'staff_register'])->name('staff_register')->middleware('auth:stock');
 Route::get('/staff_list/{id}', [App\Http\Controllers\ProductController::class, 'staff_list'])->name('staff_list')->middleware('auth:stock');
 
@@ -439,6 +440,10 @@ Route::post('/stock/apply/{id}', [App\Http\Controllers\ProductController::class,
 //サブスク停止ページへ
 Route::get('/stock/cancel/{id}', [App\Http\Controllers\ProductController::class, 'confirm_cancel'])->name('confirm-cancel')->middleware('auth:stock');
 Route::post('/stock/cancel/{id}', [App\Http\Controllers\ProductController::class, 'cancel'])->name('cancel')->middleware('auth:stock');
+
+//パスコードアクセス
+Route::get('/passcode/{id}', [PasscodeController::class, 'showPasscodeForm'])->name('passcode.form');
+Route::post('/passcode/{id}', [PasscodeController::class, 'verifyPasscode'])->name('passcode.verify');
 
 //アンケート機能
 

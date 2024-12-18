@@ -35,9 +35,8 @@
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
             <h3>取引先登録</h3>
         </a></p>
-        <p><a href="{{ route('staff',['id'=>$stock->id]) }}">
-            <h3>従業員登録</h3>
-        </a></p>
+        <p><a href="{{ route('passcode.form',['id'=>$stock->id]) }}"><h3>従業員登録（管理者専用）</h3></a></p>
+
         <p><a href="{{ route('account',['id'=>$stock->id]) }}">
             <h3>登録情報・支払い情報</h3>
         </a></p>
@@ -65,7 +64,7 @@
         <p><a href="{{ route('in_table',['id'=>$stock->id]) }}"><h3>入庫表</h3></a></p>
         <p><a href="{{ route('qr_list',['id'=>$stock->id]) }}"><h3>QRコード一覧</h3></a></p>
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}"><h3>取引先登録</h3></a></p>
-        <p><a href="{{ route('staff',['id'=>$stock->id]) }}"><h3>従業員登録</h3></a></p>
+        <p><a href="{{ route('passcode.form',['id'=>$stock->id]) }}"><h3>従業員登録（管理者専用）</h3></a></p>
         <p><a href="{{ route('account',['id'=>$stock->id]) }}"><h3>登録情報・支払い情報</h3></a></p>
         <div class="button">
             <form action="{{ route('stock_logout') }}" method="post">
@@ -82,6 +81,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
+                <th>ID番号</th>
                 <th>従業員名</th>
                 <th>操作</th>
             </tr>
@@ -89,6 +89,7 @@
         <tbody id="tbl">
             @foreach ($staffs as $staff)
             <tr>
+                <td style="width:20%">{{ $staff->id }}</td>
                 <td style="width:20%">{{ $staff->name }}</td>
                 <td>
                     <a href="{{ route('staff.edit', $staff->id) }}" class="btn btn-sm btn-primary">編集</a>

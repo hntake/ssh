@@ -1,6 +1,7 @@
 @extends('layouts.app2')
 
 <link rel="stylesheet" href="{{ asset('css/products.css') }}"> <!-- products.cssと連携 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 @section('script')
 
@@ -37,9 +38,8 @@
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}">
             <h3>取引先登録</h3>
         </a></p>
-        <p><a href="{{ route('staff',['id'=>$stock->id]) }}">
-            <h3>従業員登録</h3>
-        </a></p>
+        <p><a href="{{ route('passcode.form',['id'=>$stock->id]) }}"><h3>従業員登録（管理者専用）</h3></a></p>
+
         <p><a href="{{ route('account',['id'=>$stock->id]) }}">
             <h3>登録情報・支払い情報</h3>
         </a></p>
@@ -67,7 +67,7 @@
         <p><a href="{{ route('in_table',['id'=>$stock->id]) }}"><h3>入庫表</h3></a></p>
         <p><a href="{{ route('qr_list',['id'=>$stock->id]) }}"><h3>QRコード一覧</h3></a></p>
         <p><a href="{{ route('supplier',['id'=>$stock->id]) }}"><h3>取引先登録</h3></a></p>
-        <p><a href="{{ route('staff',['id'=>$stock->id]) }}"><h3>従業員登録</h3></a></p>
+        <p><a href="{{ route('passcode.form',['id'=>$stock->id]) }}"><h3>従業員登録（管理者専用）</h3></a></p>
         <p><a href="{{ route('account',['id'=>$stock->id]) }}"><h3>登録情報・支払い情報</h3></a></p>
         <div class="button">
             <form action="{{ route('stock_logout') }}" method="post">
@@ -100,7 +100,7 @@
                     <td style="width:20%">{{ $orderForm->due_date }}</td>
                     <td style="width:20%">{{ $orderForm->staff }}</td>
                     @if($orderForm->status==1)
-                    <td style="width:20%">送信済み</td>
+                    <td style="width:20%; text-align:center;"><i class="fa-regular fa-envelope"></i></td>
                     @elseif($orderForm->status==2)
                     <td style="width:20%">保存</td>
                     @else

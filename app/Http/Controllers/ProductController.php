@@ -582,7 +582,7 @@ class ProductController extends Controller
 
     }
 
-       //従業員登録
+       //従業員登録（管理者専用）
     public function staff_register(Request $request,$id)
     {
             $staff = new Staff;

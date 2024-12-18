@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\DB; // DB ファサードを use する
 
 class MailController extends Controller
 {
-    //複数もしくは単数を選択してメール送信する場合$form_id=stock->id会社ID
+    //複数もしくは単数を選択してメール送信する場合$form_id=orderForm->id
     public function send(Request $request,$form_id)
     {
         $rules = [
@@ -43,7 +43,7 @@ class MailController extends Controller
         $ships=Ship::where('form_id','=',$form_id)->get();
         $product=Product::where('supplier_name','=',$orderForm->supplier_name)->first();
         $stock=Stock::where('id','=',$orderForm->name_id)->first();
-        if ($request->has('send')) {
+        if ($request->input('send')) {
             $orderForm
             ->update([
                 'status'=>1
@@ -51,13 +51,14 @@ class MailController extends Controller
             Mail::to($product->email)->send(new TestMail($data,$ships,$stock));
             session()->flash('success', '送信しました！');
             $orderForms=OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->paginate(50);
-            foreach($orders as $order){
-                $order->update([
-                    'status' => 2
-                ]);
-            }
+            //削除する
+            // foreach($orders as $order){
+            //     $order->update([
+            //         'status' => 2
+            //     ]);
+            // }
             foreach($ships as $ship){
-            // Shipモデルを更新
+            // Shipモデルを更新・送信済みに変更
             $ship->update([
                 'status' => 1
             ]);
@@ -66,8 +67,12 @@ class MailController extends Controller
                 'orderForms' => $orderForms,
                 'stock' => $stock,
             ]);   
-            }
-        else{
+        } elseif ($request->input('store')) {
+            $orderForm->update([
+                'status' => 2,
+                'due_date'=>$request->due_date,
+                'staff'=>$request->staff,
+            ]);
             session()->flash('success', '保存しました！');
             $orderForms=OrderForm::where('name_id','=',$orderForm->name_id)->orderBy('created_at', 'desc')->paginate(50);
             return view('stock/mail_box', [
