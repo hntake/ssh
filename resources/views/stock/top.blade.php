@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QRコードや手動入力で簡単に在庫管理。リアルタイム確認、在庫アラート、自動注文機能搭載。初月無料、月額500円で利用可能！">    
+    <meta name="description" content="QRコードや手動入力で簡単利用の在庫管理アプリ。リアルタイム確認、在庫アラート、自動注文機能搭載。初月無料、月額500円で利用可能！">    
     <title>llco 在庫管理アプリ | QRコード対応 | 最初の30日間無料</title>    
     <style>
         body {
@@ -107,7 +107,7 @@
 </head>
 <body>
     <header>
-        <h1>在庫管理アプリ - 簡単・便利・最初の30日間無料！</h1>
+        <h1>llco 在庫管理アプリ - 簡単・便利・最初の30日間無料！</h1>
     </header>
     <div class="container">
         <section class="intro">
