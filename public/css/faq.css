@@ -63,7 +63,7 @@
 .box {
     display: none;/*はじめは非表示*/
     background: #f3f3f3;
-  margin:0 3% 3% 3%;
+    margin:0 3% 3% 3%;
     padding: 3%;
 }
 

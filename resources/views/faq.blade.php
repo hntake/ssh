@@ -3,12 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.5,maximum-scale=2.0,user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/faq.css') }}" rel="stylesheet">
-    <script src="according.js"></script>
 </head>
 <title>FAQ 英語学習サイト”エイゴメ” FAQ</title>
 
@@ -29,7 +26,7 @@
         <li>
             <section>
 
-                <h2 class="title"><a id="index">Q.登録後の認証メールが来ない</a></h2>
+                <h2 class="title"><a id="index1">Q.登録後の認証メールが来ない</a></h2>
                 <div class="box">
                     <p>1.迷惑メールとなっている場合があります。ご確認ください。</p>
                     <p>2.docomo、au、softbankなど各キャリアのセキュリティ設定により受信拒否と認識されているか、迷惑メール対策などでドメイン指定受信を設定している場合に、メールが正しく届かないことがございます。@itcha50.comからのメールを受信できるようにしてください。</p>
@@ -130,6 +127,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/9-2-1/js/9-2-1.js"></script>
-    <script src="according.js"></script>
     <a href="#" class="gotop">トップへ</a>
+    <script src="{{ asset('js/according.js') }}"></script>
 </body>
