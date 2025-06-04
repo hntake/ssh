@@ -26,21 +26,27 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo($request)
-    {
-        if (! $request->expectsJson()) {
-            if ($request->is('stock') || $request->is('stock/*')) {
-                return route('stock.login'); // 必ず stock ログイン用のルート名に変更
-            } elseif ($request->is('admin') || $request->is('admin/*')) {
-                return route('admin.login'); // 必ず admin ログイン用のルート名に変更
-            }elseif ($request->is('invoice') || $request->is('invoice/*')) {
-                return route('invoice.login'); // 必ず admin ログイン用のルート名に変更
-            }
-            return route('login'); // 通常ログイン
-        }
+// LoginController.php
 
-        return null; // JSONリクエストの場合はnullを返す
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
+protected function authenticated(Request $request, $user)
+{
+    if (! $request->expectsJson()) {
+        if ($request->is('stock') || $request->is('stock/*')) {
+            return redirect()->route('stock.login');// 必ず stock ログイン用のルート名に変更
+        } elseif ($request->is('admin') || $request->is('admin/*')) {
+            return redirect()->route('admin.login');// 必ず admin ログイン用のルート名に変更
+        } elseif ($request->is('invoice') || $request->is('invoice/*')) {
+            return redirect()->route('invoice.login');// 必ず invoiceログイン用のルート名に変更
+        }
+        return redirect()->route('login');
     }
+
+    return null;
+}
+
     /**
      * Create a new controller instance.
      *
